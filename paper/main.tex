@@ -15,8 +15,13 @@
 
 \begin{document}
 
-\title{From F(AI)\textsuperscript{2}R to aiprov:\\
-Packaging Verifiable AI Provenance as an Executable Skill}
+% Title strategy: F(AI)²R is not an established term — that is the
+% point. It reads as FAIR with (AI) squared, and the abstract's first
+% sentence plus §1 P1 unpack it immediately: FAIR research with AI in
+% the loop, twice — an authoring pass and an audit pass over every
+% artefact.
+\title{F(AI)\textsuperscript{2}R --- FAIR Research with AI in the Loop, Twice:\\
+Verifiable AI Provenance as an Executable Skill}
 
 \author{\IEEEauthorblockN{Florian Krebs}
 \IEEEauthorblockA{Deutsches Zentrum f\"ur Luft- und Raumfahrt (DLR)\\
@@ -25,12 +30,15 @@ ORCID: 0000-0001-6033-801X}}
 \maketitle
 
 \begin{abstract}
-% TODO(authoring pass): condense once §3–§5 stabilize.
-AI systems now draft, refactor, and verify research artefacts, yet their
+% TODO(authoring pass): condense once §3–§5 stabilize. Keep the
+% acronym unpacked in sentence one — the term is new by design.
+F(AI)\textsuperscript{2}R is FAIR research with AI in the loop,
+twice: every artefact passes an AI-assisted \emph{authoring} pass and
+a machine-readable \emph{audit} pass. AI systems now draft, refactor,
+and verify research artefacts, yet their
 contributions are rarely recorded in a form a later human or machine can
-audit. Building on the F(AI)\textsuperscript{2}R method---FAIR research
-with AI in the loop, twice: an authoring pass and a machine-readable audit
-pass---we generalize its provenance model beyond scholarly writing into
+audit. Building on the original F(AI)\textsuperscript{2}R
+experiment, we generalize its provenance model beyond scholarly writing into
 \emph{aiprov}, a PROV-O extension covering any AI-in-the-loop artefact,
 and we package the method as an \emph{executable skill} that an AI agent
 operates itself: setup asks the human operator for their ORCID iD and

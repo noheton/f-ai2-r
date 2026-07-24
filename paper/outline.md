@@ -1,7 +1,9 @@
 # Meta-paper outline — target: 10 pages incl. references and figures (IEEE two-column)
 
-Working title: *From F(AI)²R to aiprov: Packaging Verifiable AI Provenance
-as an Executable Skill*
+Working title: *F(AI)²R — FAIR Research with AI in the Loop, Twice:
+Verifiable AI Provenance as an Executable Skill*
+(F(AI)²R is not an established term — deliberately: the title intrigues,
+the abstract's first sentence and §1 P0 unpack it immediately.)
 
 Building on the F(AI)²R method (github.com/noheton/f-ai-r): FAIR research
 with AI in the loop, twice — an authoring pass (LLM drafts under human
