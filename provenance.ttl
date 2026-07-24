@@ -1,5 +1,6 @@
 @prefix agent: <https://noheton.org/f-ai2-r/prov/agent/> .
 @prefix aiprov: <https://w3id.org/aiprov/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -7,6 +8,72 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix verif: <https://noheton.org/f-ai2-r/prov/verification/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-ai-hallucination2023> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:ai-hallucination2023 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:25:53.430471+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-chatgpt-priorities2023> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:chatgpt-priorities2023 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:25:53.080480+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/chatgpt-priorities2023> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-chatgpt-wrote-it2023> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:chatgpt-wrote-it2023 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:25:52.723745+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/chatgpt-wrote-it2023> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-credit-niso2022> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:credit-niso2022 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:25:44.981954+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/credit-niso2022> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-credit2019> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:credit2019 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:25:45.351443+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/credit2019> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-datasheets2021> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:datasheets2021 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:25:51.880888+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/datasheets2021> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-fair2016> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:fair2016 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:25:43.758496+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/fair2016> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-modelcards2019> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:modelcards2019 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:25:45.731630+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/modelcards2019> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-opm2010> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:opm2010 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:25:44.145766+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/opm2010> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-pav2013> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:pav2013 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:25:44.608705+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/pav2013> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-rocrate2022> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:rocrate2022 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:25:52.269456+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/rocrate2022> ;
+    prov:wasAssociatedWith agent:claude-code .
 
 agent:florian-krebs a aiprov:HumanAgent ;
     foaf:name "Florian Krebs" ;
@@ -73,6 +140,11 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:filePath "scripts/provlog.py" ;
     aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
 
+<https://noheton.org/f-ai2-r/prov/source/prov-o2013> a aiprov:Source ;
+    rdfs:label "PROV-O: The PROV Ontology (W3C Recommendation, 30 April 2013)"@en ;
+    dcterms:source <https://www.w3.org/TR/prov-o/> ;
+    aiprov:verificationState verif:reference-resolved .
+
 verif:human-confirmed a aiprov:VerificationState ;
     rdfs:label "human-confirmed"@en ;
     rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
@@ -88,13 +160,6 @@ verif:needs-research a aiprov:VerificationState ;
     rdfs:label "needs research"@en ;
     rdfs:comment "A check was attempted or demanded and did not succeed (e.g. DOI did not resolve). Must not be cited or relied upon until re-verified."@en ;
     aiprov:ladderPosition 1 .
-
-verif:reference-resolved a aiprov:VerificationState ;
-    rdfs:label "reference resolved"@en ;
-    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
-    skos:altLabel "lit-retrieved"@en,
-        "retrieved"@en ;
-    aiprov:ladderPosition 2 .
 
 verif:source-vendored a aiprov:VerificationState ;
     rdfs:label "source vendored"@en ;
@@ -126,9 +191,6 @@ aiprov:Prompt a owl:Class ;
 aiprov:Repair a owl:Class ;
     rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
     rdfs:subClassOf prov:Activity .
-
-aiprov:Source a owl:Class ;
-    rdfs:subClassOf prov:Entity .
 
 aiprov:ToolAgent a owl:Class ;
     rdfs:label "Deterministic tool"@en ;
@@ -279,9 +341,80 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:usedTool "bash",
         "web_fetch" .
 
-aiprov:AuditPass a owl:Class ;
-    rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
-    rdfs:subClassOf prov:Activity .
+<https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> a aiprov:Source ;
+    rdfs:label "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing"@en ;
+    dcterms:date "2023" ;
+    dcterms:isPartOf "Cureus" ;
+    aiprov:doi "https://doi.org/10.7759/cureus.35179"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/chatgpt-priorities2023> a aiprov:Source ;
+    rdfs:label "ChatGPT: five priorities for research"@en ;
+    dcterms:date "2023" ;
+    dcterms:isPartOf "Nature" ;
+    aiprov:doi "https://doi.org/10.1038/d41586-023-00288-7"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/chatgpt-wrote-it2023> a aiprov:Source ;
+    rdfs:label "Opinion Paper: “So what if ChatGPT wrote it?” Multidisciplinary perspectives on opportunities, challenges and implications of generative conversational AI for research, practice and policy"@en ;
+    dcterms:date "2023" ;
+    dcterms:isPartOf "International Journal of Information Management" ;
+    aiprov:doi "https://doi.org/10.1016/j.ijinfomgt.2023.102642"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/credit-niso2022> a aiprov:Source ;
+    rdfs:label "ANSI/NISO Z39.104-2022, CRediT, Contributor Roles Taxonomy"@en ;
+    aiprov:doi "https://doi.org/10.3789/ansi.niso.z39.104-2022"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/credit2019> a aiprov:Source ;
+    rdfs:label "How can we ensure visibility and diversity in research contributions? How the Contributor Role Taxonomy (CRediT) is helping the shift from authorship to contributorship"@en ;
+    dcterms:date "2019" ;
+    dcterms:isPartOf "Learned Publishing" ;
+    aiprov:doi "https://doi.org/10.1002/leap.1210"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/datasheets2021> a aiprov:Source ;
+    rdfs:label "Datasheets for datasets"@en ;
+    dcterms:date "2021" ;
+    dcterms:isPartOf "Communications of the ACM" ;
+    aiprov:doi "https://doi.org/10.1145/3458723"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/fair2016> a aiprov:Source ;
+    rdfs:label "The FAIR Guiding Principles for scientific data management and stewardship"@en ;
+    dcterms:date "2016" ;
+    dcterms:isPartOf "Scientific Data" ;
+    aiprov:doi "https://doi.org/10.1038/sdata.2016.18"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/modelcards2019> a aiprov:Source ;
+    rdfs:label "Model Cards for Model Reporting"@en ;
+    dcterms:date "2019" ;
+    dcterms:isPartOf "Proceedings of the Conference on Fairness, Accountability, and Transparency" ;
+    aiprov:doi "https://doi.org/10.1145/3287560.3287596"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/opm2010> a aiprov:Source ;
+    rdfs:label "The Open Provenance Model core specification (v1.1)"@en ;
+    dcterms:date "2011" ;
+    dcterms:isPartOf "Future Generation Computer Systems" ;
+    aiprov:doi "https://doi.org/10.1016/j.future.2010.07.005"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/pav2013> a aiprov:Source ;
+    rdfs:label "PAV ontology: provenance, authoring and versioning"@en ;
+    dcterms:date "2013" ;
+    dcterms:isPartOf "Journal of Biomedical Semantics" ;
+    aiprov:doi "https://doi.org/10.1186/2041-1480-4-37"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/rocrate2022> a aiprov:Source ;
+    rdfs:label "Packaging research artefacts with RO-Crate"@en ;
+    dcterms:date "2022" ;
+    dcterms:isPartOf "Data Science" ;
+    aiprov:doi "https://doi.org/10.3233/ds-210053"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
 
 aiprov:AuthoringPass a owl:Class ;
     rdfs:comment "AI or human produces/edits an artefact."@en ;
@@ -325,6 +458,20 @@ aiprov:Artefact a owl:Class ;
 
 aiprov:VerificationState a owl:Class ;
     rdfs:comment "A rung on the verification ladder. Higher position = stronger check. Rungs at position 5+ are human-only: an AI agent must never grant them."@en .
+
+verif:reference-resolved a aiprov:VerificationState ;
+    rdfs:label "reference resolved"@en ;
+    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
+    skos:altLabel "lit-retrieved"@en,
+        "retrieved"@en ;
+    aiprov:ladderPosition 2 .
+
+aiprov:AuditPass a owl:Class ;
+    rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
+    rdfs:subClassOf prov:Activity .
+
+aiprov:Source a owl:Class ;
+    rdfs:subClassOf prov:Entity .
 
 agent:claude-code a aiprov:AIAgent ;
     foaf:name "Claude Code" ;

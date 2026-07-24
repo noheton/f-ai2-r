@@ -1,0 +1,56 @@
+\section{The aiprov Method}\label{sec:method}
+% Principal structure:
+%
+% 3.1 Model — agents (HumanAgent / AIAgent / ToolAgent), passes
+%     (AuthoringPass / AuditPass / Build / Repair), entities (Artefact,
+%     Claim, Source, Prompt-as-Plan, Transcript). Figure~\ref{fig:vocab}.
+% 3.2 Telemetry — session/request ids, token classes (input/output/cache/
+%     reasoning), sampling params, cost, energy, tool calls; the
+%     omit-don't-estimate rule: absent telemetry is recorded as absent,
+%     never invented.
+% 3.3 Invariant I: no parentless claim — every Claim needs
+%     wasGeneratedBy + wasAttributedTo + verificationState; validator is
+%     a hard CI gate.
+% 3.4 Invariant II: the verification ladder (Figure~\ref{fig:ladder}) —
+%     rungs answer WHO checked WHAT; promotions strictly climb and are
+%     logged as AuditPass activities; rungs 5–6 are human-only, and an
+%     AI-granted promotion to them is a validator hard failure.
+% 3.5 Auditability operations — report (token/cost accounting), extract
+%     (backward closure), dashboard (offline ledger).
+
+\begin{figure}[t]
+\centering
+% TODO(F2): TikZ diagram of aiprov core classes over PROV-O:
+% Agent subtree, Activity subtree, Entity subtree, key properties
+% (wasGeneratedBy, wasAttributedTo, verificationState, transcript).
+\fbox{\parbox[c][4.2cm][c]{0.9\linewidth}{\centering\itshape
+F2 placeholder: aiprov core vocabulary over PROV-O}}
+\caption{Core aiprov classes and properties as an extension of PROV-O.}
+\label{fig:vocab}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  rung/.style={draw, rounded corners=1pt, minimum width=5.6cm,
+               minimum height=0.52cm, font=\footnotesize, align=center},
+  human/.style={rung, fill=black!12},
+  note/.style={font=\scriptsize\itshape, anchor=west}]
+\node[human] (r6) {6\; human-read};
+\node[human, below=0.16cm of r6] (r5) {5\; human-confirmed};
+\node[rung, below=0.16cm of r5] (r4) {4\; source-vendored};
+\node[rung, below=0.16cm of r4] (r3) {3\; ai-confirmed};
+\node[rung, below=0.16cm of r3] (r2) {2\; reference-resolved};
+\node[rung, below=0.16cm of r2] (r1) {1\; needs-research};
+\node[rung, below=0.16cm of r1] (r0) {0\; unverified};
+\node[note, right=0.15cm of r6] {human-only};
+\node[note, right=0.15cm of r5] {human-only};
+\node[note, right=0.15cm of r3] {highest AI-grantable};
+\draw[-{Stealth}, thick] ([xshift=-0.5cm]r0.west) -- ([xshift=-0.5cm]r6.west)
+  node[midway, sloped, above, font=\scriptsize] {promotions strictly climb};
+\end{tikzpicture}
+\caption{The verification ladder. Every promotion is logged as an audit
+activity; rungs 5--6 may never be granted by an AI agent, and the
+validator treats such grants as hard failures.}
+\label{fig:ladder}
+\end{figure}

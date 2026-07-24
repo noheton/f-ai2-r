@@ -1,0 +1,19 @@
+\section{Discussion and Limitations}\label{sec:discussion}
+% Principal structure:
+%
+% 6.1 Self-report honesty — the graph is only as truthful as its writer;
+%     mitigations: omit-don't-estimate, content hashes + commits bind
+%     records to bytes, CI validation is server-side, human rungs cap
+%     what an AI may assert about itself.
+% 6.2 Why human-only rungs stay human — ai-confirmed is a machine
+%     judgement with known failure modes \cite{ai-hallucination2023};
+%     the ladder makes the judgement's author explicit instead of
+%     laundering it.
+% 6.3 Cost of the method — logging overhead per session; what the
+%     meta-experiment measured (Table~\ref{tab:telemetry}).
+% 6.4 Skill drift — the method evolves mid-experiment (v0 -> v0.2 here);
+%     immutable archives + changelog + per-activity commit binding keep
+%     runs attributable to the exact method version.
+% 6.5 Generality — beyond papers: code, data pipelines, CAD/AAS;
+%     what transfers (invariants, ladder) and what is domain work
+%     (entity subclasses).
