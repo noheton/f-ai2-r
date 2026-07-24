@@ -17,12 +17,13 @@ the method to its own production.
 | § | Section | Pages | Figures/Tables |
 |---|---------|-------|----------------|
 | 1 | Introduction | 1.0 | — |
-| 2 | Background and related work | 1.5 | — |
-| 3 | The aiprov method (generalized F(AI)²R) | 2.0 | F1 verification ladder, F2 core vocabulary |
-| 4 | The executable skill | 1.5 | F3 workflow incl. ORCID-first setup + CI/CD |
-| 5 | Meta-experiment: this paper as case study | 1.5 | F4 provenance graph of this paper, T1 telemetry report |
-| 6 | Discussion and limitations | 1.0 | — |
-| 7 | Conclusion | 0.5 | — |
+| 2 | Background and related work | 1.25 | — |
+| 3 | The dilution crisis | 1.0 | — |
+| 4 | The aiprov method (generalized F(AI)²R) | 1.75 | F1 verification ladder, F2 core vocabulary |
+| 5 | The executable skill | 1.25 | F3 workflow incl. ORCID-first setup + CI/CD |
+| 6 | Meta-experiment: this paper as case study | 1.5 | F4 provenance graph of this paper, T1 telemetry report |
+| 7 | Discussion and limitations | 0.75 | — |
+| 8 | Conclusion | 0.5 | — |
 | — | References | 1.0 | — |
 
 ## Section notes
@@ -37,15 +38,24 @@ the method to its own production.
    cards, datasheets); packaging (RO-Crate); publisher/venue AI-disclosure
    policies. All citations enter via the ladder: search → DOI-verified
    `reference-resolved` → `ai-confirmed` → human rungs.
-3. **Method** — agents (human/AI/tool), passes (authoring/audit/build/
+3. **Dilution crisis** — output outgrows review capacity; paper mills +
+   LLMs collapse the cost of plausible papers; fabricated papers and
+   citations are indexed and propagate; model collapse compounds the
+   pollution. Finding good sources becomes the bottleneck. Originality
+   of ideas is the scarce good, and it must be checkable: a novelty
+   claim carries its recorded search horizon, and every claim is
+   explicitly supported — or refuted (`aiprov:contradicts`) — by facts
+   on the ladder. Provenance is the supply-side answer: pedigree that
+   fabrication cannot cheaply forge.
+4. **Method** — agents (human/AI/tool), passes (authoring/audit/build/
    repair), claims, telemetry attributes, two invariants
    (no-parentless-claim; human-only rungs), verification ladder.
-4. **Skill** — SKILL.md as the operable procedure; ORCID-first setup;
+5. **Skill** — SKILL.md as the operable procedure; ORCID-first setup;
    base-IRI derivation; CI/CD so the current PDF and dashboard are always
    available; the skill logs its own operator.
-5. **Meta-experiment** — this repo's graph: activities, claims, sources,
+6. **Meta-experiment** — this repo's graph: activities, claims, sources,
    token/cost report, dashboard; what the auditor can and cannot verify.
-6. **Discussion** — fabrication risk and the omit-don't-estimate rule;
+7. **Discussion** — fabrication risk and the omit-don't-estimate rule;
    why human-only rungs stay human; limits of self-report; skill drift
    and version pinning (archive/ + CHANGELOG).
 

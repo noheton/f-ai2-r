@@ -45,10 +45,28 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/datasheets2021> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-fabricated-citations2023> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:fabricated-citations2023 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:30:34.354962+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/fabricated-citations2023> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-fair2016> a aiprov:AuditPass ;
     rdfs:label "DOI verification of src:fair2016 via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T18:25:43.758496+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/fair2016> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-gpt-fabricated2024> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:gpt-fabricated2024 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:30:33.193216+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/gpt-fabricated2024> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-model-collapse2024> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:model-collapse2024 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:30:33.951117+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/model-collapse2024> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-modelcards2019> a aiprov:AuditPass ;
@@ -63,10 +81,22 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/opm2010> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-paper-mills2021> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:paper-mills2021 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:30:34.748245+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/paper-mills2021> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-pav2013> a aiprov:AuditPass ;
     rdfs:label "DOI verification of src:pav2013 via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T18:25:44.608705+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/pav2013> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-publishing-strain2024> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:publishing-strain2024 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T18:30:33.580222+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/publishing-strain2024> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-rocrate2022> a aiprov:AuditPass ;
@@ -98,6 +128,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s05-literature-sweep> ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/claim/c4> a aiprov:Claim ;
+    rdfs:label "The five sources cited in the dilution-crisis section (gpt-fabricated2024, publishing-strain2024, model-collapse2024, fabricated-citations2023, paper-mills2021) were found via provlog search over open registries and their DOIs resolve via Crossref (verified at registration; all at reference-resolved)"@en ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s06-dilution-section> ;
+    aiprov:verificationState verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/entity/-gitignore> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
@@ -118,6 +154,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:contentHash "sha256:8920fe38639a9406df5a865983817ce8c291932611fe185e768d112eb3cc3a90" ;
     aiprov:filePath "paper/sections/02-background.tex" ;
     aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
+
+<https://noheton.org/f-ai2-r/prov/entity/03-dilution-tex> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s06-dilution-section> ;
+    aiprov:contentHash "sha256:1fdc7395fc56edf652a6c2bc0161a5ecb9b52eb3d9e8a1c875b67114d975374c" ;
+    aiprov:filePath "paper/sections/03-dilution.tex" .
 
 <https://noheton.org/f-ai2-r/prov/entity/03-method-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -206,15 +248,19 @@ agent:florian-krebs a aiprov:HumanAgent ;
 
 <https://noheton.org/f-ai2-r/prov/entity/main-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> ;
-    aiprov:contentHash "sha256:e879c1511e6994e719097fd8097e64e4d060708415793727d6c4e195b757e7ba" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure>,
+        <https://noheton.org/f-ai2-r/prov/activity/s06-dilution-section> ;
+    aiprov:contentHash "sha256:7ee7c6fa5c92b16acdaf2cda35b1c4bdf20ae0bf591dd05c7f05a8c8b2e097f7",
+        "sha256:e879c1511e6994e719097fd8097e64e4d060708415793727d6c4e195b757e7ba" ;
     aiprov:filePath "paper/main.tex" ;
     aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
 
 <https://noheton.org/f-ai2-r/prov/entity/outline-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> ;
-    aiprov:contentHash "sha256:d2cccd2848f7ac185a8db58b04e6f3eb7a40d2a0252b635ccd7e359c5776c1a2" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure>,
+        <https://noheton.org/f-ai2-r/prov/activity/s06-dilution-section> ;
+    aiprov:contentHash "sha256:a838082ac04e5aaac030ec3ff16580b747b6472d23ce4128e8367fab4f9dfcdc",
+        "sha256:d2cccd2848f7ac185a8db58b04e6f3eb7a40d2a0252b635ccd7e359c5776c1a2" ;
     aiprov:filePath "paper/outline.md" ;
     aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
 
@@ -243,8 +289,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
 
 <https://noheton.org/f-ai2-r/prov/entity/references-bib> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s05-literature-sweep> ;
-    aiprov:contentHash "sha256:972f6e5c4ad55b80381b3726d8b3ab766531da962543beb34fc9a0865de37969" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s05-literature-sweep>,
+        <https://noheton.org/f-ai2-r/prov/activity/s06-dilution-section> ;
+    aiprov:contentHash "sha256:5d082ed5e49f97ceb00af346ff9835f06feb91c207d5f11c664046e6707f124e",
+        "sha256:972f6e5c4ad55b80381b3726d8b3ab766531da962543beb34fc9a0865de37969" ;
     aiprov:filePath "paper/references.bib" ;
     aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
 
@@ -492,11 +540,32 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:doi "https://doi.org/10.1145/3458723"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
+<https://noheton.org/f-ai2-r/prov/source/fabricated-citations2023> a aiprov:Source ;
+    rdfs:label "Fabrication and errors in the bibliographic citations generated by ChatGPT"@en ;
+    dcterms:date "2023" ;
+    dcterms:isPartOf "Scientific Reports" ;
+    aiprov:doi "https://doi.org/10.1038/s41598-023-41032-5"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
 <https://noheton.org/f-ai2-r/prov/source/fair2016> a aiprov:Source ;
     rdfs:label "The FAIR Guiding Principles for scientific data management and stewardship"@en ;
     dcterms:date "2016" ;
     dcterms:isPartOf "Scientific Data" ;
     aiprov:doi "https://doi.org/10.1038/sdata.2016.18"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/gpt-fabricated2024> a aiprov:Source ;
+    rdfs:label "GPT-fabricated scientific papers on Google Scholar: Key features, spread, and implications for preempting evidence manipulation"@en ;
+    dcterms:date "2024" ;
+    dcterms:isPartOf "Harvard Kennedy School Misinformation Review" ;
+    aiprov:doi "https://doi.org/10.37016/mr-2020-156"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/model-collapse2024> a aiprov:Source ;
+    rdfs:label "AI models collapse when trained on recursively generated data"@en ;
+    dcterms:date "2024" ;
+    dcterms:isPartOf "Nature" ;
+    aiprov:doi "https://doi.org/10.1038/s41586-024-07566-y"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
 <https://noheton.org/f-ai2-r/prov/source/modelcards2019> a aiprov:Source ;
@@ -513,11 +582,25 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:doi "https://doi.org/10.1016/j.future.2010.07.005"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
+<https://noheton.org/f-ai2-r/prov/source/paper-mills2021> a aiprov:Source ;
+    rdfs:label "Fake data, paper mills, and their authors: The <i>International Journal of Cancer</i> reacts to this threat to scientific integrity"@en ;
+    dcterms:date "2021" ;
+    dcterms:isPartOf "International Journal of Cancer" ;
+    aiprov:doi "https://doi.org/10.1002/ijc.33604"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
 <https://noheton.org/f-ai2-r/prov/source/pav2013> a aiprov:Source ;
     rdfs:label "PAV ontology: provenance, authoring and versioning"@en ;
     dcterms:date "2013" ;
     dcterms:isPartOf "Journal of Biomedical Semantics" ;
     aiprov:doi "https://doi.org/10.1186/2041-1480-4-37"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/publishing-strain2024> a aiprov:Source ;
+    rdfs:label "The strain on scientific publishing"@en ;
+    dcterms:date "2024" ;
+    dcterms:isPartOf "Quantitative Science Studies" ;
+    aiprov:doi "https://doi.org/10.1162/qss_a_00327"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
 <https://noheton.org/f-ai2-r/prov/source/rocrate2022> a aiprov:Source ;
@@ -544,6 +627,9 @@ aiprov:HumanAgent a owl:Class ;
     rdfs:label "Human agent"@en ;
     rdfs:subClassOf prov:Person .
 
+aiprov:Contribution a owl:Class ;
+    rdfs:subClassOf prov:Entity .
+
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;
     rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
@@ -553,13 +639,19 @@ aiprov:AuthoringPass a owl:Class ;
     rdfs:comment "AI or human produces/edits an artefact."@en ;
     rdfs:subClassOf prov:Activity .
 
-aiprov:Contribution a owl:Class ;
-    rdfs:subClassOf prov:Entity .
-
 <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.2: repo becomes canonical skill source; ORCID-first setup, base derivation/auto-detection, CI/CD scaffolding (validate + LaTeX-to-PDF artifacts); packaging script; verified by test-run in scratch repository"@en ;
     prov:endedAtTime "2026-07-24T18:28:43.529594+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/aiprovenance-v0-skill> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit",
+        "write" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s06-dilution-section> a aiprov:AuthoringPass ;
+    rdfs:label "Add §3 The Dilution Crisis: AI-driven dilution of the scientific pool (publishing strain, paper mills, GPT-fabricated indexed papers, fabricated citations, model collapse) and originality-under-dilution: novelty claims carry their search horizon, every claim supported or refuted (aiprov:contradicts) by facts on the ladder. 5 new sources DOI-verified via provlog search; sections renumbered to 8 chapters; page budget rebalanced"@en ;
+    prov:endedAtTime "2026-07-24T18:32:07.025397+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
     aiprov:usedTool "bash",
