@@ -260,8 +260,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
         <https://noheton.org/f-ai2-r/prov/activity/s20-optimistic-reading>,
-        <https://noheton.org/f-ai2-r/prov/activity/s21-environment-figure> ;
-    aiprov:contentHash "sha256:4214500eceeb106449ec03789aaacc4501453495ccd9dca2ce9a8fa311c1a20d",
+        <https://noheton.org/f-ai2-r/prov/activity/s21-environment-figure>,
+        <https://noheton.org/f-ai2-r/prov/activity/s23-incident-figure> ;
+    aiprov:contentHash "sha256:1990ebaa3dffa13626c417064c24e8dc4c1eb64681be4e09373abe328b6e842e",
+        "sha256:4214500eceeb106449ec03789aaacc4501453495ccd9dca2ce9a8fa311c1a20d",
         "sha256:68c2ed67d3856ec2be1a25282bb23a0bc1d34104d85216745d1e76a63b63b975",
         "sha256:c6e2d6abf48db6d9180b423ddb7aaa6fe557a91dcff7d8d0ef053d4c54b96adf" ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" .
@@ -396,7 +398,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
         <https://noheton.org/f-ai2-r/prov/activity/s17-schindler-ack>,
         <https://noheton.org/f-ai2-r/prov/activity/s18-hoyer-klick-ack>,
-        <https://noheton.org/f-ai2-r/prov/activity/s19-hmc-rdm-acks> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s19-hmc-rdm-acks>,
+        <https://noheton.org/f-ai2-r/prov/activity/s23-incident-figure> ;
     aiprov:contentHash "sha256:292ee450094d64465800f568cc319a3a5839d697137d2d8497eedb2cbb9587e8",
         "sha256:2bf4f82e8c20375dd1f6a64b9213d60e71822d3592fb9facb54c6ed3ca1fa160",
         "sha256:31a7ad8196528484eb264b1d7cf0b737b49554499f3d14a83e7fd3713fb24a76",
@@ -406,6 +409,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:e879c1511e6994e719097fd8097e64e4d060708415793727d6c4e195b757e7ba",
         "sha256:f35de4cb23ba5016b8c45043c3c17c87145d5b8a688bd0db543771f1a91ec21e",
         "sha256:f8b405e45bdc0bcf19a99e2f0a89d40609a777701626af26cb742a88d3df2bd9",
+        "sha256:fea3e8672bf52320c421694dee3158369fdf00814701713554c9426612ea5fdc",
         "sha256:ff3d72212ad9e25814e889f98abca32e0ebfc29772d0b8fefb70c54b7eba2097" ;
     aiprov:filePath "assets/paper/main.tex",
         "paper/main.tex" ;
@@ -916,6 +920,14 @@ aiprov:ToolAgent a owl:Class ;
     aiprov:usedTool "bash",
         "edit" .
 
+<https://noheton.org/f-ai2-r/prov/activity/s23-incident-figure> a aiprov:AuthoringPass ;
+    rdfs:label "Incidents integrated into the meta-experiment: taxonomy of four incident types (agent mishap, infrastructure failure, blocked access, method contestation) as bullets 5.3b, plus Figure fig:incident — a PROV-style TikZ rendering of two real incident subgraphs (s09-incident AuditPass with attribute callout; s22-vendored-gate AuthoringPass with hashed artefacts and claim c7 at ai-confirmed), node contents abridged from actual triples dumped from provenance.ttl, not idealized"@en ;
+    prov:endedAtTime "2026-07-24T19:57:10.725630+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit" .
+
 aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;
     rdfs:comment "An LLM- or ML-driven agent participating in artefact production."@en ;
@@ -1049,12 +1061,12 @@ aiprov:Claim a owl:Class ;
     rdfs:comment "An assertion in any artefact that warrants attribution and verification."@en ;
     rdfs:subClassOf prov:Entity .
 
-aiprov:AuthoringPass a owl:Class ;
-    rdfs:comment "AI or human produces/edits an artefact."@en ;
-    rdfs:subClassOf prov:Activity .
-
 aiprov:AuditPass a owl:Class ;
     rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
+    rdfs:subClassOf prov:Activity .
+
+aiprov:AuthoringPass a owl:Class ;
+    rdfs:comment "AI or human produces/edits an artefact."@en ;
     rdfs:subClassOf prov:Activity .
 
 verif:reference-resolved a aiprov:VerificationState ;
