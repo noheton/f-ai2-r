@@ -3,7 +3,24 @@
 %
 % 5.1 Setup — repository bootstrapped by the AI agent under the skill;
 %     every commit paired with graph activities; agents: one human
-%     (registry-resolved), one AI, CI as tool agent.
+%     (registry-resolved), one AI, CI as tool agent. The working
+%     environment is Figure~\ref{fig:environment}: the operator's
+%     conversation with the AI agent on the left, the continuously
+%     rebuilt draft of this paper on the right — the loop of
+%     §\ref{sec:skill}, in operation.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/environment.png}
+\caption{The meta-experiment's working environment (screenshot,
+2026-07-24): left, the session in which the human operator directs the
+AI agent — visible are ORCID-resolved acknowledgement additions, a CI
+check, and provenance-logged pushes; right, the continuously rebuilt
+draft of this paper, republished to a stable preview URL after every
+editing round, with commit, build time, and live provenance-graph
+statistics in the header.}
+\label{fig:environment}
+\end{figure*}
 % 5.2 The graph as evaluation object — counts of activities, claims,
 %     sources by rung; Table~\ref{tab:telemetry}; Figure~\ref{fig:graph}
 %     (extract of what contributed to this paper).

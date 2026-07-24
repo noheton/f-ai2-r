@@ -251,8 +251,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/entity/06-meta-experiment-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
-        <https://noheton.org/f-ai2-r/prov/activity/s20-optimistic-reading> ;
-    aiprov:contentHash "sha256:68c2ed67d3856ec2be1a25282bb23a0bc1d34104d85216745d1e76a63b63b975",
+        <https://noheton.org/f-ai2-r/prov/activity/s20-optimistic-reading>,
+        <https://noheton.org/f-ai2-r/prov/activity/s21-environment-figure> ;
+    aiprov:contentHash "sha256:4214500eceeb106449ec03789aaacc4501453495ccd9dca2ce9a8fa311c1a20d",
+        "sha256:68c2ed67d3856ec2be1a25282bb23a0bc1d34104d85216745d1e76a63b63b975",
         "sha256:c6e2d6abf48db6d9180b423ddb7aaa6fe557a91dcff7d8d0ef053d4c54b96adf" ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" .
 
@@ -360,6 +362,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act> ;
     aiprov:contentHash "sha256:986b62cc771263de4c866c00d471bf8253a81710813ff44c5a7ccf9b566ed05d" ;
     aiprov:filePath "paper/disclosure.tex" .
+
+<https://noheton.org/f-ai2-r/prov/entity/environment-png> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s21-environment-figure> ;
+    aiprov:contentHash "sha256:ff85ef36d787f1f5e760cd300ee220fb3e4c4a3cb41e54b9c6df30d18c512b47" ;
+    aiprov:filePath "paper/figures/environment.png" .
 
 <https://noheton.org/f-ai2-r/prov/entity/main-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -882,6 +890,14 @@ aiprov:ToolAgent a owl:Class ;
     aiprov:usedTool "bash",
         "edit" .
 
+<https://noheton.org/f-ai2-r/prov/activity/s21-environment-figure> a aiprov:AuthoringPass ;
+    rdfs:label "Environment screenshot (provided by the human operator, extracted from session record) cropped to chat panel + live paper preview and vendored as paper/figures/environment.png; wired into the meta-experiment as full-width Figure fig:environment showing the operating loop in action"@en ;
+    prov:endedAtTime "2026-07-24T19:16:47.149354+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit" .
+
 aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;
     rdfs:comment "An LLM- or ML-driven agent participating in artefact production."@en ;
@@ -1022,11 +1038,11 @@ verif:reference-resolved a aiprov:VerificationState ;
         "retrieved"@en ;
     aiprov:ladderPosition 2 .
 
-aiprov:Artefact a owl:Class ;
-    rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
+aiprov:Source a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
-aiprov:Source a owl:Class ;
+aiprov:Artefact a owl:Class ;
+    rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
     rdfs:subClassOf prov:Entity .
 
 agent:claude-code a aiprov:AIAgent ;
