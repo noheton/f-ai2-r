@@ -413,7 +413,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s37-cost-nostalgia-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s38-auditability-examples>,
-        <https://noheton.org/f-ai2-r/prov/activity/s39-audit-repairs> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s39-audit-repairs>,
+        <https://noheton.org/f-ai2-r/prov/activity/s40-content-pass> ;
     aiprov:contentHash "sha256:1990ebaa3dffa13626c417064c24e8dc4c1eb64681be4e09373abe328b6e842e",
         "sha256:1e6886e01eb1a921111e3aa4bdcd33fa82caa63089c14600bff9610ad8982abb",
         "sha256:3c8f52250d24db413e33d7c3c71432f1a3f8e1366b10fde8c9060167722c7e64",
@@ -421,10 +422,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:68c2ed67d3856ec2be1a25282bb23a0bc1d34104d85216745d1e76a63b63b975",
         "sha256:9d0461aba72aaaf3ed800249cea37733665ed152dd1c9566bb45895f53f71ecb",
         "sha256:b7fd4b09d8f7bcfd2b0395d56df5dc5b4dc028afd3e9144ecdbe0dac04785cf1",
-        "sha256:c6e2d6abf48db6d9180b423ddb7aaa6fe557a91dcff7d8d0ef053d4c54b96adf" ;
+        "sha256:c6e2d6abf48db6d9180b423ddb7aaa6fe557a91dcff7d8d0ef053d4c54b96adf",
+        "sha256:fd265a536fb8a32e3dfa64d5eb01f28f6270b07d30e8bdfd0f53634abc4b7e63" ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
     aiprov:gitCommit "540e2c2",
         "63bde89",
+        "b9d1293",
         "cf16dd2" .
 
 <https://noheton.org/f-ai2-r/prov/entity/07-conclusion-tex> a aiprov:Artefact ;
@@ -979,6 +982,12 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:usedTool "bash",
         "edit" .
 
+<https://noheton.org/f-ai2-r/prov/activity/s40-content-pass> a aiprov:AuditPass ;
+    rdfs:label "Citation content pass over 13 shortlisted load-bearing sources: 10 promoted to ai-confirmed with quotation, access path and depth in each promotion note. Negative outcomes recorded: paper-mills2021 left at reference-resolved (publisher bot-wall, checked at title/venue/date depth only); obscurity-is-dead and fair2r-repo skipped (session repository access scoped to this project; operator-authored, human rungs are the meaningful check). Access fallbacks used and disclosed: arXiv preprint for publishing-strain2024 after publisher 403; AI Act explorer article rendering for eu-ai-act2024 (canonical ELI recorded on the source); Semantic Scholar/Europe PMC for metadata; gold-OA PDF for ai-hallucination2023; elib slide deck for provenance-overview2022."@en ;
+    prov:endedAtTime "2026-07-24T21:33:53.748706+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 agent:github-actions a aiprov:ToolAgent ;
     foaf:name "GitHub Actions (aiprov build workflow)" ;
     aiprov:provider "GitHub"^^xsd:string .
@@ -1344,9 +1353,6 @@ aiprov:Contribution a owl:Class ;
         "edit",
         "write" .
 
-<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
-
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
     prov:endedAtTime "2026-07-24T18:43:45.977114+00:00"^^xsd:dateTime ;
@@ -1371,6 +1377,10 @@ aiprov:Contribution a owl:Class ;
     aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
     aiprov:usedTool "bash",
         "edit" .
+
+<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
     rdfs:label "Bootstrap the f-ai2-r repository: vendor aiprov schema, provlog CLI, dashboard builder, attribute catalogue; write README; seed this provenance graph"@en ;
