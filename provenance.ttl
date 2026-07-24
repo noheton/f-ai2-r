@@ -250,8 +250,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
 
 <https://noheton.org/f-ai2-r/prov/entity/06-meta-experiment-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title> ;
-    aiprov:contentHash "sha256:68c2ed67d3856ec2be1a25282bb23a0bc1d34104d85216745d1e76a63b63b975" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
+        <https://noheton.org/f-ai2-r/prov/activity/s20-optimistic-reading> ;
+    aiprov:contentHash "sha256:68c2ed67d3856ec2be1a25282bb23a0bc1d34104d85216745d1e76a63b63b975",
+        "sha256:c6e2d6abf48db6d9180b423ddb7aaa6fe557a91dcff7d8d0ef053d4c54b96adf" ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" .
 
 <https://noheton.org/f-ai2-r/prov/entity/07-conclusion-tex> a aiprov:Artefact ;
@@ -265,8 +267,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s10-show-paper>,
         <https://noheton.org/f-ai2-r/prov/activity/s14-aas-semantics>,
-        <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title> ;
-    aiprov:contentHash "sha256:57f5afcede656867022086e3befc3bcdb93da291e2da209e6acb9e5ae22714b8",
+        <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
+        <https://noheton.org/f-ai2-r/prov/activity/s20-optimistic-reading> ;
+    aiprov:contentHash "sha256:29dd7cb85f192a7581ce3d7de057df6506789848e5460030dc19e9a791b8c67d",
+        "sha256:57f5afcede656867022086e3befc3bcdb93da291e2da209e6acb9e5ae22714b8",
         "sha256:bf6cf0ab48d380c311988c7ad6ed06ae16615bab326d7dfa4cbfcb74522ae56b",
         "sha256:e9ed6006dbdaf5586dfcab386f5c35f4a7665263ceafeb8fae055e89cc2b66a1" ;
     aiprov:filePath "paper/sections/07-discussion.tex" .
@@ -869,6 +873,14 @@ aiprov:ToolAgent a owl:Class ;
     aiprov:usedTool "bash",
         "edit",
         "web_fetch" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s20-optimistic-reading> a aiprov:AuthoringPass ;
+    rdfs:label "Discussion 6.9 (optimistic reading): AI absorbing tedium can free human attention for connecting ideas and people — no guarantee, only a chance, and the provenance graph is how one would later check whether the chance was taken; meta-experiment 5.4 makes the division of labour empirically inspectable from this experiment's own activity log"@en ;
+    prov:endedAtTime "2026-07-24T19:13:41.875729+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit" .
 
 aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;
