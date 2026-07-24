@@ -294,13 +294,15 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
         <https://noheton.org/f-ai2-r/prov/activity/s20-optimistic-reading>,
         <https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets>,
-        <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite>,
+        <https://noheton.org/f-ai2-r/prov/activity/s27-transparent-selfcite> ;
     aiprov:contentHash "sha256:29dd7cb85f192a7581ce3d7de057df6506789848e5460030dc19e9a791b8c67d",
         "sha256:57f5afcede656867022086e3befc3bcdb93da291e2da209e6acb9e5ae22714b8",
         "sha256:95df2962d33775a71cb8dd4f8c5ae0f4aca6cf19702d37d1197faf7b5481baf9",
         "sha256:9f3a6f335fb0901d201700b7505fa5f837e048d7b06be9f499f0f9965af2432f",
         "sha256:bf6cf0ab48d380c311988c7ad6ed06ae16615bab326d7dfa4cbfcb74522ae56b",
-        "sha256:e9ed6006dbdaf5586dfcab386f5c35f4a7665263ceafeb8fae055e89cc2b66a1" ;
+        "sha256:e9ed6006dbdaf5586dfcab386f5c35f4a7665263ceafeb8fae055e89cc2b66a1",
+        "sha256:f0b41bd559abf2febc296356d04a4657234a2bebc2767aa154cd4e0cd41caa63" ;
     aiprov:filePath "paper/sections/07-discussion.tex" .
 
 <https://noheton.org/f-ai2-r/prov/entity/08-conclusion-tex> a aiprov:Artefact ;
@@ -783,6 +785,14 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:usedTool "bash",
         "edit",
         "web_fetch" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s27-transparent-selfcite> a aiprov:AuthoringPass ;
+    rdfs:label "Discussion 6.8c sharpened to the operator's framing: 'transparent self-citation' named as a practice — not inflating metrics but declaring important influences — with a load-bearing test: removing a transparent self-citation would orphan a lineage or method claim"@en ;
+    prov:endedAtTime "2026-07-24T20:06:06.025662+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit" .
 
 agent:github-actions a aiprov:ToolAgent ;
     foaf:name "GitHub Actions (aiprov build workflow)" ;
