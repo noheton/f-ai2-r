@@ -34,8 +34,10 @@ Seed a graph (once per project), register agents, log work, validate:
 ```sh
 # One step: derive base IRI from the git remote, register the owner as
 # HumanAgent (name/affiliation resolved from the public ORCID registry),
-# and scaffold the CI workflow. --base overrides the derived IRI.
-python3 scripts/provlog.py init --orcid 0000-0000-0000-0000 --ci
+# scaffold the CI workflow and a compilable chapter-per-file LaTeX paper
+# skeleton with the AI-transparency acknowledgement pre-wired.
+# --base overrides the derived IRI.
+python3 scripts/provlog.py init --orcid 0000-0000-0000-0000 --ci --paper
 
 # Later commands auto-detect the base from the graph — no --base needed.
 python3 scripts/provlog.py agent --id my-model --type ai \

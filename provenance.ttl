@@ -140,6 +140,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act> ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/claim/c6> a aiprov:Claim ;
+    rdfs:label "provlog.py init --orcid --ci --paper produces, in one command, a seeded graph, a registered ORCID-resolved HumanAgent, a CI workflow, and a LaTeX paper skeleton that compiles to PDF with latexmk without edits (verified by test-run in a scratch repository, latexmk exit 0)"@en ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> ;
+    aiprov:verificationState verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/entity/-gitignore> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
@@ -205,8 +211,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/entity/CHANGELOG-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02>,
-        <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
+        <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> ;
     aiprov:contentHash "sha256:0f6b3e6665b218d527bbcd404b6c45f127596888482cdf7c20f95d48a971f28b",
+        "sha256:a36e7fbec05e566ca79c60b150a896a9cf5047989b24d40fb962f21c0e654463",
         "sha256:d4d2beedd48dfed8d7ac9b367bfbe70af4b6a27b19551f947a37e11bdc336bcf" ;
     aiprov:filePath "CHANGELOG.md" ;
     aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b" .
@@ -221,8 +229,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/entity/SKILL-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02>,
-        <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act> ;
-    aiprov:contentHash "sha256:8963ec5023e470b5984b3ec07d503820e874be50c10bc407214fefbff79c198c",
+        <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
+        <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> ;
+    aiprov:contentHash "sha256:333e6cfb08385a0003b31e9acdb22e9f83f0bca42fc3b8799e30099d75f7d881",
+        "sha256:8963ec5023e470b5984b3ec07d503820e874be50c10bc407214fefbff79c198c",
         "sha256:a9557f62a62b10f5d07acc0d11bc80a05232572e74ab8e979a0d0a12cc3d1faa" ;
     aiprov:filePath "SKILL.md" ;
     aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b" .
@@ -230,8 +240,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/entity/aiprov-build-yml> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02>,
-        <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
+        <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> ;
     aiprov:contentHash "sha256:6270cb82d863cd4175604c97668053a1ff1e0657d0f3467c42b8b570cb467ec5",
+        "sha256:c9aa2e7510348bb05b8e68a87fad113305706603f6f259463547ccc83b870484",
         "sha256:e9faa663a2a83bcafd167135ae3401662b82ddf8e123f302607d18d96887d6cf" ;
     aiprov:filePath ".github/workflows/aiprov-build.yml",
         "assets/ci/aiprov-build.yml" ;
@@ -268,11 +280,14 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure>,
         <https://noheton.org/f-ai2-r/prov/activity/s06-dilution-section>,
-        <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act> ;
-    aiprov:contentHash "sha256:7ee7c6fa5c92b16acdaf2cda35b1c4bdf20ae0bf591dd05c7f05a8c8b2e097f7",
+        <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
+        <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> ;
+    aiprov:contentHash "sha256:292ee450094d64465800f568cc319a3a5839d697137d2d8497eedb2cbb9587e8",
+        "sha256:7ee7c6fa5c92b16acdaf2cda35b1c4bdf20ae0bf591dd05c7f05a8c8b2e097f7",
         "sha256:e879c1511e6994e719097fd8097e64e4d060708415793727d6c4e195b757e7ba",
         "sha256:f35de4cb23ba5016b8c45043c3c17c87145d5b8a688bd0db543771f1a91ec21e" ;
-    aiprov:filePath "paper/main.tex" ;
+    aiprov:filePath "assets/paper/main.tex",
+        "paper/main.tex" ;
     aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
 
 <https://noheton.org/f-ai2-r/prov/entity/outline-md> a aiprov:Artefact ;
@@ -301,8 +316,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap>,
         <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02>,
-        <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
+        <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> ;
     aiprov:contentHash "sha256:6444b9130086817bc87c05c2a8bb3e8e017f53e5832af9e698aedd559eebbe4e",
+        "sha256:85bf422e7a66e7e1f9e823b672bb65d9813bb893fa782309c1059a458acfb6d0",
         "sha256:ad4c4e608429248b151d9fa97c045a798981abd550766fe3a8555749e3fc02dc",
         "sha256:c4c0c5dddfe77b5f639d71a0b522964929438baa4cd7c40f381e79ec83fa12a0" ;
     aiprov:filePath "scripts/provlog.py" ;
@@ -313,8 +330,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s05-literature-sweep>,
         <https://noheton.org/f-ai2-r/prov/activity/s06-dilution-section>,
-        <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act> ;
-    aiprov:contentHash "sha256:5d082ed5e49f97ceb00af346ff9835f06feb91c207d5f11c664046e6707f124e",
+        <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
+        <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> ;
+    aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
+        "sha256:5d082ed5e49f97ceb00af346ff9835f06feb91c207d5f11c664046e6707f124e",
         "sha256:972f6e5c4ad55b80381b3726d8b3ab766531da962543beb34fc9a0865de37969",
         "sha256:c36a397e5afe052f6d133968b0d1e2d663658aa045e11b9724ba3b055aeb0fc3" ;
     aiprov:filePath "paper/references.bib" ;
@@ -687,6 +706,15 @@ aiprov:AuthoringPass a owl:Class ;
     rdfs:comment "AI or human produces/edits an artefact."@en ;
     rdfs:subClassOf prov:Activity .
 
+<https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
+    rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
+    prov:endedAtTime "2026-07-24T18:43:45.977114+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit",
+        "write" .
+
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
     rdfs:label "Bootstrap the f-ai2-r repository: vendor aiprov schema, provlog CLI, dashboard builder, attribute catalogue; write README; seed this provenance graph"@en ;
     prov:endedAtTime "2026-07-24T18:09:26.757162+00:00"^^xsd:dateTime ;
@@ -707,10 +735,6 @@ aiprov:AuthoringPass a owl:Class ;
         "edit",
         "write" .
 
-aiprov:Claim a owl:Class ;
-    rdfs:comment "An assertion in any artefact that warrants attribution and verification."@en ;
-    rdfs:subClassOf prov:Entity .
-
 <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> a aiprov:AuthoringPass ;
     rdfs:label "Meta-paper principal structure: IEEEtran chapter-per-file skeleton (main.tex + sections/01-07), page budget and figure plan (outline.md), F1 ladder figure in TikZ; grounded in the F(AI)2R method (authoring+audit passes, no-parentless-claim, repository-is-the-paper)"@en ;
     prov:endedAtTime "2026-07-24T18:28:43.680326+00:00"^^xsd:dateTime ;
@@ -719,6 +743,10 @@ aiprov:Claim a owl:Class ;
     aiprov:usedTool "bash",
         "web_fetch",
         "write" .
+
+aiprov:Claim a owl:Class ;
+    rdfs:comment "An assertion in any artefact that warrants attribution and verification."@en ;
+    rdfs:subClassOf prov:Entity .
 
 aiprov:VerificationState a owl:Class ;
     rdfs:comment "A rung on the verification ladder. Higher position = stronger check. Rungs at position 5+ are human-only: an AI agent must never grant them."@en .

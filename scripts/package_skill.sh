@@ -14,6 +14,7 @@ cp scripts/provlog.py scripts/build_dashboard.py scripts/requirements.txt \
    "$staging/ai-provenance/scripts/"
 cp assets/aiprov-schema.ttl "$staging/ai-provenance/assets/"
 cp assets/ci/aiprov-build.yml "$staging/ai-provenance/assets/ci/"
+cp -r assets/paper "$staging/ai-provenance/assets/paper"
 cp references/attributes.md "$staging/ai-provenance/references/"
 (cd "$staging" && zip -X -q -r "$OLDPWD/dist/ai-provenance.skill" ai-provenance)
 echo "dist/ai-provenance.skill"

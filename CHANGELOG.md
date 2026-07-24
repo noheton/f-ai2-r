@@ -1,5 +1,16 @@
 # Changelog — ai-provenance skill
 
+## v0.4 (2026-07-24)
+
+- **Paper scaffolding in init.** `init --paper` scaffolds a compilable
+  chapter-per-file LaTeX skeleton from `assets/paper/` (IEEEtran;
+  `main.tex` as thin shell over `sections/*.tex`), author block filled
+  from the ORCID-resolved identity, `references.bib` pre-seeded with the
+  EU AI Act entry, and the acknowledgement section wired to the generated
+  `disclosure.tex` (placeholder shipped so the skeleton compiles before
+  the first activity is logged). CI disclosure step no longer fails on a
+  graph without AI agents.
+
 ## v0.3 (2026-07-24)
 
 - **EU AI Act transparency integration.** New `provlog.py disclosure`

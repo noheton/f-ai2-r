@@ -78,6 +78,28 @@ def now() -> Literal:
 
 
 CI_TEMPLATE = pathlib.Path(__file__).resolve().parent.parent / "assets" / "ci" / "aiprov-build.yml"
+PAPER_TEMPLATE = pathlib.Path(__file__).resolve().parent.parent / "assets" / "paper"
+
+
+def _scaffold_paper(subs: dict[str, str], force: bool) -> None:
+    dst = pathlib.Path("paper")
+    if dst.exists() and not force:
+        print("paper/ exists; skipped (use --force to overwrite)")
+        return
+    n = 0
+    for p in sorted(PAPER_TEMPLATE.rglob("*")):
+        if p.is_dir():
+            continue
+        text = p.read_text(encoding="utf-8")
+        for k, v in subs.items():
+            text = text.replace(k, v)
+        q = dst / p.relative_to(PAPER_TEMPLATE)
+        q.parent.mkdir(parents=True, exist_ok=True)
+        q.write_text(text, encoding="utf-8")
+        n += 1
+    print(f"paper/ scaffolded ({n} files: chapter-per-file LaTeX skeleton, "
+          f"references.bib seeded with the EU AI Act entry, acknowledgement "
+          f"wired to the generated disclosure)")
 
 
 def cmd_init(a) -> None:
@@ -96,6 +118,7 @@ def cmd_init(a) -> None:
     GRAPH.write_text(text, encoding="utf-8")
     g = load()  # parse check
     print(f"Seeded {GRAPH} ({len(g)} triples, base {base})")
+    meta = {}
     if a.orcid:
         meta = _fetch_orcid(a.orcid) or {}
         if not meta:
@@ -108,6 +131,14 @@ def cmd_init(a) -> None:
         got = ", ".join(v for v in (name, meta.get("affiliation")) if v)
         print(f"agent:{ident} registered (human"
               + (f": {got} [resolved via pub.orcid.org]" if got else "") + ")")
+    if a.paper:
+        _scaffold_paper({
+            "{{TITLE}}": "TODO: Working Title",
+            "{{AUTHOR}}": meta.get("name") or "TODO Author",
+            "{{AFFILIATION}}": meta.get("affiliation") or "TODO Affiliation",
+            "{{ORCID}}": (a.orcid.strip().removeprefix("https://orcid.org/")
+                          if a.orcid else "0000-0000-0000-0000"),
+        }, a.force)
     if a.ci:
         dst = pathlib.Path(".github/workflows/aiprov-build.yml")
         if dst.exists() and not a.force:
@@ -750,6 +781,9 @@ def main() -> None:
     s.add_argument("--human-id", dest="human_id", help="agent id for the owner (default: name slug)")
     s.add_argument("--ci", action="store_true",
                    help="scaffold .github/workflows/aiprov-build.yml (validate graph, build LaTeX paper to PDF)")
+    s.add_argument("--paper", action="store_true",
+                   help="scaffold paper/ (chapter-per-file LaTeX skeleton with "
+                        "AI-transparency acknowledgement wired to provlog disclosure)")
 
     s = sub.add_parser("agent")
     s.add_argument("--id", required=True); s.add_argument("--type", choices=["ai", "human", "tool"], required=True)

@@ -32,8 +32,8 @@ F(AI)²R carry over unchanged:
 
 1. **Setup — ask for the ORCID first.** Before anything else, ask the user
    one question: their ORCID iD. Then seed the graph, register them, and
-   scaffold CI in a single step:
-   `python3 scripts/provlog.py init --orcid 0000-0000-0000-0000 --ci`
+   scaffold CI and the paper skeleton in a single step:
+   `python3 scripts/provlog.py init --orcid 0000-0000-0000-0000 --ci --paper`
    - The instance base is derived from the git remote when `--base` is
      omitted (e.g. `https://github.com/owner/repo/prov/`); later commands
      auto-detect it from the graph, so `--base` never needs repeating.
@@ -42,9 +42,16 @@ F(AI)²R carry over unchanged:
      resolution fails, only the bare iD is recorded.
    - `--ci` writes `.github/workflows/aiprov-build.yml` from
      `assets/ci/aiprov-build.yml`: every push validates the graph, renders
-     the dashboard, and compiles `paper/*.tex` to PDF via latexmk, uploading
-     both as workflow artifacts so the current version of the paper is
-     always available.
+     the dashboard, regenerates the AI-transparency disclosure, and compiles
+     `paper/main.tex` to PDF via latexmk, uploading dashboard and PDF as
+     workflow artifacts so the current version of the paper is always
+     available.
+   - `--paper` scaffolds `paper/` from `assets/paper/`: a compilable
+     chapter-per-file LaTeX skeleton (IEEEtran; `main.tex` is a thin shell
+     over `sections/*.tex` — write prose only there), author block filled
+     from the resolved ORCID identity, `references.bib` seeded with the EU
+     AI Act entry, and an acknowledgement section wired to the generated
+     `disclosure.tex`.
 2. **Register the remaining agents** — AI models (model, version, provider,
    endpoint, context window, knowledge cutoff) and deterministic tools:
    `provlog.py agent --id <model-id> --type ai --model <model-id> --provider <provider>`
