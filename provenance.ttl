@@ -1,0 +1,314 @@
+@prefix agent: <https://noheton.org/f-ai2-r/prov/agent/> .
+@prefix aiprov: <https://w3id.org/aiprov/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix verif: <https://noheton.org/f-ai2-r/prov/verification/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://noheton.org/f-ai2-r/prov/claim/c1> a aiprov:Claim ;
+    rdfs:label "provlog.py validate exits non-zero when the graph contains a parentless or unattributed aiprov:Claim (verified by test-run against a scratch copy of this graph)"@en ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
+    aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/claim/c2> a aiprov:Claim ;
+    rdfs:label "provlog.py promote refuses to grant the human-only rungs human-confirmed and human-read to any agent not registered as aiprov:HumanAgent (verified by test-run: promotion attempt by the AI agent exited non-zero with REFUSED)"@en ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
+    aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/entity/-gitignore> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
+    aiprov:contentHash "sha256:d453297b2a9781ae834cad5f689fed8ce8468c5c056ef273ffeab4ec1cae95b2" ;
+    aiprov:filePath ".gitignore" ;
+    aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
+
+<https://noheton.org/f-ai2-r/prov/entity/README-md> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
+    aiprov:contentHash "sha256:6f81c25207743e7e34fdbbb1e7c84882f133c107d6269d8f9bdc0a5c0f27b03a" ;
+    aiprov:filePath "README.md" ;
+    aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
+
+<https://noheton.org/f-ai2-r/prov/entity/aiprov-schema-ttl> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
+    aiprov:contentHash "sha256:4eb359db3671e05cf0e8fbb0fcc09ba1ce84371e6eedf565cd854c8fe76670cc" ;
+    aiprov:filePath "assets/aiprov-schema.ttl" ;
+    aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
+
+<https://noheton.org/f-ai2-r/prov/entity/attributes-md> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
+    aiprov:contentHash "sha256:32ba6c237ba2531635680a7e8881f481605b57aacf39715b6b5cdc0d086db0b1" ;
+    aiprov:filePath "references/attributes.md" ;
+    aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
+
+<https://noheton.org/f-ai2-r/prov/entity/build_dashboard-py> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
+    aiprov:contentHash "sha256:889f1f86568cd4891329247ba24df2b8e62c907a16f39930a396f6a29734a754" ;
+    aiprov:filePath "scripts/build_dashboard.py" ;
+    aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
+
+<https://noheton.org/f-ai2-r/prov/entity/provlog-py> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
+    aiprov:contentHash "sha256:c4c0c5dddfe77b5f639d71a0b522964929438baa4cd7c40f381e79ec83fa12a0" ;
+    aiprov:filePath "scripts/provlog.py" ;
+    aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
+
+verif:human-confirmed a aiprov:VerificationState ;
+    rdfs:label "human-confirmed"@en ;
+    rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
+    aiprov:ladderPosition 5 .
+
+verif:human-read a aiprov:VerificationState ;
+    rdfs:label "human-read"@en ;
+    rdfs:comment "A HUMAN has read the source in full. Top of the ladder; consolidates the former lit-read rung. Human-only: an AI agent must never grant this rung."@en ;
+    skos:altLabel "lit-read"@en ;
+    aiprov:ladderPosition 6 .
+
+verif:needs-research a aiprov:VerificationState ;
+    rdfs:label "needs research"@en ;
+    rdfs:comment "A check was attempted or demanded and did not succeed (e.g. DOI did not resolve). Must not be cited or relied upon until re-verified."@en ;
+    aiprov:ladderPosition 1 .
+
+verif:reference-resolved a aiprov:VerificationState ;
+    rdfs:label "reference resolved"@en ;
+    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
+    skos:altLabel "lit-retrieved"@en,
+        "retrieved"@en ;
+    aiprov:ladderPosition 2 .
+
+verif:source-vendored a aiprov:VerificationState ;
+    rdfs:label "source vendored"@en ;
+    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
+    aiprov:ladderPosition 4 .
+
+verif:unverified a aiprov:VerificationState ;
+    rdfs:label "unverified"@en ;
+    rdfs:comment "Recorded, nothing checked yet by anyone. Default state at creation."@en ;
+    aiprov:ladderPosition 0 .
+
+aiprov:AIContribution a owl:Class ;
+    rdfs:subClassOf aiprov:Contribution .
+
+aiprov:AuditPass a owl:Class ;
+    rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
+    rdfs:subClassOf prov:Activity .
+
+aiprov:Build a owl:Class ;
+    rdfs:comment "Deterministic build/compile/CI activity."@en ;
+    rdfs:subClassOf prov:Activity .
+
+aiprov:HumanContribution a owl:Class ;
+    rdfs:subClassOf aiprov:Contribution .
+
+aiprov:MetaContribution a owl:Class ;
+    rdfs:subClassOf aiprov:Contribution .
+
+aiprov:Prompt a owl:Class ;
+    rdfs:comment "A versioned prompt file. Bind to activities via prov:qualifiedAssociation/prov:hadPlan or dcterms:source."@en ;
+    rdfs:subClassOf prov:Plan .
+
+aiprov:Repair a owl:Class ;
+    rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
+    rdfs:subClassOf prov:Activity .
+
+aiprov:Source a owl:Class ;
+    rdfs:subClassOf prov:Entity .
+
+aiprov:ToolAgent a owl:Class ;
+    rdfs:label "Deterministic tool"@en ;
+    rdfs:comment "Non-AI software (compiler, linter, CI job) acting in the pipeline."@en ;
+    rdfs:subClassOf prov:SoftwareAgent .
+
+aiprov:Transcript a owl:Class ;
+    rdfs:comment "Preserved conversation record; bound to activities via aiprov:transcript."@en ;
+    rdfs:subClassOf prov:Entity .
+
+aiprov:affiliation a owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+aiprov:cacheReadTokens a owl:DatatypeProperty ;
+    rdfs:range xsd:integer .
+
+aiprov:cacheWriteTokens a owl:DatatypeProperty ;
+    rdfs:range xsd:integer .
+
+aiprov:contentHash a owl:DatatypeProperty ;
+    rdfs:comment "sha256 of the artefact bytes at generation time."@en ;
+    rdfs:range xsd:string .
+
+aiprov:contextWindow a owl:DatatypeProperty ;
+    rdfs:range xsd:integer .
+
+aiprov:contradicts a owl:ObjectProperty ;
+    rdfs:domain aiprov:Claim ;
+    rdfs:range aiprov:Claim .
+
+aiprov:cost a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal .
+
+aiprov:costCurrency a owl:DatatypeProperty ;
+    rdfs:comment "ISO 4217, e.g. EUR, USD."@en ;
+    rdfs:range xsd:string .
+
+aiprov:doi a owl:DatatypeProperty ;
+    rdfs:range xsd:anyURI .
+
+aiprov:endpoint a owl:DatatypeProperty ;
+    rdfs:comment "API endpoint or gateway URL through which the model was reached."@en ;
+    rdfs:range xsd:anyURI .
+
+aiprov:energyWh a owl:DatatypeProperty ;
+    rdfs:comment "Optional energy estimate for the inference, in watt-hours."@en ;
+    rdfs:range xsd:decimal .
+
+aiprov:filePath a owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+aiprov:gitCommit a owl:DatatypeProperty ;
+    rdfs:comment "Commit hash binding the entity to repository state."@en ;
+    rdfs:range xsd:string .
+
+aiprov:inputTokens a owl:DatatypeProperty ;
+    rdfs:range xsd:integer .
+
+aiprov:knowledgeCutoff a owl:DatatypeProperty ;
+    rdfs:range xsd:date .
+
+aiprov:ladderPosition a owl:DatatypeProperty ;
+    rdfs:comment "Total order of the ladder; promotions must strictly increase this value."@en ;
+    rdfs:domain aiprov:VerificationState ;
+    rdfs:range xsd:integer .
+
+aiprov:maxTokens a owl:DatatypeProperty ;
+    rdfs:range xsd:integer .
+
+aiprov:model a owl:DatatypeProperty ;
+    rdfs:comment "Model identifier, e.g. claude-opus-5."@en ;
+    rdfs:domain aiprov:AIAgent ;
+    rdfs:range xsd:string .
+
+aiprov:modelVersion a owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+aiprov:orcid a owl:DatatypeProperty ;
+    rdfs:domain aiprov:HumanAgent ;
+    rdfs:range xsd:anyURI .
+
+aiprov:outputTokens a owl:DatatypeProperty ;
+    rdfs:range xsd:integer .
+
+aiprov:promptHash a owl:DatatypeProperty ;
+    rdfs:comment "Content hash (e.g. sha256) of the exact prompt text used."@en ;
+    rdfs:range xsd:string .
+
+aiprov:provider a owl:DatatypeProperty ;
+    rdfs:comment "e.g. Anthropic, local/llama.cpp, gateway name."@en ;
+    rdfs:range xsd:string .
+
+aiprov:reasoningTokens a owl:DatatypeProperty ;
+    rdfs:range xsd:integer .
+
+aiprov:repairs a owl:ObjectProperty ;
+    rdfs:comment "A Repair activity amends generation metadata of a claim without invalidating its content."@en .
+
+aiprov:requestId a owl:DatatypeProperty ;
+    rdfs:comment "Provider request ID for a single inference call."@en ;
+    rdfs:range xsd:string .
+
+aiprov:seed a owl:DatatypeProperty ;
+    rdfs:range xsd:integer .
+
+aiprov:sessionId a owl:DatatypeProperty ;
+    rdfs:comment "Client session identifier (e.g. Claude Code session UUID)."@en ;
+    rdfs:range xsd:string .
+
+aiprov:stopReason a owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+aiprov:systemPromptRef a owl:ObjectProperty ;
+    rdfs:comment "Links an activity to the system-prompt entity in force."@en .
+
+aiprov:temperature a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal .
+
+aiprov:toolCalls a owl:DatatypeProperty ;
+    rdfs:range xsd:integer .
+
+aiprov:topP a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal .
+
+aiprov:totalTokens a owl:DatatypeProperty ;
+    rdfs:range xsd:integer .
+
+aiprov:transcript a owl:ObjectProperty ;
+    rdfs:comment "Links the activity to a preserved conversation transcript entity."@en .
+
+aiprov:turnCount a owl:DatatypeProperty ;
+    rdfs:range xsd:integer .
+
+aiprov:usedTool a owl:DatatypeProperty ;
+    rdfs:comment "Repeatable: one value per distinct tool invoked (web_search, bash, ...)."@en ;
+    rdfs:range xsd:string .
+
+aiprov:verificationState a owl:ObjectProperty ;
+    rdfs:comment "Current rung of a claim or source on the verification ladder. Exactly one value; transitions are recorded as AuditPass activities so the history stays in the graph."@en ;
+    rdfs:domain aiprov:Claim ;
+    rdfs:range aiprov:VerificationState .
+
+aiprov:AuthoringPass a owl:Class ;
+    rdfs:comment "AI or human produces/edits an artefact."@en ;
+    rdfs:subClassOf prov:Activity .
+
+aiprov:HumanAgent a owl:Class ;
+    rdfs:label "Human agent"@en ;
+    rdfs:subClassOf prov:Person .
+
+verif:ai-confirmed a aiprov:VerificationState ;
+    rdfs:label "AI-confirmed"@en ;
+    rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
+    aiprov:ladderPosition 3 .
+
+aiprov:AIAgent a owl:Class ;
+    rdfs:label "AI agent"@en ;
+    rdfs:comment "An LLM- or ML-driven agent participating in artefact production."@en ;
+    rdfs:subClassOf prov:SoftwareAgent .
+
+aiprov:Contribution a owl:Class ;
+    rdfs:subClassOf prov:Entity .
+
+aiprov:Claim a owl:Class ;
+    rdfs:comment "An assertion in any artefact that warrants attribution and verification."@en ;
+    rdfs:subClassOf prov:Entity .
+
+aiprov:Artefact a owl:Class ;
+    rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
+    rdfs:subClassOf prov:Entity .
+
+<https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
+    rdfs:label "Bootstrap the f-ai2-r repository: vendor aiprov schema, provlog CLI, dashboard builder, attribute catalogue; write README; seed this provenance graph"@en ;
+    prov:endedAtTime "2026-07-24T18:09:26.757162+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit",
+        "git",
+        "read",
+        "write" .
+
+agent:claude-code a aiprov:AIAgent ;
+    foaf:name "Claude Code" ;
+    aiprov:model "Claude Fable 5"^^xsd:string ;
+    aiprov:provider "Anthropic"^^xsd:string .
+
+aiprov:VerificationState a owl:Class ;
+    rdfs:comment "A rung on the verification ladder. Higher position = stronger check. Rungs at position 5+ are human-only: an AI agent must never grant them."@en .
+
