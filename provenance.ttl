@@ -92,6 +92,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/claim/c3> a aiprov:Claim ;
+    rdfs:label "Every entry in paper/references.bib corresponds to a source in this graph at rung reference-resolved or higher, and its BibTeX metadata was fetched from doi.org content negotiation rather than hand-typed (verified by cross-check: all 12 bib keys match registered source ids and all cited keys exist)"@en ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s05-literature-sweep> ;
+    aiprov:verificationState verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/entity/-gitignore> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
@@ -99,12 +105,83 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:filePath ".gitignore" ;
     aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
 
+<https://noheton.org/f-ai2-r/prov/entity/01-introduction-tex> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> ;
+    aiprov:contentHash "sha256:3d6afbe42ffc5636a6272bb5574284cc130033bce5bff3dd64738cc31f35f946" ;
+    aiprov:filePath "paper/sections/01-introduction.tex" ;
+    aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
+
+<https://noheton.org/f-ai2-r/prov/entity/02-background-tex> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> ;
+    aiprov:contentHash "sha256:8920fe38639a9406df5a865983817ce8c291932611fe185e768d112eb3cc3a90" ;
+    aiprov:filePath "paper/sections/02-background.tex" ;
+    aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
+
+<https://noheton.org/f-ai2-r/prov/entity/03-method-tex> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> ;
+    aiprov:contentHash "sha256:e20471a4e914a6b62414235b3b41eb55aebb64b5df5410c245eddfff3ea3c56b" ;
+    aiprov:filePath "paper/sections/03-method.tex" ;
+    aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
+
+<https://noheton.org/f-ai2-r/prov/entity/04-skill-tex> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> ;
+    aiprov:contentHash "sha256:60fbda0abefe8289aa78f000446bef46da55d52d440d6bb5eca1d3906296d6ed" ;
+    aiprov:filePath "paper/sections/04-skill.tex" ;
+    aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
+
+<https://noheton.org/f-ai2-r/prov/entity/05-meta-experiment-tex> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> ;
+    aiprov:contentHash "sha256:fe8cba43a29d4cfa0fcda96477932a5310f4d00bd45c0983d8dc0e7b649424c6" ;
+    aiprov:filePath "paper/sections/05-meta-experiment.tex" ;
+    aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
+
+<https://noheton.org/f-ai2-r/prov/entity/06-discussion-tex> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> ;
+    aiprov:contentHash "sha256:90b122039afbf66b23c854f81e6fc16909a5ead1b3e87a471fa0b4f62f5783e6" ;
+    aiprov:filePath "paper/sections/06-discussion.tex" ;
+    aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
+
+<https://noheton.org/f-ai2-r/prov/entity/07-conclusion-tex> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> ;
+    aiprov:contentHash "sha256:2abe912c3929c16bacf53b329a49b63df0c4c3a3c5671c48a2e3306bc5a8338e" ;
+    aiprov:filePath "paper/sections/07-conclusion.tex" ;
+    aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
+
+<https://noheton.org/f-ai2-r/prov/entity/CHANGELOG-md> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02> ;
+    aiprov:contentHash "sha256:0f6b3e6665b218d527bbcd404b6c45f127596888482cdf7c20f95d48a971f28b" ;
+    aiprov:filePath "CHANGELOG.md" ;
+    aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b" .
+
 <https://noheton.org/f-ai2-r/prov/entity/README-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
     aiprov:contentHash "sha256:6f81c25207743e7e34fdbbb1e7c84882f133c107d6269d8f9bdc0a5c0f27b03a" ;
     aiprov:filePath "README.md" ;
     aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
+
+<https://noheton.org/f-ai2-r/prov/entity/SKILL-md> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02> ;
+    aiprov:contentHash "sha256:8963ec5023e470b5984b3ec07d503820e874be50c10bc407214fefbff79c198c" ;
+    aiprov:filePath "SKILL.md" ;
+    aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b" .
+
+<https://noheton.org/f-ai2-r/prov/entity/aiprov-build-yml> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02> ;
+    aiprov:contentHash "sha256:6270cb82d863cd4175604c97668053a1ff1e0657d0f3467c42b8b570cb467ec5" ;
+    aiprov:filePath ".github/workflows/aiprov-build.yml",
+        "assets/ci/aiprov-build.yml" ;
+    aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b" .
 
 <https://noheton.org/f-ai2-r/prov/entity/aiprov-schema-ttl> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -127,6 +204,27 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:filePath "scripts/build_dashboard.py" ;
     aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
 
+<https://noheton.org/f-ai2-r/prov/entity/main-tex> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> ;
+    aiprov:contentHash "sha256:e879c1511e6994e719097fd8097e64e4d060708415793727d6c4e195b757e7ba" ;
+    aiprov:filePath "paper/main.tex" ;
+    aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
+
+<https://noheton.org/f-ai2-r/prov/entity/outline-md> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> ;
+    aiprov:contentHash "sha256:d2cccd2848f7ac185a8db58b04e6f3eb7a40d2a0252b635ccd7e359c5776c1a2" ;
+    aiprov:filePath "paper/outline.md" ;
+    aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
+
+<https://noheton.org/f-ai2-r/prov/entity/package_skill-sh> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02> ;
+    aiprov:contentHash "sha256:4c18e108e830777dcfd2e14f65e1a306ef442e4270707059d35484e682f8881e" ;
+    aiprov:filePath "scripts/package_skill.sh" ;
+    aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b" .
+
 <https://noheton.org/f-ai2-r/prov/entity/provenance-ttl> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s02-register-human> ;
@@ -135,10 +233,20 @@ agent:florian-krebs a aiprov:HumanAgent ;
 
 <https://noheton.org/f-ai2-r/prov/entity/provlog-py> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
-    aiprov:contentHash "sha256:c4c0c5dddfe77b5f639d71a0b522964929438baa4cd7c40f381e79ec83fa12a0" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap>,
+        <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02> ;
+    aiprov:contentHash "sha256:ad4c4e608429248b151d9fa97c045a798981abd550766fe3a8555749e3fc02dc",
+        "sha256:c4c0c5dddfe77b5f639d71a0b522964929438baa4cd7c40f381e79ec83fa12a0" ;
     aiprov:filePath "scripts/provlog.py" ;
-    aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
+    aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b",
+        "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
+
+<https://noheton.org/f-ai2-r/prov/entity/references-bib> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s05-literature-sweep> ;
+    aiprov:contentHash "sha256:972f6e5c4ad55b80381b3726d8b3ab766531da962543beb34fc9a0865de37969" ;
+    aiprov:filePath "paper/references.bib" ;
+    aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
 
 <https://noheton.org/f-ai2-r/prov/source/prov-o2013> a aiprov:Source ;
     rdfs:label "PROV-O: The PROV Ontology (W3C Recommendation, 30 April 2013)"@en ;
@@ -348,6 +456,9 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:doi "https://doi.org/10.7759/cureus.35179"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
+<https://noheton.org/f-ai2-r/prov/source/aiprovenance-v0-skill> a aiprov:Source ;
+    aiprov:filePath "archive/aiprovenance-v0.skill" .
+
 <https://noheton.org/f-ai2-r/prov/source/chatgpt-priorities2023> a aiprov:Source ;
     rdfs:label "ChatGPT: five priorities for research"@en ;
     dcterms:date "2023" ;
@@ -416,14 +527,13 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:doi "https://doi.org/10.3233/ds-210053"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
-aiprov:AuthoringPass a owl:Class ;
-    rdfs:comment "AI or human produces/edits an artefact."@en ;
-    rdfs:subClassOf prov:Activity .
-
-verif:ai-confirmed a aiprov:VerificationState ;
-    rdfs:label "AI-confirmed"@en ;
-    rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
-    aiprov:ladderPosition 3 .
+<https://noheton.org/f-ai2-r/prov/activity/s05-literature-sweep> a aiprov:AuditPass ;
+    rdfs:label "Literature sweep via provlog search (Crossref/OpenAlex, open APIs): 12 sources registered, 11 DOI-verified to reference-resolved, W3C PROV-O by resolvable URL; BibTeX fetched from doi.org content negotiation into paper/references.bib"@en ;
+    prov:endedAtTime "2026-07-24T18:28:43.841163+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "web_fetch" .
 
 aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;
@@ -434,15 +544,30 @@ aiprov:HumanAgent a owl:Class ;
     rdfs:label "Human agent"@en ;
     rdfs:subClassOf prov:Person .
 
+verif:ai-confirmed a aiprov:VerificationState ;
+    rdfs:label "AI-confirmed"@en ;
+    rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
+    aiprov:ladderPosition 3 .
+
+aiprov:AuthoringPass a owl:Class ;
+    rdfs:comment "AI or human produces/edits an artefact."@en ;
+    rdfs:subClassOf prov:Activity .
+
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
+<https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02> a aiprov:AuthoringPass ;
+    rdfs:label "Skill v0.2: repo becomes canonical skill source; ORCID-first setup, base derivation/auto-detection, CI/CD scaffolding (validate + LaTeX-to-PDF artifacts); packaging script; verified by test-run in scratch repository"@en ;
+    prov:endedAtTime "2026-07-24T18:28:43.529594+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/aiprovenance-v0-skill> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit",
+        "write" .
+
 aiprov:Claim a owl:Class ;
     rdfs:comment "An assertion in any artefact that warrants attribution and verification."@en ;
-    rdfs:subClassOf prov:Entity .
-
-aiprov:Artefact a owl:Class ;
-    rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
     rdfs:subClassOf prov:Entity .
 
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
@@ -454,6 +579,15 @@ aiprov:Artefact a owl:Class ;
         "edit",
         "git",
         "read",
+        "write" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> a aiprov:AuthoringPass ;
+    rdfs:label "Meta-paper principal structure: IEEEtran chapter-per-file skeleton (main.tex + sections/01-07), page budget and figure plan (outline.md), F1 ladder figure in TikZ; grounded in the F(AI)2R method (authoring+audit passes, no-parentless-claim, repository-is-the-paper)"@en ;
+    prov:endedAtTime "2026-07-24T18:28:43.680326+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "web_fetch",
         "write" .
 
 aiprov:VerificationState a owl:Class ;
@@ -471,6 +605,10 @@ aiprov:AuditPass a owl:Class ;
     rdfs:subClassOf prov:Activity .
 
 aiprov:Source a owl:Class ;
+    rdfs:subClassOf prov:Entity .
+
+aiprov:Artefact a owl:Class ;
+    rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
     rdfs:subClassOf prov:Entity .
 
 agent:claude-code a aiprov:AIAgent ;
