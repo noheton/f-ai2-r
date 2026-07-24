@@ -159,4 +159,8 @@ terms).
 Requires Python 3.10+ with `rdflib` (`pip install rdflib`). The graph file is
 append-friendly Turtle; keep it in git next to the artefacts it describes.
 Never fabricate values: omit attributes the provider did not report, and never
-invent token counts, costs, or verification promotions.
+invent token counts, costs, or verification promotions. One sanctioned
+exception: when the operator directs it, cost may be *computed* from
+provider-reported token counts and a published price list — log it with the
+price basis (rates, cache TTL class) in the activity label so the record shows
+a computed figure, never a provider-reported one.

@@ -31,8 +31,13 @@ and under omit-don't-estimate nothing was recorded. The operator's
 challenge (``why is this not reported?'') prompted a check of the
 session record, which turned out to carry the provider's per-request
 usage blocks; the totals in the table are aggregated from them,
-reported not estimated. Cost remains omitted: the record carries no
-priced entries, and computing cost would require assumed prices. All
+reported not estimated. Cost followed one step behind: the record
+carries no priced entries, so cost was first omitted rather than
+assumed; the operator then directed pricing the recorded tokens
+against the provider's published price list at time of writing. The
+resulting figure is \emph{computed, not provider-reported}, and the
+graph records it exactly so, with the price basis in the activity's
+label. All
 seven recorded claims sit at \texttt{ai-confirmed}, the ceiling an AI
 may grant; promotion beyond that waits for the human operator, and the
 tooling will hand over the evidence when asked.
@@ -41,26 +46,28 @@ tooling will hand over the evidence when asked.
 \caption{Provenance-graph state of this paper's production at the time
 of writing (from \texttt{provlog.py report} and the repository;
 regenerated before submission). Token totals are aggregated from the
-provider-reported usage blocks in the session record; cost is omitted,
-not estimated, since the record carries no priced entries.}
+provider-reported usage blocks in the session record; the cost is
+computed from those tokens and the published price list at time of
+writing (all cache writes in the record are 1-hour-TTL), not reported
+by the provider, and is recorded in the graph as computed.}
 \label{tab:telemetry}
 \centering
 \begin{tabular}{lr}
 \toprule
 Metric & Value \\
 \midrule
-Triples & 1076 \\
-Logged activities & 51 \\
+Triples & 1145 \\
+Logged activities & 57 \\
 Claims (all \texttt{ai-confirmed}) & 7 \\
-Sources on the ladder & 31 \\
+Sources on the ladder & 33 \\
 \quad thereof marked self-citation & 4 \\
 Registered agents (human / AI / tool) & 1 / 1 / 1 \\
-Commits & 36 \\
-Transcript & 1 session, $>$750 turns \\
-Output tokens & 879\,838 \\
-Input tokens (uncached) & 9\,788 \\
-Cache tokens (read / write) & 185.4\,M / 7.5\,M \\
-Cost & not reported \\
+Commits & 41 \\
+Transcript & 1 session, $>$900 turns \\
+Output tokens & 954\,612 \\
+Input tokens (uncached) & 9\,902 \\
+Cache tokens (read / write) & 214.4\,M / 7.6\,M \\
+Cost (computed, not reported) & $\approx$ USD~415 \\
 \bottomrule
 \end{tabular}
 \end{table}

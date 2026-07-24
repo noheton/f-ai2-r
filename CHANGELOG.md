@@ -1,5 +1,16 @@
 # Changelog — ai-provenance skill
 
+## v0.10 (2026-07-24)
+
+- **Operator-directed cost computation.** Cost may now be computed from
+  provider-reported token counts and a published price list when the
+  operator directs it — recorded as *computed, not provider-reported*,
+  with the price basis (rates, cache TTL class) disclosed in the logging
+  activity's label. Omit-don't-estimate still holds: no cost is ever
+  recorded on the agent's own initiative or from assumed prices;
+  provider-reported cost remains the stronger record and the standing
+  ask.
+
 ## v0.9 (2026-07-24)
 
 - **Truthful token backfill.** `export_transcript.py --usage` aggregates

@@ -34,6 +34,28 @@
     aiprov:totalTokens 889626 ;
     aiprov:usedTool "bash" .
 
+<https://noheton.org/f-ai2-r/prov/activity/s35-audit-scan> a aiprov:AuditPass ;
+    rdfs:label "Audit pass over the full prose draft: every assertion checked against cited-source verification state, the graph, and the session record. Systemic finding: all 33 sources at reference-resolved only — no content checks recorded, so content-bearing citations rest on the AI's training knowledge. Specific findings: git-commit claim overstated; one citation mismatch (cost-collapse attributed to publishing-strain2024); citation-propagation extrapolation; untested ancestor-graph consolidation claim; informal division-of-labour classification presented as performed; stale self-citation ratio (4 of 31 vs current 4 of 33); MEMAS-shepard link now explicitly verified by fetch (quote found). No fixes applied — findings reported to operator"@en ;
+    prov:endedAtTime "2026-07-24T20:52:17.425639+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "web_fetch" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s36-cost-computed> a aiprov:AuditPass ;
+    rdfs:label "Session cost computed from the published Claude price list at time of writing (Claude Fable 5: USD 10/1M input, 50/1M output, 1/1M cache read at 0.1x, 20/1M 1h-TTL cache write at 2x; all cache writes in the session record are 1h-TTL). Computed, not provider-reported; token counts are the provider-reported usage blocks aggregated fresh at computation time (713 requests)."@en ;
+    prov:endedAtTime "2026-07-24T20:56:04.088286+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:cacheReadTokens 214410266 ;
+    aiprov:cacheWriteTokens 7648991 ;
+    aiprov:cost 415.22 ;
+    aiprov:costCurrency "USD"^^xsd:string ;
+    aiprov:inputTokens 9902 ;
+    aiprov:outputTokens 954612 ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string ;
+    aiprov:totalTokens 964514 ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-aas-part1-idta> a aiprov:AuditPass ;
     rdfs:label "DOI verification of src:aas-part1-idta via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T19:01:13.224813+00:00"^^xsd:dateTime ;
@@ -1112,9 +1134,6 @@ aiprov:Transcript a owl:Class ;
         "edit",
         "web_fetch" .
 
-<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
-
 aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;
     rdfs:comment "An LLM- or ML-driven agent participating in artefact production."@en ;
@@ -1158,6 +1177,10 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:usedTool "bash",
         "edit",
         "web_fetch" .
+
+<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .

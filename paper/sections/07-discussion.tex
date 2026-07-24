@@ -24,12 +24,20 @@ the harness exposes no live usage to the agent, so nothing was
 recorded at first; when the operator challenged the gap, the session
 record turned out to carry the provider's per-request usage blocks,
 and the totals in Table~\ref{tab:telemetry} were backfilled from
-them, reported rather than estimated. The remaining gap is cost: the
-record is unpriced, and assuming prices would fabricate. Honest cost
-accounting in AI-assisted work still needs the provider to report it.
-A larger question stays open behind the numbers. This one session
-consumed 185~million cache-read tokens to produce one draft paper and
-one method release; whether that expenditure justifies its
+them, reported rather than estimated. Cost closed the same way, one
+step later and one grade weaker: the record is unpriced, so under
+omit-don't-estimate no cost was recorded until the operator directed
+pricing the recorded tokens against the provider's published price
+list, roughly USD~415 for this session at time of writing. The
+distinction the graph preserves is between \emph{reported} telemetry
+(the token counts, carried in the provider's own usage blocks) and
+\emph{computed} telemetry (the cost, derived from those counts and a
+price list that the activity's label discloses). Computed values are
+honest only while their basis is recorded; provider-reported cost
+would still be the stronger record. A larger question stays open
+behind the numbers. This one session consumed 214~million cache-read
+tokens, roughly USD~415 at list prices, to produce one draft paper
+and one method release; whether that expenditure justifies its
 environmental footprint and its other costs is a debate this paper
 does not settle and does not want to hide. The schema reserves
 \texttt{aiprov:energyWh} for exactly this reason, and it sits empty
@@ -65,7 +73,7 @@ author's own repositories and specifications. Self-citation is
 frowned upon as metric gaming, yet unavoidable as provenance. The
 resolution is transparency instead of omission: sources carry
 \texttt{aiprov:selfCitation}, the report prints the ratio (here 4 of
-31), and a reviewer can judge necessity per source. The test that
+33), and a reviewer can judge necessity per source. The test that
 separates influence from inflation: a transparent self-citation is
 load-bearing, removing it would orphan a lineage or method claim, and
 it points at repositories and specifications rather than
@@ -86,6 +94,32 @@ choice of entity subclasses. The AAS case bridges to the outlook:
 digital-twin ecosystems already assume machine-readable semantics, so
 AI-work provenance slots in as one more submodel concern rather than a
 foreign add-on.
+
+\textbf{Nostalgia for the paper, or the wrong artefact instrumented?}
+The sharpest objection to this work is not about any rung or invariant
+but about its target: perhaps F(AI)\textsuperscript{2}R merely patches
+provenance onto a form we are nostalgic for. The paper is an artefact
+of print economics, and AI-driven science may turn out to be something
+structurally different: living claim graphs revised as evidence
+arrives, continuously re-executed analyses, agents exchanging
+machine-readable evidence with other agents, with human-readable
+narrative generated on demand rather than authored as the primary
+output. If that is where science goes, instrumenting PDF production
+is polishing the wrong artefact. Our honest answer is that the method
+is less paper-bound than its demonstration. The invariants and the
+ladder attach to claims, sources, activities, and agents; nothing in
+them mentions a manuscript, and in this very experiment the graph, not
+the PDF, is the primary record, with the typeset paper one derived
+view that CI rebuilds from it. On that reading,
+F(AI)\textsuperscript{2}R is less a defence of the paper than a
+migration path: it moves the substance of a publication into exactly
+the machine-readable, claim-level form a post-paper science would
+need, while still emitting the legacy format the present system runs
+on. What would \emph{not} survive the transition is the parts of this
+work shaped like a manuscript; what would survive is the graph. We
+record the objection as open rather than resolved: if the paper form
+dissolves, this method should be judged by whether its graphs remain
+useful without the PDFs they once accompanied.
 
 \textbf{The force multiplier, both ways, and the optimistic reading.}
 One operator ran method, paper, and integration fork in parallel
