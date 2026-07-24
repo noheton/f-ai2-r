@@ -8,6 +8,11 @@
 @prefix verif: <https://noheton.org/f-ai2-r/prov/verification/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+agent:florian-krebs a aiprov:HumanAgent ;
+    foaf:name "Florian Krebs" ;
+    aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
+    aiprov:orcid "https://orcid.org/0000-0001-6033-801X"^^xsd:anyURI .
+
 <https://noheton.org/f-ai2-r/prov/claim/c1> a aiprov:Claim ;
     rdfs:label "provlog.py validate exits non-zero when the graph contains a parentless or unattributed aiprov:Claim (verified by test-run against a scratch copy of this graph)"@en ;
     prov:wasAttributedTo agent:claude-code ;
@@ -55,6 +60,12 @@
     aiprov:filePath "scripts/build_dashboard.py" ;
     aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
 
+<https://noheton.org/f-ai2-r/prov/entity/provenance-ttl> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s02-register-human> ;
+    aiprov:contentHash "sha256:ce9c9de5d625851abe745fba3fbdb665aecebe34577f6a20048c375602ebb361" ;
+    aiprov:filePath "provenance.ttl" .
+
 <https://noheton.org/f-ai2-r/prov/entity/provlog-py> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
@@ -97,10 +108,6 @@ verif:unverified a aiprov:VerificationState ;
 
 aiprov:AIContribution a owl:Class ;
     rdfs:subClassOf aiprov:Contribution .
-
-aiprov:AuditPass a owl:Class ;
-    rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
-    rdfs:subClassOf prov:Activity .
 
 aiprov:Build a owl:Class ;
     rdfs:comment "Deterministic build/compile/CI activity."@en ;
@@ -264,13 +271,21 @@ aiprov:verificationState a owl:ObjectProperty ;
     rdfs:domain aiprov:Claim ;
     rdfs:range aiprov:VerificationState .
 
+<https://noheton.org/f-ai2-r/prov/activity/s02-register-human> a aiprov:AuditPass ;
+    rdfs:label "Register human agent florian-krebs: ORCID supplied by the user in session; name and current affiliation resolved from the ORCID public API (pub.orcid.org record 0000-0001-6033-801X)"@en ;
+    prov:endedAtTime "2026-07-24T18:12:09.190883+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "web_fetch" .
+
+aiprov:AuditPass a owl:Class ;
+    rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
+    rdfs:subClassOf prov:Activity .
+
 aiprov:AuthoringPass a owl:Class ;
     rdfs:comment "AI or human produces/edits an artefact."@en ;
     rdfs:subClassOf prov:Activity .
-
-aiprov:HumanAgent a owl:Class ;
-    rdfs:label "Human agent"@en ;
-    rdfs:subClassOf prov:Person .
 
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;
@@ -281,6 +296,10 @@ aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;
     rdfs:comment "An LLM- or ML-driven agent participating in artefact production."@en ;
     rdfs:subClassOf prov:SoftwareAgent .
+
+aiprov:HumanAgent a owl:Class ;
+    rdfs:label "Human agent"@en ;
+    rdfs:subClassOf prov:Person .
 
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .
@@ -304,11 +323,11 @@ aiprov:Artefact a owl:Class ;
         "read",
         "write" .
 
+aiprov:VerificationState a owl:Class ;
+    rdfs:comment "A rung on the verification ladder. Higher position = stronger check. Rungs at position 5+ are human-only: an AI agent must never grant them."@en .
+
 agent:claude-code a aiprov:AIAgent ;
     foaf:name "Claude Code" ;
     aiprov:model "Claude Fable 5"^^xsd:string ;
     aiprov:provider "Anthropic"^^xsd:string .
-
-aiprov:VerificationState a owl:Class ;
-    rdfs:comment "A rung on the verification ladder. Higher position = stronger check. Rungs at position 5+ are human-only: an AI agent must never grant them."@en .
 
