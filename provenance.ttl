@@ -82,6 +82,12 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/gpt-fabricated2024> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-memas2024> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:memas2024 via openalex -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T20:04:39.251768+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/memas2024> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-model-collapse2024> a aiprov:AuditPass ;
     rdfs:label "DOI verification of src:model-collapse2024 via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T18:30:33.951117+00:00"^^xsd:dateTime ;
@@ -300,8 +306,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/entity/08-conclusion-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s13-shepard-outlook>,
-        <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
+        <https://noheton.org/f-ai2-r/prov/activity/s26-memas-inspiration> ;
     aiprov:contentHash "sha256:071fdddc2b50f1f1d6bfa2a74d09d00c24c4e1a187defc4c958394a6ebc74580",
+        "sha256:0db19e567cfd249addf15d9c5a6009e38d9115ffe00a4cd6542d356f2876ee81",
         "sha256:82b35d71c90020baee86a78314b03b5d7bcd672ef8828d9e3b2724c9bc10bab0" ;
     aiprov:filePath "paper/sections/08-conclusion.tex" .
 
@@ -417,7 +425,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s17-schindler-ack>,
         <https://noheton.org/f-ai2-r/prov/activity/s18-hoyer-klick-ack>,
         <https://noheton.org/f-ai2-r/prov/activity/s19-hmc-rdm-acks>,
-        <https://noheton.org/f-ai2-r/prov/activity/s23-incident-figure> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s23-incident-figure>,
+        <https://noheton.org/f-ai2-r/prov/activity/s26-memas-inspiration> ;
     aiprov:contentHash "sha256:292ee450094d64465800f568cc319a3a5839d697137d2d8497eedb2cbb9587e8",
         "sha256:2bf4f82e8c20375dd1f6a64b9213d60e71822d3592fb9facb54c6ed3ca1fa160",
         "sha256:31a7ad8196528484eb264b1d7cf0b737b49554499f3d14a83e7fd3713fb24a76",
@@ -425,6 +434,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:c1f73aca74f5645d10385d70c662474ab94214785f60aab02abe638eae29d3f9",
         "sha256:c8a88d99a491d9629cc05d30fa8ba2706aed425673c59a17129d1ffd2f2f57de",
         "sha256:e879c1511e6994e719097fd8097e64e4d060708415793727d6c4e195b757e7ba",
+        "sha256:ed3ee8055c452cb909440a828c10d2f14c610e756e5826a78b9c5933279bd351",
         "sha256:f35de4cb23ba5016b8c45043c3c17c87145d5b8a688bd0db543771f1a91ec21e",
         "sha256:f8b405e45bdc0bcf19a99e2f0a89d40609a777701626af26cb742a88d3df2bd9",
         "sha256:fea3e8672bf52320c421694dee3158369fdf00814701713554c9426612ea5fdc",
@@ -487,7 +497,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s12-hmc-context>,
         <https://noheton.org/f-ai2-r/prov/activity/s13-shepard-outlook>,
         <https://noheton.org/f-ai2-r/prov/activity/s14-aas-semantics>,
-        <https://noheton.org/f-ai2-r/prov/activity/s19-hmc-rdm-acks> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s19-hmc-rdm-acks>,
+        <https://noheton.org/f-ai2-r/prov/activity/s26-memas-inspiration> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
         "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
         "sha256:2c9083a5cbae565f108062cd367f9fd5f7f14e725c53f6ef49e8deffb7c4da06",
@@ -496,6 +507,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:6993b9ce7cf85cab64690f5404078dc9bd33a15b1eb399d9dba8c9fde93f4bb2",
         "sha256:7fc34d6763460c8d1a14cdd54d50ab94c2ffc78538872ec6fb3b1fe55cfe94c7",
         "sha256:972f6e5c4ad55b80381b3726d8b3ab766531da962543beb34fc9a0865de37969",
+        "sha256:a45b76e222184cbbe7576f3d9a8549505eb1f69f1b307915a551b53aa56d5e28",
         "sha256:c36a397e5afe052f6d133968b0d1e2d663658aa045e11b9724ba3b055aeb0fc3" ;
     aiprov:filePath "paper/references.bib" ;
     aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
@@ -845,6 +857,14 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.37016/mr-2020-156"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
+<https://noheton.org/f-ai2-r/prov/source/memas2024> a aiprov:Source ;
+    rdfs:label "Project MEMAS: Integrated Data Management for Additive Manufacturing enabling High-Fidelity Modeling"@en ;
+    dcterms:date "2024" ;
+    dcterms:isPartOf "elib (German Aerospace Center)" ;
+    dcterms:source <https://elib.dlr.de/208404/> ;
+    aiprov:doi "https://doi.org/10.5281/zenodo.14067020"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
 <https://noheton.org/f-ai2-r/prov/source/model-collapse2024> a aiprov:Source ;
     rdfs:label "AI models collapse when trained on recursively generated data"@en ;
     dcterms:date "2024" ;
@@ -987,6 +1007,15 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:usedTool "bash",
         "edit" .
 
+<https://noheton.org/f-ai2-r/prov/activity/s26-memas-inspiration> a aiprov:AuthoringPass ;
+    rdfs:label "MEMAS (Unger, Kamble, Vinot, Glueck 2024, HMC Conference, Zenodo DOI verified via OpenAlex) credited as inspiration in the acknowledgement (Mathieu Vinot ORCID-resolved to DLR) and cited in the outlook: shepard proven as data backbone of engineering deployments — where shepard captures WHAT was produced, aiprov adds WHO shaped it and HOW it was verified"@en ;
+    prov:endedAtTime "2026-07-24T20:05:12.344120+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit",
+        "web_fetch" .
+
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
@@ -1116,11 +1145,11 @@ verif:reference-resolved a aiprov:VerificationState ;
         "retrieved"@en ;
     aiprov:ladderPosition 2 .
 
-aiprov:Source a owl:Class ;
-    rdfs:subClassOf prov:Entity .
-
 aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
+    rdfs:subClassOf prov:Entity .
+
+aiprov:Source a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 agent:claude-code a aiprov:AIAgent ;
