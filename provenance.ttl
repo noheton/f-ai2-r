@@ -14,6 +14,66 @@
     prov:endedAtTime "2026-07-24T18:48:20.669490+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:github-actions .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-aas-part1-v30rc02-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of aas-part1-v30rc02: reference-resolved -> ai-confirmed (Content checked against the canonical Plattform Industrie 4.0 publication page: Part 1 'describes the information content of an AAS', specifies a technology-neutral UML model and serializations incl. RDF. Supports the machine-readable-semantics and AAS-submodel citing sentences. Page depth; co-authorship is operator-attested lineage, not a content claim.)"@en ;
+    prov:endedAtTime "2026-07-24T21:32:59.202644+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/aas-part1-v30rc02> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-ai-hallucination2023-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of ai-hallucination2023: reference-resolved -> ai-confirmed (Content checked against the gold-OA full text (assets.cureus.com PDF): 'None of the provided paper titles existed, and all provided PubMed IDs (PMIDs) were of different unrelated papers.' Supports 'LLMs fabricate plausible citations' (Sec. 2) and 'machine judgement with known failure modes' (Sec. 7). Full-text depth.)"@en ;
+    prov:endedAtTime "2026-07-24T21:32:58.093686+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-chatgpt-wrote-it2023-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of chatgpt-wrote-it2023: reference-resolved -> ai-confirmed (Content checked against the open-access ScienceDirect abstract: 43 expert contributions across disciplines on opportunities, challenges and policy implications of generative conversational AI. Supports 'the debate ... is loud and well documented'. Abstract depth.)"@en ;
+    prov:endedAtTime "2026-07-24T21:32:58.744629+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/chatgpt-wrote-it2023> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-eu-ai-act2024-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of eu-ai-act2024: reference-resolved -> ai-confirmed (Article-level check via the AI Act explorer rendering of the canonical text (EUR-Lex ELI recorded on this source): Art. 50 requires outputs 'marked in a machine-readable format and detectable as artificially generated or manipulated' and disclosure of AI interaction; Art. 14 requires high-risk systems be 'effectively overseen by natural persons', incl. override/intervention. Supports the transparency-marking and human-oversight citing sentences.)"@en ;
+    prov:endedAtTime "2026-07-24T21:32:58.520556+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/eu-ai-act2024> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-fabricated-citations2023-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of fabricated-citations2023: reference-resolved -> ai-confirmed (Content checked against the open-access abstract: 55% of GPT-3.5 and 18% of GPT-4 citations fabricated; 43%/24% of real citations carry substantive errors. Supports 'documented rates' (Sec. 3) and the fabricated-references discipline (Sec. 7).)"@en ;
+    prov:endedAtTime "2026-07-24T21:32:57.880339+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/fabricated-citations2023> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-gpt-fabricated2024-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of gpt-fabricated2024: reference-resolved -> ai-confirmed (Content checked against the open-access article page: 'Google Scholar easily locates and lists these questionable papers alongside reputable, quality-controlled research.' Supports 'GPT-fabricated papers are already indexed and ranked by scholarly search engines'.)"@en ;
+    prov:endedAtTime "2026-07-24T21:32:57.249746+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/gpt-fabricated2024> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-model-collapse2024-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of model-collapse2024: reference-resolved -> ai-confirmed (Content checked against the Nature abstract: 'indiscriminate use of model-generated content in training causes irreversible defects in the resulting models ... we refer to this effect as model collapse'. Supports 'models trained on the polluted pool degrade further'. Abstract depth; full text paywalled.)"@en ;
+    prov:endedAtTime "2026-07-24T21:32:57.570669+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/model-collapse2024> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-perverse-incentives2017-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of perverse-incentives2017: reference-resolved -> ai-confirmed (Content checked against the publisher full text: 'Quantitative metrics now dominate decision-making in faculty hiring, promotion and tenure, awards, and funding'; hypercompetition 'selectively weeds out ethical and altruistic actors, while selecting for academics ... responsive to perverse incentives'. Supports both citing sentences. Full-text depth.)"@en ;
+    prov:endedAtTime "2026-07-24T21:32:58.304319+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/perverse-incentives2017> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-provenance-overview2022-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of provenance-overview2022: reference-resolved -> ai-confirmed (Content checked against the open-access slide deck (elib.dlr.de/185438, full deck fetched): includes 'Provenance of Software Artifacts and Development Processes' with a 'general PROV model for software development' and 'provenance for git services'. Supports the DLR-practice and software-development-monitoring citing sentence. Full-slides depth.)"@en ;
+    prov:endedAtTime "2026-07-24T21:32:58.968040+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/provenance-overview2022> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-publishing-strain2024-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of publishing-strain2024: reference-resolved -> ai-confirmed (Content checked against the authors' arXiv preprint (2309.15884; publisher page returned 403 to automated access): 'exponential growth in the number of peer-reviewed journal articles, which has not been matched by the training of new researchers who can vet those articles', editors report difficulty recruiting qualified reviewers. Supports both citing sentences (output growing faster than review capacity; strained review system).)"@en ;
+    prov:endedAtTime "2026-07-24T21:32:57.016494+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/publishing-strain2024> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/s09-incident> a aiprov:AuditPass ;
     rdfs:label "Incident record (honest self-report): while creating paper-template stubs, a persisted working directory caused the agent to overwrite paper/sections/01-introduction.tex and 02-background.tex with generic stubs and create four stray stub files. Detected immediately via file-change notices and git status; both files restored with git checkout from commit 75d21bd; stray files deleted; nothing lost or pushed. Kept in the graph as evidence for the repository-is-the-process discussion (paper section 6.2)"@en ;
     prov:endedAtTime "2026-07-24T18:45:54.248700+00:00"^^xsd:dateTime ;
@@ -650,17 +710,6 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:contentHash "sha256:2396f31f30c335ee351fe5c5ace8a37ded685491f0d02b8388b9b2c458e9d224" ;
     aiprov:filePath ".claude/settings.json" .
 
-<https://noheton.org/f-ai2-r/prov/source/aas-part1-v30rc02> a aiprov:Source ;
-    rdfs:label "Details of the Asset Administration Shell. Part 1 — The exchange of information between partners in the value chain of Industrie 4.0 (Version 3.0RC02)"@en ;
-    dcterms:source <https://www.plattform-i40.de/IP/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html> ;
-    aiprov:selfCitation true ;
-    aiprov:verificationState verif:reference-resolved .
-
-<https://noheton.org/f-ai2-r/prov/source/eu-ai-act2024> a aiprov:Source ;
-    rdfs:label "Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)"@en ;
-    dcterms:source <https://eur-lex.europa.eu/eli/reg/2024/1689/oj> ;
-    aiprov:verificationState verif:reference-resolved .
-
 <https://noheton.org/f-ai2-r/prov/source/fair2r-repo> a aiprov:Source ;
     rdfs:label "F(AI)²R: FAIR research with AI in the loop, twice (research repository)"@en ;
     dcterms:source <https://github.com/noheton/f-ai-r> ;
@@ -686,11 +735,6 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/source/prov-o2013> a aiprov:Source ;
     rdfs:label "PROV-O: The PROV Ontology (W3C Recommendation, 30 April 2013)"@en ;
     dcterms:source <https://www.w3.org/TR/prov-o/> ;
-    aiprov:verificationState verif:reference-resolved .
-
-<https://noheton.org/f-ai2-r/prov/source/provenance-overview2022> a aiprov:Source ;
-    rdfs:label "An overview of Provenance and its use cases (Carina Haupt, RDA Deutschland Tagung 2022)"@en ;
-    dcterms:source <https://elib.dlr.de/185438/> ;
     aiprov:verificationState verif:reference-resolved .
 
 <https://noheton.org/f-ai2-r/prov/source/resistance-welding2024> a aiprov:Source ;
@@ -944,12 +988,11 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.62628/idta.01001-3-1-1"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
-<https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> a aiprov:Source ;
-    rdfs:label "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing"@en ;
-    dcterms:date "2023" ;
-    dcterms:isPartOf "Cureus" ;
-    aiprov:doi "https://doi.org/10.7759/cureus.35179"^^xsd:anyURI ;
-    aiprov:verificationState verif:reference-resolved .
+<https://noheton.org/f-ai2-r/prov/source/aas-part1-v30rc02> a aiprov:Source ;
+    rdfs:label "Details of the Asset Administration Shell. Part 1 — The exchange of information between partners in the value chain of Industrie 4.0 (Version 3.0RC02)"@en ;
+    dcterms:source <https://www.plattform-i40.de/IP/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html> ;
+    aiprov:selfCitation true ;
+    aiprov:verificationState verif:ai-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/aiprovenance-v0-skill> a aiprov:Source ;
     aiprov:filePath "archive/aiprovenance-v0.skill" .
@@ -959,13 +1002,6 @@ agent:github-actions a aiprov:ToolAgent ;
     dcterms:date "2023" ;
     dcterms:isPartOf "Nature" ;
     aiprov:doi "https://doi.org/10.1038/d41586-023-00288-7"^^xsd:anyURI ;
-    aiprov:verificationState verif:reference-resolved .
-
-<https://noheton.org/f-ai2-r/prov/source/chatgpt-wrote-it2023> a aiprov:Source ;
-    rdfs:label "Opinion Paper: “So what if ChatGPT wrote it?” Multidisciplinary perspectives on opportunities, challenges and implications of generative conversational AI for research, practice and policy"@en ;
-    dcterms:date "2023" ;
-    dcterms:isPartOf "International Journal of Information Management" ;
-    aiprov:doi "https://doi.org/10.1016/j.ijinfomgt.2023.102642"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
 <https://noheton.org/f-ai2-r/prov/source/credit-niso2022> a aiprov:Source ;
@@ -987,12 +1023,10 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1145/3458723"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
-<https://noheton.org/f-ai2-r/prov/source/fabricated-citations2023> a aiprov:Source ;
-    rdfs:label "Fabrication and errors in the bibliographic citations generated by ChatGPT"@en ;
-    dcterms:date "2023" ;
-    dcterms:isPartOf "Scientific Reports" ;
-    aiprov:doi "https://doi.org/10.1038/s41598-023-41032-5"^^xsd:anyURI ;
-    aiprov:verificationState verif:reference-resolved .
+<https://noheton.org/f-ai2-r/prov/source/eu-ai-act2024> a aiprov:Source ;
+    rdfs:label "Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)"@en ;
+    dcterms:source <https://eur-lex.europa.eu/eli/reg/2024/1689/oj> ;
+    aiprov:verificationState verif:ai-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/fair2016> a aiprov:Source ;
     rdfs:label "The FAIR Guiding Principles for scientific data management and stewardship"@en ;
@@ -1001,26 +1035,12 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1038/sdata.2016.18"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
-<https://noheton.org/f-ai2-r/prov/source/gpt-fabricated2024> a aiprov:Source ;
-    rdfs:label "GPT-fabricated scientific papers on Google Scholar: Key features, spread, and implications for preempting evidence manipulation"@en ;
-    dcterms:date "2024" ;
-    dcterms:isPartOf "Harvard Kennedy School Misinformation Review" ;
-    aiprov:doi "https://doi.org/10.37016/mr-2020-156"^^xsd:anyURI ;
-    aiprov:verificationState verif:reference-resolved .
-
 <https://noheton.org/f-ai2-r/prov/source/memas2024> a aiprov:Source ;
     rdfs:label "Project MEMAS: Integrated Data Management for Additive Manufacturing enabling High-Fidelity Modeling"@en ;
     dcterms:date "2024" ;
     dcterms:isPartOf "elib (German Aerospace Center)" ;
     dcterms:source <https://elib.dlr.de/208404/> ;
     aiprov:doi "https://doi.org/10.5281/zenodo.14067020"^^xsd:anyURI ;
-    aiprov:verificationState verif:reference-resolved .
-
-<https://noheton.org/f-ai2-r/prov/source/model-collapse2024> a aiprov:Source ;
-    rdfs:label "AI models collapse when trained on recursively generated data"@en ;
-    dcterms:date "2024" ;
-    dcterms:isPartOf "Nature" ;
-    aiprov:doi "https://doi.org/10.1038/s41586-024-07566-y"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
 <https://noheton.org/f-ai2-r/prov/source/modelcards2019> a aiprov:Source ;
@@ -1051,19 +1071,10 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1186/2041-1480-4-37"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
-<https://noheton.org/f-ai2-r/prov/source/perverse-incentives2017> a aiprov:Source ;
-    rdfs:label "Academic Research in the 21st Century: Maintaining Scientific Integrity in a Climate of Perverse Incentives and Hypercompetition"@en ;
-    dcterms:date "2017" ;
-    dcterms:isPartOf "Environmental Engineering Science" ;
-    aiprov:doi "https://doi.org/10.1089/ees.2016.0223"^^xsd:anyURI ;
-    aiprov:verificationState verif:reference-resolved .
-
-<https://noheton.org/f-ai2-r/prov/source/publishing-strain2024> a aiprov:Source ;
-    rdfs:label "The strain on scientific publishing"@en ;
-    dcterms:date "2024" ;
-    dcterms:isPartOf "Quantitative Science Studies" ;
-    aiprov:doi "https://doi.org/10.1162/qss_a_00327"^^xsd:anyURI ;
-    aiprov:verificationState verif:reference-resolved .
+<https://noheton.org/f-ai2-r/prov/source/provenance-overview2022> a aiprov:Source ;
+    rdfs:label "An overview of Provenance and its use cases (Carina Haupt, RDA Deutschland Tagung 2022)"@en ;
+    dcterms:source <https://elib.dlr.de/185438/> ;
+    aiprov:verificationState verif:ai-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/rocrate2022> a aiprov:Source ;
     rdfs:label "Packaging research artefacts with RO-Crate"@en ;
@@ -1169,6 +1180,55 @@ aiprov:Transcript a owl:Class ;
     prov:endedAtTime "2026-07-24T21:00:40.016051+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
+<https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> a aiprov:Source ;
+    rdfs:label "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing"@en ;
+    dcterms:date "2023" ;
+    dcterms:isPartOf "Cureus" ;
+    aiprov:doi "https://doi.org/10.7759/cureus.35179"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/chatgpt-wrote-it2023> a aiprov:Source ;
+    rdfs:label "Opinion Paper: “So what if ChatGPT wrote it?” Multidisciplinary perspectives on opportunities, challenges and implications of generative conversational AI for research, practice and policy"@en ;
+    dcterms:date "2023" ;
+    dcterms:isPartOf "International Journal of Information Management" ;
+    aiprov:doi "https://doi.org/10.1016/j.ijinfomgt.2023.102642"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/fabricated-citations2023> a aiprov:Source ;
+    rdfs:label "Fabrication and errors in the bibliographic citations generated by ChatGPT"@en ;
+    dcterms:date "2023" ;
+    dcterms:isPartOf "Scientific Reports" ;
+    aiprov:doi "https://doi.org/10.1038/s41598-023-41032-5"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/gpt-fabricated2024> a aiprov:Source ;
+    rdfs:label "GPT-fabricated scientific papers on Google Scholar: Key features, spread, and implications for preempting evidence manipulation"@en ;
+    dcterms:date "2024" ;
+    dcterms:isPartOf "Harvard Kennedy School Misinformation Review" ;
+    aiprov:doi "https://doi.org/10.37016/mr-2020-156"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/model-collapse2024> a aiprov:Source ;
+    rdfs:label "AI models collapse when trained on recursively generated data"@en ;
+    dcterms:date "2024" ;
+    dcterms:isPartOf "Nature" ;
+    aiprov:doi "https://doi.org/10.1038/s41586-024-07566-y"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/perverse-incentives2017> a aiprov:Source ;
+    rdfs:label "Academic Research in the 21st Century: Maintaining Scientific Integrity in a Climate of Perverse Incentives and Hypercompetition"@en ;
+    dcterms:date "2017" ;
+    dcterms:isPartOf "Environmental Engineering Science" ;
+    aiprov:doi "https://doi.org/10.1089/ees.2016.0223"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/publishing-strain2024> a aiprov:Source ;
+    rdfs:label "The strain on scientific publishing"@en ;
+    dcterms:date "2024" ;
+    dcterms:isPartOf "Quantitative Science Studies" ;
+    aiprov:doi "https://doi.org/10.1162/qss_a_00327"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
 
 aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;
@@ -1285,8 +1345,7 @@ aiprov:Contribution a owl:Class ;
         "write" .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
@@ -1312,11 +1371,6 @@ aiprov:Contribution a owl:Class ;
     aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
     aiprov:usedTool "bash",
         "edit" .
-
-verif:ai-confirmed a aiprov:VerificationState ;
-    rdfs:label "AI-confirmed"@en ;
-    rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
-    aiprov:ladderPosition 3 .
 
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
     rdfs:label "Bootstrap the f-ai2-r repository: vendor aiprov schema, provlog CLI, dashboard builder, attribute catalogue; write README; seed this provenance graph"@en ;
@@ -1372,9 +1426,10 @@ aiprov:Claim a owl:Class ;
     rdfs:comment "An assertion in any artefact that warrants attribution and verification."@en ;
     rdfs:subClassOf prov:Entity .
 
-aiprov:AuditPass a owl:Class ;
-    rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
-    rdfs:subClassOf prov:Activity .
+verif:ai-confirmed a aiprov:VerificationState ;
+    rdfs:label "AI-confirmed"@en ;
+    rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
+    aiprov:ladderPosition 3 .
 
 verif:reference-resolved a aiprov:VerificationState ;
     rdfs:label "reference resolved"@en ;
@@ -1393,6 +1448,10 @@ aiprov:Artefact a owl:Class ;
 
 aiprov:Source a owl:Class ;
     rdfs:subClassOf prov:Entity .
+
+aiprov:AuditPass a owl:Class ;
+    rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
+    rdfs:subClassOf prov:Activity .
 
 agent:claude-code a aiprov:AIAgent ;
     foaf:name "Claude Code" ;

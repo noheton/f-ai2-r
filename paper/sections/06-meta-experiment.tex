@@ -56,10 +56,11 @@ by the provider, and is recorded in the graph as computed.}
 \toprule
 Metric & Value \\
 \midrule
-Triples & 1145 \\
-Logged activities & 57 \\
+Triples & 1240 \\
+Logged activities & 70 \\
 Claims (all \texttt{ai-confirmed}) & 7 \\
 Sources on the ladder & 33 \\
+\quad thereof content-checked (\texttt{ai-confirmed}) & 10 \\
 \quad thereof marked self-citation & 4 \\
 Registered agents (human / AI / tool) & 1 / 1 / 1 \\
 Commits & 41 \\
@@ -84,7 +85,22 @@ content negotiation, and cited only once ladder-backed. The paper's
 intellectual ancestors are themselves registered sources, each fetched
 or URL-verified first, including a recorded fallback when a publisher
 blocked automated access and the canonical specification page was used
-instead.
+instead. Registration, however, only proves a reference
+\emph{exists}; an audit pass over the graph flagged exactly this as
+the record's weakest point, and a subsequent content pass took the
+argument's load-bearing sources one rung further: for each, the AI
+agent fetched the actual content (full text or slides where openly
+accessible, abstracts otherwise) and checked it against the specific
+sentence citing it, recording the supporting quotation and the
+checked depth in the promotion note. Ten sources now sit at
+\texttt{ai-confirmed}; two outcomes were negative and stayed
+recorded rather than smoothed over: one publisher's bot-wall left a
+source checked at metadata depth only, so it was not promoted, and
+the two self-cited repositories were skipped because the session's
+repository access was scoped to this project, leaving them for the
+operator's human rungs, where they belong anyway. One citation
+mismatch surfaced by the same audit was repaired in the text and
+logged as a \texttt{Repair} pass before any promotion.
 
 \textbf{Incidents as first-class records.} The experiment produced
 four incident types, and none needed special vocabulary; each is an
