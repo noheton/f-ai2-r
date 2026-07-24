@@ -287,8 +287,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
         <https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets>,
-        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s32-data-analysis-example> ;
     aiprov:contentHash "sha256:359f3cdd6b2e1428bade3fa2e4ceabc1ca5f6fdccd83bb508278f0550699521e",
+        "sha256:4ce056ab41dddb7f64d9ea6ae775f94a04a1e8458dca49a61eac33bccfc7bc47",
         "sha256:7cf24beebcbd7d28f24f35b3f4f7e756b1ba5f78eddac5e149ed25663547a8f5",
         "sha256:a1885b28f19c8898eec42ef7dc28da66248a830fe690867b4457f7bd8cb3fb67" ;
     aiprov:filePath "paper/sections/05-skill.tex" .
@@ -561,9 +563,11 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s14-aas-semantics>,
         <https://noheton.org/f-ai2-r/prov/activity/s19-hmc-rdm-acks>,
         <https://noheton.org/f-ai2-r/prov/activity/s26-memas-inspiration>,
-        <https://noheton.org/f-ai2-r/prov/activity/s29-ethics-incentives> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s29-ethics-incentives>,
+        <https://noheton.org/f-ai2-r/prov/activity/s32-data-analysis-example> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
         "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
+        "sha256:23324f3765caa803c29fb8eee66146db6773a4e0b6f002c800bba9788e068e14",
         "sha256:2c9083a5cbae565f108062cd367f9fd5f7f14e725c53f6ef49e8deffb7c4da06",
         "sha256:4374a3098b37b2edf2b377f2b857bd6f2e53a52d76e21a377470671637a15577",
         "sha256:5d082ed5e49f97ceb00af346ff9835f06feb91c207d5f11c664046e6707f124e",
@@ -623,6 +627,11 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/source/provenance-overview2022> a aiprov:Source ;
     rdfs:label "An overview of Provenance and its use cases (Carina Haupt, RDA Deutschland Tagung 2022)"@en ;
     dcterms:source <https://elib.dlr.de/185438/> ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/resistance-welding2024> a aiprov:Source ;
+    rdfs:label "On the capabilities of static resistance welding of carbon fiber-reinforced thermoplastic composites (Endraß et al., ITHEC 2024)"@en ;
+    dcterms:source <https://elib.dlr.de/209478/> ;
     aiprov:verificationState verif:reference-resolved .
 
 <https://noheton.org/f-ai2-r/prov/source/shepard> a aiprov:Source ;
@@ -1056,6 +1065,15 @@ aiprov:Transcript a owl:Class ;
     aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
     aiprov:usedTool "bash",
         "edit" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s32-data-analysis-example> a aiprov:AuthoringPass ;
+    rdfs:label "Worked example added to the skill section: the workflow applied to experimental data analysis, grounded in Endrass et al. ITHEC 2024 (static resistance welding of CFRP thermoplastics, elib URL verified): raw measurement files as vendored content-hashed Sources, analysis runs as Build activities with CI-regenerable figures, AI interpretation as AuthoringPass, findings as claims climbing the ladder from ai-confirmed to human rungs"@en ;
+    prov:endedAtTime "2026-07-24T20:44:09.927445+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit",
+        "web_fetch" .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
     dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
