@@ -345,6 +345,9 @@ def cmd_report(a) -> None:
     print(f"triples:            {len(g)}")
     print(f"activities:         {len(set(g.subjects(PROV.endedAtTime, None)))}")
     print(f"claims:             {len(set(g.subjects(RDF.type, AIPROV.Claim)))}")
+    n_src = len(set(g.subjects(RDF.type, AIPROV.Source)))
+    n_self = len(set(g.subjects(AIPROV.selfCitation, Literal(True, datatype=XSD.boolean))))
+    print(f"sources:            {n_src} ({n_self} marked self-citation)")
     print(f"input tokens:       {total(AIPROV.inputTokens)}")
     print(f"output tokens:      {total(AIPROV.outputTokens)}")
     print(f"cache read tokens:  {total(AIPROV.cacheReadTokens)}")
@@ -623,6 +626,8 @@ def cmd_source(a) -> None:
               datatype=XSD.anyURI)))
     if a.url:
         g.add((s, DCT.source, URIRef(a.url)))
+    if a.self_citation:
+        g.add((s, AIPROV.selfCitation, Literal(True, datatype=XSD.boolean)))
     if meta:
         if meta.get("year"):
             g.add((s, DCT.date, Literal(str(meta["year"]))))
@@ -867,6 +872,9 @@ def main() -> None:
     s.add_argument("--verify", action="store_true",
                    help="resolve the DOI via Crossref/OpenAlex and promote to retrieved")
     s.add_argument("--agent", help="agent performing the verification")
+    s.add_argument("--self", dest="self_citation", action="store_true",
+                   help="mark as self-citation (authored by a contributor of this work); "
+                        "keeps the self-citation ratio machine-visible")
 
     s = sub.add_parser("promote")
     s.add_argument("--id", required=True, help="source or claim id")

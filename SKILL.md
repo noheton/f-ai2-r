@@ -82,7 +82,11 @@ F(AI)²R carry over unchanged:
    node — vendoring has no evidential value of its own; it is the access
    gate, and `promote` refuses the human-only rungs without it, printing
    the review material (vendored path or obtain-via link) with every
-   request.
+   request. Mark sources authored by a contributor of the present work
+   with `--self` — provenance-driven self-citation is legitimate but must
+   stay machine-visible (`report` prints the ratio). Rung semantics:
+   `human-read` subsumes `human-confirmed` (full read AND confirmation);
+   reading without confirming is not a rung.
 7. **Generate the AI-transparency disclosure** whenever an artefact is
    published or shared: `provlog.py disclosure [--format tex|md] [-o file]`
    derives a statement from the graph itself — which AI systems assisted,

@@ -25,6 +25,12 @@
 %     and prints the review material with every request; a human
 %     confirmation against link-only material is flagged by the
 %     validator, since the audit target remains mutable.
+%     Prose note on rung 6: naming alone would mislead — "read" does
+%     not entail "checked". The definition therefore subsumes: rung 6
+%     asserts everything rung 5 does, PLUS full-text familiarity; the
+%     two differ in the depth of context behind the confirmation, not
+%     in whether confirmation happened. This subsumption was itself a
+%     mid-experiment refinement prompted by the operator (see §6).
 %     Bullet: the ladder itself has provenance — it canonicalizes
 %     verification labels field-tested in Obscurity-Is-Dead
 %     \cite{obscurity-is-dead} ([repo-vendored], [lit-read],
@@ -86,8 +92,11 @@ Pos & Rung & What it asserts & Who may grant \\
     any agent (hash-checkable) \\
 5 & \texttt{human-confirmed} & A \emph{human} spot-checked that the
     source supports the claim. & human only \\
-6 & \texttt{human-read} & A \emph{human} has read the source in full.
-    Top of the ladder. & human only \\
+6 & \texttt{human-read} & A \emph{human} has read the source in full
+    \emph{and}, with that full context, confirms the claim is
+    supported --- subsumes rung 5's confirmation with deeper
+    familiarity. Reading without confirming is not a rung. Top of the
+    ladder. & human only \\
 \bottomrule
 \end{tabular}
 \end{table*}

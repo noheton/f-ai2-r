@@ -1,5 +1,19 @@
 # Changelog — ai-provenance skill
 
+## v0.7 (2026-07-24)
+
+- **human-read subsumes confirmation.** Operator-contested semantics:
+  "read in full" alone does not entail "checked the claim", which would
+  break the ladder's monotonicity of assurance. Rung 6 is now defined
+  as full read AND confirmation of support — everything rung 5 asserts,
+  with deeper context behind it; reading without confirming is not a
+  rung. Schema comment, attribute catalogue, and paper table updated.
+- **Self-citation made machine-visible.** `source --self` marks sources
+  authored by a contributor of the present work
+  (`aiprov:selfCitation`); `report` prints the ratio. Provenance-driven
+  self-citation (declaring intellectual ancestry) is legitimate — the
+  answer to the frowned-upon practice is transparency, not omission.
+
 ## v0.6 (2026-07-24)
 
 - **source-vendored reframed as access gate.** Vendoring has no

@@ -131,6 +131,9 @@ aiprov:gitCommit        a owl:DatatypeProperty ; rdfs:range xsd:string ;
     rdfs:comment "Commit hash binding the entity to repository state."@en .
 aiprov:filePath         a owl:DatatypeProperty ; rdfs:range xsd:string .
 aiprov:doi              a owl:DatatypeProperty ; rdfs:range xsd:anyURI .
+aiprov:selfCitation     a owl:DatatypeProperty ; rdfs:domain aiprov:Source ;
+    rdfs:range xsd:boolean ;
+    rdfs:comment "Marks a source authored (wholly or partly) by a contributor of the present work. Provenance-driven self-citation — declaring intellectual ancestry — is legitimate and MUST be visible: this flag makes the self-citation ratio machine-queryable instead of hidden."@en .
 
 #--- Verification ladder -------------------------------------------------
 # Design: rung names answer "WHO checked WHAT". Each rung carries a
@@ -170,7 +173,7 @@ verif:human-confirmed a aiprov:VerificationState ; aiprov:ladderPosition 5 ;
 verif:human-read      a aiprov:VerificationState ; aiprov:ladderPosition 6 ;
     rdfs:label "human-read"@en ;
     skos:altLabel "lit-read"@en ;
-    rdfs:comment "A HUMAN has read the source in full. Top of the ladder; consolidates the former lit-read rung. Human-only: an AI agent must never grant this rung."@en .
+    rdfs:comment "A HUMAN has read the source in full AND, with that full context, confirms the associated claim is supported. Subsumes the confirmation of human-confirmed with deeper familiarity; reading without confirming is not a rung and must not be recorded as one. Top of the ladder; consolidates the former lit-read rung. Human-only: an AI agent must never grant this rung."@en .
 
 aiprov:contradicts    a owl:ObjectProperty ;
     rdfs:domain aiprov:Claim ; rdfs:range aiprov:Claim .

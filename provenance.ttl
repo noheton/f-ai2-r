@@ -224,9 +224,11 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
         <https://noheton.org/f-ai2-r/prov/activity/s16-ladder-table>,
         <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate>,
-        <https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets>,
+        <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite> ;
     aiprov:contentHash "sha256:250f070dfac7344b065ca518cef78f206f58af1f475d5facf4506f380825c6d8",
         "sha256:381690b4013c932f1e940a0a103b5712eae31f4840493d82a192aa1efe90a25c",
+        "sha256:5b125bf494a432ea1584a11ffcc2dd2ccf1237ebafdc395f72a4c2f7acfb39ee",
         "sha256:9af1e4add4be73ec7330ed67741ce0a1139f026a0087245bc1e518e6e4d4915a",
         "sha256:b0ddea32cc22ecca0b443c5763f51fc07e820748a3c48e2773a36fee2bea9f14" ;
     aiprov:filePath "paper/sections/04-method.tex" .
@@ -285,10 +287,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s14-aas-semantics>,
         <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
         <https://noheton.org/f-ai2-r/prov/activity/s20-optimistic-reading>,
-        <https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets>,
+        <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite> ;
     aiprov:contentHash "sha256:29dd7cb85f192a7581ce3d7de057df6506789848e5460030dc19e9a791b8c67d",
         "sha256:57f5afcede656867022086e3befc3bcdb93da291e2da209e6acb9e5ae22714b8",
         "sha256:95df2962d33775a71cb8dd4f8c5ae0f4aca6cf19702d37d1197faf7b5481baf9",
+        "sha256:9f3a6f335fb0901d201700b7505fa5f837e048d7b06be9f499f0f9965af2432f",
         "sha256:bf6cf0ab48d380c311988c7ad6ed06ae16615bab326d7dfa4cbfcb74522ae56b",
         "sha256:e9ed6006dbdaf5586dfcab386f5c35f4a7665263ceafeb8fae055e89cc2b66a1" ;
     aiprov:filePath "paper/sections/07-discussion.tex" .
@@ -307,8 +311,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
         <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding>,
         <https://noheton.org/f-ai2-r/prov/activity/s10-show-paper>,
-        <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate>,
+        <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite> ;
     aiprov:contentHash "sha256:0f6b3e6665b218d527bbcd404b6c45f127596888482cdf7c20f95d48a971f28b",
+        "sha256:4c07f3bc89b11e02d73459a8ff27db5c6113bec464b9de67aca5bb9aea8bcf45",
         "sha256:a36e7fbec05e566ca79c60b150a896a9cf5047989b24d40fb962f21c0e654463",
         "sha256:c5375067d0182ed473f612999edb0c3420878ca6cc4da458d9c29413671c1b8f",
         "sha256:d4d2beedd48dfed8d7ac9b367bfbe70af4b6a27b19551f947a37e11bdc336bcf",
@@ -329,12 +335,14 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
         <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding>,
         <https://noheton.org/f-ai2-r/prov/activity/s10-show-paper>,
-        <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate>,
+        <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite> ;
     aiprov:contentHash "sha256:333e6cfb08385a0003b31e9acdb22e9f83f0bca42fc3b8799e30099d75f7d881",
         "sha256:69443814ed35aede2eb15f12893eb55eb94369d8a5e75ec52f2c07ac3b5c4431",
         "sha256:8963ec5023e470b5984b3ec07d503820e874be50c10bc407214fefbff79c198c",
         "sha256:a9557f62a62b10f5d07acc0d11bc80a05232572e74ab8e979a0d0a12cc3d1faa",
-        "sha256:ec884110a56562478ce0f62f83014988a87799ffb4b743e9cf3ce4dcbec16f84" ;
+        "sha256:ec884110a56562478ce0f62f83014988a87799ffb4b743e9cf3ce4dcbec16f84",
+        "sha256:f175a00c042d16bb7074bdc5a11ff7ea64ab56e16091a05c2408ca5ddcce525b" ;
     aiprov:filePath "SKILL.md" ;
     aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b" .
 
@@ -353,18 +361,22 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/entity/aiprov-schema-ttl> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap>,
-        <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate>,
+        <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite> ;
     aiprov:contentHash "sha256:4eb359db3671e05cf0e8fbb0fcc09ba1ce84371e6eedf565cd854c8fe76670cc",
-        "sha256:63f18d82a0cb424e04dda08c9d0c292c4f672f9f6239c0d9def9a5a45bda55b5" ;
+        "sha256:63f18d82a0cb424e04dda08c9d0c292c4f672f9f6239c0d9def9a5a45bda55b5",
+        "sha256:a7e57012ea603cb3e3304e97025d6857bf2254f0c549738851c62ce6215197cb" ;
     aiprov:filePath "assets/aiprov-schema.ttl" ;
     aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
 
 <https://noheton.org/f-ai2-r/prov/entity/attributes-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap>,
-        <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate>,
+        <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite> ;
     aiprov:contentHash "sha256:32ba6c237ba2531635680a7e8881f481605b57aacf39715b6b5cdc0d086db0b1",
-        "sha256:59c6bd33a089196f929e1cf62c355dde60fe64753e94dd92bbaa70c0667d80bc" ;
+        "sha256:59c6bd33a089196f929e1cf62c355dde60fe64753e94dd92bbaa70c0667d80bc",
+        "sha256:95a4e1e616f851c9cda13ebacbed940a424ea11594beaf44ee6f15ef993058bf" ;
     aiprov:filePath "references/attributes.md" ;
     aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
 
@@ -453,10 +465,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02>,
         <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
         <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding>,
-        <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate>,
+        <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite> ;
     aiprov:contentHash "sha256:050b861b00097199740a6912116bc116b6f5d443a2b311a31a25b1866cb50e93",
         "sha256:6444b9130086817bc87c05c2a8bb3e8e017f53e5832af9e698aedd559eebbe4e",
         "sha256:85bf422e7a66e7e1f9e823b672bb65d9813bb893fa782309c1059a458acfb6d0",
+        "sha256:9fb00e85ac68c52c7a85916982a0cda62e990683d76e1fa4bdecceb233200b5a",
         "sha256:ad4c4e608429248b151d9fa97c045a798981abd550766fe3a8555749e3fc02dc",
         "sha256:c4c0c5dddfe77b5f639d71a0b522964929438baa4cd7c40f381e79ec83fa12a0" ;
     aiprov:filePath "scripts/provlog.py" ;
@@ -489,6 +503,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/source/aas-part1-v30rc02> a aiprov:Source ;
     rdfs:label "Details of the Asset Administration Shell. Part 1 — The exchange of information between partners in the value chain of Industrie 4.0 (Version 3.0RC02)"@en ;
     dcterms:source <https://www.plattform-i40.de/IP/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html> ;
+    aiprov:selfCitation true ;
     aiprov:verificationState verif:reference-resolved .
 
 <https://noheton.org/f-ai2-r/prov/source/eu-ai-act2024> a aiprov:Source ;
@@ -499,6 +514,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/source/fair2r-repo> a aiprov:Source ;
     rdfs:label "F(AI)²R: FAIR research with AI in the loop, twice (research repository)"@en ;
     dcterms:source <https://github.com/noheton/f-ai-r> ;
+    aiprov:selfCitation true ;
     aiprov:verificationState verif:reference-resolved .
 
 <https://noheton.org/f-ai2-r/prov/source/hmc> a aiprov:Source ;
@@ -514,6 +530,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/source/obscurity-is-dead> a aiprov:Source ;
     rdfs:label "Obscurity Is Dead — Proprietary by Design, Open by AI (research repository)"@en ;
     dcterms:source <https://github.com/noheton/Obscurity-Is-Dead> ;
+    aiprov:selfCitation true ;
     aiprov:verificationState verif:reference-resolved .
 
 <https://noheton.org/f-ai2-r/prov/source/prov-o2013> a aiprov:Source ;
@@ -534,6 +551,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/source/shepard-fork> a aiprov:Source ;
     rdfs:label "Experimental fork of shepard (development/research workspace, /v2 experimental endpoints)"@en ;
     dcterms:source <https://github.com/noheton/shepard> ;
+    aiprov:selfCitation true ;
     aiprov:verificationState verif:reference-resolved .
 
 <https://noheton.org/f-ai2-r/prov/source/uncertainty-prov2026> a aiprov:Source ;
@@ -1021,6 +1039,14 @@ aiprov:Contribution a owl:Class ;
 <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.6: source-vendored reframed from verification rung to access gate (design input from the human operator): vendoring alone proves nothing beyond reference-resolved; its role is enabling human verification. promote --to source-vendored now requires --file and records path+sha256; promotion of sources to human-only rungs is refused without a vendored copy or clear DOI/URL and prints the review material; validator warns on link-only human-verified sources and accepts vendored copies as the access requirement. All paths verified by test-run in scratch repo; schema, attributes catalogue, SKILL.md, and paper ladder table/figure/prose updated"@en ;
     prov:endedAtTime "2026-07-24T19:39:43.246355+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite> a aiprov:AuthoringPass ;
+    rdfs:label "Skill v0.7, two operator-raised refinements: (1) human-read redefined to subsume confirmation — full read AND confirms support; reading without confirming is not a rung (fixes assurance monotonicity); (2) self-citation made machine-visible: aiprov:selfCitation property, source --self flag, report prints ratio; the four self-authored lineage sources marked (4 of 29). Schema, attributes catalogue, SKILL.md, paper table/method note, and discussion 6.8c updated; --self verified by test-run"@en ;
+    prov:endedAtTime "2026-07-24T20:03:45.701495+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
     aiprov:usedTool "bash",

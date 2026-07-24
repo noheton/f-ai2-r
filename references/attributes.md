@@ -63,6 +63,7 @@ model ID so accounting stays comparable.
 | aiprov:gitCommit | string | commit binding entity to repo state |
 | aiprov:filePath | string | repo-relative path |
 | aiprov:doi | anyURI | sources |
+| aiprov:selfCitation | boolean | sources authored by a contributor of the present work; keeps the self-citation ratio machine-queryable (`report` prints it) |
 | prov:wasGeneratedBy | → activity | mandatory for claims |
 | prov:wasAttributedTo | → agent | mandatory for claims |
 | aiprov:verificationState | → rung | mandatory for claims |
@@ -82,7 +83,7 @@ and write, so fair2r graphs consolidate onto this ladder automatically.
 | 3 | ai-confirmed | An AI checked the source CONTENT supports the claim. Highest rung an AI may grant. | ai-checked |
 | 4 | source-vendored | A copy of the source is preserved in the repo, immune to link rot. No evidential value alone — it is the access gate for human rungs: `promote` refuses 5–6 unless the source is vendored or carries a clear DOI/URL, and prints the review material | — |
 | 5 | human-confirmed | A HUMAN spot-checked that the source supports the claim. Human-only. | — |
-| 6 | human-read | A HUMAN read the source in full. Top of the ladder. Human-only. | lit-read |
+| 6 | human-read | A HUMAN read the source in full AND, with that context, confirms the claim is supported — subsumes rung 5's confirmation with deeper familiarity. Reading without confirming is not a rung. Top of the ladder. Human-only. | lit-read |
 
 The offence the validator hunts is who GRANTED a rung, not who authored the
 claim: an AI-authored claim may legitimately sit at human-read if a human
