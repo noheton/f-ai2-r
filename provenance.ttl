@@ -366,9 +366,11 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s11-lineage>,
         <https://noheton.org/f-ai2-r/prov/activity/s12-hmc-context>,
         <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
-        <https://noheton.org/f-ai2-r/prov/activity/s17-schindler-ack> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s17-schindler-ack>,
+        <https://noheton.org/f-ai2-r/prov/activity/s18-hoyer-klick-ack> ;
     aiprov:contentHash "sha256:292ee450094d64465800f568cc319a3a5839d697137d2d8497eedb2cbb9587e8",
         "sha256:2bf4f82e8c20375dd1f6a64b9213d60e71822d3592fb9facb54c6ed3ca1fa160",
+        "sha256:31a7ad8196528484eb264b1d7cf0b737b49554499f3d14a83e7fd3713fb24a76",
         "sha256:7ee7c6fa5c92b16acdaf2cda35b1c4bdf20ae0bf591dd05c7f05a8c8b2e097f7",
         "sha256:c1f73aca74f5645d10385d70c662474ab94214785f60aab02abe638eae29d3f9",
         "sha256:c8a88d99a491d9629cc05d30fa8ba2706aed425673c59a17129d1ffd2f2f57de",
@@ -683,6 +685,15 @@ aiprov:verificationState a owl:ObjectProperty ;
 <https://noheton.org/f-ai2-r/prov/activity/s17-schindler-ack> a aiprov:AuthoringPass ;
     rdfs:label "Acknowledgement extended: deep discussions with Sirko Schindler on ontologies (name and DLR affiliation resolved from ORCID public registry 0000-0002-0964-4457, not guessed)"@en ;
     prov:endedAtTime "2026-07-24T19:08:21.603937+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit",
+        "web_fetch" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s18-hoyer-klick-ack> a aiprov:AuthoringPass ;
+    rdfs:label "Acknowledgement: Carsten Hoyer-Klick added to the ontologies-discussions clause alongside Sirko Schindler (name and DLR affiliation resolved from ORCID public registry 0000-0002-7273-9176)"@en ;
+    prov:endedAtTime "2026-07-24T19:08:48.073297+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
     aiprov:usedTool "bash",
