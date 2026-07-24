@@ -12,9 +12,10 @@ AI agents now draft manuscripts, refactor code, sweep literature, and
 verify results. The debate about whether they should is loud and
 well documented~\cite{chatgpt-wrote-it2023, chatgpt-priorities2023};
 the record-keeping has not kept pace. A git commit stores \emph{what}
-changed, not which agent (human or model) changed it, at what cost,
-under which instructions, or from which sources. The work is real, but
-it evaporates at commit boundaries. Existing responses are either
+changed and a free-text author name; it does not record whether that
+author was a human or a model, at what cost the change was made, under
+which instructions, or from which sources. The work is real, but its
+context evaporates at commit boundaries. Existing responses are either
 policy (disclosure statements, authorship bans) or documentation
 artefacts written after the fact, such as model
 cards~\cite{modelcards2019}; neither is machine-checkable at the
@@ -32,8 +33,9 @@ humans. The incentive system makes this urgent rather than optional:
 publish-or-perish pays for counted output, and hypercompetition
 selects for whatever maximizes the
 count~\cite{perverse-incentives2017}. Generative AI collapses the
-marginal cost of exactly the thing the metric
-counts~\cite{publishing-strain2024}. An incentive system that pays for
+marginal cost of exactly the thing the metric counts, onto a review
+system already strained by output
+growth~\cite{publishing-strain2024}. An incentive system that pays for
 volume has met a technology that produces volume for free;
 Section~\ref{sec:dilution} describes the predictable result. Appeals
 to ethics alone do not bend that curve. Infrastructure that makes
