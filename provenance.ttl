@@ -223,8 +223,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
         <https://noheton.org/f-ai2-r/prov/activity/s16-ladder-table>,
-        <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate> ;
-    aiprov:contentHash "sha256:381690b4013c932f1e940a0a103b5712eae31f4840493d82a192aa1efe90a25c",
+        <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate>,
+        <https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets> ;
+    aiprov:contentHash "sha256:250f070dfac7344b065ca518cef78f206f58af1f475d5facf4506f380825c6d8",
+        "sha256:381690b4013c932f1e940a0a103b5712eae31f4840493d82a192aa1efe90a25c",
         "sha256:9af1e4add4be73ec7330ed67741ce0a1139f026a0087245bc1e518e6e4d4915a",
         "sha256:b0ddea32cc22ecca0b443c5763f51fc07e820748a3c48e2773a36fee2bea9f14" ;
     aiprov:filePath "paper/sections/04-method.tex" .
@@ -245,8 +247,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
 
 <https://noheton.org/f-ai2-r/prov/entity/05-skill-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title> ;
-    aiprov:contentHash "sha256:7cf24beebcbd7d28f24f35b3f4f7e756b1ba5f78eddac5e149ed25663547a8f5" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
+        <https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets> ;
+    aiprov:contentHash "sha256:359f3cdd6b2e1428bade3fa2e4ceabc1ca5f6fdccd83bb508278f0550699521e",
+        "sha256:7cf24beebcbd7d28f24f35b3f4f7e756b1ba5f78eddac5e149ed25663547a8f5" ;
     aiprov:filePath "paper/sections/05-skill.tex" .
 
 <https://noheton.org/f-ai2-r/prov/entity/06-discussion-tex> a aiprov:Artefact ;
@@ -280,9 +284,11 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s10-show-paper>,
         <https://noheton.org/f-ai2-r/prov/activity/s14-aas-semantics>,
         <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
-        <https://noheton.org/f-ai2-r/prov/activity/s20-optimistic-reading> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s20-optimistic-reading>,
+        <https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets> ;
     aiprov:contentHash "sha256:29dd7cb85f192a7581ce3d7de057df6506789848e5460030dc19e9a791b8c67d",
         "sha256:57f5afcede656867022086e3befc3bcdb93da291e2da209e6acb9e5ae22714b8",
+        "sha256:95df2962d33775a71cb8dd4f8c5ae0f4aca6cf19702d37d1197faf7b5481baf9",
         "sha256:bf6cf0ab48d380c311988c7ad6ed06ae16615bab326d7dfa4cbfcb74522ae56b",
         "sha256:e9ed6006dbdaf5586dfcab386f5c35f4a7665263ceafeb8fae055e89cc2b66a1" ;
     aiprov:filePath "paper/sections/07-discussion.tex" .
@@ -954,6 +960,14 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:usedTool "bash",
         "edit",
         "web_fetch" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets> a aiprov:AuthoringPass ;
+    rdfs:label "Session discussion points distilled into placed bullets: two-commit binding pattern (method 3.6), live preview as human-oversight affordance and structure-before-prose discipline (skill 4.7/4.8), telemetry-gap-as-finding under omit-don't-estimate (discussion 6.4), and emerged practices — registry-fetched citations, registry-resolved identities, verified-before-cited bibliography-as-graph-view (discussion 6.8b)"@en ;
+    prov:endedAtTime "2026-07-24T19:59:36.507150+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit" .
 
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .

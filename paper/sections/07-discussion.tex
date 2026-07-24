@@ -20,7 +20,12 @@
 %     the ladder makes the judgement's author explicit instead of
 %     laundering it.
 % 6.4 Cost of the method — logging overhead per session; what the
-%     meta-experiment measured (Table~\ref{tab:telemetry}).
+%     meta-experiment measured (Table~\ref{tab:telemetry}). Telemetry
+%     honesty in practice: this experiment's own report lacks token and
+%     cost figures because the agent harness did not expose them — the
+%     omit-don't-estimate rule leaves a visible gap where other reports
+%     might show invented precision. The gap is itself a finding:
+%     provider-side usage reporting is the missing infrastructure.
 % 6.5 Skill drift — the method evolves mid-experiment (v0 -> v0.4 here);
 %     immutable archives + changelog + per-activity commit binding keep
 %     runs attributable to the exact method version.
@@ -45,6 +50,22 @@
 %     carries its record is distinguishable from fast noise. "Fast
 %     paper, slow ideas" is the honest reading of this project — and
 %     only the graph makes that reading checkable.
+% 6.8b Practices that emerged (novel enough to name, small enough to
+%     adopt tomorrow):
+%     - Registry-fetched citation metadata: every BibTeX entry comes
+%       from doi.org content negotiation, never typed from memory — a
+%       concrete anti-hallucination discipline for reference lists
+%       \cite{ai-hallucination2023, fabricated-citations2023}. The one
+%       failure was infrastructural (a registry served malformed
+%       BibTeX) and was caught by CI, not by a reader.
+%     - Registry-resolved identities: the operator, acknowledged
+%       colleagues, and co-authors enter the record via ORCID lookups;
+%       never-fabricate extends from telemetry to social metadata —
+%       names, affiliations, and credit are looked up, not guessed.
+%     - Verified-before-cited: a reference cannot appear in the
+%       bibliography without a ladder-backed source node; the
+%       bibliography is a view of the graph, not a hand-maintained
+%       list.
 % 6.9 The optimistic reading — what the multiplication buys is not
 %     mainly volume: AI absorbing the tedium (registry lookups, hash
 %     binding, conformance checks, build plumbing) can free human

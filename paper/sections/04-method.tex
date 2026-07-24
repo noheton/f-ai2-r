@@ -34,6 +34,14 @@
 %     this ladder without rewriting history.
 % 3.5 Auditability operations — report (token/cost accounting), extract
 %     (backward closure), dashboard (offline ledger).
+% 3.6 Commit binding in practice (two-commit pattern) — an activity can
+%     only bind a commit that already exists, and a commit cannot
+%     contain the graph entry describing itself. The working discipline
+%     that emerged: commit the artefacts, log the activity with that
+%     commit's hash (artefacts get content hashes at log time), then
+%     commit the graph update separately. The graph never claims a
+%     hash it could not have known; the cost is one extra commit per
+%     logged round.
 
 \begin{figure}[t]
 \centering
