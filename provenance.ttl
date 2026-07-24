@@ -215,8 +215,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
 
 <https://noheton.org/f-ai2-r/prov/entity/04-method-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title> ;
-    aiprov:contentHash "sha256:381690b4013c932f1e940a0a103b5712eae31f4840493d82a192aa1efe90a25c" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
+        <https://noheton.org/f-ai2-r/prov/activity/s16-ladder-table> ;
+    aiprov:contentHash "sha256:381690b4013c932f1e940a0a103b5712eae31f4840493d82a192aa1efe90a25c",
+        "sha256:9af1e4add4be73ec7330ed67741ce0a1139f026a0087245bc1e518e6e4d4915a" ;
     aiprov:filePath "paper/sections/04-method.tex" .
 
 <https://noheton.org/f-ai2-r/prov/entity/04-skill-tex> a aiprov:Artefact ;
@@ -667,6 +669,14 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
     aiprov:usedTool "bash",
         "web_fetch" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s16-ladder-table> a aiprov:AuthoringPass ;
+    rdfs:label "Method section gains Table 1: full verification-ladder semantics (position, rung, what it asserts, who may grant), with prose note explaining why source-vendored sits above ai-confirmed: vendoring changes the evidence's durability class — the audit target becomes immutable content-hashed local bytes instead of a mutable remote"@en ;
+    prov:endedAtTime "2026-07-24T19:06:41.042826+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit" .
 
 agent:github-actions a aiprov:ToolAgent ;
     foaf:name "GitHub Actions (aiprov build workflow)" ;

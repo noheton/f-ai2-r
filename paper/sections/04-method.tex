@@ -11,10 +11,15 @@
 % 3.3 Invariant I: no parentless claim — every Claim needs
 %     wasGeneratedBy + wasAttributedTo + verificationState; validator is
 %     a hard CI gate.
-% 3.4 Invariant II: the verification ladder (Figure~\ref{fig:ladder}) —
-%     rungs answer WHO checked WHAT; promotions strictly climb and are
-%     logged as AuditPass activities; rungs 5–6 are human-only, and an
-%     AI-granted promotion to them is a validator hard failure.
+% 3.4 Invariant II: the verification ladder (Figure~\ref{fig:ladder},
+%     Table~\ref{tab:ladder}) — rungs answer WHO checked WHAT;
+%     promotions strictly climb and are logged as AuditPass activities;
+%     rungs 5–6 are human-only, and an AI-granted promotion to them is
+%     a validator hard failure. Prose note on rung 4: vendoring sits
+%     ABOVE ai-confirmed because it changes the evidence's durability
+%     class — the audit target becomes immutable local bytes rather
+%     than a mutable remote; content support may have been machine-
+%     judged, but what was judged can no longer drift.
 %     Bullet: the ladder itself has provenance — it canonicalizes
 %     verification labels field-tested in Obscurity-Is-Dead
 %     \cite{obscurity-is-dead} ([repo-vendored], [lit-read],
@@ -35,6 +40,41 @@ F2 placeholder: aiprov core vocabulary over PROV-O}}
 \caption{Core aiprov classes and properties as an extension of PROV-O.}
 \label{fig:vocab}
 \end{figure}
+
+\begin{table*}[t]
+\caption{The verification ladder. Positions are machine-readable
+(\texttt{aiprov:ladderPosition}); promotions must strictly increase
+them and are themselves logged as audit activities, so every rung a
+claim or source holds has a recorded grantor.}
+\label{tab:ladder}
+\centering
+\small
+\begin{tabular}{clp{8.2cm}l}
+\toprule
+Pos & Rung & What it asserts & Who may grant \\
+\midrule
+0 & \texttt{unverified} & Recorded; nothing checked yet by anyone.
+    Default state at creation. & --- (default) \\
+1 & \texttt{needs-research} & A check was attempted or demanded and did
+    \emph{not} succeed (e.g.\ a DOI failed to resolve). Must not be
+    cited or relied upon until re-verified. & any agent \\
+2 & \texttt{reference-resolved} & The reference \emph{exists}: its
+    DOI/URL resolved in a bibliographic registry and metadata was
+    captured. Says nothing about content. & any agent (tool-checkable) \\
+3 & \texttt{ai-confirmed} & An AI checked that the source
+    \emph{content} supports the associated claim. A machine judgement
+    --- the highest rung an AI may grant. & AI or human \\
+4 & \texttt{source-vendored} & A copy of the source is preserved inside
+    the repository, immune to link rot and silent revision; the
+    vendored bytes (content-hashed) are what any later audit reads. &
+    any agent (hash-checkable) \\
+5 & \texttt{human-confirmed} & A \emph{human} spot-checked that the
+    source supports the claim. & human only \\
+6 & \texttt{human-read} & A \emph{human} has read the source in full.
+    Top of the ladder. & human only \\
+\bottomrule
+\end{tabular}
+\end{table*}
 
 \begin{figure}[t]
 \centering
