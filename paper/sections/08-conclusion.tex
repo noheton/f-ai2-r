@@ -1,28 +1,28 @@
 \section{Conclusion}\label{sec:conclusion}
-% Principal structure:
-%
-% P1  Recap: F(AI)2R generalized to aiprov; method made executable as a
-%     skill; demonstrated on its own production.
-% P2  The stance carried over: the repository IS the paper and IS the
-%     process — plus: the method that produced both is itself versioned,
-%     validated, and shipped in the repository.
-% P2b Closing echo of the three roots: from AI-assisted research
-%     practice (transcript-as-artifact), engineering provenance
-%     (traceability under uncertainty), and industrial semantics
-%     (AAS: formal semantics where exchange matters) — aiprov is where
-%     they converge; where semantics are important, provenance is the
-%     semantics of work.
-% P3  Outlook — from method to infrastructure: the designated
-%     integration path is shepard \cite{shepard}, a jointly developed
-%     DLR system for heterogeneous product and research data, already
-%     proven as the data backbone of engineering deployments such as
-%     the MEMAS additive-manufacturing pipeline \cite{memas2024}; an
-%     experimental fork \cite{shepard-fork} serves as the staging
-%     ground for systematically integrating aiprov into that technical
-%     solution (planned work — the fork is a development workspace with
-%     experimental v2 endpoints). Where shepard instances already
-%     capture WHAT was produced and measured, aiprov adds WHO (human or
-%     AI) shaped it and HOW it was verified. Further: multi-agent attribution,
-%     energy accounting, registry integration (ORCID/DOI/RAiD),
-%     vendoring sources at rung 4 by default, and a combined profile
-%     with uncertainty-aware provenance \cite{uncertainty-prov2026}.
+
+We generalized the F(AI)\textsuperscript{2}R method into aiprov, a
+domain-agnostic PROV-O extension for AI-in-the-loop work; we packaged
+the method as an executable skill an AI agent operates itself; and we
+applied it to its own production, mishaps, mid-experiment redesigns,
+and all. The stance of the original experiment carries over and
+extends: the repository is the paper, is the process, and now also is
+the method, versioned, validated, and shipped alongside what it
+produced.
+
+Three roots converge here: AI-assisted research practice, which
+contributed transcript-as-artifact; engineering provenance, which
+insists on traceability; and industrial semantic modeling, which
+taught that where exchange matters, semantics must be formal. Where
+semantics are important, provenance is the semantics of work.
+
+The path forward is infrastructure. shepard~\cite{shepard}, a jointly
+developed DLR system for heterogeneous product and research data,
+already serves as the data backbone of engineering deployments such as
+the MEMAS additive-manufacturing pipeline~\cite{memas2024}; an
+experimental fork~\cite{shepard-fork} is the staging ground for
+integrating aiprov into it as planned work. Where shepard instances
+capture what was produced and measured, aiprov adds who, human or AI,
+shaped it and how it was verified. Further work includes multi-agent
+attribution, energy accounting, registry integration beyond ORCID and
+DOI, vendoring sources at the access gate by default, and a combined
+profile with uncertainty-aware provenance~\cite{uncertainty-prov2026}.

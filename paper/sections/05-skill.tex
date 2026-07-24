@@ -1,54 +1,74 @@
 \section{The Executable Skill}\label{sec:skill}
-% Principal structure:
-%
-% 4.1 From method description to executable procedure — a skill is a
-%     versioned instruction+tool bundle the agent loads and OPERATES;
-%     the method's rules become the agent's operating rules (log your own
-%     activities; claims at most ai-confirmed; never fabricate telemetry).
-% 4.2 ORCID-first setup — the only question asked of the human is their
-%     ORCID iD; identity (name, affiliation) is resolved from the public
-%     registry, not guessed; base IRI derives from the git remote; all
-%     later commands auto-detect it. Figure~\ref{fig:workflow}.
-% 4.3 CI/CD as the deterministic Build agent — every push: validate the
-%     graph (invariants enforced server-side), render the dashboard,
-%     compile the paper to PDF; the current paper version is always
-%     available as a build artifact.
-% 4.4 Versioning the method itself — the skill tree is the repository;
-%     released snapshots are immutable (archive/), changes logged
-%     (CHANGELOG), so the meta-experiment can cite the exact skill
-%     version in force during each activity.
-% 4.5 The skill as the transferable unit — the same skill that wrote
-%     this paper is the integration payload for infrastructure
-%     (shepard fork \cite{shepard-fork}, §8): packaging the method as
-%     an operable bundle, not a PDF of guidelines, is what lets one
-%     operator run several provenance-tracked strands in parallel —
-%     the force-multiplier effect of §1 with its accounting built in.
-% 4.6 Regulatory fit by construction — because the skill generates the
-%     EU AI Act transparency statement from the graph (§ Ack.,
-%     \cite{eu-ai-act2024}), disclosure is a build product, not an
-%     authoring chore; adopters inherit it via init --paper.
-% 4.7 Live preview as oversight affordance — the skill's "show paper"
-%     step republishes the current typeset build to a stable URL after
-%     every editing round (Figure~\ref{fig:environment}, right panel).
-%     Effective human oversight of a fast-moving AI collaborator
-%     requires a continuously current view of the deliverable, not a
-%     repository dig; the EU AI Act's human-oversight expectation
-%     becomes a user-interface property of the workflow.
-% 4.8 Structure before prose — the authoring discipline observed here:
-%     the agent first lays down each section's principal structure
-%     (argument flow, evidence, figure and citation plan) as reviewable
-%     skeleton, and prose is a separate later pass. The operator can
-%     contest structure cheaply (as happened with the ladder semantics)
-%     before any prose exists to defend; both passes are logged, so
-%     the audit trail shows WHICH structural decisions preceded which
-%     text.
+
+A method that lives in a PDF of guidelines depends on humans
+remembering to follow it. We package aiprov instead as a
+\emph{skill}: a versioned bundle of instructions and tools that an AI
+agent loads and operates. The method's rules become the agent's
+operating rules: log your own activities, record claims at
+\texttt{ai-confirmed} at most, never fabricate telemetry, and never
+grant a human-only rung.
+
+\textbf{ORCID-first setup.} Setup asks the human operator exactly one
+question: their ORCID iD. A single command then seeds the graph,
+resolves the operator's name and current affiliation from the public
+registry (never guessed; if resolution fails, only the bare iD is
+recorded), derives the instance IRI base from the git remote,
+scaffolds continuous integration, and lays down a compilable
+chapter-per-file paper skeleton whose author block is already filled
+from the resolved identity. Later commands auto-detect the base from
+the graph, so configuration never needs repeating
+(Figure~\ref{fig:workflow}).
+
+\textbf{CI as the deterministic build agent.} Every push validates the
+graph server-side, renders the dashboard, regenerates the
+AI-transparency disclosure, and compiles the paper to PDF, uploading
+dashboard and PDF as build artifacts. The current version of the paper
+is always available, and a conformance violation blocks the build. The
+CI service itself is registered as a \texttt{ToolAgent}, and its green
+runs are logged \texttt{Build} activities carrying artifact digests.
+
+\textbf{Live preview as oversight affordance.} On request, the agent
+republishes the current typeset build, together with the per-section
+planning skeletons, to a stable preview URL after every editing round
+(Figure~\ref{fig:environment}, right panel). Effective human oversight
+of a fast-moving AI collaborator requires a continuously current view
+of the deliverable, not a repository dig; the EU AI Act's
+human-oversight expectation~\cite{eu-ai-act2024} becomes a
+user-interface property of the workflow.
+
+\textbf{Structure before prose.} The agent first lays down each
+section's principal structure, its argument flow, evidence, and figure
+and citation plan, as a reviewable skeleton; prose is a separate later
+pass. The operator can contest structure cheaply before any prose
+exists to defend it, and both passes are logged, so the audit trail
+shows which structural decisions preceded which text. Two rungs of the
+ladder were redesigned exactly this way during this experiment.
+
+\textbf{Regulatory fit by construction.} The skill derives the EU AI
+Act transparency statement from the graph itself
+(Section~\ref{sec:meta}); disclosure is a build product, not an
+authoring chore, and adopters inherit the mechanism with the
+scaffolded paper skeleton.
+
+\textbf{Versioning the method.} The skill tree is the repository.
+Released snapshots are immutable, changes are logged in a changelog,
+and every activity binds the commit under which it ran, so the
+meta-experiment can cite the exact method version in force at any
+point. The same property makes the skill the transferable unit: the
+bundle that wrote this paper is the integration payload for the
+shepard fork of Section~\ref{sec:conclusion}. Conversations are part
+of the record too: a transcript exporter renders the agent session to
+a committed Markdown file after every turn, and activities link to it,
+so the dialogue that shaped an artefact is as retrievable as the
+artefact.
 
 \begin{figure}[t]
 \centering
 % TODO(F3): TikZ workflow loop: ORCID question -> init (seed graph,
-% register human, scaffold CI) -> register AI agent -> work loop
-% (log / claim / source --verify) -> validate -> push -> CI (validate,
-% dashboard, PDF artifact) -> audit/promote (human rungs).
+% register human, scaffold CI + paper) -> register AI agent -> work
+% loop (log / claim / source --verify / disclosure) -> validate ->
+% push -> CI (validate, dashboard, PDF artifact) -> audit/promote
+% (human rungs) -> live preview republish.
 \fbox{\parbox[c][4.2cm][c]{0.9\linewidth}{\centering\itshape
 F3 placeholder: skill workflow from ORCID question to CI artifact}}
 \caption{The skill's operating loop from first setup question to

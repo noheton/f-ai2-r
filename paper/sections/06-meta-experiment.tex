@@ -1,13 +1,15 @@
 \section{Meta-Experiment: This Paper as Case Study}\label{sec:meta}
-% Principal structure:
-%
-% 5.1 Setup — repository bootstrapped by the AI agent under the skill;
-%     every commit paired with graph activities; agents: one human
-%     (registry-resolved), one AI, CI as tool agent. The working
-%     environment is Figure~\ref{fig:environment}: the operator's
-%     conversation with the AI agent on the left, the continuously
-%     rebuilt draft of this paper on the right — the loop of
-%     §\ref{sec:skill}, in operation.
+
+\textbf{Setup.} The repository was bootstrapped by an AI agent
+operating the skill, in one working session directed by the human
+operator. Three agents are registered: one human (identity resolved
+from ORCID), one AI system, and the CI service as a tool agent. Every
+round of work follows the two-commit pattern of
+Section~\ref{sec:method}, so each logged activity binds a real commit.
+Figure~\ref{fig:environment} shows the working environment: the
+operator's conversation with the agent on the left, the continuously
+rebuilt draft of this paper on the right, the loop of
+Section~\ref{sec:skill} in operation.
 
 \begin{figure*}[t]
 \centering
@@ -21,45 +23,74 @@ editing round, with commit, build time, and live provenance-graph
 statistics in the header.}
 \label{fig:environment}
 \end{figure*}
-% 5.2 The graph as evaluation object — counts of activities, claims,
-%     sources by rung; Table~\ref{tab:telemetry}; Figure~\ref{fig:graph}
-%     (extract of what contributed to this paper).
-% 5.3 Worked examples — (a) invariant enforcement caught by test-run
-%     before claims entered at ai-confirmed; (b) a source found via the
-%     open-API sweep, DOI-verified, cited, then human-promoted; (c) the
-%     ORCID-resolved agent registration logged as an audit activity;
-%     (d) lineage as data: the paper's intellectual ancestors
-%     (Obscurity-Is-Dead, F(AI)2R, uncertainty-aware provenance, AAS,
-%     HMC, shepard) are registered graph sources, each fetched or
-%     URL-verified before registration — including a recorded fallback
-%     when a publisher blocked automated access (ResearchGate 403 ->
-%     canonical Plattform Industrie 4.0 page); (e) a malformed
-%     registry-supplied BibTeX entry broke the CI build, was diagnosed
-%     from CI logs, fixed, and the first green run is itself a logged
-%     Build activity by the CI ToolAgent with artifact digests.
-% 5.3b Incidents as first-class records (Figure~\ref{fig:incident}) —
-%     the experiment produced four incident types, and none needed a
-%     special vocabulary; each is an ordinary activity whose class
-%     carries its nature:
-%     (i)   agent mishap — the section-overwrite (act s09-incident):
-%           an AuditPass self-report naming what happened, the tools
-%           involved, and the restoring commit; recovery was git,
-%           the record is the graph;
-%     (ii)  infrastructure failure — registry-supplied malformed
-%           BibTeX broke CI; diagnosis and fix live in commits, and
-%           the first green run is a Build activity by the CI
-%           ToolAgent carrying artifact digests;
-%     (iii) blocked access — a publisher 403 forced a fallback to the
-%           canonical URL, recorded in the registering activity's
-%           label rather than silently swallowed;
-%     (iv)  method contestation — the operator challenged the
-%           source-vendored rung's semantics; the redesign
-%           (act s22-vendored-gate) generated new tool/schema
-%           versions, and its enforcement claim (c7) sits at
-%           ai-confirmed after test-run. The method that recorded
-%           the incident is itself the thing the incident changed.
-%     Pattern: erasing an incident would require rewriting git
-%     history AND the graph — visible acts; honesty is the cheap path.
+
+\textbf{The graph as evaluation object.} Table~\ref{tab:telemetry}
+reports the state of the graph at the time of writing. Notably absent
+are token counts and cost: the agent harness did not expose them, and
+under omit-don't-estimate the gap stays visible
+(Section~\ref{sec:discussion}). All seven recorded claims sit at
+\texttt{ai-confirmed}, the ceiling an AI may grant; promotion beyond
+that waits for the human operator, and the tooling will hand over the
+evidence when asked.
+
+\begin{table}[t]
+\caption{Provenance-graph state of this paper's production at the time
+of writing (from \texttt{provlog.py report} and the repository;
+regenerated before submission). Token and cost telemetry was not
+reported by the agent harness and is therefore omitted, not estimated.}
+\label{tab:telemetry}
+\centering
+\begin{tabular}{lr}
+\toprule
+Metric & Value \\
+\midrule
+Triples & 1038 \\
+Logged activities & 49 \\
+Claims (all \texttt{ai-confirmed}) & 7 \\
+Sources on the ladder & 31 \\
+\quad thereof marked self-citation & 4 \\
+Registered agents (human / AI / tool) & 1 / 1 / 1 \\
+Commits & 34 \\
+Transcript & 1 session, $>$740 turns \\
+Tokens / cost & not reported \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Worked examples.} Invariant enforcement was verified by
+test-run before any claim entered the graph: an injected parentless
+claim failed validation, and a promotion of a claim to
+\texttt{human-confirmed} attempted by the AI agent was refused. The
+bibliography was built through the method: sources found by registry
+sweeps, DOI-verified at registration, fetched as BibTeX from doi.org
+content negotiation, and cited only once ladder-backed. The paper's
+intellectual ancestors are themselves registered sources, each fetched
+or URL-verified first, including a recorded fallback when a publisher
+blocked automated access and the canonical specification page was used
+instead.
+
+\textbf{Incidents as first-class records.} The experiment produced
+four incident types, and none needed special vocabulary; each is an
+ordinary activity whose class carries its nature
+(Figure~\ref{fig:incident}). (i)~An agent mishap: while creating
+template stubs, a stale working directory led the agent to overwrite
+two committed manuscript sections. Version control surfaced the
+unintended diff immediately, restoration was a one-command revert, and
+the self-report is an \texttt{AuditPass} naming what happened, the
+tools involved, and the restoring commit. (ii)~An infrastructure
+failure: a registry served malformed BibTeX, which broke the CI build;
+the diagnosis and fix live in commits, and the first green run is a
+logged \texttt{Build} activity by the CI tool agent carrying artifact
+digests. (iii)~Blocked access: a publisher returned 403 to automated
+requests, and the fallback to the canonical page is recorded in the
+registering activity's label rather than silently swallowed. (iv)~Method
+contestation: the operator challenged the semantics of two ladder
+rungs; the redesigns are ordinary authoring activities whose generated
+artefacts are the new tool and schema versions, with the enforcement
+claim verified by test-run. The pattern generalizes: erasing an
+incident would require rewriting git history \emph{and} the graph, both
+visible acts, so honesty is the cheap path. The same property that
+makes contributions attributable makes errors reversible.
 
 \begin{figure*}[t]
 \centering
@@ -115,44 +146,16 @@ the ordinary vocabulary.}
 \label{fig:incident}
 \end{figure*}
 
-% 5.4 Division of labour as data — classify this experiment's recorded
-%     activities by what triggered them: human contributions were
-%     direction, lineage, people, and judgement calls; AI activities
-%     were verification mechanics (registry resolution, hashing,
-%     validation, builds). The graph makes the "AI absorbs tedium,
-%     humans connect ideas and people" hypothesis (§6.9) empirically
-%     inspectable rather than anecdotal — for this one experiment.
-% 5.5 What the auditor can and cannot verify — hashes, commits, DOIs,
-%     rung grants are checkable; honesty of self-reported telemetry is
-%     not (bridge to §6).
+\textbf{Division of labour as data.} Classifying this experiment's
+activities by what triggered them separates two roles cleanly. The
+human turns in the session log are direction, lineage, people, and
+judgement calls, including both ladder redesigns; the AI activities
+are verification mechanics: registry resolution, hashing, validation,
+builds. The hypothesis that AI absorbs tedium while humans connect
+ideas and people (Section~\ref{sec:discussion}) is thereby empirically
+inspectable rather than anecdotal, for this one experiment.
 
-\begin{table}[t]
-\caption{Telemetry report of this paper's production (generated by
-\texttt{provlog.py report} at submission; values from the provenance
-graph, absent telemetry omitted).}
-\label{tab:telemetry}
-\centering
-% TODO(build pass): generate via provlog.py report near submission.
-\begin{tabular}{lr}
-\toprule
-Metric & Value \\
-\midrule
-Activities / claims / sources & --- \\
-Tokens (input / output / cache) & --- \\
-Cost & --- \\
-Rung distribution & --- \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{figure}[t]
-\centering
-% TODO(F4, build pass): provlog.py extract --seed-types Artefact Claim
-% -> dashboard SVG export of the subgraph that contributed to main.pdf.
-\fbox{\parbox[c][4.2cm][c]{0.9\linewidth}{\centering\itshape
-F4 placeholder: provenance subgraph of this paper (generated)}}
-\caption{Backward provenance closure of this paper: the activities,
-agents, sources, and prompts that contributed to the PDF you are
-reading.}
-\label{fig:graph}
-\end{figure}
+\textbf{What the auditor can and cannot verify.} Hashes, commits,
+resolving DOIs, rung grants, and the validator's verdicts are
+checkable by anyone with the repository. The honesty of self-reported
+telemetry is not; that limit is where the discussion begins.

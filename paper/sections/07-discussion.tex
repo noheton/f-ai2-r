@@ -1,91 +1,88 @@
 \section{Discussion and Limitations}\label{sec:discussion}
-% Principal structure:
-%
-% 6.1 Self-report honesty — the graph is only as truthful as its writer;
-%     mitigations: omit-don't-estimate, content hashes + commits bind
-%     records to bytes, CI validation is server-side, human rungs cap
-%     what an AI may assert about itself.
-% 6.2 Worked incident: repository-is-the-process in practice — during
-%     this meta-experiment, a working-directory mixup led the AI agent
-%     to overwrite two committed manuscript sections with template
-%     stubs (graph activity s09-incident). Version control surfaced
-%     the unintended diff immediately; restoration was a one-command
-%     revert to the committed state, and the incident is recorded in
-%     the graph rather than erased. The lesson generalizes: with the
-%     repository as the process substrate, AI mistakes are recoverable
-%     and auditable events, not silent corruption — the same property
-%     that makes contributions attributable makes errors reversible.
-% 6.3 Why human-only rungs stay human — ai-confirmed is a machine
-%     judgement with known failure modes \cite{ai-hallucination2023};
-%     the ladder makes the judgement's author explicit instead of
-%     laundering it.
-% 6.4 Cost of the method — logging overhead per session; what the
-%     meta-experiment measured (Table~\ref{tab:telemetry}). Telemetry
-%     honesty in practice: this experiment's own report lacks token and
-%     cost figures because the agent harness did not expose them — the
-%     omit-don't-estimate rule leaves a visible gap where other reports
-%     might show invented precision. The gap is itself a finding:
-%     provider-side usage reporting is the missing infrastructure.
-% 6.5 Skill drift — the method evolves mid-experiment (v0 -> v0.4 here);
-%     immutable archives + changelog + per-activity commit binding keep
-%     runs attributable to the exact method version.
-% 6.6 Regulatory alignment — the EU AI Act's transparency rules
-%     \cite{eu-ai-act2024} ask for disclosure and machine-readable
-%     marking of AI-generated content; a provenance graph is exactly
-%     that marking, and the generated disclosure statement (§ Ack.)
-%     never lags the graph because CI derives it on every build.
-%     Provenance-first authoring turns a compliance duty into a
-%     by-product.
-% 6.7 Generality — beyond papers: code, data pipelines, CAD models,
-%     AAS submodels \cite{aas-part1-v30rc02}; what transfers
-%     (invariants, ladder) and what is domain work (entity
-%     subclasses). The AAS case is the bridge to §8's shepard outlook:
-%     digital-twin ecosystems already assume machine-readable
-%     semantics, so AI-work provenance slots in as one more submodel
-%     concern.
-% 6.8 The force multiplier cuts both ways — one operator ran method,
-%     paper, and integration fork in parallel during this experiment;
-%     the same multiplication, unaccounted, is §3's dilution engine.
-%     The differentiator is not speed but auditability: fast work that
-%     carries its record is distinguishable from fast noise. "Fast
-%     paper, slow ideas" is the honest reading of this project — and
-%     only the graph makes that reading checkable.
-% 6.8b Practices that emerged (novel enough to name, small enough to
-%     adopt tomorrow):
-%     - Registry-fetched citation metadata: every BibTeX entry comes
-%       from doi.org content negotiation, never typed from memory — a
-%       concrete anti-hallucination discipline for reference lists
-%       \cite{ai-hallucination2023, fabricated-citations2023}. The one
-%       failure was infrastructural (a registry served malformed
-%       BibTeX) and was caught by CI, not by a reader.
-%     - Registry-resolved identities: the operator, acknowledged
-%       colleagues, and co-authors enter the record via ORCID lookups;
-%       never-fabricate extends from telemetry to social metadata —
-%       names, affiliations, and credit are looked up, not guessed.
-%     - Verified-before-cited: a reference cannot appear in the
-%       bibliography without a ladder-backed source node; the
-%       bibliography is a view of the graph, not a hand-maintained
-%       list.
-% 6.8c TRANSPARENT SELF-CITATION (name the practice) — not inflating
-%     metrics, but declaring important influences: no-parentless-claim
-%     FORCES citing one's own priors, because the lineage (§2.6) IS
-%     the author's own repositories and specifications. Frowned upon
-%     as metric gaming, unavoidable as provenance. Resolution:
-%     transparency instead of omission — sources carry
-%     aiprov:selfCitation, the report prints the ratio (here: 4 of 30
-%     sources), and reviewers judge necessity per source rather than
-%     suspecting the whole list. The test that distinguishes influence
-%     from inflation: a transparent self-citation is load-bearing
-%     (removing it would orphan a lineage or method claim) and points
-%     at repositories and specifications rather than metric-bearing
-%     venues — it declares descent, it does not farm citations.
-% 6.9 The optimistic reading — what the multiplication buys is not
-%     mainly volume: AI absorbing the tedium (registry lookups, hash
-%     binding, conformance checks, build plumbing) can free human
-%     attention for the two things machines do not supply — connecting
-%     ideas and connecting people. This paper's own record shows that
-%     division of labour: the human turns in the session log are
-%     lineage, judgement, and acknowledgement; the AI activities are
-%     verification mechanics. No guarantee, only a chance — but a
-%     provenance graph is how one would check, later, whether the
-%     chance was taken.
+
+\textbf{Self-report honesty.} The graph is only as truthful as its
+writer. Mitigations are structural rather than rhetorical: content
+hashes and commit bindings tie records to bytes, validation runs
+server-side in CI, the omit-don't-estimate rule removes the temptation
+of invented precision, and the human-only rungs cap what an AI may
+assert about its own work. The overwrite incident of
+Section~\ref{sec:meta} shows the mitigation working: with the
+repository as the process substrate, an AI mistake was a recoverable,
+recorded event rather than silent corruption.
+
+\textbf{Why human-only rungs stay human.} \texttt{ai-confirmed} is a
+machine judgement with known failure
+modes~\cite{ai-hallucination2023}. The ladder does not pretend
+otherwise; it makes the judgement's author explicit instead of
+laundering machine confidence into apparent human endorsement.
+
+\textbf{Cost, and a visible gap.} The method's overhead in this
+experiment was one logging command and one extra commit per working
+round, plus the audit activities the tooling writes itself. What we
+cannot report is token cost: the agent harness did not expose usage,
+so Table~\ref{tab:telemetry} carries no such figures. The gap is
+itself a finding. Provider-side usage reporting is the missing
+infrastructure for honest cost accounting in AI-assisted work.
+
+\textbf{Skill drift.} The method evolved mid-experiment, v0 to v0.8,
+including two operator-contested ladder redesigns. Immutable archived
+snapshots, a changelog, and per-activity commit binding keep every
+run attributable to the exact method version in force, so evolution
+does not blur attribution.
+
+\textbf{Practices that emerged.} Three are small enough to adopt
+tomorrow. Registry-fetched citation metadata: every BibTeX entry comes
+from doi.org content negotiation, never typed from memory, a concrete
+discipline against fabricated
+references~\cite{fabricated-citations2023}; the one failure was
+infrastructural, a registry serving malformed BibTeX, and CI caught
+it, not a reader. Registry-resolved identities: the operator,
+acknowledged colleagues, and co-authors enter the record via ORCID
+lookups, extending never-fabricate from telemetry to social metadata.
+Verified-before-cited: no reference appears in the bibliography
+without a ladder-backed source node, making the bibliography a view of
+the graph rather than a hand-maintained list.
+
+\textbf{Transparent self-citation.} No-parentless-claim forces citing
+one's own priors; the lineage of Section~\ref{sec:background} is the
+author's own repositories and specifications. Self-citation is
+frowned upon as metric gaming, yet unavoidable as provenance. The
+resolution is transparency instead of omission: sources carry
+\texttt{aiprov:selfCitation}, the report prints the ratio (here 4 of
+31), and a reviewer can judge necessity per source. The test that
+separates influence from inflation: a transparent self-citation is
+load-bearing, removing it would orphan a lineage or method claim, and
+it points at repositories and specifications rather than
+metric-bearing venues. It declares descent; it does not farm
+citations.
+
+\textbf{Regulatory alignment.} The EU AI Act's transparency rules ask
+for disclosure and machine-readable marking of AI-generated
+content~\cite{eu-ai-act2024}. A provenance graph is exactly that
+marking, and because CI derives the disclosure statement from the
+graph on every build, the published statement cannot lag the record.
+Provenance-first authoring turns a compliance duty into a by-product.
+
+\textbf{Generality.} Beyond papers, the same invariants and ladder
+apply to code, data pipelines, CAD models, and AAS
+submodels~\cite{aas-part1-v30rc02}; what remains domain work is the
+choice of entity subclasses. The AAS case bridges to the outlook:
+digital-twin ecosystems already assume machine-readable semantics, so
+AI-work provenance slots in as one more submodel concern rather than a
+foreign add-on.
+
+\textbf{The force multiplier, both ways, and the optimistic reading.}
+One operator ran method, paper, and integration fork in parallel
+during this experiment; unaccounted, the same multiplication is the
+dilution engine of Section~\ref{sec:dilution}. The differentiator is
+not speed but auditability: fast work that carries its record is
+distinguishable from fast noise. Fast paper, slow ideas is the honest
+reading of this project, and only the graph makes that reading
+checkable. There is also a hopeful version of the same observation.
+What the multiplication buys is not mainly volume: AI absorbing the
+tedium, registry lookups, hash binding, conformance checks, build
+plumbing, can free human attention for the two things machines do not
+supply, connecting ideas and connecting people. This experiment's own
+activity log shows that division of labour. No guarantee, only a
+chance; a provenance graph is how one would check, later, whether the
+chance was taken.

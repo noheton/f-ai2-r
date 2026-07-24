@@ -1,53 +1,69 @@
 \section{The aiprov Method}\label{sec:method}
-% Principal structure:
-%
-% 3.1 Model — agents (HumanAgent / AIAgent / ToolAgent), passes
-%     (AuthoringPass / AuditPass / Build / Repair), entities (Artefact,
-%     Claim, Source, Prompt-as-Plan, Transcript). Figure~\ref{fig:vocab}.
-% 3.2 Telemetry — session/request ids, token classes (input/output/cache/
-%     reasoning), sampling params, cost, energy, tool calls; the
-%     omit-don't-estimate rule: absent telemetry is recorded as absent,
-%     never invented.
-% 3.3 Invariant I: no parentless claim — every Claim needs
-%     wasGeneratedBy + wasAttributedTo + verificationState; validator is
-%     a hard CI gate.
-% 3.4 Invariant II: the verification ladder (Figure~\ref{fig:ladder},
-%     Table~\ref{tab:ladder}) — rungs answer WHO checked WHAT;
-%     promotions strictly climb and are logged as AuditPass activities;
-%     rungs 5–6 are human-only, and an AI-granted promotion to them is
-%     a validator hard failure. Prose note on rung 4: vendoring is not
-%     a verification statement at all — an unread vendored copy proves
-%     nothing beyond reference-resolved. Its role is instrumental: it
-%     is the PREREQUISITE that makes human verification feasible and
-%     durable. Operationally, the agent must hand the human the
-%     evidence — promote refuses human-only rungs unless the source is
-%     vendored (path + hash recorded) or carries a clear access link,
-%     and prints the review material with every request; a human
-%     confirmation against link-only material is flagged by the
-%     validator, since the audit target remains mutable.
-%     Prose note on rung 6: naming alone would mislead — "read" does
-%     not entail "checked". The definition therefore subsumes: rung 6
-%     asserts everything rung 5 does, PLUS full-text familiarity; the
-%     two differ in the depth of context behind the confirmation, not
-%     in whether confirmation happened. This subsumption was itself a
-%     mid-experiment refinement prompted by the operator (see §6).
-%     Bullet: the ladder itself has provenance — it canonicalizes
-%     verification labels field-tested in Obscurity-Is-Dead
-%     \cite{obscurity-is-dead} ([repo-vendored], [lit-read],
-%     [unverified-external]) and hardened in F(AI)2R
-%     \cite{fair2r-repo}; legacy names remain machine-readable
-%     aliases (skos:altLabel), so ancestor graphs consolidate onto
-%     this ladder without rewriting history.
-% 3.5 Auditability operations — report (token/cost accounting), extract
-%     (backward closure), dashboard (offline ledger).
-% 3.6 Commit binding in practice (two-commit pattern) — an activity can
-%     only bind a commit that already exists, and a commit cannot
-%     contain the graph entry describing itself. The working discipline
-%     that emerged: commit the artefacts, log the activity with that
-%     commit's hash (artefacts get content hashes at log time), then
-%     commit the graph update separately. The graph never claims a
-%     hash it could not have known; the cost is one extra commit per
-%     logged round.
+
+\textbf{Model.} aiprov extends PROV-O with three agent classes
+(\texttt{HumanAgent}, \texttt{AIAgent}, \texttt{ToolAgent}), four
+activity classes (\texttt{AuthoringPass}, \texttt{AuditPass},
+\texttt{Build}, \texttt{Repair}), and entity classes for artefacts,
+claims, sources, transcripts, and prompts, where prompts are treated
+as source code and bound to activities as plans
+(Figure~\ref{fig:vocab}). Humans carry ORCID and affiliation; AI
+agents carry model, version, provider, endpoint, context window, and
+knowledge cutoff; tool agents cover deterministic actors such as CI
+jobs.
+
+\textbf{Telemetry.} Activities carry session and request identifiers,
+token counts by class (input, output, cache, reasoning), sampling
+parameters, cost, energy, and the tools invoked. One rule governs all
+of it: omit, don't estimate. Absent telemetry is recorded as absent;
+invented precision is worse than a visible gap. Generated artefacts
+receive sha256 content hashes at logging time, and prompt files
+receive prompt hashes.
+
+\textbf{Invariant I: no parentless claim.} Every \texttt{aiprov:Claim}
+needs a generating activity, an attributed agent, and a verification
+state. The conformance validator treats violations as hard failures
+and is suitable as a pre-commit hook or CI gate.
+
+\textbf{Invariant II: the verification ladder.} Rungs answer who
+checked what (Figure~\ref{fig:ladder}, Table~\ref{tab:ladder}).
+Promotions must strictly climb and are themselves logged as audit
+activities, so every rung a claim or source holds has a recorded
+grantor. Rungs 5--6 are human-only; an AI-granted promotion to them is
+a validator hard failure. Two rungs deserve comment. Vendoring
+(rung~4) is not a verification statement: an unread vendored copy
+proves nothing beyond \texttt{reference-resolved}. Its role is
+instrumental, the access gate that makes human verification feasible
+and durable. Operationally, the agent must hand the human the
+evidence: \texttt{promote} refuses the human-only rungs unless the
+source is vendored (path and hash recorded) or carries a clear access
+link, and prints the review material with every request; a human
+confirmation against link-only material is flagged, since the audit
+target remains mutable. At the top, \texttt{human-read} subsumes
+\texttt{human-confirmed}: it asserts full-text familiarity \emph{and}
+confirmation, because a name alone would mislead, as reading does not
+entail checking. Both refinements were operator-contested
+mid-experiment (Section~\ref{sec:meta}). The ladder itself has
+provenance: it canonicalizes labels field-tested in
+\emph{Obscurity-Is-Dead}~\cite{obscurity-is-dead} and hardened in
+F(AI)\textsuperscript{2}R~\cite{fair2r-repo}, and legacy names remain
+machine-readable aliases, so ancestor graphs consolidate onto this
+ladder without rewriting history.
+
+\textbf{Commit binding.} An activity can only bind a commit that
+already exists, and a commit cannot contain the graph entry describing
+itself. The working discipline that follows: commit the artefacts, log
+the activity with that commit's hash, then commit the graph update
+separately. The graph never claims a hash it could not have known; the
+cost is one extra commit per logged round.
+
+\textbf{Auditability operations.} \texttt{report} aggregates tokens,
+cost, and rung distributions; \texttt{extract} computes the backward
+closure of everything that contributed to chosen entities;
+\texttt{dashboard} renders the graph as a self-contained offline
+ledger. Sources enter through open registries (Crossref, OpenAlex,
+arXiv, DataCite): a search command sweeps them, and registration with
+DOI verification promotes a source to \texttt{reference-resolved} only
+if the registry actually resolves it.
 
 \begin{figure}[t]
 \centering

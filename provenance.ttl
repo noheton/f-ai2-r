@@ -196,12 +196,14 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s11-lineage>,
         <https://noheton.org/f-ai2-r/prov/activity/s13-shepard-outlook>,
         <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
-        <https://noheton.org/f-ai2-r/prov/activity/s29-ethics-incentives> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s29-ethics-incentives>,
+        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass> ;
     aiprov:contentHash "sha256:10e6a7d1fb64a4e613897cd2291ef306ca3b3b7406be537b5bd0eab1fd575877",
         "sha256:3d6afbe42ffc5636a6272bb5574284cc130033bce5bff3dd64738cc31f35f946",
         "sha256:505b7c76eb1d61705cf2368eba3f0df0eb881efb677b8b21058d127f5b396a04",
         "sha256:5489b29d51e7da3b2ffbcfd0f651ec8c3de2d456fe13476d56e23c51a02fc0f6",
-        "sha256:69e8c9b76ab03b02d2e78eeaf64e4f81569633d66a6c85853bbd747e028b1f6c" ;
+        "sha256:69e8c9b76ab03b02d2e78eeaf64e4f81569633d66a6c85853bbd747e028b1f6c",
+        "sha256:ca8d99bc0cd35c5143f320ace867f77fe8a7dfcf1cfb9b2518abf27848b78cdb" ;
     aiprov:filePath "paper/sections/01-introduction.tex" ;
     aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
 
@@ -210,10 +212,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure>,
         <https://noheton.org/f-ai2-r/prov/activity/s11-lineage>,
         <https://noheton.org/f-ai2-r/prov/activity/s14-aas-semantics>,
-        <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
+        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass> ;
     aiprov:contentHash "sha256:65e2d4a7848de93fd39e2b8dcd722dfe8023971944789d508b91a695f7af7141",
         "sha256:8920fe38639a9406df5a865983817ce8c291932611fe185e768d112eb3cc3a90",
         "sha256:9b96b3b3c47c115af143321687b39368552d5196539b99a9b3483529089e2f50",
+        "sha256:d9ed9546b69fb3755369423b9a39dea5ff84951d4711347152f62b546fdaab92",
         "sha256:e80f91f99ba2b913cbbfac91acf425622952a0fd7c47fd64300b62724ee611ef" ;
     aiprov:filePath "paper/sections/02-background.tex" ;
     aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
@@ -222,10 +226,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s06-dilution-section>,
         <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
-        <https://noheton.org/f-ai2-r/prov/activity/s29-ethics-incentives> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s29-ethics-incentives>,
+        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass> ;
     aiprov:contentHash "sha256:1fdc7395fc56edf652a6c2bc0161a5ecb9b52eb3d9e8a1c875b67114d975374c",
         "sha256:40cf8adfa95da80a5b380c8101e1a022ed36b7878d39ded453a3d582b49e2222",
-        "sha256:51446ed731fbcb1f923b50a2886c0030c891a1237f68e60e33418a98357756fb" ;
+        "sha256:51446ed731fbcb1f923b50a2886c0030c891a1237f68e60e33418a98357756fb",
+        "sha256:8f02477e281afd92ced537d1f93211fd4602e422d7d89d789f63cc23fb6ac65e" ;
     aiprov:filePath "paper/sections/03-dilution.tex" .
 
 <https://noheton.org/f-ai2-r/prov/entity/03-method-tex> a aiprov:Artefact ;
@@ -241,9 +247,11 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s16-ladder-table>,
         <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate>,
         <https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets>,
-        <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite>,
+        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass> ;
     aiprov:contentHash "sha256:250f070dfac7344b065ca518cef78f206f58af1f475d5facf4506f380825c6d8",
         "sha256:381690b4013c932f1e940a0a103b5712eae31f4840493d82a192aa1efe90a25c",
+        "sha256:4e4977bfbaac9669ebef71bf7a39b6bf455201c5f401855d6ef8f15a88887594",
         "sha256:5b125bf494a432ea1584a11ffcc2dd2ccf1237ebafdc395f72a4c2f7acfb39ee",
         "sha256:9af1e4add4be73ec7330ed67741ce0a1139f026a0087245bc1e518e6e4d4915a",
         "sha256:b0ddea32cc22ecca0b443c5763f51fc07e820748a3c48e2773a36fee2bea9f14" ;
@@ -266,9 +274,11 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/entity/05-skill-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
-        <https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets>,
+        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass> ;
     aiprov:contentHash "sha256:359f3cdd6b2e1428bade3fa2e4ceabc1ca5f6fdccd83bb508278f0550699521e",
-        "sha256:7cf24beebcbd7d28f24f35b3f4f7e756b1ba5f78eddac5e149ed25663547a8f5" ;
+        "sha256:7cf24beebcbd7d28f24f35b3f4f7e756b1ba5f78eddac5e149ed25663547a8f5",
+        "sha256:a1885b28f19c8898eec42ef7dc28da66248a830fe690867b4457f7bd8cb3fb67" ;
     aiprov:filePath "paper/sections/05-skill.tex" .
 
 <https://noheton.org/f-ai2-r/prov/entity/06-discussion-tex> a aiprov:Artefact ;
@@ -283,8 +293,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
         <https://noheton.org/f-ai2-r/prov/activity/s20-optimistic-reading>,
         <https://noheton.org/f-ai2-r/prov/activity/s21-environment-figure>,
-        <https://noheton.org/f-ai2-r/prov/activity/s23-incident-figure> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s23-incident-figure>,
+        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass> ;
     aiprov:contentHash "sha256:1990ebaa3dffa13626c417064c24e8dc4c1eb64681be4e09373abe328b6e842e",
+        "sha256:1e6886e01eb1a921111e3aa4bdcd33fa82caa63089c14600bff9610ad8982abb",
         "sha256:4214500eceeb106449ec03789aaacc4501453495ccd9dca2ce9a8fa311c1a20d",
         "sha256:68c2ed67d3856ec2be1a25282bb23a0bc1d34104d85216745d1e76a63b63b975",
         "sha256:c6e2d6abf48db6d9180b423ddb7aaa6fe557a91dcff7d8d0ef053d4c54b96adf" ;
@@ -305,11 +317,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s20-optimistic-reading>,
         <https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets>,
         <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite>,
-        <https://noheton.org/f-ai2-r/prov/activity/s27-transparent-selfcite> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s27-transparent-selfcite>,
+        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass> ;
     aiprov:contentHash "sha256:29dd7cb85f192a7581ce3d7de057df6506789848e5460030dc19e9a791b8c67d",
         "sha256:57f5afcede656867022086e3befc3bcdb93da291e2da209e6acb9e5ae22714b8",
         "sha256:95df2962d33775a71cb8dd4f8c5ae0f4aca6cf19702d37d1197faf7b5481baf9",
         "sha256:9f3a6f335fb0901d201700b7505fa5f837e048d7b06be9f499f0f9965af2432f",
+        "sha256:a27f1ffd99e9847dbfb36751bbcd4ecfabb770ddd17f0a691ef1442f9eea1227",
         "sha256:bf6cf0ab48d380c311988c7ad6ed06ae16615bab326d7dfa4cbfcb74522ae56b",
         "sha256:e9ed6006dbdaf5586dfcab386f5c35f4a7665263ceafeb8fae055e89cc2b66a1",
         "sha256:f0b41bd559abf2febc296356d04a4657234a2bebc2767aa154cd4e0cd41caa63" ;
@@ -319,10 +333,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s13-shepard-outlook>,
         <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
-        <https://noheton.org/f-ai2-r/prov/activity/s26-memas-inspiration> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s26-memas-inspiration>,
+        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass> ;
     aiprov:contentHash "sha256:071fdddc2b50f1f1d6bfa2a74d09d00c24c4e1a187defc4c958394a6ebc74580",
         "sha256:0db19e567cfd249addf15d9c5a6009e38d9115ffe00a4cd6542d356f2876ee81",
-        "sha256:82b35d71c90020baee86a78314b03b5d7bcd672ef8828d9e3b2724c9bc10bab0" ;
+        "sha256:82b35d71c90020baee86a78314b03b5d7bcd672ef8828d9e3b2724c9bc10bab0",
+        "sha256:c8b2dc3b4da3f73343303b614124ab10c24c4d26eb2de5d27bebda85ffd613fa" ;
     aiprov:filePath "paper/sections/08-conclusion.tex" .
 
 <https://noheton.org/f-ai2-r/prov/entity/106c4110-ee50-5c00-84da-a0b29f4102d9-md> a aiprov:Artefact ;
@@ -429,8 +445,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
 
 <https://noheton.org/f-ai2-r/prov/entity/disclosure-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act> ;
-    aiprov:contentHash "sha256:986b62cc771263de4c866c00d471bf8253a81710813ff44c5a7ccf9b566ed05d" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
+        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass> ;
+    aiprov:contentHash "sha256:10ccfde86f745b2da58c3a0b8d71ae5c0c46e282d8e1f45ac94aba6e1df661ce",
+        "sha256:986b62cc771263de4c866c00d471bf8253a81710813ff44c5a7ccf9b566ed05d" ;
     aiprov:filePath "paper/disclosure.tex" .
 
 <https://noheton.org/f-ai2-r/prov/entity/environment-png> a aiprov:Artefact ;
@@ -832,9 +850,6 @@ agent:github-actions a aiprov:ToolAgent ;
     foaf:name "GitHub Actions (aiprov build workflow)" ;
     aiprov:provider "GitHub"^^xsd:string .
 
-<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
-
 <https://noheton.org/f-ai2-r/prov/source/aas-part1-idta> a aiprov:Source ;
     rdfs:label "Specification of the Asset Administration Shell Part 1: Metamodel"@en ;
     aiprov:doi "https://doi.org/10.62628/idta.01001-3-1-1"^^xsd:anyURI ;
@@ -1030,6 +1045,10 @@ aiprov:Transcript a owl:Class ;
     aiprov:usedTool "bash",
         "edit" .
 
+<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+
 aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;
     rdfs:comment "An LLM- or ML-driven agent participating in artefact production."@en ;
@@ -1189,6 +1208,16 @@ verif:ai-confirmed a aiprov:VerificationState ;
     aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
     aiprov:usedTool "bash",
         "web_fetch",
+        "write" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass> a aiprov:AuthoringPass ;
+    rdfs:label "Prose pass: all eight sections turned from bullet skeletons into prose (8 pages, all 31 references cited, telemetry table filled from provlog report with tokens/cost honestly omitted); introduction ethics passage written in the operator's voice per their writing-style profile (reframe, one measured dialectic, closing sharpening); F2/F3 remain declared placeholders"@en ;
+    prov:endedAtTime "2026-07-24T20:35:15.416895+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> ;
+    aiprov:usedTool "bash",
+        "edit",
         "write" .
 
 aiprov:VerificationState a owl:Class ;

@@ -1,41 +1,61 @@
 \section{Background and Related Work}\label{sec:background}
-% Principal structure:
-%
-% 2.1 Provenance models — PROV-O \cite{prov-o2013} and its lineage (OPM
-%     \cite{opm2010}); PAV for authoring/versioning \cite{pav2013}.
-%     Position: aiprov extends, never forks (subclassing prov: terms).
-% 2.2 Contributor attribution — CRediT \cite{credit2019,credit-niso2022}:
-%     role taxonomies name WHO contributed WHAT KIND of work, but at
-%     manuscript granularity and human-only. aiprov records per-activity,
-%     per-claim, and admits AI + tool agents.
-% 2.3 AI transparency artefacts — model cards \cite{modelcards2019},
-%     datasheets \cite{datasheets2021}: document the MODEL or the DATA,
-%     not the collaboration that produced a specific artefact.
-% 2.4 Research packaging — RO-Crate \cite{rocrate2022}: complementary;
-%     aiprov graphs can travel inside a crate.
-% 2.5 The trust gap — hallucinated citations \cite{ai-hallucination2023}
-%     preview the systemic problem treated in §\ref{sec:dilution}: the
-%     ladder makes existence machine-checkable and support a judgement
-%     with an explicit grantor.
-% 2.6 Lineage and neighbors — direct ancestors: Obscurity-Is-Dead
-%     \cite{obscurity-is-dead} (transcript-as-artifact; the labels
-%     repo-vendored / lit-read / unverified-external that this ladder
-%     canonicalizes) and F(AI)2R \cite{fair2r-repo} (two-pass model,
-%     no-parentless-claim). Adjacent DLR work extends PROV-O with
-%     uncertainty quantification for engineering traceability
-%     \cite{uncertainty-prov2026}: complementary axes — aiprov records
-%     who/how work happened, uncertainty-aware provenance records how
-%     confident results are; a combined profile is future work (§8).
-%     A third root is industrial semantic modeling: the author
-%     co-authored the Asset Administration Shell Part 1 specification
-%     \cite{aas-part1-v30rc02} (now IDTA-01001 \cite{aas-part1-idta})
-%     — where partners exchange information across a value chain,
-%     semantics must be formal and machine-readable or interoperability
-%     fails. aiprov applies that same discipline to a new exchange
-%     relationship: the one between humans, AI agents, and future
-%     auditors of their joint work.
-% 2.7 Metadata-community context — the Helmholtz Metadata Collaboration
-%     (HMC) \cite{hmc-conference2025} pushes FAIR metadata practice
-%     across research infrastructures; a provenance graph is metadata
-%     ABOUT WORK, so aiprov can be read as extending that programme
-%     from data description to collaboration description.
+
+\textbf{Provenance models.} W3C PROV-O~\cite{prov-o2013} is the
+standard vocabulary for expressing who generated what, through which
+activity; it consolidated the lineage begun by the Open Provenance
+Model~\cite{opm2010}, and PAV refined it for authoring and
+versioning~\cite{pav2013}. Carina Haupt's overview of provenance use
+cases documents the practice inside DLR, including monitoring software
+development processes with provenance
+data~\cite{provenance-overview2022}. aiprov extends this stack rather
+than forking it: every class subclasses a \texttt{prov:} term, so
+generic PROV tooling keeps working.
+
+\textbf{Contributor attribution.} CRediT names who contributed what
+kind of work~\cite{credit2019} and is now a NISO
+standard~\cite{credit-niso2022}, but it operates at manuscript
+granularity and admits only humans. aiprov records attribution
+per activity and per claim, and its agent model includes AI systems
+and deterministic tools alongside people.
+
+\textbf{AI transparency artefacts.} Model cards~\cite{modelcards2019}
+and datasheets~\cite{datasheets2021} document the \emph{model} or the
+\emph{dataset}. What they do not capture is the collaboration that
+produced a specific artefact: which prompts, which sessions, which
+verification steps. RO-Crate~\cite{rocrate2022} is complementary
+packaging; an aiprov graph can travel inside a crate.
+
+\textbf{The trust gap.} Large language models fabricate plausible
+citations~\cite{ai-hallucination2023}, which previews the systemic
+problem of Section~\ref{sec:dilution}: existence of a reference is
+machine-checkable, support for a claim is a judgement, and the two
+must not be conflated. The verification ladder
+(Section~\ref{sec:method}) keeps them apart and names the grantor of
+every judgement.
+
+\textbf{Lineage and neighbors.} This work has three roots. The first
+is AI-assisted research practice: \emph{Obscurity-Is-Dead}
+\cite{obscurity-is-dead} introduced transcript-as-artifact and the
+verification labels (\texttt{repo-vendored}, \texttt{lit-read},
+\texttt{unverified-external}) that the present ladder canonicalizes,
+and F(AI)\textsuperscript{2}R~\cite{fair2r-repo} formalized the
+two-pass model and no-parentless-claim. The second is engineering
+provenance: adjacent DLR work extends PROV-O with uncertainty
+quantification for traceability in engineering
+systems~\cite{uncertainty-prov2026}; the axes are complementary, since
+aiprov records who and how, while uncertainty-aware provenance records
+how confident, and a combined profile is future work
+(Section~\ref{sec:conclusion}). The third root is industrial semantic
+modeling: the author co-authored the Asset Administration Shell
+Part~1 specification~\cite{aas-part1-v30rc02}, continued as
+IDTA-01001~\cite{aas-part1-idta}. Where partners exchange information
+across a value chain, semantics must be formal and machine-readable or
+interoperability fails. aiprov applies that discipline to a new
+exchange relationship: the one between humans, AI agents, and the
+future auditors of their joint work.
+
+\textbf{Metadata-community context.} The Helmholtz Metadata
+Collaboration~\cite{hmc} advances FAIR metadata practice across
+research infrastructures~\cite{hmc-conference2025}. A provenance graph
+is metadata about \emph{work}, so aiprov can be read as extending that
+programme from data description to collaboration description.

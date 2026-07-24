@@ -1,51 +1,53 @@
 \section{The Dilution Crisis}\label{sec:dilution}
-% Principal structure:
-%
-% 3.1 The flood — scientific output growing faster than the capacity to
-%     review it \cite{publishing-strain2024}; paper mills industrialize
-%     fabrication \cite{paper-mills2021}; LLMs collapse the marginal cost
-%     of a plausible paper to near zero, and GPT-fabricated papers are
-%     already indexed and ranked by scholarly search engines
-%     \cite{gpt-fabricated2024}.
-% 3.2 Why finding good sources is hard now — retrieval trusted proxies
-%     (indexed, cited, fluent) that generation has learned to imitate;
-%     fabricated and erroneous citations propagate through reference
-%     lists \cite{fabricated-citations2023, ai-hallucination2023}; the
-%     feedback loop: models trained on the polluted pool degrade further
-%     (model collapse) \cite{model-collapse2024} — dilution compounds.
-% 3.3 Originality under dilution — when text is cheap, the scarce good is
-%     an ORIGINAL idea whose support is checkable. Originality is itself
-%     a provenance property: an idea's novelty claim needs a recorded
-%     search horizon (what was looked for, where, when — §\ref{sec:method}
-%     logs the sweeps) and every supporting or refuting fact attached.
-% 3.x Bullets to weave in:
-%     - The demand side is the incentive system: publish-or-perish
-%       pays for counted output, and hypercompetition selects for
-%       whatever maximizes the count \cite{perverse-incentives2017}.
-%       LLMs did not create that pressure; they gave it a zero-cost
-%       supply channel. Dilution is misaligned incentives meeting free
-%       volume.
-%     - The effort-gap argument transfers: Obscurity-Is-Dead
-%       \cite{obscurity-is-dead} measured how LLMs compress the effort
-%       gap for reverse-engineering proprietary devices; the same
-%       compression applies to producing plausible papers — the flood
-%       is an effort-gap collapse, observed early in another domain.
-%     - Force multiplier is dual-use: the parallelism that lets one
-%       operator advance method, paper, and system fork simultaneously
-%       (§1) is the same parallelism that industrializes pollution;
-%       per-activity accounting is what tells the two apart.
-%     - HMC-context view \cite{hmc-conference2025}: research
-%       infrastructures already treat metadata quality as the lever
-%       against data swamps — the diluted literature is the same
-%       failure mode one level up, and admits the same remedy.
-% 3.4 The aiprov answer — claims are first-class: each assertion carries
-%     wasGeneratedBy/wasAttributedTo and a ladder state separating
-%     "the reference exists" (machine-checkable, reference-resolved)
-%     from "the content supports the claim" (ai-confirmed at most, when
-%     machine-judged) from "a human checked" (human-only rungs);
-%     aiprov:contradicts makes refutation explicit instead of silent —
-%     a claim REFUTED by facts is recorded as such, not deleted.
-%     Supply-side transparency: artefacts carry verifiable pedigree, so
-%     filtering the pool can shift from fluency heuristics to metadata
-%     that fabrication cannot cheaply forge (DOIs that resolve, hashes,
-%     commits, registry-resolved identities).
+
+Scientific output has been growing faster than the community's
+capacity to review it~\cite{publishing-strain2024}, and paper mills
+industrialized fabrication well before language
+models~\cite{paper-mills2021}. What changed is the cost curve.
+\emph{Obscurity-Is-Dead} measured how large language models compress
+the effort gap for reverse-engineering proprietary
+devices~\cite{obscurity-is-dead}; the same compression applies to
+producing a plausible paper. The flood is an effort-gap collapse,
+observed early in another domain. GPT-fabricated papers are already
+indexed and ranked by scholarly search
+engines~\cite{gpt-fabricated2024}.
+
+The demand side is the incentive system. Publish-or-perish pays for
+counted output, and hypercompetition selects for whatever maximizes
+the count~\cite{perverse-incentives2017}. Language models did not
+create that pressure; they gave it a zero-cost supply channel.
+Dilution is misaligned incentives meeting free volume.
+
+The consequence is that finding good sources is now the bottleneck of
+research. Retrieval trusts proxies: indexed, cited, fluent. Generation
+has learned to imitate all three. Fabricated and erroneous citations
+propagate through reference
+lists~\cite{fabricated-citations2023, ai-hallucination2023}, and
+models trained on the polluted pool degrade
+further~\cite{model-collapse2024}, so dilution compounds. The
+force multiplier of Section~\ref{sec:intro} cuts both ways: the
+parallelism that lets one operator advance several strands is the same
+parallelism that industrializes pollution. Per-activity accounting is
+what tells the two apart. Research infrastructures already treat
+metadata quality as the lever against data
+swamps~\cite{hmc-conference2025}; the diluted literature is the same
+failure mode one level up, and it admits the same remedy.
+
+When text is cheap, the scarce good is an original idea whose support
+is checkable. We treat originality as a provenance property: a novelty
+claim carries its recorded search horizon, that is, what was searched,
+where, and when. The literature sweeps behind this paper are logged
+activities, so the horizon behind its claims is inspectable. Every
+claim must then be supported, or refuted, by facts.
+
+aiprov's answer makes claims first-class. Each assertion carries
+\texttt{prov:wasGeneratedBy}, \texttt{prov:wasAttributedTo}, and a
+ladder state that separates ``the reference exists''
+(machine-checkable) from ``the content supports the claim''
+(machine-judged at most) from ``a human checked'' (human-only).
+Refutation is explicit: \texttt{aiprov:contradicts} records a claim
+refuted by facts as refuted, instead of silently deleting it. This is
+supply-side transparency. Artefacts carry a pedigree that fabrication
+cannot cheaply forge: DOIs that resolve, content hashes, commits, and
+registry-resolved identities. Filtering the pool can then shift from
+fluency heuristics to verifiable metadata.
