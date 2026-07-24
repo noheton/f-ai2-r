@@ -169,8 +169,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/entity/01-introduction-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure>,
-        <https://noheton.org/f-ai2-r/prov/activity/s11-lineage> ;
-    aiprov:contentHash "sha256:3d6afbe42ffc5636a6272bb5574284cc130033bce5bff3dd64738cc31f35f946",
+        <https://noheton.org/f-ai2-r/prov/activity/s11-lineage>,
+        <https://noheton.org/f-ai2-r/prov/activity/s13-shepard-outlook> ;
+    aiprov:contentHash "sha256:10e6a7d1fb64a4e613897cd2291ef306ca3b3b7406be537b5bd0eab1fd575877",
+        "sha256:3d6afbe42ffc5636a6272bb5574284cc130033bce5bff3dd64738cc31f35f946",
         "sha256:69e8c9b76ab03b02d2e78eeaf64e4f81569633d66a6c85853bbd747e028b1f6c" ;
     aiprov:filePath "paper/sections/01-introduction.tex" ;
     aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
@@ -230,6 +232,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s10-show-paper> ;
     aiprov:contentHash "sha256:bf6cf0ab48d380c311988c7ad6ed06ae16615bab326d7dfa4cbfcb74522ae56b" ;
     aiprov:filePath "paper/sections/07-discussion.tex" .
+
+<https://noheton.org/f-ai2-r/prov/entity/08-conclusion-tex> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s13-shepard-outlook> ;
+    aiprov:contentHash "sha256:071fdddc2b50f1f1d6bfa2a74d09d00c24c4e1a187defc4c958394a6ebc74580" ;
+    aiprov:filePath "paper/sections/08-conclusion.tex" .
 
 <https://noheton.org/f-ai2-r/prov/entity/CHANGELOG-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -372,8 +380,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
         <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding>,
         <https://noheton.org/f-ai2-r/prov/activity/s11-lineage>,
-        <https://noheton.org/f-ai2-r/prov/activity/s12-hmc-context> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s12-hmc-context>,
+        <https://noheton.org/f-ai2-r/prov/activity/s13-shepard-outlook> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
+        "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
         "sha256:2c9083a5cbae565f108062cd367f9fd5f7f14e725c53f6ef49e8deffb7c4da06",
         "sha256:4374a3098b37b2edf2b377f2b857bd6f2e53a52d76e21a377470671637a15577",
         "sha256:5d082ed5e49f97ceb00af346ff9835f06feb91c207d5f11c664046e6707f124e",
@@ -405,6 +415,16 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/source/prov-o2013> a aiprov:Source ;
     rdfs:label "PROV-O: The PROV Ontology (W3C Recommendation, 30 April 2013)"@en ;
     dcterms:source <https://www.w3.org/TR/prov-o/> ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/shepard> a aiprov:Source ;
+    rdfs:label "shepard: a storage for heterogeneous product and research data (DLR, jointly developed)"@en ;
+    dcterms:source <https://gitlab.com/dlr-shepard> ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/shepard-fork> a aiprov:Source ;
+    rdfs:label "Experimental fork of shepard (development/research workspace, /v2 experimental endpoints)"@en ;
+    dcterms:source <https://github.com/noheton/shepard> ;
     aiprov:verificationState verif:reference-resolved .
 
 <https://noheton.org/f-ai2-r/prov/source/uncertainty-prov2026> a aiprov:Source ;
@@ -750,6 +770,15 @@ aiprov:HumanAgent a owl:Class ;
     rdfs:label "Human agent"@en ;
     rdfs:subClassOf prov:Person .
 
+<https://noheton.org/f-ai2-r/prov/activity/s13-shepard-outlook> a aiprov:AuthoringPass ;
+    rdfs:label "Outlook: shepard (jointly developed DLR data-management system for heterogeneous product and research data) named as the method-to-infrastructure integration path, via the experimental fork as staging ground (attributed as planned work, since the fork README does not yet state the integration); intro gains AI-as-force-multiplier framing: parallel strands under one operator are exactly why per-activity accounting matters. Both repos fetched before registration"@en ;
+    prov:endedAtTime "2026-07-24T18:53:46.814165+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit",
+        "web_fetch" .
+
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
@@ -833,16 +862,16 @@ verif:ai-confirmed a aiprov:VerificationState ;
         "web_fetch",
         "write" .
 
-aiprov:AuthoringPass a owl:Class ;
-    rdfs:comment "AI or human produces/edits an artefact."@en ;
-    rdfs:subClassOf prov:Activity .
-
 aiprov:Claim a owl:Class ;
     rdfs:comment "An assertion in any artefact that warrants attribution and verification."@en ;
     rdfs:subClassOf prov:Entity .
 
 aiprov:VerificationState a owl:Class ;
     rdfs:comment "A rung on the verification ladder. Higher position = stronger check. Rungs at position 5+ are human-only: an AI agent must never grant them."@en .
+
+aiprov:AuthoringPass a owl:Class ;
+    rdfs:comment "AI or human produces/edits an artefact."@en ;
+    rdfs:subClassOf prov:Activity .
 
 aiprov:AuditPass a owl:Class ;
     rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
