@@ -338,13 +338,16 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s20-optimistic-reading>,
         <https://noheton.org/f-ai2-r/prov/activity/s21-environment-figure>,
         <https://noheton.org/f-ai2-r/prov/activity/s23-incident-figure>,
-        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s37-cost-nostalgia-pass> ;
     aiprov:contentHash "sha256:1990ebaa3dffa13626c417064c24e8dc4c1eb64681be4e09373abe328b6e842e",
         "sha256:1e6886e01eb1a921111e3aa4bdcd33fa82caa63089c14600bff9610ad8982abb",
         "sha256:4214500eceeb106449ec03789aaacc4501453495ccd9dca2ce9a8fa311c1a20d",
         "sha256:68c2ed67d3856ec2be1a25282bb23a0bc1d34104d85216745d1e76a63b63b975",
+        "sha256:b7fd4b09d8f7bcfd2b0395d56df5dc5b4dc028afd3e9144ecdbe0dac04785cf1",
         "sha256:c6e2d6abf48db6d9180b423ddb7aaa6fe557a91dcff7d8d0ef053d4c54b96adf" ;
-    aiprov:filePath "paper/sections/06-meta-experiment.tex" .
+    aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
+    aiprov:gitCommit "540e2c2" .
 
 <https://noheton.org/f-ai2-r/prov/entity/07-conclusion-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -363,17 +366,20 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite>,
         <https://noheton.org/f-ai2-r/prov/activity/s27-transparent-selfcite>,
         <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s34-cost-debate> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s34-cost-debate>,
+        <https://noheton.org/f-ai2-r/prov/activity/s37-cost-nostalgia-pass> ;
     aiprov:contentHash "sha256:29dd7cb85f192a7581ce3d7de057df6506789848e5460030dc19e9a791b8c67d",
         "sha256:57f5afcede656867022086e3befc3bcdb93da291e2da209e6acb9e5ae22714b8",
         "sha256:83a75492643a4a602c3831f08aec47cebfa6c61171591485b0f0f7582a16fee9",
         "sha256:95df2962d33775a71cb8dd4f8c5ae0f4aca6cf19702d37d1197faf7b5481baf9",
         "sha256:9f3a6f335fb0901d201700b7505fa5f837e048d7b06be9f499f0f9965af2432f",
         "sha256:a27f1ffd99e9847dbfb36751bbcd4ecfabb770ddd17f0a691ef1442f9eea1227",
+        "sha256:b600eebd1cc748d22001591a480735f2593dde0e3468a1aabf7202639d69b338",
         "sha256:bf6cf0ab48d380c311988c7ad6ed06ae16615bab326d7dfa4cbfcb74522ae56b",
         "sha256:e9ed6006dbdaf5586dfcab386f5c35f4a7665263ceafeb8fae055e89cc2b66a1",
         "sha256:f0b41bd559abf2febc296356d04a4657234a2bebc2767aa154cd4e0cd41caa63" ;
-    aiprov:filePath "paper/sections/07-discussion.tex" .
+    aiprov:filePath "paper/sections/07-discussion.tex" ;
+    aiprov:gitCommit "540e2c2" .
 
 <https://noheton.org/f-ai2-r/prov/entity/08-conclusion-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -401,16 +407,19 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s10-show-paper>,
         <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate>,
         <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite>,
-        <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging>,
+        <https://noheton.org/f-ai2-r/prov/activity/s37-cost-nostalgia-pass> ;
     aiprov:contentHash "sha256:0f6b3e6665b218d527bbcd404b6c45f127596888482cdf7c20f95d48a971f28b",
         "sha256:4c07f3bc89b11e02d73459a8ff27db5c6113bec464b9de67aca5bb9aea8bcf45",
+        "sha256:71f509608baa793c77e8bd9f05d5500cafd18943d3e7aa91c4964ce4c866bb11",
         "sha256:a36e7fbec05e566ca79c60b150a896a9cf5047989b24d40fb962f21c0e654463",
         "sha256:c5375067d0182ed473f612999edb0c3420878ca6cc4da458d9c29413671c1b8f",
         "sha256:cb69fb786e0e97f03501c365e6784f770e50c5f45757599be255ac69a5e2f796",
         "sha256:d4d2beedd48dfed8d7ac9b367bfbe70af4b6a27b19551f947a37e11bdc336bcf",
         "sha256:ffa29f005606da1dbc3b23e7deece9860314721766968ffba245aafd8ea03d56" ;
     aiprov:filePath "CHANGELOG.md" ;
-    aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b" .
+    aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b",
+        "540e2c2" .
 
 <https://noheton.org/f-ai2-r/prov/entity/README-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -427,16 +436,19 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s10-show-paper>,
         <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate>,
         <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite>,
-        <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging>,
+        <https://noheton.org/f-ai2-r/prov/activity/s37-cost-nostalgia-pass> ;
     aiprov:contentHash "sha256:333e6cfb08385a0003b31e9acdb22e9f83f0bca42fc3b8799e30099d75f7d881",
         "sha256:503f6ea38419390c47520c894c918945d69bdb294f23c1a7e7855336fef02dec",
         "sha256:69443814ed35aede2eb15f12893eb55eb94369d8a5e75ec52f2c07ac3b5c4431",
         "sha256:8963ec5023e470b5984b3ec07d503820e874be50c10bc407214fefbff79c198c",
         "sha256:a9557f62a62b10f5d07acc0d11bc80a05232572e74ab8e979a0d0a12cc3d1faa",
+        "sha256:da85aab26d7d560f8b33edd1da0cca5fc80fb6c624116b7ac7ca81179f83e91d",
         "sha256:ec884110a56562478ce0f62f83014988a87799ffb4b743e9cf3ce4dcbec16f84",
         "sha256:f175a00c042d16bb7074bdc5a11ff7ea64ab56e16091a05c2408ca5ddcce525b" ;
     aiprov:filePath "SKILL.md" ;
-    aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b" .
+    aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b",
+        "540e2c2" .
 
 <https://noheton.org/f-ai2-r/prov/entity/aiprov-build-yml> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1178,10 +1190,6 @@ aiprov:HumanAgent a owl:Class ;
         "edit",
         "web_fetch" .
 
-<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
-
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
@@ -1201,6 +1209,16 @@ aiprov:Contribution a owl:Class ;
     aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
     aiprov:usedTool "bash",
         "edit" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s37-cost-nostalgia-pass> a aiprov:AuthoringPass ;
+    rdfs:label "Paper update: telemetry table refreshed, computed-cost paragraphs, nostalgia-for-the-paper objection added to discussion; skill v0.10 (operator-directed cost computation with disclosed basis)."@en ;
+    prov:endedAtTime "2026-07-24T20:58:24.880796+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
+<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.2: repo becomes canonical skill source; ORCID-first setup, base derivation/auto-detection, CI/CD scaffolding (validate + LaTeX-to-PDF artifacts); packaging script; verified by test-run in scratch repository"@en ;
