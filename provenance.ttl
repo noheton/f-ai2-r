@@ -367,7 +367,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s12-hmc-context>,
         <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
         <https://noheton.org/f-ai2-r/prov/activity/s17-schindler-ack>,
-        <https://noheton.org/f-ai2-r/prov/activity/s18-hoyer-klick-ack> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s18-hoyer-klick-ack>,
+        <https://noheton.org/f-ai2-r/prov/activity/s19-hmc-rdm-acks> ;
     aiprov:contentHash "sha256:292ee450094d64465800f568cc319a3a5839d697137d2d8497eedb2cbb9587e8",
         "sha256:2bf4f82e8c20375dd1f6a64b9213d60e71822d3592fb9facb54c6ed3ca1fa160",
         "sha256:31a7ad8196528484eb264b1d7cf0b737b49554499f3d14a83e7fd3713fb24a76",
@@ -376,6 +377,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:c8a88d99a491d9629cc05d30fa8ba2706aed425673c59a17129d1ffd2f2f57de",
         "sha256:e879c1511e6994e719097fd8097e64e4d060708415793727d6c4e195b757e7ba",
         "sha256:f35de4cb23ba5016b8c45043c3c17c87145d5b8a688bd0db543771f1a91ec21e",
+        "sha256:f8b405e45bdc0bcf19a99e2f0a89d40609a777701626af26cb742a88d3df2bd9",
         "sha256:ff3d72212ad9e25814e889f98abca32e0ebfc29772d0b8fefb70c54b7eba2097" ;
     aiprov:filePath "assets/paper/main.tex",
         "paper/main.tex" ;
@@ -430,12 +432,14 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s11-lineage>,
         <https://noheton.org/f-ai2-r/prov/activity/s12-hmc-context>,
         <https://noheton.org/f-ai2-r/prov/activity/s13-shepard-outlook>,
-        <https://noheton.org/f-ai2-r/prov/activity/s14-aas-semantics> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s14-aas-semantics>,
+        <https://noheton.org/f-ai2-r/prov/activity/s19-hmc-rdm-acks> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
         "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
         "sha256:2c9083a5cbae565f108062cd367f9fd5f7f14e725c53f6ef49e8deffb7c4da06",
         "sha256:4374a3098b37b2edf2b377f2b857bd6f2e53a52d76e21a377470671637a15577",
         "sha256:5d082ed5e49f97ceb00af346ff9835f06feb91c207d5f11c664046e6707f124e",
+        "sha256:6993b9ce7cf85cab64690f5404078dc9bd33a15b1eb399d9dba8c9fde93f4bb2",
         "sha256:7fc34d6763460c8d1a14cdd54d50ab94c2ffc78538872ec6fb3b1fe55cfe94c7",
         "sha256:972f6e5c4ad55b80381b3726d8b3ab766531da962543beb34fc9a0865de37969",
         "sha256:c36a397e5afe052f6d133968b0d1e2d663658aa045e11b9724ba3b055aeb0fc3" ;
@@ -457,6 +461,11 @@ agent:florian-krebs a aiprov:HumanAgent ;
     dcterms:source <https://github.com/noheton/f-ai-r> ;
     aiprov:verificationState verif:reference-resolved .
 
+<https://noheton.org/f-ai2-r/prov/source/hmc> a aiprov:Source ;
+    rdfs:label "Helmholtz Metadata Collaboration (HMC)"@en ;
+    dcterms:source <https://helmholtz-metadaten.de/> ;
+    aiprov:verificationState verif:reference-resolved .
+
 <https://noheton.org/f-ai2-r/prov/source/hmc-conference2025> a aiprov:Source ;
     rdfs:label "HMC Conference 2025 — Book of Abstracts (Helmholtz Metadata Collaboration)"@en ;
     dcterms:source <https://helmholtz-metadaten.de/storage/2298/HMC-Conference_2025_Book-of-Abstracts.pdf> ;
@@ -470,6 +479,11 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/source/prov-o2013> a aiprov:Source ;
     rdfs:label "PROV-O: The PROV Ontology (W3C Recommendation, 30 April 2013)"@en ;
     dcterms:source <https://www.w3.org/TR/prov-o/> ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/provenance-overview2022> a aiprov:Source ;
+    rdfs:label "An overview of Provenance and its use cases (Carina Haupt, RDA Deutschland Tagung 2022)"@en ;
+    dcterms:source <https://elib.dlr.de/185438/> ;
     aiprov:verificationState verif:reference-resolved .
 
 <https://noheton.org/f-ai2-r/prov/source/shepard> a aiprov:Source ;
@@ -847,6 +861,15 @@ aiprov:ToolAgent a owl:Class ;
     aiprov:usedTool "bash",
         "edit" .
 
+<https://noheton.org/f-ai2-r/prov/activity/s19-hmc-rdm-acks> a aiprov:AuthoringPass ;
+    rdfs:label "Acknowledgements completed: Witold Arndt (HMC, aeronautics/space/transport hub context; ORCID-resolved), Christian Langenbach (RDM evangelism at DLR; ORCID-resolved), Carina Haupt's provenance-overview talk (RDA Deutschland Tagung 2022, elib 185438, fetched) registered and cited; HMC main site registered as source; acknowledgement restructured into semicolon-separated credit clauses"@en ;
+    prov:endedAtTime "2026-07-24T19:12:26.959288+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit",
+        "web_fetch" .
+
 aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;
     rdfs:comment "An LLM- or ML-driven agent participating in artefact production."@en ;
@@ -987,11 +1010,11 @@ verif:reference-resolved a aiprov:VerificationState ;
         "retrieved"@en ;
     aiprov:ladderPosition 2 .
 
-aiprov:Source a owl:Class ;
-    rdfs:subClassOf prov:Entity .
-
 aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
+    rdfs:subClassOf prov:Entity .
+
+aiprov:Source a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 agent:claude-code a aiprov:AIAgent ;
