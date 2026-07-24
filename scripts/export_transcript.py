@@ -64,11 +64,41 @@ def main() -> None:
     ap.add_argument("--session-file", type=pathlib.Path)
     ap.add_argument("-o", "--out-dir", default="doc/transcripts")
     ap.add_argument("--quiet", action="store_true")
+    ap.add_argument("--usage", action="store_true",
+                    help="aggregate the provider-reported usage blocks from "
+                         "the session record and print totals (for truthful "
+                         "post-hoc telemetry via provlog log); cost is not "
+                         "computed — estimating prices would fabricate")
     a = ap.parse_args()
 
     src = a.session_file or find_session_file()
     if not src or not src.exists():
         sys.exit(0 if a.quiet else "no session transcript found for this directory")
+
+    if a.usage:
+        tot = {"input_tokens": 0, "output_tokens": 0,
+               "cache_read_input_tokens": 0, "cache_creation_input_tokens": 0}
+        n = 0
+        for raw in src.read_text(encoding="utf-8", errors="replace").splitlines():
+            if '"usage"' not in raw:
+                continue
+            try:
+                u = (json.loads(raw).get("message") or {}).get("usage")
+            except json.JSONDecodeError:
+                continue
+            if u:
+                n += 1
+                for k in tot:
+                    tot[k] += u.get(k, 0) or 0
+        print(f"session {src.stem}: {n} requests with provider-reported usage")
+        for k, v in tot.items():
+            print(f"  {k}: {v}")
+        print("log with: provlog.py log --activity <slug> --pass audit "
+              f"--input-tokens {tot['input_tokens']} "
+              f"--output-tokens {tot['output_tokens']} "
+              f"--cache-read-tokens {tot['cache_read_input_tokens']} "
+              f"--cache-write-tokens {tot['cache_creation_input_tokens']} ...")
+        return
 
     turns: list[str] = []
     session_id = src.stem

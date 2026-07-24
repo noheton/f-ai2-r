@@ -1,5 +1,14 @@
 # Changelog — ai-provenance skill
 
+## v0.9 (2026-07-24)
+
+- **Truthful token backfill.** `export_transcript.py --usage` aggregates
+  the provider-reported usage blocks carried in the agent session
+  record (per-request input/output/cache tokens) so token telemetry can
+  be logged post hoc without estimation. Cost is deliberately not
+  computed: the record is unpriced, and assuming prices would fabricate
+  — that half of the gap stands until providers report cost.
+
 ## v0.8 (2026-07-24)
 
 - **Automatic conversation logging.** `scripts/export_transcript.py`

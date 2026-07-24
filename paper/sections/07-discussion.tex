@@ -16,13 +16,17 @@ modes~\cite{ai-hallucination2023}. The ladder does not pretend
 otherwise; it makes the judgement's author explicit instead of
 laundering machine confidence into apparent human endorsement.
 
-\textbf{Cost, and a visible gap.} The method's overhead in this
-experiment was one logging command and one extra commit per working
-round, plus the audit activities the tooling writes itself. What we
-cannot report is token cost: the agent harness did not expose usage,
-so Table~\ref{tab:telemetry} carries no such figures. The gap is
-itself a finding. Provider-side usage reporting is the missing
-infrastructure for honest cost accounting in AI-assisted work.
+\textbf{Cost, and a gap that half closed.} The method's overhead in
+this experiment was one logging command and one extra commit per
+working round, plus the audit activities the tooling writes itself.
+Token telemetry illustrates the omit-don't-estimate rule in motion:
+the harness exposes no live usage to the agent, so nothing was
+recorded at first; when the operator challenged the gap, the session
+record turned out to carry the provider's per-request usage blocks,
+and the totals in Table~\ref{tab:telemetry} were backfilled from
+them, reported rather than estimated. The remaining gap is cost: the
+record is unpriced, and assuming prices would fabricate. Honest cost
+accounting in AI-assisted work still needs the provider to report it.
 
 \textbf{Skill drift.} The method evolved mid-experiment, v0 to v0.8,
 including two operator-contested ladder redesigns. Immutable archived

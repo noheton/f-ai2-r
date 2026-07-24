@@ -22,6 +22,18 @@
     aiprov:usedTool "bash",
         "git" .
 
+<https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
+    rdfs:label "Token telemetry backfilled from provider-reported usage blocks in the agent session record (aggregated by export_transcript.py --usage over 655+ API requests of this session; covers all activities of session_01VKC to this point). Cost remains omitted: the record carries no priced entries and computing cost would require assumed prices, violating omit-don't-estimate"@en ;
+    prov:endedAtTime "2026-07-24T20:41:28.824406+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:cacheReadTokens 185361380 ;
+    aiprov:cacheWriteTokens 7487552 ;
+    aiprov:inputTokens 9788 ;
+    aiprov:outputTokens 879838 ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:totalTokens 889626 ;
+    aiprov:usedTool "bash" .
+
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-aas-part1-idta> a aiprov:AuditPass ;
     rdfs:label "DOI verification of src:aas-part1-idta via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T19:01:13.224813+00:00"^^xsd:dateTime ;
@@ -1046,8 +1058,7 @@ aiprov:Transcript a owl:Class ;
         "edit" .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;

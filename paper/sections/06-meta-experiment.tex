@@ -25,34 +25,42 @@ statistics in the header.}
 \end{figure*}
 
 \textbf{The graph as evaluation object.} Table~\ref{tab:telemetry}
-reports the state of the graph at the time of writing. Notably absent
-are token counts and cost: the agent harness did not expose them, and
-under omit-don't-estimate the gap stays visible
-(Section~\ref{sec:discussion}). All seven recorded claims sit at
-\texttt{ai-confirmed}, the ceiling an AI may grant; promotion beyond
-that waits for the human operator, and the tooling will hand over the
-evidence when asked.
+reports the state of the graph at the time of writing. Token counts
+were initially absent: the harness exposes no live usage to the agent,
+and under omit-don't-estimate nothing was recorded. The operator's
+challenge (``why is this not reported?'') prompted a check of the
+session record, which turned out to carry the provider's per-request
+usage blocks; the totals in the table are aggregated from them,
+reported not estimated. Cost remains omitted: the record carries no
+priced entries, and computing cost would require assumed prices. All
+seven recorded claims sit at \texttt{ai-confirmed}, the ceiling an AI
+may grant; promotion beyond that waits for the human operator, and the
+tooling will hand over the evidence when asked.
 
 \begin{table}[t]
 \caption{Provenance-graph state of this paper's production at the time
 of writing (from \texttt{provlog.py report} and the repository;
-regenerated before submission). Token and cost telemetry was not
-reported by the agent harness and is therefore omitted, not estimated.}
+regenerated before submission). Token totals are aggregated from the
+provider-reported usage blocks in the session record; cost is omitted,
+not estimated, since the record carries no priced entries.}
 \label{tab:telemetry}
 \centering
 \begin{tabular}{lr}
 \toprule
 Metric & Value \\
 \midrule
-Triples & 1038 \\
-Logged activities & 49 \\
+Triples & 1076 \\
+Logged activities & 51 \\
 Claims (all \texttt{ai-confirmed}) & 7 \\
 Sources on the ladder & 31 \\
 \quad thereof marked self-citation & 4 \\
 Registered agents (human / AI / tool) & 1 / 1 / 1 \\
-Commits & 34 \\
-Transcript & 1 session, $>$740 turns \\
-Tokens / cost & not reported \\
+Commits & 36 \\
+Transcript & 1 session, $>$750 turns \\
+Output tokens & 879\,838 \\
+Input tokens (uncached) & 9\,788 \\
+Cache tokens (read / write) & 185.4\,M / 7.5\,M \\
+Cost & not reported \\
 \bottomrule
 \end{tabular}
 \end{table}
