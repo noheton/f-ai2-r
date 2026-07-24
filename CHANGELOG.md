@@ -1,5 +1,18 @@
 # Changelog — ai-provenance skill
 
+## v0.8 (2026-07-24)
+
+- **Automatic conversation logging.** `scripts/export_transcript.py`
+  exports the agent session to `doc/transcripts/<session>.md`
+  (transcript-as-artifact; images and oversized payloads omitted); a
+  repository Stop hook regenerates it after every turn so the
+  conversation rides into history with each commit. Activities link to
+  it via `log --transcript`.
+- **Preview shows the structure pass.** The paper preview now renders
+  the per-section planning skeletons (the `%`-comment blocks in
+  `sections/*.tex`) beneath the typeset pages — the structure pass is
+  reviewable in the live preview even though it never reaches the PDF.
+
 ## v0.7 (2026-07-24)
 
 - **human-read subsumes confirmation.** Operator-contested semantics:

@@ -128,6 +128,14 @@ after producing or editing artefacts, run `provlog.py log` for the session
 and add claims for non-trivial assertions you introduced, at state
 `unverified` or `ai-confirmed` at most.
 
+**Transcript-as-artifact.** `scripts/export_transcript.py` exports the
+current agent session to `doc/transcripts/<session>.md` (images and
+oversized tool payloads omitted); a repository Stop hook
+(`.claude/settings.json`) regenerates it after every turn, so the
+conversation is logged to the repository automatically and rides into
+history with each commit. Link activities to it via
+`provlog.py log --transcript doc/transcripts/<session>.md`.
+
 ## Attribute catalogue
 
 Read `references/attributes.md` for the complete list of properties, their
