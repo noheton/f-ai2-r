@@ -1,0 +1,178 @@
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+
+# Project-local namespaces — adopters keep the vocabulary namespace and
+# replace example.org in the instance namespaces with their own base IRI.
+@prefix aiprov:  <https://w3id.org/aiprov/ns#> .
+@prefix agent:   <https://example.org/prov/agent/> .
+@prefix act:     <https://example.org/prov/activity/> .
+@prefix ent:     <https://example.org/prov/entity/> .
+@prefix claim:   <https://example.org/prov/claim/> .
+@prefix src:     <https://example.org/prov/source/> .
+@prefix verif:   <https://example.org/prov/verification/> .
+
+#=========================================================================
+# aiprov: — domain-agnostic AI provenance extension to PROV-O
+# Generalized from the F(AI)²R schema (github.com/noheton/f-ai-r);
+# decoupled from scholarly writing. Applies to code, documents, data
+# pipelines, CAD models, AAS submodels — any artefact with AI in the loop.
+#=========================================================================
+
+#--- Agents --------------------------------------------------------------
+
+aiprov:AIAgent          a owl:Class ; rdfs:subClassOf prov:SoftwareAgent ;
+    rdfs:label "AI agent"@en ;
+    rdfs:comment "An LLM- or ML-driven agent participating in artefact production."@en .
+
+aiprov:HumanAgent       a owl:Class ; rdfs:subClassOf prov:Person ;
+    rdfs:label "Human agent"@en .
+
+aiprov:ToolAgent        a owl:Class ; rdfs:subClassOf prov:SoftwareAgent ;
+    rdfs:label "Deterministic tool"@en ;
+    rdfs:comment "Non-AI software (compiler, linter, CI job) acting in the pipeline."@en .
+
+# AI-agent attributes
+aiprov:model            a owl:DatatypeProperty ; rdfs:domain aiprov:AIAgent ;
+    rdfs:range xsd:string ; rdfs:comment "Model identifier, e.g. claude-opus-5."@en .
+aiprov:modelVersion     a owl:DatatypeProperty ; rdfs:range xsd:string .
+aiprov:provider         a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "e.g. Anthropic, local/llama.cpp, gateway name."@en .
+aiprov:endpoint         a owl:DatatypeProperty ; rdfs:range xsd:anyURI ;
+    rdfs:comment "API endpoint or gateway URL through which the model was reached."@en .
+aiprov:contextWindow    a owl:DatatypeProperty ; rdfs:range xsd:integer .
+aiprov:knowledgeCutoff  a owl:DatatypeProperty ; rdfs:range xsd:date .
+
+# Human-agent attributes
+aiprov:orcid            a owl:DatatypeProperty ; rdfs:domain aiprov:HumanAgent ;
+    rdfs:range xsd:anyURI .
+aiprov:affiliation      a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+#--- Activities ----------------------------------------------------------
+
+aiprov:AuthoringPass    a owl:Class ; rdfs:subClassOf prov:Activity ;
+    rdfs:comment "AI or human produces/edits an artefact."@en .
+aiprov:AuditPass        a owl:Class ; rdfs:subClassOf prov:Activity ;
+    rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en .
+aiprov:Build            a owl:Class ; rdfs:subClassOf prov:Activity ;
+    rdfs:comment "Deterministic build/compile/CI activity."@en .
+aiprov:Repair           a owl:Class ; rdfs:subClassOf prov:Activity ;
+    rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en .
+
+# --- Activity attributes: session & inference telemetry ---
+# Attach directly to the prov:Activity that produced/used the AI output.
+
+aiprov:sessionId        a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "Client session identifier (e.g. Claude Code session UUID)."@en .
+aiprov:transcript       a owl:ObjectProperty ;
+    rdfs:comment "Links the activity to a preserved conversation transcript entity."@en .
+aiprov:requestId        a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "Provider request ID for a single inference call."@en .
+aiprov:turnCount        a owl:DatatypeProperty ; rdfs:range xsd:integer .
+
+# Token accounting (integers; omit what the provider does not report)
+aiprov:inputTokens      a owl:DatatypeProperty ; rdfs:range xsd:integer .
+aiprov:outputTokens     a owl:DatatypeProperty ; rdfs:range xsd:integer .
+aiprov:totalTokens      a owl:DatatypeProperty ; rdfs:range xsd:integer .
+aiprov:cacheReadTokens  a owl:DatatypeProperty ; rdfs:range xsd:integer .
+aiprov:cacheWriteTokens a owl:DatatypeProperty ; rdfs:range xsd:integer .
+aiprov:reasoningTokens  a owl:DatatypeProperty ; rdfs:range xsd:integer .
+
+# Sampling / generation parameters
+aiprov:temperature      a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+aiprov:topP             a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+aiprov:maxTokens        a owl:DatatypeProperty ; rdfs:range xsd:integer .
+aiprov:seed             a owl:DatatypeProperty ; rdfs:range xsd:integer .
+aiprov:stopReason       a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+# Cost accounting
+aiprov:cost             a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+aiprov:costCurrency     a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "ISO 4217, e.g. EUR, USD."@en .
+aiprov:energyWh         a owl:DatatypeProperty ; rdfs:range xsd:decimal ;
+    rdfs:comment "Optional energy estimate for the inference, in watt-hours."@en .
+
+# Tool use within an activity
+aiprov:toolCalls        a owl:DatatypeProperty ; rdfs:range xsd:integer .
+aiprov:usedTool         a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "Repeatable: one value per distinct tool invoked (web_search, bash, ...)."@en .
+
+#--- Plans (prompts are source code) -------------------------------------
+
+aiprov:Prompt           a owl:Class ; rdfs:subClassOf prov:Plan ;
+    rdfs:comment "A versioned prompt file. Bind to activities via prov:qualifiedAssociation/prov:hadPlan or dcterms:source."@en .
+aiprov:promptHash       a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "Content hash (e.g. sha256) of the exact prompt text used."@en .
+aiprov:systemPromptRef  a owl:ObjectProperty ;
+    rdfs:comment "Links an activity to the system-prompt entity in force."@en .
+
+#--- Entities ------------------------------------------------------------
+
+aiprov:Claim            a owl:Class ; rdfs:subClassOf prov:Entity ;
+    rdfs:comment "An assertion in any artefact that warrants attribution and verification."@en .
+aiprov:Source           a owl:Class ; rdfs:subClassOf prov:Entity .
+aiprov:Artefact         a owl:Class ; rdfs:subClassOf prov:Entity ;
+    rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en .
+aiprov:Transcript       a owl:Class ; rdfs:subClassOf prov:Entity ;
+    rdfs:comment "Preserved conversation record; bound to activities via aiprov:transcript."@en .
+aiprov:Contribution     a owl:Class ; rdfs:subClassOf prov:Entity .
+aiprov:HumanContribution a owl:Class ; rdfs:subClassOf aiprov:Contribution .
+aiprov:AIContribution    a owl:Class ; rdfs:subClassOf aiprov:Contribution .
+aiprov:MetaContribution  a owl:Class ; rdfs:subClassOf aiprov:Contribution .
+
+# Entity attributes
+aiprov:contentHash      a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "sha256 of the artefact bytes at generation time."@en .
+aiprov:gitCommit        a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "Commit hash binding the entity to repository state."@en .
+aiprov:filePath         a owl:DatatypeProperty ; rdfs:range xsd:string .
+aiprov:doi              a owl:DatatypeProperty ; rdfs:range xsd:anyURI .
+
+#--- Verification ladder -------------------------------------------------
+# Design: rung names answer "WHO checked WHAT". Each rung carries a
+# machine-readable ladder position, a one-line definition, and
+# skos:altLabel aliases for legacy names (fair2r: lit-retrieved, lit-read;
+# early aiprov: retrieved). Tooling MUST normalize aliases to the
+# canonical IRI on read and write.
+
+aiprov:verificationState a owl:ObjectProperty ;
+    rdfs:domain aiprov:Claim ; rdfs:range aiprov:VerificationState ;
+    rdfs:comment "Current rung of a claim or source on the verification ladder. Exactly one value; transitions are recorded as AuditPass activities so the history stays in the graph."@en .
+aiprov:VerificationState a owl:Class ;
+    rdfs:comment "A rung on the verification ladder. Higher position = stronger check. Rungs at position 5+ are human-only: an AI agent must never grant them."@en .
+aiprov:ladderPosition   a owl:DatatypeProperty ;
+    rdfs:domain aiprov:VerificationState ; rdfs:range xsd:integer ;
+    rdfs:comment "Total order of the ladder; promotions must strictly increase this value."@en .
+
+verif:unverified      a aiprov:VerificationState ; aiprov:ladderPosition 0 ;
+    rdfs:label "unverified"@en ;
+    rdfs:comment "Recorded, nothing checked yet by anyone. Default state at creation."@en .
+verif:needs-research  a aiprov:VerificationState ; aiprov:ladderPosition 1 ;
+    rdfs:label "needs research"@en ;
+    rdfs:comment "A check was attempted or demanded and did not succeed (e.g. DOI did not resolve). Must not be cited or relied upon until re-verified."@en .
+verif:reference-resolved a aiprov:VerificationState ; aiprov:ladderPosition 2 ;
+    rdfs:label "reference resolved"@en ;
+    skos:altLabel "retrieved"@en , "lit-retrieved"@en ;
+    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en .
+verif:ai-confirmed    a aiprov:VerificationState ; aiprov:ladderPosition 3 ;
+    rdfs:label "AI-confirmed"@en ;
+    rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en .
+verif:source-vendored a aiprov:VerificationState ; aiprov:ladderPosition 4 ;
+    rdfs:label "source vendored"@en ;
+    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en .
+verif:human-confirmed a aiprov:VerificationState ; aiprov:ladderPosition 5 ;
+    rdfs:label "human-confirmed"@en ;
+    rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en .
+verif:human-read      a aiprov:VerificationState ; aiprov:ladderPosition 6 ;
+    rdfs:label "human-read"@en ;
+    skos:altLabel "lit-read"@en ;
+    rdfs:comment "A HUMAN has read the source in full. Top of the ladder; consolidates the former lit-read rung. Human-only: an AI agent must never grant this rung."@en .
+
+aiprov:contradicts    a owl:ObjectProperty ;
+    rdfs:domain aiprov:Claim ; rdfs:range aiprov:Claim .
+aiprov:repairs        a owl:ObjectProperty ;
+    rdfs:comment "A Repair activity amends generation metadata of a claim without invalidating its content."@en .

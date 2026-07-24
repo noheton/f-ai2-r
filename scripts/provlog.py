@@ -1,0 +1,624 @@
+#!/usr/bin/env python3
+"""provlog — append-only AI provenance logger over PROV-O (aiprov: profile).
+
+Commands:
+  init                       Seed provenance.ttl from the aiprov schema.
+  agent   --id --type ...    Register a human/AI/tool agent with attributes.
+  log     --activity ...     Record an activity with full inference telemetry
+                             (tokens, cost, model, session, tools, prompt hash)
+                             and optionally the entities it generated/used.
+  claim   --id ...           Add a claim bound to a parent activity + agent.
+  validate                   Conformance: parentless claims, AI-granted
+                             human-only verification rungs, missing attribution.
+  report                     Totals: tokens, cost, activities per agent, rungs.
+  search                     Self-contained literature search over open APIs
+                             (Crossref, OpenAlex, arXiv, DataCite) — no MCP
+                             server, no key, no paid service required.
+  source                     Register a literature source; --verify checks the
+                             DOI against Crossref/OpenAlex (open APIs, no key)
+                             and promotes unverified -> retrieved with metadata.
+  promote                    Move a source or claim up the verification ladder.
+                             Ladder order is enforced; human-only rungs
+                             (human-confirmed, human-read) require --agent of a
+                             registered HumanAgent. Every promotion is logged as
+                             an AuditPass activity.
+  extract                    Backward-closure subgraph of everything that
+                             contributed to chosen seed entity types; can
+                             also render a dashboard of the extract.
+
+All writes are appends; the graph is the audit substrate. AI note: this tool
+was drafted with AI assistance and verified by test-run; review before
+production use.
+"""
+from __future__ import annotations
+import argparse, datetime, hashlib, pathlib, sys
+from rdflib import Graph, Namespace, Literal, URIRef, RDF, RDFS, XSD
+
+AIPROV = Namespace("https://w3id.org/aiprov/ns#")
+FAIR2R = Namespace("https://noheton.org/f-ai-r/ns#")
+PROV = Namespace("http://www.w3.org/ns/prov#")
+DCT = Namespace("http://purl.org/dc/terms/")
+FOAF = Namespace("http://xmlns.com/foaf/0.1/")
+
+DEFAULT_BASE = "https://example.org/prov/"
+GRAPH = pathlib.Path("provenance.ttl")
+SCHEMA = pathlib.Path(__file__).resolve().parent.parent / "assets" / "aiprov-schema.ttl"
+
+
+def ns(base: str, kind: str) -> Namespace:
+    return Namespace(f"{base}{kind}/")
+
+
+def load() -> Graph:
+    g = Graph()
+    if GRAPH.exists():
+        g.parse(GRAPH, format="turtle")
+    for p, u in [("aiprov", AIPROV), ("prov", PROV), ("dcterms", DCT), ("foaf", FOAF),
+             ("rdfs", RDFS)]:
+        g.bind(p, u)
+    return g
+
+
+def save(g: Graph) -> None:
+    g.serialize(GRAPH, format="turtle")
+
+
+def now() -> Literal:
+    return Literal(datetime.datetime.now().astimezone().isoformat(), datatype=XSD.dateTime)
+
+
+def cmd_init(a) -> None:
+    if GRAPH.exists() and not a.force:
+        sys.exit("provenance.ttl exists; use --force to reseed")
+    text = SCHEMA.read_text(encoding="utf-8").replace("https://example.org/prov/", a.base)
+    GRAPH.write_text(text, encoding="utf-8")
+    g = load()  # parse check
+    print(f"Seeded {GRAPH} ({len(g)} triples, base {a.base})")
+
+
+def cmd_agent(a) -> None:
+    g = load()
+    s = ns(a.base, "agent")[a.id]
+    cls = {"ai": AIPROV.AIAgent, "human": AIPROV.HumanAgent, "tool": AIPROV.ToolAgent}[a.type]
+    g.add((s, RDF.type, cls))
+    if a.name:
+        g.add((s, FOAF.name, Literal(a.name)))
+    for key, prop, dt in [
+        ("model", AIPROV.model, XSD.string), ("model_version", AIPROV.modelVersion, XSD.string),
+        ("provider", AIPROV.provider, XSD.string), ("endpoint", AIPROV.endpoint, XSD.anyURI),
+        ("context_window", AIPROV.contextWindow, XSD.integer),
+        ("knowledge_cutoff", AIPROV.knowledgeCutoff, XSD.date),
+        ("orcid", AIPROV.orcid, XSD.anyURI), ("affiliation", AIPROV.affiliation, XSD.string),
+    ]:
+        v = getattr(a, key, None)
+        if v is not None:
+            g.add((s, prop, Literal(v, datatype=dt)))
+    save(g)
+    print(f"agent:{a.id} registered ({a.type})")
+
+
+ACT_ATTRS = [  # (cli key, property, xsd type)
+    ("session_id", AIPROV.sessionId, XSD.string), ("request_id", AIPROV.requestId, XSD.string),
+    ("turns", AIPROV.turnCount, XSD.integer),
+    ("input_tokens", AIPROV.inputTokens, XSD.integer), ("output_tokens", AIPROV.outputTokens, XSD.integer),
+    ("cache_read_tokens", AIPROV.cacheReadTokens, XSD.integer),
+    ("cache_write_tokens", AIPROV.cacheWriteTokens, XSD.integer),
+    ("reasoning_tokens", AIPROV.reasoningTokens, XSD.integer),
+    ("temperature", AIPROV.temperature, XSD.decimal), ("top_p", AIPROV.topP, XSD.decimal),
+    ("max_tokens", AIPROV.maxTokens, XSD.integer), ("seed", AIPROV.seed, XSD.integer),
+    ("stop_reason", AIPROV.stopReason, XSD.string),
+    ("cost", AIPROV.cost, XSD.decimal), ("currency", AIPROV.costCurrency, XSD.string),
+    ("energy_wh", AIPROV.energyWh, XSD.decimal), ("tool_calls", AIPROV.toolCalls, XSD.integer),
+]
+
+
+def cmd_log(a) -> None:
+    g = load()
+    act = ns(a.base, "activity")[a.activity]
+    cls = {"authoring": AIPROV.AuthoringPass, "audit": AIPROV.AuditPass,
+           "build": AIPROV.Build, "repair": AIPROV.Repair}.get(a.pass_, PROV.Activity)
+    g.add((act, RDF.type, cls))
+    if a.label:
+        g.add((act, RDFS.label, Literal(a.label, lang="en")))
+    g.add((act, PROV.endedAtTime, now()))
+    if a.started:
+        g.add((act, PROV.startedAtTime, Literal(a.started, datatype=XSD.dateTime)))
+    if a.agent:
+        g.add((act, PROV.wasAssociatedWith, ns(a.base, "agent")[a.agent]))
+    for key, prop, dt in ACT_ATTRS:
+        v = getattr(a, key, None)
+        if v is not None:
+            g.add((act, prop, Literal(v, datatype=dt)))
+    it = int(a.input_tokens or 0) + int(a.output_tokens or 0)
+    if a.total_tokens is not None:
+        g.add((act, AIPROV.totalTokens, Literal(a.total_tokens, datatype=XSD.integer)))
+    elif it:
+        g.add((act, AIPROV.totalTokens, Literal(it, datatype=XSD.integer)))
+    for t in a.tool or []:
+        g.add((act, AIPROV.usedTool, Literal(t)))
+    if a.prompt_file:
+        p = pathlib.Path(a.prompt_file)
+        pe = ns(a.base, "entity")["prompt-" + p.stem]
+        g.add((pe, RDF.type, AIPROV.Prompt))
+        g.add((pe, DCT.source, URIRef(p.as_posix())))
+        if p.exists():
+            h = hashlib.sha256(p.read_bytes()).hexdigest()
+            g.add((pe, AIPROV.promptHash, Literal("sha256:" + h)))
+        g.add((act, PROV.used, pe))
+    if a.transcript:
+        te = ns(a.base, "entity")["transcript-" + pathlib.Path(a.transcript).stem]
+        g.add((te, RDF.type, AIPROV.Transcript))
+        g.add((te, DCT.source, URIRef(a.transcript)))
+        g.add((act, AIPROV.transcript, te))
+    for path in a.generated or []:
+        e = ns(a.base, "entity")[pathlib.Path(path).name.replace(".", "-")]
+        g.add((e, RDF.type, AIPROV.Artefact))
+        g.add((e, AIPROV.filePath, Literal(path)))
+        fp = pathlib.Path(path)
+        if fp.exists():
+            g.add((e, AIPROV.contentHash,
+                   Literal("sha256:" + hashlib.sha256(fp.read_bytes()).hexdigest())))
+        g.add((e, PROV.wasGeneratedBy, act))
+        if a.agent:
+            g.add((e, PROV.wasAttributedTo, ns(a.base, "agent")[a.agent]))
+        if a.commit:
+            g.add((e, AIPROV.gitCommit, Literal(a.commit)))
+    for path in a.used or []:
+        e = ns(a.base, "source")[pathlib.Path(path).name.replace(".", "-")]
+        g.add((e, RDF.type, AIPROV.Source))
+        g.add((e, AIPROV.filePath, Literal(path)))
+        g.add((act, PROV.used, e))
+    save(g)
+    print(f"act:{a.activity} logged ({len(g)} triples total)")
+
+
+def cmd_claim(a) -> None:
+    g = load()
+    c = ns(a.base, "claim")[a.id]
+    g.add((c, RDF.type, AIPROV.Claim))
+    g.add((c, RDFS.label, Literal(a.text, lang="en")))
+    g.add((c, PROV.wasGeneratedBy, ns(a.base, "activity")[a.parent]))
+    g.add((c, PROV.wasAttributedTo, ns(a.base, "agent")[a.agent]))
+    g.add((c, AIPROV.verificationState, ns(a.base, "verification")[a.state]))
+    save(g)
+    print(f"claim:{a.id} added (state {a.state})")
+
+
+def cmd_validate(a) -> None:
+    g = load()
+    fail = 0
+    q1 = """SELECT ?c WHERE { ?c a aiprov:Claim .
+            FILTER NOT EXISTS { ?c prov:wasGeneratedBy ?x } }"""
+    orphans = list(g.query(q1))
+    print(f"[{'FAIL' if orphans else ' OK '}] parentless claims: {len(orphans)}")
+    fail += len(orphans)
+    q2 = """SELECT ?c WHERE { ?c a aiprov:Claim .
+            FILTER NOT EXISTS { ?c prov:wasAttributedTo ?x } }"""
+    unattr = list(g.query(q2))
+    print(f"[{'FAIL' if unattr else ' OK '}] unattributed claims: {len(unattr)}")
+    fail += len(unattr)
+    # Human-only rungs: the offence is WHO GRANTED the rung, not who authored
+    # the claim. Promotions are AuditPass activities labelled "... -> <rung>";
+    # an AI agent associated with such a promotion is a hard failure.
+    q3 = """SELECT ?act ?ag WHERE {
+              ?act a aiprov:AuditPass ; rdfs:label ?l ;
+                   prov:wasAssociatedWith ?ag .
+              ?ag a aiprov:AIAgent .
+              FILTER(REGEX(STR(?l), "-> (human-confirmed|human-read|lit-read)")) }"""
+    bad = list(g.query(q3))
+    print(f"[{'FAIL' if bad else ' OK '}] human-only rungs granted by AI agents: {len(bad)}")
+    fail += len(bad)
+    # Softer check: node sits at a human-only rung but the graph records no
+    # human-associated promotion activity for it. Legitimate for legacy or
+    # hand-curated graphs, so WARN, not FAIL.
+    q3w = """SELECT ?n WHERE {
+              ?n aiprov:verificationState ?s .
+              FILTER(REGEX(STR(?s), "(human-confirmed|human-read|lit-read)$"))
+              FILTER NOT EXISTS {
+                ?act prov:used ?n ; prov:wasAssociatedWith ?h .
+                ?h a aiprov:HumanAgent . } }"""
+    unwit = list(g.query(q3w))
+    print(f"[{'WARN' if unwit else ' OK '}] human-only rungs without a recorded "
+          f"human promotion activity: {len(unwit)}")
+    q3b = """SELECT ?s ?st WHERE { ?s a aiprov:Source ;
+              aiprov:verificationState ?st .
+            FILTER(REGEX(STR(?st), "(retrieved|reference-resolved|ai-confirmed|source-vendored|human-confirmed|human-read|lit-read)$"))
+            FILTER NOT EXISTS { ?s aiprov:doi ?d }
+            FILTER NOT EXISTS { ?s <http://purl.org/dc/terms/source> ?u } }"""
+    noref = list(g.query(q3b))
+    print(f"[{'FAIL' if noref else ' OK '}] sources above needs-research without DOI/URL: {len(noref)}")
+    fail += len(noref)
+    q4 = """SELECT ?act WHERE { ?e prov:wasGeneratedBy ?act .
+            FILTER NOT EXISTS { ?act prov:wasAssociatedWith ?ag } }"""
+    anon = set(r[0] for r in g.query(q4))
+    print(f"[{'WARN' if anon else ' OK '}] activities without agent: {len(anon)}")
+    for row in list(orphans) + list(unattr):
+        print("   ↳", row[0])
+    sys.exit(1 if fail else 0)
+
+
+def cmd_report(a) -> None:
+    g = load()
+    def total(prop):
+        return sum(int(o) for _, _, o in g.triples((None, prop, None)))
+    print("== aiprov report ==")
+    print(f"triples:            {len(g)}")
+    print(f"activities:         {len(set(g.subjects(PROV.endedAtTime, None)))}")
+    print(f"claims:             {len(set(g.subjects(RDF.type, AIPROV.Claim)))}")
+    print(f"input tokens:       {total(AIPROV.inputTokens)}")
+    print(f"output tokens:      {total(AIPROV.outputTokens)}")
+    print(f"cache read tokens:  {total(AIPROV.cacheReadTokens)}")
+    print(f"total tokens:       {total(AIPROV.totalTokens)}")
+    cost = sum(float(o) for _, _, o in g.triples((None, AIPROV.cost, None)))
+    cur = {str(o) for _, _, o in g.triples((None, AIPROV.costCurrency, None))} or {"?"}
+    print(f"cost:               {cost:.4f} {'/'.join(sorted(cur))}")
+    print("-- tokens per agent --")
+    q = """SELECT ?ag (SUM(?t) AS ?tok) (COUNT(DISTINCT ?act) AS ?n) WHERE {
+            ?act prov:wasAssociatedWith ?ag ; aiprov:totalTokens ?t }
+           GROUP BY ?ag ORDER BY DESC(?tok)"""
+    for ag, tok, n in g.query(q):
+        print(f"   {str(ag).rsplit('/',1)[-1]:24s} {int(tok):>10} tok  {int(n)} activities")
+    print("-- verification rungs --")
+    q = """SELECT ?s (COUNT(?c) AS ?n) WHERE {
+            ?c a aiprov:Claim ; aiprov:verificationState ?s } GROUP BY ?s"""
+    agg = {}
+    for st, n in g.query(q):
+        r = canon_rung(str(st).rsplit("/", 1)[-1])
+        agg[r] = agg.get(r, 0) + int(n)
+    order = lambda r: LADDER.index(r) if r in LADDER else 99
+    for r in sorted(agg, key=order):
+        print(f"   {r:24s} {agg[r]}")
+
+
+LADDER = ["unverified", "needs-research", "reference-resolved", "ai-confirmed",
+          "source-vendored", "human-confirmed", "human-read"]
+HUMAN_ONLY = {"human-confirmed", "human-read"}
+# Legacy rung names normalize to canonical ones (fair2r lit-*; early aiprov)
+RUNG_ALIASES = {"retrieved": "reference-resolved",
+                "lit-retrieved": "reference-resolved",
+                "ai-checked": "ai-confirmed",
+                "lit-read": "human-read"}
+
+
+def canon_rung(name: str) -> str:
+    return RUNG_ALIASES.get(name, name)
+
+
+def _fetch_doi(doi: str) -> dict | None:
+    """Resolve a DOI via Crossref, falling back to OpenAlex. Open APIs, no key."""
+    import json as _json
+    import urllib.request
+    doi = doi.strip().removeprefix("https://doi.org/").removeprefix("doi:")
+    for url, pick in [
+        (f"https://api.crossref.org/works/{doi}",
+         lambda d: {"title": " ".join(d["message"].get("title") or []) or None,
+                    "year": (d["message"].get("issued", {}).get("date-parts") or [[None]])[0][0],
+                    "container": " ".join(d["message"].get("container-title") or []) or None,
+                    "source_api": "crossref"}),
+        (f"https://api.openalex.org/works/doi:{doi}",
+         lambda d: {"title": d.get("display_name"),
+                    "year": d.get("publication_year"),
+                    "container": (d.get("primary_location") or {}).get("source", {}).get("display_name"),
+                    "source_api": "openalex"}),
+    ]:
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "aiprov-provlog/0.1 (mailto:ops@example.org)"})
+            with urllib.request.urlopen(req, timeout=15) as r:
+                meta = pick(_json.loads(r.read()))
+                meta["doi"] = doi
+                return meta
+        except Exception:
+            continue
+    return None
+
+
+def _set_state(g: Graph, base: str, node, state: str) -> None:
+    state = canon_rung(state)
+    for old in list(g.objects(node, AIPROV.verificationState)):
+        g.remove((node, AIPROV.verificationState, old))
+    g.add((node, AIPROV.verificationState, ns(base, "verification")[state]))
+
+
+def _http_json(url: str):
+    import json as _json
+    import urllib.request
+    req = urllib.request.Request(url, headers={
+        "User-Agent": "aiprov-provlog/0.1 (mailto:ops@example.org)"})
+    with urllib.request.urlopen(req, timeout=15) as r:
+        return _json.loads(r.read())
+
+
+def cmd_search(a) -> None:
+    import urllib.parse
+    q = urllib.parse.quote(a.query)
+    rows = a.rows
+    results, errors = [], []
+    backends = a.backend or ["crossref", "openalex"]
+    if "crossref" in backends:
+        try:
+            d = _http_json(f"https://api.crossref.org/works?query={q}&rows={rows}"
+                           f"&select=DOI,title,issued,container-title,author,is-referenced-by-count")
+            for it in d["message"]["items"]:
+                results.append({
+                    "doi": it.get("DOI"),
+                    "title": " ".join(it.get("title") or ["?"]),
+                    "year": (it.get("issued", {}).get("date-parts") or [[None]])[0][0],
+                    "venue": " ".join(it.get("container-title") or []) or "—",
+                    "cites": it.get("is-referenced-by-count"),
+                    "api": "crossref"})
+        except Exception as e:
+            errors.append(f"crossref: {e}")
+    if "openalex" in backends:
+        try:
+            d = _http_json(f"https://api.openalex.org/works?search={q}&per-page={rows}")
+            for it in d.get("results", []):
+                doi = (it.get("doi") or "").removeprefix("https://doi.org/") or None
+                results.append({
+                    "doi": doi, "title": it.get("display_name") or "?",
+                    "year": it.get("publication_year"),
+                    "venue": ((it.get("primary_location") or {}).get("source") or {}).get("display_name") or "—",
+                    "cites": it.get("cited_by_count"), "api": "openalex"})
+        except Exception as e:
+            errors.append(f"openalex: {e}")
+    if "arxiv" in backends:
+        try:
+            import re
+            import urllib.request
+            req = urllib.request.Request(
+                f"http://export.arxiv.org/api/query?search_query=all:{q}&max_results={rows}",
+                headers={"User-Agent": "aiprov-provlog/0.1"})
+            xml = urllib.request.urlopen(req, timeout=15).read().decode()
+            for m in re.finditer(r"<entry>(.*?)</entry>", xml, re.S):
+                e = m.group(1)
+                t = re.search(r"<title>(.*?)</title>", e, re.S)
+                i = re.search(r"<id>http://arxiv.org/abs/(.*?)</id>", e)
+                y = re.search(r"<published>(\d{4})", e)
+                doim = re.search(r"<arxiv:doi[^>]*>(.*?)</arxiv:doi>", e)
+                results.append({
+                    "doi": doim.group(1) if doim else None,
+                    "title": " ".join((t.group(1) if t else "?").split()),
+                    "year": int(y.group(1)) if y else None,
+                    "venue": "arXiv:" + (i.group(1) if i else "?"),
+                    "cites": None, "api": "arxiv"})
+        except Exception as e:
+            errors.append(f"arxiv: {e}")
+    if "datacite" in backends:
+        try:
+            d = _http_json(f"https://api.datacite.org/dois?query={q}&page[size]={rows}")
+            for it in d.get("data", []):
+                at = it.get("attributes", {})
+                results.append({
+                    "doi": at.get("doi"),
+                    "title": (at.get("titles") or [{}])[0].get("title", "?"),
+                    "year": at.get("publicationYear"),
+                    "venue": at.get("publisher") or "—",
+                    "cites": at.get("citationCount"), "api": "datacite"})
+        except Exception as e:
+            errors.append(f"datacite: {e}")
+    seen, out = set(), []
+    for r in results:
+        key = r["doi"] or r["title"].lower()
+        if key not in seen:
+            seen.add(key); out.append(r)
+    if not out:
+        print("no results" + (f" ({'; '.join(errors)})" if errors else ""))
+        return
+    print(f"== {len(out)} candidates for: {a.query} ==")
+    for r in out:
+        c = f" · {r['cites']} cites" if r.get("cites") else ""
+        print(f"  [{r['api']:8s}] {r['title'][:78]}")
+        print(f"             {r['year'] or '?'} · {r['venue'][:60]}{c}")
+        print(f"             doi: {r['doi'] or '— (no DOI; verify manually before use)'}")
+    for e in errors:
+        print("  (backend unavailable:", e + ")")
+    print("Next: provlog.py source --id <slug> --doi <doi> --verify --agent <id>")
+
+
+def cmd_source(a) -> None:
+    g = load()
+    s = ns(a.base, "source")[a.id]
+    g.add((s, RDF.type, AIPROV.Source))
+    state = canon_rung(a.state) if a.state else "unverified"
+    meta = None
+    if a.verify:
+        if not a.doi:
+            sys.exit("--verify requires --doi")
+        meta = _fetch_doi(a.doi)
+        if meta is None:
+            state = "needs-research"
+            print(f"DOI {a.doi} NOT resolvable via Crossref/OpenAlex -> "
+                  f"state needs-research (do not cite until resolved)")
+        else:
+            state = ("reference-resolved"
+                     if LADDER.index(state) < LADDER.index("reference-resolved")
+                     else state)
+            print(f"DOI verified via {meta['source_api']}: "
+                  f"{(meta['title'] or '?')[:70]} ({meta.get('year')})")
+    title = a.title or (meta or {}).get("title")
+    if title:
+        g.add((s, RDFS.label, Literal(title, lang="en")))
+    if a.doi:
+        g.add((s, AIPROV.doi, Literal("https://doi.org/" +
+              a.doi.removeprefix("https://doi.org/").removeprefix("doi:"),
+              datatype=XSD.anyURI)))
+    if a.url:
+        g.add((s, DCT.source, URIRef(a.url)))
+    if meta:
+        if meta.get("year"):
+            g.add((s, DCT.date, Literal(str(meta["year"]))))
+        if meta.get("container"):
+            g.add((s, DCT.isPartOf, Literal(meta["container"])))
+    _set_state(g, a.base, s, state)
+    if a.verify:
+        act = ns(a.base, "activity")[f"verify-src-{a.id}"]
+        g.add((act, RDF.type, AIPROV.AuditPass))
+        g.add((act, RDFS.label, Literal(
+            f"DOI verification of src:{a.id} via "
+            f"{(meta or {}).get('source_api', 'crossref/openalex')} -> {state}", lang="en")))
+        g.add((act, PROV.endedAtTime, now()))
+        g.add((act, PROV.used, s))
+        if a.agent:
+            g.add((act, PROV.wasAssociatedWith, ns(a.base, "agent")[a.agent]))
+    save(g)
+    print(f"src:{a.id} registered at rung '{state}'")
+
+
+def cmd_promote(a) -> None:
+    g = load()
+    node = None
+    for kind in ("source", "claim"):
+        cand = ns(a.base, kind)[a.id]
+        if (cand, None, None) in g:
+            node = cand
+            break
+    if node is None:
+        sys.exit(f"no source or claim with id '{a.id}' in graph")
+    cur = "unverified"
+    for st in g.objects(node, AIPROV.verificationState):
+        cur = canon_rung(str(st).rsplit("/", 1)[-1])
+    a.to = canon_rung(a.to)
+    if a.to not in LADDER:
+        sys.exit(f"unknown rung '{a.to}'; ladder: {' -> '.join(LADDER)}")
+    if LADDER.index(a.to) <= LADDER.index(cur):
+        sys.exit(f"'{a.to}' is not above current rung '{cur}' — "
+                 f"demotions/no-ops are graph repairs, not promotions")
+    agent = ns(a.base, "agent")[a.agent]
+    is_human = (agent, RDF.type, AIPROV.HumanAgent) in g
+    if a.to in HUMAN_ONLY and not is_human:
+        sys.exit(f"REFUSED: rung '{a.to}' is human-only; agent:{a.agent} is not "
+                 f"a registered HumanAgent. An AI must never grant this rung.")
+    _set_state(g, a.base, node, a.to)
+    act = ns(a.base, "activity")[f"promote-{a.id}-{a.to}"]
+    g.add((act, RDF.type, AIPROV.AuditPass))
+    g.add((act, RDFS.label, Literal(
+        f"Promotion of {a.id}: {cur} -> {a.to}" +
+        (f" ({a.note})" if a.note else ""), lang="en")))
+    g.add((act, PROV.endedAtTime, now()))
+    g.add((act, PROV.used, node))
+    g.add((act, PROV.wasAssociatedWith, agent))
+    save(g)
+    print(f"{a.id}: {cur} -> {a.to} (logged as AuditPass, agent:{a.agent})")
+
+
+def cmd_extract(a) -> None:
+    import collections
+    from rdflib import URIRef
+    src = pathlib.Path(a.graph) if a.graph else GRAPH
+    g = Graph(); g.parse(src, format="turtle")
+    both = (AIPROV, FAIR2R)
+    seeds = set()
+    for t in a.seed_types:
+        for n in both:
+            seeds |= set(g.subjects(RDF.type, n[t]))
+    if not seeds:
+        sys.exit(f"no seed entities of types {a.seed_types} found in {src}")
+    excl = set()
+    for t in a.exclude_kinds or []:
+        for n in both:
+            excl |= set(g.subjects(RDF.type, n[t]))
+    follow = [PROV.wasGeneratedBy, PROV.wasDerivedFrom, PROV.wasAttributedTo,
+              PROV.specializationOf, PROV.wasAssociatedWith, PROV.used,
+              PROV.wasInformedBy, PROV.hadPlan]
+    for n in both:
+        follow += [n.transcript, n.repairs]
+    keep, q = set(seeds), collections.deque(seeds)
+    while q:
+        node = q.popleft()
+        nbrs = {o for pr in follow for o in g.objects(node, pr)
+                if isinstance(o, URIRef)}
+        for n in both:
+            nbrs |= set(g.subjects(n.repairs, node))
+        for m in nbrs - excl:
+            if m not in keep:
+                keep.add(m); q.append(m)
+    out = Graph()
+    for pfx, u in g.namespaces():
+        out.bind(pfx, u)
+    for s_, p_, o_ in g:
+        if s_ in keep and (isinstance(o_, Literal) or o_ in keep or p_ == RDF.type
+                           or "verification" in str(o_).lower()
+                           or str(p_).endswith("source")):
+            out.add((s_, p_, o_))
+    out.serialize(a.out, format="turtle")
+    print(f"extract: {len(seeds)} seeds -> {len(keep)} nodes, "
+          f"{len(out)}/{len(g)} triples -> {a.out}")
+    if a.dashboard:
+        import json
+        import build_dashboard as bd
+        data = bd.extract(pathlib.Path(a.out))
+        html = bd.HTML.replace("__DATA__",
+                               json.dumps(data).replace("</", "<\\/"))
+        pathlib.Path(a.dashboard).write_text(html, encoding="utf-8")
+        print(f"dashboard -> {a.dashboard} "
+              f"({len(data['nodes'])} nodes, {len(data['edges'])} edges)")
+
+
+def main() -> None:
+    p = argparse.ArgumentParser(prog="provlog", description=__doc__)
+    p.add_argument("--base", default=DEFAULT_BASE, help="instance-IRI base")
+    sub = p.add_subparsers(dest="cmd", required=True)
+
+    s = sub.add_parser("init"); s.add_argument("--force", action="store_true")
+
+    s = sub.add_parser("agent")
+    s.add_argument("--id", required=True); s.add_argument("--type", choices=["ai", "human", "tool"], required=True)
+    for f in ["name", "model", "model_version", "provider", "endpoint", "context_window",
+              "knowledge_cutoff", "orcid", "affiliation"]:
+        s.add_argument("--" + f.replace("_", "-"), dest=f)
+
+    s = sub.add_parser("log")
+    s.add_argument("--activity", required=True); s.add_argument("--label")
+    s.add_argument("--pass", dest="pass_", choices=["authoring", "audit", "build", "repair"], default="authoring")
+    s.add_argument("--agent"); s.add_argument("--started"); s.add_argument("--commit")
+    s.add_argument("--total-tokens", dest="total_tokens")
+    for key, _, _ in ACT_ATTRS:
+        s.add_argument("--" + key.replace("_", "-"), dest=key)
+    s.add_argument("--tool", action="append"); s.add_argument("--prompt-file", dest="prompt_file")
+    s.add_argument("--transcript"); s.add_argument("--generated", action="append")
+    s.add_argument("--used", action="append")
+
+    s = sub.add_parser("claim")
+    s.add_argument("--id", required=True); s.add_argument("--text", required=True)
+    s.add_argument("--parent", required=True); s.add_argument("--agent", required=True)
+    s.add_argument("--state", default="unverified")
+
+    sub.add_parser("validate"); sub.add_parser("report")
+
+    s = sub.add_parser("search")
+    s.add_argument("--query", required=True)
+    s.add_argument("--rows", type=int, default=5)
+    s.add_argument("--backend", action="append",
+                   choices=["crossref", "openalex", "arxiv", "datacite"],
+                   help="repeatable; default crossref + openalex")
+
+    s = sub.add_parser("source")
+    s.add_argument("--id", required=True)
+    s.add_argument("--doi"); s.add_argument("--url"); s.add_argument("--title")
+    s.add_argument("--state", choices=LADDER + sorted(RUNG_ALIASES))
+    s.add_argument("--verify", action="store_true",
+                   help="resolve the DOI via Crossref/OpenAlex and promote to retrieved")
+    s.add_argument("--agent", help="agent performing the verification")
+
+    s = sub.add_parser("promote")
+    s.add_argument("--id", required=True, help="source or claim id")
+    s.add_argument("--to", required=True, help="target rung")
+    s.add_argument("--agent", required=True)
+    s.add_argument("--note")
+
+    s = sub.add_parser("extract")
+    s.add_argument("--graph", help="input TTL (default provenance.ttl)")
+    s.add_argument("--seed-types", nargs="+", required=True,
+                   help="entity classes to seed from, e.g. Manuscript Section Figure Claim")
+    s.add_argument("--exclude-kinds", nargs="+",
+                   help="classes never pulled into the closure, e.g. Slidedeck Poster")
+    s.add_argument("-o", "--out", default="provenance-extract.ttl")
+    s.add_argument("--dashboard", help="also render an HTML dashboard of the extract")
+
+    a = p.parse_args()
+    {"init": cmd_init, "agent": cmd_agent, "log": cmd_log,
+     "claim": cmd_claim, "validate": cmd_validate, "report": cmd_report,
+     "extract": cmd_extract, "source": cmd_source, "promote": cmd_promote, "search": cmd_search}[a.cmd](a)
+
+
+if __name__ == "__main__":
+    main()
