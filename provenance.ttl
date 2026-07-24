@@ -22,6 +22,12 @@
     aiprov:usedTool "bash",
         "git" .
 
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-aas-part1-idta> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:aas-part1-idta via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-24T19:01:13.224813+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/aas-part1-idta> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-ai-hallucination2023> a aiprov:AuditPass ;
     rdfs:label "DOI verification of src:ai-hallucination2023 via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T18:25:53.430471+00:00"^^xsd:dateTime ;
@@ -180,8 +186,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/entity/02-background-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure>,
-        <https://noheton.org/f-ai2-r/prov/activity/s11-lineage> ;
-    aiprov:contentHash "sha256:8920fe38639a9406df5a865983817ce8c291932611fe185e768d112eb3cc3a90",
+        <https://noheton.org/f-ai2-r/prov/activity/s11-lineage>,
+        <https://noheton.org/f-ai2-r/prov/activity/s14-aas-semantics> ;
+    aiprov:contentHash "sha256:65e2d4a7848de93fd39e2b8dcd722dfe8023971944789d508b91a695f7af7141",
+        "sha256:8920fe38639a9406df5a865983817ce8c291932611fe185e768d112eb3cc3a90",
         "sha256:9b96b3b3c47c115af143321687b39368552d5196539b99a9b3483529089e2f50" ;
     aiprov:filePath "paper/sections/02-background.tex" ;
     aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
@@ -229,8 +237,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
 
 <https://noheton.org/f-ai2-r/prov/entity/07-discussion-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s10-show-paper> ;
-    aiprov:contentHash "sha256:bf6cf0ab48d380c311988c7ad6ed06ae16615bab326d7dfa4cbfcb74522ae56b" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s10-show-paper>,
+        <https://noheton.org/f-ai2-r/prov/activity/s14-aas-semantics> ;
+    aiprov:contentHash "sha256:57f5afcede656867022086e3befc3bcdb93da291e2da209e6acb9e5ae22714b8",
+        "sha256:bf6cf0ab48d380c311988c7ad6ed06ae16615bab326d7dfa4cbfcb74522ae56b" ;
     aiprov:filePath "paper/sections/07-discussion.tex" .
 
 <https://noheton.org/f-ai2-r/prov/entity/08-conclusion-tex> a aiprov:Artefact ;
@@ -381,16 +391,23 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding>,
         <https://noheton.org/f-ai2-r/prov/activity/s11-lineage>,
         <https://noheton.org/f-ai2-r/prov/activity/s12-hmc-context>,
-        <https://noheton.org/f-ai2-r/prov/activity/s13-shepard-outlook> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s13-shepard-outlook>,
+        <https://noheton.org/f-ai2-r/prov/activity/s14-aas-semantics> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
         "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
         "sha256:2c9083a5cbae565f108062cd367f9fd5f7f14e725c53f6ef49e8deffb7c4da06",
         "sha256:4374a3098b37b2edf2b377f2b857bd6f2e53a52d76e21a377470671637a15577",
         "sha256:5d082ed5e49f97ceb00af346ff9835f06feb91c207d5f11c664046e6707f124e",
+        "sha256:7fc34d6763460c8d1a14cdd54d50ab94c2ffc78538872ec6fb3b1fe55cfe94c7",
         "sha256:972f6e5c4ad55b80381b3726d8b3ab766531da962543beb34fc9a0865de37969",
         "sha256:c36a397e5afe052f6d133968b0d1e2d663658aa045e11b9724ba3b055aeb0fc3" ;
     aiprov:filePath "paper/references.bib" ;
     aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
+
+<https://noheton.org/f-ai2-r/prov/source/aas-part1-v30rc02> a aiprov:Source ;
+    rdfs:label "Details of the Asset Administration Shell. Part 1 — The exchange of information between partners in the value chain of Industrie 4.0 (Version 3.0RC02)"@en ;
+    dcterms:source <https://www.plattform-i40.de/IP/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html> ;
+    aiprov:verificationState verif:reference-resolved .
 
 <https://noheton.org/f-ai2-r/prov/source/eu-ai-act2024> a aiprov:Source ;
     rdfs:label "Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)"@en ;
@@ -623,6 +640,11 @@ agent:github-actions a aiprov:ToolAgent ;
     foaf:name "GitHub Actions (aiprov build workflow)" ;
     aiprov:provider "GitHub"^^xsd:string .
 
+<https://noheton.org/f-ai2-r/prov/source/aas-part1-idta> a aiprov:Source ;
+    rdfs:label "Specification of the Asset Administration Shell Part 1: Metamodel"@en ;
+    aiprov:doi "https://doi.org/10.62628/idta.01001-3-1-1"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
 <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> a aiprov:Source ;
     rdfs:label "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing"@en ;
     dcterms:date "2023" ;
@@ -779,6 +801,15 @@ aiprov:HumanAgent a owl:Class ;
         "edit",
         "web_fetch" .
 
+<https://noheton.org/f-ai2-r/prov/activity/s14-aas-semantics> a aiprov:AuthoringPass ;
+    rdfs:label "Semantic-modeling root added to lineage: the author co-authored AAS Part 1 V3.0RC02 (registered via plattform-i40.de after ResearchGate returned 403; IDTA-01001 successor DOI-verified via Crossref) — background 2.6 frames aiprov as the same formal-semantics discipline applied to human-AI-auditor information exchange; discussion 6.7 bridges AAS submodels to the shepard outlook"@en ;
+    prov:endedAtTime "2026-07-24T19:01:46.398716+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit",
+        "web_fetch" .
+
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
@@ -884,11 +915,11 @@ verif:reference-resolved a aiprov:VerificationState ;
         "retrieved"@en ;
     aiprov:ladderPosition 2 .
 
-aiprov:Source a owl:Class ;
-    rdfs:subClassOf prov:Entity .
-
 aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
+    rdfs:subClassOf prov:Entity .
+
+aiprov:Source a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 agent:claude-code a aiprov:AIAgent ;
