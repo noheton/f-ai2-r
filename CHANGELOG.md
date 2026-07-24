@@ -1,0 +1,28 @@
+# Changelog — ai-provenance skill
+
+## v0.2 (2026-07-24)
+
+The repository becomes the canonical skill source (`SKILL.md` at root,
+packaged via `scripts/package_skill.sh`); the initial uploaded bundle is
+preserved verbatim at `archive/aiprovenance-v0.skill`.
+
+- **ORCID-first setup.** The workflow now opens by asking the user for
+  their ORCID iD. `provlog.py init --orcid <iD>` registers the owner as
+  `aiprov:HumanAgent` with name and current affiliation resolved from the
+  public ORCID registry (pub.orcid.org, no key); nothing is fabricated when
+  resolution fails. `agent --resolve` does the same for additional humans.
+- **Streamlined scaffolding.** `init` derives the instance base IRI from
+  the git remote when `--base` is omitted, and every later command
+  auto-detects the base from the existing graph — `--base` never needs to
+  be repeated. `init` prints a next-steps cheat sheet.
+- **CI/CD scaffolding.** `init --ci` writes
+  `.github/workflows/aiprov-build.yml` (template in `assets/ci/`): every
+  push validates the provenance graph, renders the HTML dashboard, and
+  compiles `paper/main.tex` to PDF via latexmk, uploading both as workflow
+  artifacts so the current version of the paper is always available.
+
+## v0 (initial upload)
+
+Skill bundle as received: aiprov schema, provlog CLI
+(init/agent/log/claim/validate/report/search/source/promote/extract),
+dashboard builder, attribute catalogue.

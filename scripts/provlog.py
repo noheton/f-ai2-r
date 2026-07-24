@@ -3,6 +3,12 @@
 
 Commands:
   init                       Seed provenance.ttl from the aiprov schema.
+                             --orcid registers the owner as HumanAgent with
+                             metadata resolved from the public ORCID registry;
+                             --ci scaffolds the GitHub Actions build (graph
+                             validation + LaTeX paper -> PDF artifact). The
+                             base IRI derives from the git remote if omitted,
+                             and later commands auto-detect it from the graph.
   agent   --id --type ...    Register a human/AI/tool agent with attributes.
   log     --activity ...     Record an activity with full inference telemetry
                              (tokens, cost, model, session, tools, prompt hash)
@@ -67,16 +73,64 @@ def now() -> Literal:
     return Literal(datetime.datetime.now().astimezone().isoformat(), datatype=XSD.dateTime)
 
 
+CI_TEMPLATE = pathlib.Path(__file__).resolve().parent.parent / "assets" / "ci" / "aiprov-build.yml"
+
+
 def cmd_init(a) -> None:
     if GRAPH.exists() and not a.force:
         sys.exit("provenance.ttl exists; use --force to reseed")
-    text = SCHEMA.read_text(encoding="utf-8").replace("https://example.org/prov/", a.base)
+    base = a.base
+    if base == DEFAULT_BASE:
+        derived = _git_base()
+        if derived:
+            base = derived
+            print(f"base derived from git remote: {base}")
+        else:
+            print(f"no --base given and none derivable from a git remote; "
+                  f"using {base} — replace with your own IRI base")
+    text = SCHEMA.read_text(encoding="utf-8").replace("https://example.org/prov/", base)
     GRAPH.write_text(text, encoding="utf-8")
     g = load()  # parse check
-    print(f"Seeded {GRAPH} ({len(g)} triples, base {a.base})")
+    print(f"Seeded {GRAPH} ({len(g)} triples, base {base})")
+    if a.orcid:
+        meta = _fetch_orcid(a.orcid) or {}
+        if not meta:
+            print(f"ORCID {a.orcid} not resolvable (offline or bad iD); "
+                  f"registering the bare iD — no metadata fabricated")
+        name = meta.get("name")
+        ident = a.human_id or (_slug(name) if name else "owner")
+        _register_human(g, base, ident, a.orcid, name, meta.get("affiliation"))
+        save(g)
+        got = ", ".join(v for v in (name, meta.get("affiliation")) if v)
+        print(f"agent:{ident} registered (human"
+              + (f": {got} [resolved via pub.orcid.org]" if got else "") + ")")
+    if a.ci:
+        dst = pathlib.Path(".github/workflows/aiprov-build.yml")
+        if dst.exists() and not a.force:
+            print(f"{dst} exists; skipped (use --force to overwrite)")
+        else:
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            dst.write_text(CI_TEMPLATE.read_text(encoding="utf-8"), encoding="utf-8")
+            print(f"CI workflow scaffolded -> {dst} "
+                  f"(validates the graph, builds paper/ LaTeX to PDF, uploads artifacts)")
+    print("next steps:")
+    print("  provlog.py agent --id <model-id> --type ai --model <model-id> --provider <provider>")
+    print("  provlog.py log --activity s01-<slug> --agent <id> --label \"...\" --generated <path>")
+    print("  provlog.py validate   # before every commit (--base is now auto-detected)")
 
 
 def cmd_agent(a) -> None:
+    if getattr(a, "resolve", False):
+        if a.type != "human" or not a.orcid:
+            sys.exit("--resolve requires --type human and --orcid")
+        meta = _fetch_orcid(a.orcid)
+        if meta is None:
+            print("ORCID not resolvable; registering provided values only")
+        else:
+            a.name = a.name or meta.get("name")
+            a.affiliation = a.affiliation or meta.get("affiliation")
+            got = ", ".join(v for v in (a.name, a.affiliation) if v)
+            print(f"resolved via pub.orcid.org: {got or '(no public name/affiliation)'}")
     g = load()
     s = ns(a.base, "agent")[a.id]
     cls = {"ai": AIPROV.AIAgent, "human": AIPROV.HumanAgent, "tool": AIPROV.ToolAgent}[a.type]
@@ -319,13 +373,93 @@ def _set_state(g: Graph, base: str, node, state: str) -> None:
     g.add((node, AIPROV.verificationState, ns(base, "verification")[state]))
 
 
-def _http_json(url: str):
+def _http_json(url: str, accept: str | None = None):
     import json as _json
     import urllib.request
-    req = urllib.request.Request(url, headers={
-        "User-Agent": "aiprov-provlog/0.1 (mailto:ops@example.org)"})
+    headers = {"User-Agent": "aiprov-provlog/0.1 (mailto:ops@example.org)"}
+    if accept:
+        headers["Accept"] = accept
+    req = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(req, timeout=15) as r:
         return _json.loads(r.read())
+
+
+def _fetch_orcid(orcid: str) -> dict | None:
+    """Resolve an ORCID iD via the public ORCID API (no key): name and
+    current affiliation. Returns None when the record cannot be fetched;
+    fields the registry does not carry stay None — nothing is fabricated."""
+    oid = orcid.strip().removeprefix("https://orcid.org/").removeprefix("orcid:")
+    try:
+        d = _http_json(f"https://pub.orcid.org/v3.0/{oid}/record",
+                       accept="application/json")
+    except Exception:
+        return None
+    name = (d.get("person") or {}).get("name") or {}
+    given = (name.get("given-names") or {}).get("value")
+    family = (name.get("family-name") or {}).get("value")
+    affiliation = None
+    emp = (d.get("activities-summary") or {}).get("employments") or {}
+    for grp in emp.get("affiliation-group", []):
+        for s in grp.get("summaries", []):
+            e = s.get("employment-summary") or {}
+            if e.get("end-date") is None:
+                affiliation = (e.get("organization") or {}).get("name")
+                break
+        if affiliation:
+            break
+    return {"orcid": oid,
+            "name": " ".join(x for x in (given, family) if x) or None,
+            "affiliation": affiliation}
+
+
+def _slug(text: str) -> str:
+    import re
+    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+
+def _git_base() -> str | None:
+    """Derive an instance-IRI base from the git remote, e.g.
+    https://github.com/owner/repo/prov/. None if no usable remote."""
+    import re
+    import subprocess
+    try:
+        url = subprocess.run(["git", "config", "--get", "remote.origin.url"],
+                             capture_output=True, text=True, timeout=5).stdout.strip()
+    except Exception:
+        return None
+    m = re.search(r"([\w-]+(?:\.[\w-]+)*\.[a-z]{2,})[:/]{1,2}([\w.-]+)/([\w.-]+?)(?:\.git)?/?$", url)
+    if not m:
+        return None
+    host, owner, repo = m.groups()
+    return f"https://{host}/{owner}/{repo}/prov/"
+
+
+def _detect_base() -> str | None:
+    """Read the instance base back out of an existing graph so follow-up
+    commands do not need --base repeated."""
+    import re
+    if not GRAPH.exists():
+        return None
+    txt = GRAPH.read_text(encoding="utf-8")
+    for tag in ("agent/", "activity/", "verification/"):
+        m = re.search(r"<(https?://[^>\s]+/)" + tag + ">", txt)
+        if m:
+            return m.group(1)
+    return None
+
+
+def _register_human(g: Graph, base: str, ident: str, orcid: str | None,
+                    name: str | None, affiliation: str | None) -> None:
+    s = ns(base, "agent")[ident]
+    g.add((s, RDF.type, AIPROV.HumanAgent))
+    if name:
+        g.add((s, FOAF.name, Literal(name)))
+    if orcid:
+        oid = orcid.strip().removeprefix("https://orcid.org/").removeprefix("orcid:")
+        g.add((s, AIPROV.orcid,
+               Literal("https://orcid.org/" + oid, datatype=XSD.anyURI)))
+    if affiliation:
+        g.add((s, AIPROV.affiliation, Literal(affiliation, datatype=XSD.string)))
 
 
 def cmd_search(a) -> None:
@@ -559,12 +693,19 @@ def main() -> None:
     sub = p.add_subparsers(dest="cmd", required=True)
 
     s = sub.add_parser("init"); s.add_argument("--force", action="store_true")
+    s.add_argument("--orcid", help="owner's ORCID iD; registers them as HumanAgent "
+                   "with name/affiliation resolved from the public registry")
+    s.add_argument("--human-id", dest="human_id", help="agent id for the owner (default: name slug)")
+    s.add_argument("--ci", action="store_true",
+                   help="scaffold .github/workflows/aiprov-build.yml (validate graph, build LaTeX paper to PDF)")
 
     s = sub.add_parser("agent")
     s.add_argument("--id", required=True); s.add_argument("--type", choices=["ai", "human", "tool"], required=True)
     for f in ["name", "model", "model_version", "provider", "endpoint", "context_window",
               "knowledge_cutoff", "orcid", "affiliation"]:
         s.add_argument("--" + f.replace("_", "-"), dest=f)
+    s.add_argument("--resolve", action="store_true",
+                   help="fill missing name/affiliation from the public ORCID registry")
 
     s = sub.add_parser("log")
     s.add_argument("--activity", required=True); s.add_argument("--label")
@@ -615,6 +756,8 @@ def main() -> None:
     s.add_argument("--dashboard", help="also render an HTML dashboard of the extract")
 
     a = p.parse_args()
+    if a.cmd != "init" and a.base == DEFAULT_BASE:
+        a.base = _detect_base() or a.base  # reuse the base the graph was seeded with
     {"init": cmd_init, "agent": cmd_agent, "log": cmd_log,
      "claim": cmd_claim, "validate": cmd_validate, "report": cmd_report,
      "extract": cmd_extract, "source": cmd_source, "promote": cmd_promote, "search": cmd_search}[a.cmd](a)

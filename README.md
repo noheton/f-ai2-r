@@ -15,6 +15,12 @@ Two invariants carry over from F(AI)²R unchanged:
   never be granted by an AI agent. The validator flags violations; `promote`
   refuses them outright.
 
+This repository is also the canonical source of the **ai-provenance skill**:
+`SKILL.md` plus `scripts/`, `assets/`, `references/` are the skill tree,
+packaged into `dist/ai-provenance.skill` by `scripts/package_skill.sh`. The
+initial uploaded version is preserved at `archive/aiprovenance-v0.skill`;
+see `CHANGELOG.md` for its evolution.
+
 ## Quickstart
 
 Requires Python 3.10+ and `rdflib`:
@@ -26,11 +32,12 @@ pip install -r scripts/requirements.txt
 Seed a graph (once per project), register agents, log work, validate:
 
 ```sh
-python3 scripts/provlog.py init --base https://your-domain.example/prov/
+# One step: derive base IRI from the git remote, register the owner as
+# HumanAgent (name/affiliation resolved from the public ORCID registry),
+# and scaffold the CI workflow. --base overrides the derived IRI.
+python3 scripts/provlog.py init --orcid 0000-0000-0000-0000 --ci
 
-python3 scripts/provlog.py agent --id ada --type human \
-    --name "Ada L." --orcid https://orcid.org/0000-0000-0000-0000
-
+# Later commands auto-detect the base from the graph — no --base needed.
 python3 scripts/provlog.py agent --id my-model --type ai \
     --model my-model-id --provider SomeProvider
 
@@ -86,10 +93,15 @@ promoted it.
 
 | Path | What |
 |---|---|
+| `SKILL.md` | The ai-provenance skill definition (this repo is the skill's source tree) |
 | `assets/aiprov-schema.ttl` | Full vocabulary: agent/activity/entity classes, all attributes, verification ladder |
+| `assets/ci/aiprov-build.yml` | CI template scaffolded by `init --ci`: validate graph, build dashboard + paper PDF |
 | `scripts/provlog.py` | CLI: init / agent / log / claim / validate / report / search / source / promote / extract |
 | `scripts/build_dashboard.py` | Renders `provenance.ttl` as a self-contained HTML dashboard |
+| `scripts/package_skill.sh` | Packages the tree into `dist/ai-provenance.skill` |
 | `references/attributes.md` | Attribute catalogue with provider-API field mappings (Anthropic, OpenAI, llama.cpp) |
+| `archive/` | Immutable released/received skill snapshots (v0 = as uploaded) |
+| `paper/` | The meta-paper about this methodology, built to PDF by CI on every push |
 | `provenance.ttl` | This repository's own provenance graph — the toolkit tracks its own construction |
 
 The graph file is append-friendly Turtle; keep it in git next to the

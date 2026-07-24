@@ -3,3 +3,12 @@ __pycache__/
 .venv/
 dashboard.html
 provenance-extract.ttl
+dist/
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.pdf

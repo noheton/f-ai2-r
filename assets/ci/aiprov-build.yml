@@ -1,0 +1,53 @@
+# aiprov CI template — scaffolded by `provlog.py init --ci`.
+# Gates every push on graph conformance and publishes the current build of
+# the paper, so the latest PDF is always available as a workflow artifact.
+# Paths assume the skill layout (scripts/ at repo root, LaTeX in paper/);
+# adjust if your repository differs.
+name: aiprov build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  provenance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r scripts/requirements.txt
+      - name: Validate provenance graph
+        run: |
+          if [ -f provenance.ttl ]; then
+            python3 scripts/provlog.py validate
+          else
+            echo "no provenance.ttl yet — run provlog.py init"
+          fi
+      - name: Build provenance dashboard
+        if: ${{ hashFiles('provenance.ttl') != '' }}
+        run: python3 scripts/build_dashboard.py provenance.ttl -o dashboard.html
+      - name: Upload dashboard artifact
+        if: ${{ hashFiles('provenance.ttl') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: provenance-dashboard
+          path: dashboard.html
+
+  paper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile LaTeX to PDF
+        if: ${{ hashFiles('paper/main.tex') != '' }}
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: paper
+      - name: Upload paper artifact
+        if: ${{ hashFiles('paper/main.tex') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-pdf
+          path: paper/main.pdf
