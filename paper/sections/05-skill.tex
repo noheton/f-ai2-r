@@ -82,6 +82,81 @@ free, and with the shepard integration of
 Section~\ref{sec:conclusion}, raw data and provenance share one
 backbone.
 
+\textbf{Auditability at the command line.} Auditability here is not an
+abstract property but a concrete session: an auditor clones the
+repository and runs the same tooling the authors ran. Three checks
+need no trust in anyone's honesty. Re-running the validator replays
+every invariant against the graph as it stands; re-hashing a vendored
+file or a committed artefact and comparing against the recorded digest
+detects any silent swap; re-resolving a recorded DOI confirms the
+citation metadata still matches the registry. Two further checks read
+rather than execute: the activity log tells the auditor \emph{who}
+granted each rung and under which commit, and the transcript shows the
+dialogue in which a contested decision was made. The tooling is built
+so that success is quiet and failure is loud,
+Figure~\ref{fig:cli}: a clean graph prints one \texttt{OK} line per
+invariant and exits zero, suitable as a CI gate; a violation names the
+offending node and exits nonzero; a refused operation says why it was
+refused and what would make it legitimate. The last property matters
+most for the human rungs: when the operator asks for
+\texttt{human-confirmed}, the gate either blocks for lack of access
+material or prints exactly where the review copy sits, so the human
+step starts with the evidence in hand rather than a search for it.
+
+\begin{figure}[t]
+\centering
+\scriptsize
+\begin{verbatim}
+$ provlog.py validate
+[ OK ] parentless claims: 0
+[ OK ] unattributed claims: 0
+[ OK ] human-only rungs granted by AI agents: 0
+    (...four further checks OK...)        exit 0
+
+# an AI agent tries to grant a human-only rung
+$ provlog.py promote --id demo-claim \
+    --to human-confirmed --agent claude-code
+REFUSED: rung 'human-confirmed' is human-only;
+  agent:claude-code is not a registered
+  HumanAgent. An AI must never grant this rung.
+                                          exit 1
+
+# a parentless claim spliced into the graph
+$ provlog.py validate
+[FAIL] parentless claims: 1
+[FAIL] unattributed claims: 1
+    -> .../prov/claim/rogue               exit 1
+
+# access gate: human rung, source not in hand
+$ provlog.py promote --id demo-src \
+    --to human-confirmed --agent florian-krebs
+REFUSED: 'human-confirmed' requires the source
+  in hand -- vendor a copy first (promote
+  --to source-vendored --file <path>) or
+  record a DOI/URL for it                 exit 1
+
+# vendor the copy, then the gate hands it over
+$ provlog.py promote --id demo-src \
+    --to source-vendored --agent claude-code \
+    --file protocol.pdf
+demo-src: reference-resolved -> source-vendored
+$ provlog.py promote --id demo-src \
+    --to human-confirmed --agent florian-krebs
+review material: vendored copy at protocol.pdf
+demo-src: source-vendored -> human-confirmed
+  (logged as AuditPass, agent:florian-krebs)
+                                          exit 0
+\end{verbatim}
+\caption{Success and failure, captured from the tooling running
+against a sandbox copy of this paper's graph: a clean validation, the
+two invariant refusals (human-only rung attempted by an AI; parentless
+claim), and the rung-4 access gate first blocking a human promotion
+and then, once a copy is vendored, handing the review material to the
+human. Output verbatim; long lines re-wrapped and exit codes
+annotated.}
+\label{fig:cli}
+\end{figure}
+
 \textbf{Versioning the method.} The skill tree is the repository.
 Released snapshots are immutable, changes are logged in a changelog,
 and every activity binds the commit under which it ran, so the
