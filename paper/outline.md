@@ -36,8 +36,12 @@ the method to its own production.
 2. **Background** — FAIR principles; W3C PROV-O; F(AI)²R two-pass model;
    contributor taxonomies (CRediT); AI transparency artefacts (model
    cards, datasheets); packaging (RO-Crate); publisher/venue AI-disclosure
-   policies. All citations enter via the ladder: search → DOI-verified
-   `reference-resolved` → `ai-confirmed` → human rungs.
+   policies. Lineage: Obscurity-Is-Dead (transcript-as-artifact, the
+   verification labels the ladder canonicalizes) → F(AI)²R → this work;
+   neighbors: DLR uncertainty-aware provenance (Valente et al., with
+   Frank Dressel); HMC-context discussions. All citations enter via the
+   ladder: search → DOI-verified `reference-resolved` → `ai-confirmed`
+   → human rungs.
 3. **Dilution crisis** — output outgrows review capacity; paper mills +
    LLMs collapse the cost of plausible papers; fabricated papers and
    citations are indexed and propagate; model collapse compounds the

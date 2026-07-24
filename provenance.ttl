@@ -168,15 +168,19 @@ agent:florian-krebs a aiprov:HumanAgent ;
 
 <https://noheton.org/f-ai2-r/prov/entity/01-introduction-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> ;
-    aiprov:contentHash "sha256:3d6afbe42ffc5636a6272bb5574284cc130033bce5bff3dd64738cc31f35f946" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure>,
+        <https://noheton.org/f-ai2-r/prov/activity/s11-lineage> ;
+    aiprov:contentHash "sha256:3d6afbe42ffc5636a6272bb5574284cc130033bce5bff3dd64738cc31f35f946",
+        "sha256:69e8c9b76ab03b02d2e78eeaf64e4f81569633d66a6c85853bbd747e028b1f6c" ;
     aiprov:filePath "paper/sections/01-introduction.tex" ;
     aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
 
 <https://noheton.org/f-ai2-r/prov/entity/02-background-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> ;
-    aiprov:contentHash "sha256:8920fe38639a9406df5a865983817ce8c291932611fe185e768d112eb3cc3a90" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure>,
+        <https://noheton.org/f-ai2-r/prov/activity/s11-lineage> ;
+    aiprov:contentHash "sha256:8920fe38639a9406df5a865983817ce8c291932611fe185e768d112eb3cc3a90",
+        "sha256:9b96b3b3c47c115af143321687b39368552d5196539b99a9b3483529089e2f50" ;
     aiprov:filePath "paper/sections/02-background.tex" ;
     aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
 
@@ -310,9 +314,11 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure>,
         <https://noheton.org/f-ai2-r/prov/activity/s06-dilution-section>,
         <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
-        <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding>,
+        <https://noheton.org/f-ai2-r/prov/activity/s11-lineage> ;
     aiprov:contentHash "sha256:292ee450094d64465800f568cc319a3a5839d697137d2d8497eedb2cbb9587e8",
         "sha256:7ee7c6fa5c92b16acdaf2cda35b1c4bdf20ae0bf591dd05c7f05a8c8b2e097f7",
+        "sha256:c1f73aca74f5645d10385d70c662474ab94214785f60aab02abe638eae29d3f9",
         "sha256:e879c1511e6994e719097fd8097e64e4d060708415793727d6c4e195b757e7ba",
         "sha256:f35de4cb23ba5016b8c45043c3c17c87145d5b8a688bd0db543771f1a91ec21e" ;
     aiprov:filePath "assets/paper/main.tex",
@@ -322,8 +328,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/entity/outline-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure>,
-        <https://noheton.org/f-ai2-r/prov/activity/s06-dilution-section> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s06-dilution-section>,
+        <https://noheton.org/f-ai2-r/prov/activity/s11-lineage> ;
     aiprov:contentHash "sha256:a838082ac04e5aaac030ec3ff16580b747b6472d23ce4128e8367fab4f9dfcdc",
+        "sha256:cc5ff625615d81b71203a724293bf316b362419917e3bc67ce708bdd24ea1f25",
         "sha256:d2cccd2848f7ac185a8db58b04e6f3eb7a40d2a0252b635ccd7e359c5776c1a2" ;
     aiprov:filePath "paper/outline.md" ;
     aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
@@ -360,8 +368,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s05-literature-sweep>,
         <https://noheton.org/f-ai2-r/prov/activity/s06-dilution-section>,
         <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
-        <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding>,
+        <https://noheton.org/f-ai2-r/prov/activity/s11-lineage> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
+        "sha256:4374a3098b37b2edf2b377f2b857bd6f2e53a52d76e21a377470671637a15577",
         "sha256:5d082ed5e49f97ceb00af346ff9835f06feb91c207d5f11c664046e6707f124e",
         "sha256:972f6e5c4ad55b80381b3726d8b3ab766531da962543beb34fc9a0865de37969",
         "sha256:c36a397e5afe052f6d133968b0d1e2d663658aa045e11b9724ba3b055aeb0fc3" ;
@@ -373,9 +383,24 @@ agent:florian-krebs a aiprov:HumanAgent ;
     dcterms:source <https://eur-lex.europa.eu/eli/reg/2024/1689/oj> ;
     aiprov:verificationState verif:reference-resolved .
 
+<https://noheton.org/f-ai2-r/prov/source/fair2r-repo> a aiprov:Source ;
+    rdfs:label "F(AI)²R: FAIR research with AI in the loop, twice (research repository)"@en ;
+    dcterms:source <https://github.com/noheton/f-ai-r> ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/obscurity-is-dead> a aiprov:Source ;
+    rdfs:label "Obscurity Is Dead — Proprietary by Design, Open by AI (research repository)"@en ;
+    dcterms:source <https://github.com/noheton/Obscurity-Is-Dead> ;
+    aiprov:verificationState verif:reference-resolved .
+
 <https://noheton.org/f-ai2-r/prov/source/prov-o2013> a aiprov:Source ;
     rdfs:label "PROV-O: The PROV Ontology (W3C Recommendation, 30 April 2013)"@en ;
     dcterms:source <https://www.w3.org/TR/prov-o/> ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/uncertainty-prov2026> a aiprov:Source ;
+    rdfs:label "An Uncertainty-Aware Provenance Framework for Enhanced Traceability in Engineering Systems"@en ;
+    dcterms:source <https://elib.dlr.de/224241/> ;
     aiprov:verificationState verif:reference-resolved .
 
 verif:human-confirmed a aiprov:VerificationState ;
@@ -739,6 +764,15 @@ aiprov:Contribution a owl:Class ;
         "edit",
         "write" .
 
+<https://noheton.org/f-ai2-r/prov/activity/s11-lineage> a aiprov:AuthoringPass ;
+    rdfs:label "Integrate intellectual lineage: Obscurity-Is-Dead (transcript-as-artifact, verification labels the ladder canonicalizes) and F(AI)2R registered as ancestor sources; DLR uncertainty-aware provenance framework (Valente et al., incl. Frank Dressel, elib 224241) as complementary neighbor; acknowledgement thanks HMC-context discussions and Frank Dressel; intro notes fast-paper-on-slow-work framing. All three sources URL-verified by fetch; 21 bib entries, all cited, latexmk green"@en ;
+    prov:endedAtTime "2026-07-24T18:51:02.044857+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit",
+        "web_fetch" .
+
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;
     rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
@@ -752,10 +786,6 @@ verif:ai-confirmed a aiprov:VerificationState ;
     aiprov:usedTool "bash",
         "edit",
         "write" .
-
-aiprov:AuthoringPass a owl:Class ;
-    rdfs:comment "AI or human produces/edits an artefact."@en ;
-    rdfs:subClassOf prov:Activity .
 
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
     rdfs:label "Bootstrap the f-ai2-r repository: vendor aiprov schema, provlog CLI, dashboard builder, attribute catalogue; write README; seed this provenance graph"@en ;
@@ -777,6 +807,10 @@ aiprov:AuthoringPass a owl:Class ;
         "edit",
         "write" .
 
+aiprov:AuthoringPass a owl:Class ;
+    rdfs:comment "AI or human produces/edits an artefact."@en ;
+    rdfs:subClassOf prov:Activity .
+
 <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> a aiprov:AuthoringPass ;
     rdfs:label "Meta-paper principal structure: IEEEtran chapter-per-file skeleton (main.tex + sections/01-07), page budget and figure plan (outline.md), F1 ladder figure in TikZ; grounded in the F(AI)2R method (authoring+audit passes, no-parentless-claim, repository-is-the-paper)"@en ;
     prov:endedAtTime "2026-07-24T18:28:43.680326+00:00"^^xsd:dateTime ;
@@ -793,16 +827,16 @@ aiprov:Claim a owl:Class ;
 aiprov:VerificationState a owl:Class ;
     rdfs:comment "A rung on the verification ladder. Higher position = stronger check. Rungs at position 5+ are human-only: an AI agent must never grant them."@en .
 
+aiprov:AuditPass a owl:Class ;
+    rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
+    rdfs:subClassOf prov:Activity .
+
 verif:reference-resolved a aiprov:VerificationState ;
     rdfs:label "reference resolved"@en ;
     rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
     skos:altLabel "lit-retrieved"@en,
         "retrieved"@en ;
     aiprov:ladderPosition 2 .
-
-aiprov:AuditPass a owl:Class ;
-    rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
-    rdfs:subClassOf prov:Activity .
 
 aiprov:Source a owl:Class ;
     rdfs:subClassOf prov:Entity .
