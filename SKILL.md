@@ -76,6 +76,13 @@ F(AI)²R carry over unchanged:
    Crossref, OpenAlex, arXiv, and DataCite (open APIs, no key); register
    picks with `provlog.py source --id <slug> --doi <doi> --verify --agent
    <id>` which resolves the DOI and promotes to `reference-resolved`.
+   Before requesting human confirmation of a source, hand over the
+   evidence: `promote --to source-vendored --file <path>` records the
+   vendored copy (path + sha256), or make sure a clear DOI/URL is on the
+   node — vendoring has no evidential value of its own; it is the access
+   gate, and `promote` refuses the human-only rungs without it, printing
+   the review material (vendored path or obtain-via link) with every
+   request.
 7. **Generate the AI-transparency disclosure** whenever an artefact is
    published or shared: `provlog.py disclosure [--format tex|md] [-o file]`
    derives a statement from the graph itself — which AI systems assisted,

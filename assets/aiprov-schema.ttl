@@ -163,7 +163,7 @@ verif:ai-confirmed    a aiprov:VerificationState ; aiprov:ladderPosition 3 ;
     rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en .
 verif:source-vendored a aiprov:VerificationState ; aiprov:ladderPosition 4 ;
     rdfs:label "source vendored"@en ;
-    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en .
+    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads. Of no evidential value by itself: this rung is the ACCESS GATE to human verification — before granting the human-only rungs, the agent must hand the human either a vendored copy or a clear access link (DOI/URL), and tooling refuses the promotion otherwise."@en .
 verif:human-confirmed a aiprov:VerificationState ; aiprov:ladderPosition 5 ;
     rdfs:label "human-confirmed"@en ;
     rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en .

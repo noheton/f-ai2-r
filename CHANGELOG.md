@@ -1,5 +1,18 @@
 # Changelog — ai-provenance skill
 
+## v0.6 (2026-07-24)
+
+- **source-vendored reframed as access gate.** Vendoring has no
+  evidential value of its own — an unread copy proves nothing beyond
+  `reference-resolved`. Its role is to make human verification feasible
+  and durable: `promote --to source-vendored --file <path>` now records
+  the vendored copy (path + sha256), promotion of a source to the
+  human-only rungs is refused unless a vendored copy or clear access
+  link (DOI/URL) exists — and the review material is printed with every
+  request — and the validator warns on human-verified sources whose
+  audit target is link-only. Schema, attribute catalogue, and paper
+  ladder table updated to the gate semantics.
+
 ## v0.5 (2026-07-24)
 
 - **Live paper preview ("show paper").** New

@@ -313,10 +313,21 @@ def cmd_validate(a) -> None:
               aiprov:verificationState ?st .
             FILTER(REGEX(STR(?st), "(retrieved|reference-resolved|ai-confirmed|source-vendored|human-confirmed|human-read|lit-read)$"))
             FILTER NOT EXISTS { ?s aiprov:doi ?d }
-            FILTER NOT EXISTS { ?s <http://purl.org/dc/terms/source> ?u } }"""
+            FILTER NOT EXISTS { ?s <http://purl.org/dc/terms/source> ?u }
+            FILTER NOT EXISTS { ?s aiprov:filePath ?f } }"""
     noref = list(g.query(q3b))
-    print(f"[{'FAIL' if noref else ' OK '}] sources above needs-research without DOI/URL: {len(noref)}")
+    print(f"[{'FAIL' if noref else ' OK '}] sources above needs-research without DOI/URL/vendored copy: {len(noref)}")
     fail += len(noref)
+    # Vendoring is an access gate, not evidence: a human-verified source
+    # should ideally have been checked against vendored bytes; link-only is
+    # legitimate but the audit target is then mutable, so WARN.
+    q3v = """SELECT ?s WHERE { ?s a aiprov:Source ;
+              aiprov:verificationState ?st .
+            FILTER(REGEX(STR(?st), "(human-confirmed|human-read|lit-read)$"))
+            FILTER NOT EXISTS { ?s aiprov:filePath ?f } }"""
+    unvend = list(g.query(q3v))
+    print(f"[{'WARN' if unvend else ' OK '}] human-verified sources not vendored "
+          f"(link-only audit target): {len(unvend)}")
     q4 = """SELECT ?act WHERE { ?e prov:wasGeneratedBy ?act .
             FILTER NOT EXISTS { ?act prov:wasAssociatedWith ?ag } }"""
     anon = set(r[0] for r in g.query(q4))
@@ -656,6 +667,33 @@ def cmd_promote(a) -> None:
     if a.to in HUMAN_ONLY and not is_human:
         sys.exit(f"REFUSED: rung '{a.to}' is human-only; agent:{a.agent} is not "
                  f"a registered HumanAgent. An AI must never grant this rung.")
+    is_source = (node, RDF.type, AIPROV.Source) in g
+    if a.to == "source-vendored" and is_source:
+        # Vendoring is an act of provision, not an assertion: record what
+        # was provided, where, and its hash.
+        if not a.file:
+            sys.exit("promotion to source-vendored requires --file "
+                     "<repo path of the vendored copy>")
+        fp = pathlib.Path(a.file)
+        if not fp.exists():
+            sys.exit(f"vendored file {a.file} does not exist")
+        g.add((node, AIPROV.filePath, Literal(a.file)))
+        g.add((node, AIPROV.contentHash,
+               Literal("sha256:" + hashlib.sha256(fp.read_bytes()).hexdigest())))
+    if a.to in HUMAN_ONLY and is_source:
+        # Human verification needs the evidence in hand: a vendored copy or
+        # a clear access link. Vendoring has no evidential value of its own
+        # — it exists to make this step possible.
+        vendored = [str(v) for v in g.objects(node, AIPROV.filePath)]
+        links = [str(d) for d in g.objects(node, AIPROV.doi)] + \
+                [str(u) for u in g.objects(node, DCT.source)]
+        if not (vendored or links):
+            sys.exit(f"REFUSED: '{a.to}' requires the source in hand — vendor "
+                     f"a copy first (promote --id {a.id} --to source-vendored "
+                     f"--file <path>) or record a DOI/URL for it")
+        print("review material: " +
+              "; ".join([f"vendored copy at {v}" for v in vendored] +
+                        [f"obtain via {x}" for x in links]))
     _set_state(g, a.base, node, a.to)
     act = ns(a.base, "activity")[f"promote-{a.id}-{a.to}"]
     g.add((act, RDF.type, AIPROV.AuditPass))
@@ -835,6 +873,8 @@ def main() -> None:
     s.add_argument("--to", required=True, help="target rung")
     s.add_argument("--agent", required=True)
     s.add_argument("--note")
+    s.add_argument("--file", help="vendored copy of the source (required for "
+                   "--to source-vendored); path + sha256 are recorded")
 
     s = sub.add_parser("extract")
     s.add_argument("--graph", help="input TTL (default provenance.ttl)")
