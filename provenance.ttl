@@ -340,9 +340,11 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets>,
         <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite>,
         <https://noheton.org/f-ai2-r/prov/activity/s27-transparent-selfcite>,
-        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s34-cost-debate> ;
     aiprov:contentHash "sha256:29dd7cb85f192a7581ce3d7de057df6506789848e5460030dc19e9a791b8c67d",
         "sha256:57f5afcede656867022086e3befc3bcdb93da291e2da209e6acb9e5ae22714b8",
+        "sha256:83a75492643a4a602c3831f08aec47cebfa6c61171591485b0f0f7582a16fee9",
         "sha256:95df2962d33775a71cb8dd4f8c5ae0f4aca6cf19702d37d1197faf7b5481baf9",
         "sha256:9f3a6f335fb0901d201700b7505fa5f837e048d7b06be9f499f0f9965af2432f",
         "sha256:a27f1ffd99e9847dbfb36751bbcd4ecfabb770ddd17f0a691ef1442f9eea1227",
@@ -872,6 +874,14 @@ aiprov:verificationState a owl:ObjectProperty ;
 <https://noheton.org/f-ai2-r/prov/activity/s27-transparent-selfcite> a aiprov:AuthoringPass ;
     rdfs:label "Discussion 6.8c sharpened to the operator's framing: 'transparent self-citation' named as a practice — not inflating metrics but declaring important influences — with a load-bearing test: removing a transparent self-citation would orphan a lineage or method claim"@en ;
     prov:endedAtTime "2026-07-24T20:06:06.025662+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
+    aiprov:usedTool "bash",
+        "edit" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s34-cost-debate> a aiprov:AuthoringPass ;
+    rdfs:label "Discussion extended per operator: whether token expenditure (185M cache-read tokens for one draft paper and one method release this session) justifies environmental and other costs is explicitly left open — the paper's position is only that the debate be held over recorded consumption rather than guesses in either direction; aiprov:energyWh noted as reserved and empty because no provider reported energy"@en ;
+    prov:endedAtTime "2026-07-24T20:47:48.841930+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
     aiprov:usedTool "bash",
