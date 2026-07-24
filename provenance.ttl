@@ -9,6 +9,11 @@
 @prefix verif: <https://noheton.org/f-ai2-r/prov/verification/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<https://noheton.org/f-ai2-r/prov/activity/ci-run-30118066911> a aiprov:Build ;
+    rdfs:label "First green CI run (aiprov build #4, commit 63614b4): provenance job validated the graph and built the dashboard; paper job regenerated the disclosure and compiled main.pdf via latexmk. Artifacts: paper-pdf (76469 bytes, sha256:02650269a07e3cc5cb41dcbe8f313ed61971c62f42983c018feedd43fe98a6c1), provenance-dashboard (10389 bytes, sha256:c89d66794fc96fa22f599749ce6b61d617c2b14fe664f287af8f1df8a1841c53). Run: https://github.com/noheton/f-ai2-r/actions/runs/30118066911"@en ;
+    prov:endedAtTime "2026-07-24T18:48:20.669490+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:github-actions .
+
 <https://noheton.org/f-ai2-r/prov/activity/s09-incident> a aiprov:AuditPass ;
     rdfs:label "Incident record (honest self-report): while creating paper-template stubs, a persisted working directory caused the agent to overwrite paper/sections/01-introduction.tex and 02-background.tex with generic stubs and create four stray stub files. Detected immediately via file-change notices and git status; both files restored with git checkout from commit 75d21bd; stray files deleted; nothing lost or pushed. Kept in the graph as evidence for the repository-is-the-process discussion (paper section 6.2)"@en ;
     prov:endedAtTime "2026-07-24T18:45:54.248700+00:00"^^xsd:dateTime ;
@@ -402,10 +407,6 @@ verif:unverified a aiprov:VerificationState ;
 aiprov:AIContribution a owl:Class ;
     rdfs:subClassOf aiprov:Contribution .
 
-aiprov:Build a owl:Class ;
-    rdfs:comment "Deterministic build/compile/CI activity."@en ;
-    rdfs:subClassOf prov:Activity .
-
 aiprov:HumanContribution a owl:Class ;
     rdfs:subClassOf aiprov:Contribution .
 
@@ -419,11 +420,6 @@ aiprov:Prompt a owl:Class ;
 aiprov:Repair a owl:Class ;
     rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
     rdfs:subClassOf prov:Activity .
-
-aiprov:ToolAgent a owl:Class ;
-    rdfs:label "Deterministic tool"@en ;
-    rdfs:comment "Non-AI software (compiler, linter, CI job) acting in the pipeline."@en ;
-    rdfs:subClassOf prov:SoftwareAgent .
 
 aiprov:Transcript a owl:Class ;
     rdfs:comment "Preserved conversation record; bound to activities via aiprov:transcript."@en ;
@@ -569,6 +565,10 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:usedTool "bash",
         "web_fetch" .
 
+agent:github-actions a aiprov:ToolAgent ;
+    foaf:name "GitHub Actions (aiprov build workflow)" ;
+    aiprov:provider "GitHub"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> a aiprov:Source ;
     rdfs:label "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing"@en ;
     dcterms:date "2023" ;
@@ -681,6 +681,15 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:isPartOf "Data Science" ;
     aiprov:doi "https://doi.org/10.3233/ds-210053"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
+
+aiprov:Build a owl:Class ;
+    rdfs:comment "Deterministic build/compile/CI activity."@en ;
+    rdfs:subClassOf prov:Activity .
+
+aiprov:ToolAgent a owl:Class ;
+    rdfs:label "Deterministic tool"@en ;
+    rdfs:comment "Non-AI software (compiler, linter, CI job) acting in the pipeline."@en ;
+    rdfs:subClassOf prov:SoftwareAgent .
 
 <https://noheton.org/f-ai2-r/prov/activity/s05-literature-sweep> a aiprov:AuditPass ;
     rdfs:label "Literature sweep via provlog search (Crossref/OpenAlex, open APIs): 12 sources registered, 11 DOI-verified to reference-resolved, W3C PROV-O by resolvable URL; BibTeX fetched from doi.org content negotiation into paper/references.bib"@en ;
