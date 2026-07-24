@@ -5,22 +5,32 @@
 %     mitigations: omit-don't-estimate, content hashes + commits bind
 %     records to bytes, CI validation is server-side, human rungs cap
 %     what an AI may assert about itself.
-% 6.2 Why human-only rungs stay human — ai-confirmed is a machine
+% 6.2 Worked incident: repository-is-the-process in practice — during
+%     this meta-experiment, a working-directory mixup led the AI agent
+%     to overwrite two committed manuscript sections with template
+%     stubs (graph activity s09-incident). Version control surfaced
+%     the unintended diff immediately; restoration was a one-command
+%     revert to the committed state, and the incident is recorded in
+%     the graph rather than erased. The lesson generalizes: with the
+%     repository as the process substrate, AI mistakes are recoverable
+%     and auditable events, not silent corruption — the same property
+%     that makes contributions attributable makes errors reversible.
+% 6.3 Why human-only rungs stay human — ai-confirmed is a machine
 %     judgement with known failure modes \cite{ai-hallucination2023};
 %     the ladder makes the judgement's author explicit instead of
 %     laundering it.
-% 6.3 Cost of the method — logging overhead per session; what the
+% 6.4 Cost of the method — logging overhead per session; what the
 %     meta-experiment measured (Table~\ref{tab:telemetry}).
-% 6.4 Skill drift — the method evolves mid-experiment (v0 -> v0.2 here);
+% 6.5 Skill drift — the method evolves mid-experiment (v0 -> v0.4 here);
 %     immutable archives + changelog + per-activity commit binding keep
 %     runs attributable to the exact method version.
-% 6.5 Regulatory alignment — the EU AI Act's transparency rules
+% 6.6 Regulatory alignment — the EU AI Act's transparency rules
 %     \cite{eu-ai-act2024} ask for disclosure and machine-readable
 %     marking of AI-generated content; a provenance graph is exactly
 %     that marking, and the generated disclosure statement (§ Ack.)
 %     never lags the graph because CI derives it on every build.
 %     Provenance-first authoring turns a compliance duty into a
 %     by-product.
-% 6.6 Generality — beyond papers: code, data pipelines, CAD/AAS;
+% 6.7 Generality — beyond papers: code, data pipelines, CAD/AAS;
 %     what transfers (invariants, ladder) and what is domain work
 %     (entity subclasses).

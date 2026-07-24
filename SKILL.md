@@ -96,7 +96,14 @@ F(AI)²R carry over unchanged:
    wasDerivedFrom, wasInformedBy, transcript, and repairs to keep only what
    contributed to them. Works on aiprov: and fair2r: graphs alike. Use
    Artefact/Claim as seeds for aiprov graphs.
-10. **Dashboard**: `python3 scripts/build_dashboard.py provenance.ttl -o dashboard.html`
+10. **Show the paper** on request ("show paper", "current draft"):
+   `python3 scripts/build_paper_preview.py -o paper-preview.html` compiles
+   the paper and renders a self-contained HTML preview — the typeset pages
+   as embedded images plus a status strip (commit, build time, page count,
+   graph statistics). Publish it as a Claude Artifact and RE-PUBLISH THE
+   SAME FILE PATH after every round of paper edits so the sidebar preview
+   stays current at a stable URL. Requires latexmk + pdftoppm.
+11. **Dashboard**: `python3 scripts/build_dashboard.py provenance.ttl -o dashboard.html`
    renders a self-contained, offline HTML ledger (no CDN): graph totals,
    per-agent table, activity ledger with token bars, verification-ladder
    chart, claims table, and an interactive force-directed provenance graph

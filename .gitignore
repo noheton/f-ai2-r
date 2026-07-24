@@ -2,6 +2,7 @@ __pycache__/
 *.pyc
 .venv/
 dashboard.html
+paper-preview.html
 provenance-extract.ttl
 dist/
 paper/*.aux

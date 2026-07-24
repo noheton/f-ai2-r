@@ -1,5 +1,15 @@
 # Changelog — ai-provenance skill
 
+## v0.5 (2026-07-24)
+
+- **Live paper preview ("show paper").** New
+  `scripts/build_paper_preview.py` compiles the paper and renders a
+  self-contained HTML preview: typeset pages as embedded images plus a
+  status strip (commit, build time, pages, provenance-graph statistics).
+  Workflow step 10 has the agent publish it as a Claude Artifact and
+  re-publish the same file after every editing round, keeping a
+  stable-URL sidebar preview current with the draft.
+
 ## v0.4 (2026-07-24)
 
 - **Paper scaffolding in init.** `init --paper` scaffolds a compilable
