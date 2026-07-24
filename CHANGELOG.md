@@ -1,5 +1,17 @@
 # Changelog — ai-provenance skill
 
+## v0.3 (2026-07-24)
+
+- **EU AI Act transparency integration.** New `provlog.py disclosure`
+  command derives an AI-transparency statement from the graph itself
+  (which AI systems assisted, recorded activities/artefacts/claims, the
+  graph as machine-readable marking), aligned with the disclosure and
+  marking rules for AI-generated content in Regulation (EU) 2024/1689.
+  Outputs LaTeX or Markdown; the CI template regenerates
+  `paper/disclosure.tex` from the graph before every PDF build, so the
+  published statement never lags the record. Workflow step 7 makes the
+  disclosure part of publishing any artefact.
+
 ## v0.2 (2026-07-24)
 
 The repository becomes the canonical skill source (`SKILL.md` at root,

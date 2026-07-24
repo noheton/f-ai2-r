@@ -39,6 +39,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        if: ${{ hashFiles('paper/main.tex') != '' && hashFiles('provenance.ttl') != '' }}
+        with:
+          python-version: "3.12"
+      - name: Regenerate AI-transparency disclosure from the graph (EU AI Act)
+        if: ${{ hashFiles('paper/main.tex') != '' && hashFiles('provenance.ttl') != '' }}
+        run: |
+          pip install -r scripts/requirements.txt
+          python3 scripts/provlog.py disclosure --format tex -o paper/disclosure.tex
       - name: Compile LaTeX to PDF
         if: ${{ hashFiles('paper/main.tex') != '' }}
         uses: xu-cheng/latex-action@v3

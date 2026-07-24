@@ -69,9 +69,19 @@ F(AI)²R carry over unchanged:
    Crossref, OpenAlex, arXiv, and DataCite (open APIs, no key); register
    picks with `provlog.py source --id <slug> --doi <doi> --verify --agent
    <id>` which resolves the DOI and promotes to `reference-resolved`.
-7. **Report**: `provlog.py report` — token and cost totals, per-agent
+7. **Generate the AI-transparency disclosure** whenever an artefact is
+   published or shared: `provlog.py disclosure [--format tex|md] [-o file]`
+   derives a statement from the graph itself — which AI systems assisted,
+   how many activities/artefacts/claims are recorded, and that the graph is
+   the machine-readable marking — aligned with the transparency rules for
+   AI-generated content in Regulation (EU) 2024/1689 (AI Act). For papers,
+   `--format tex -o paper/disclosure.tex` and `\input` it from an
+   acknowledgement section; the scaffolded CI regenerates it before every
+   PDF build so the statement never lags the graph. Never hand-edit the
+   generated statement — fix the graph instead.
+8. **Report**: `provlog.py report` — token and cost totals, per-agent
    breakdown, verification-rung distribution.
-8. **Extract contribution subgraphs**: `provlog.py extract --graph provenance.ttl
+9. **Extract contribution subgraphs**: `provlog.py extract --graph provenance.ttl
    --seed-types Manuscript Section Figure Claim [--exclude-kinds Slidedeck Poster]
    -o subset.ttl --dashboard subset.html` — backward provenance closure: seeds
    are the entities that ARE the content of interest; the closure follows
@@ -79,7 +89,7 @@ F(AI)²R carry over unchanged:
    wasDerivedFrom, wasInformedBy, transcript, and repairs to keep only what
    contributed to them. Works on aiprov: and fair2r: graphs alike. Use
    Artefact/Claim as seeds for aiprov graphs.
-9. **Dashboard**: `python3 scripts/build_dashboard.py provenance.ttl -o dashboard.html`
+10. **Dashboard**: `python3 scripts/build_dashboard.py provenance.ttl -o dashboard.html`
    renders a self-contained, offline HTML ledger (no CDN): graph totals,
    per-agent table, activity ledger with token bars, verification-ladder
    chart, claims table, and an interactive force-directed provenance graph
@@ -108,7 +118,7 @@ terms).
 |---|---|---|
 | `assets/aiprov-schema.ttl` | Full vocabulary: agent/activity/entity classes + all attributes + verification ladder | Seeding, hand-editing, extending |
 | `assets/ci/aiprov-build.yml` | GitHub Actions template: validate graph, build dashboard, compile LaTeX paper to PDF, upload artifacts | Scaffolded by `init --ci` |
-| `scripts/provlog.py` | CLI: init / agent / log / claim / validate / report / search / source / promote / extract | Always — prefer it over hand-writing Turtle |
+| `scripts/provlog.py` | CLI: init / agent / log / claim / validate / report / search / source / promote / disclosure / extract | Always — prefer it over hand-writing Turtle |
 | `references/attributes.md` | Attribute catalogue with provider-API field mappings | Filling telemetry correctly |
 | `scripts/build_dashboard.py` | Self-contained HTML dashboard from provenance.ttl | Presenting results |
 | `scripts/package_skill.sh` | Zip this tree into a distributable `dist/ai-provenance.skill` | Releasing the skill |
