@@ -514,7 +514,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite>,
         <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging>,
         <https://noheton.org/f-ai2-r/prov/activity/s37-cost-nostalgia-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s42-portability-v011> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s42-portability-v011>,
+        <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012> ;
     aiprov:contentHash "sha256:0f6b3e6665b218d527bbcd404b6c45f127596888482cdf7c20f95d48a971f28b",
         "sha256:348bff9c352d8100c2c308d2d6d557aeed976e529d4ac653cb15d9e412ac7b2d",
         "sha256:4c07f3bc89b11e02d73459a8ff27db5c6113bec464b9de67aca5bb9aea8bcf45",
@@ -523,18 +524,44 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:c5375067d0182ed473f612999edb0c3420878ca6cc4da458d9c29413671c1b8f",
         "sha256:cb69fb786e0e97f03501c365e6784f770e50c5f45757599be255ac69a5e2f796",
         "sha256:d4d2beedd48dfed8d7ac9b367bfbe70af4b6a27b19551f947a37e11bdc336bcf",
+        "sha256:fb82e27a8a85e07bfaf1ed1bb50a98c84d404b04a415a5a0bfc98fd65a73988b",
         "sha256:ffa29f005606da1dbc3b23e7deece9860314721766968ffba245aafd8ea03d56" ;
     aiprov:filePath "CHANGELOG.md" ;
     aiprov:gitCommit "15a0d94",
         "30839e87e71b86a51db47795a5fc442765934c4b",
-        "540e2c2" .
+        "540e2c2",
+        "dbed058" .
+
+<https://noheton.org/f-ai2-r/prov/entity/CITATION-cff> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012> ;
+    aiprov:contentHash "sha256:578727823e5f494d7c07acc3b871c5c582560de43f1b509988f8b90200fd7513" ;
+    aiprov:filePath "CITATION.cff" ;
+    aiprov:gitCommit "dbed058" .
+
+<https://noheton.org/f-ai2-r/prov/entity/LICENSE> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012> ;
+    aiprov:contentHash "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30" ;
+    aiprov:filePath "LICENSE" ;
+    aiprov:gitCommit "dbed058" .
+
+<https://noheton.org/f-ai2-r/prov/entity/NOTICE> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012> ;
+    aiprov:contentHash "sha256:fcf031f082b76ca96faadce6a76e469a9ca00c6da04dfcf6439ca08b0ff4ca0a" ;
+    aiprov:filePath "NOTICE" ;
+    aiprov:gitCommit "dbed058" .
 
 <https://noheton.org/f-ai2-r/prov/entity/README-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
-    aiprov:contentHash "sha256:6f81c25207743e7e34fdbbb1e7c84882f133c107d6269d8f9bdc0a5c0f27b03a" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap>,
+        <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012> ;
+    aiprov:contentHash "sha256:11926fc41d2b8907c394b6a91cf2118962a545308f08ace90cd50652f38b1690",
+        "sha256:6f81c25207743e7e34fdbbb1e7c84882f133c107d6269d8f9bdc0a5c0f27b03a" ;
     aiprov:filePath "README.md" ;
-    aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
+    aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331",
+        "dbed058" .
 
 <https://noheton.org/f-ai2-r/prov/entity/SKILL-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -546,12 +573,14 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite>,
         <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging>,
         <https://noheton.org/f-ai2-r/prov/activity/s37-cost-nostalgia-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s42-portability-v011> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s42-portability-v011>,
+        <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012> ;
     aiprov:contentHash "sha256:333e6cfb08385a0003b31e9acdb22e9f83f0bca42fc3b8799e30099d75f7d881",
         "sha256:503f6ea38419390c47520c894c918945d69bdb294f23c1a7e7855336fef02dec",
         "sha256:69443814ed35aede2eb15f12893eb55eb94369d8a5e75ec52f2c07ac3b5c4431",
         "sha256:8963ec5023e470b5984b3ec07d503820e874be50c10bc407214fefbff79c198c",
         "sha256:a9557f62a62b10f5d07acc0d11bc80a05232572e74ab8e979a0d0a12cc3d1faa",
+        "sha256:c2cd1ecc506150e41e88ce98f6586efcf1fbe6cb0f824e678a244b4c668700db",
         "sha256:d4751e2ade136ee8df862c689a2f7fcf886c75b422805e537feac71ab15d0fbe",
         "sha256:da85aab26d7d560f8b33edd1da0cca5fc80fb6c624116b7ac7ca81179f83e91d",
         "sha256:ec884110a56562478ce0f62f83014988a87799ffb4b743e9cf3ce4dcbec16f84",
@@ -559,7 +588,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:filePath "SKILL.md" ;
     aiprov:gitCommit "15a0d94",
         "30839e87e71b86a51db47795a5fc442765934c4b",
-        "540e2c2" .
+        "540e2c2",
+        "dbed058" .
 
 <https://noheton.org/f-ai2-r/prov/entity/aiprov-build-yml> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -611,6 +641,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:4e13ed79bea23cb89f32e99b9896daa02ed66323f84b7f8a9216dd80463bcdcd",
         "sha256:c1cb8cf35473b636c656ab56a4f0b566bb2fd9a7ac6c0bac7f9ae7143c70acac" ;
     aiprov:filePath "scripts/build_paper_preview.py" .
+
+<https://noheton.org/f-ai2-r/prov/entity/codemeta-json> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012> ;
+    aiprov:contentHash "sha256:d217a2538acf9254d7378eba10e37087fea72d374b5975ff9e1c265f8104c11a" ;
+    aiprov:filePath "codemeta.json" ;
+    aiprov:gitCommit "dbed058" .
 
 <https://noheton.org/f-ai2-r/prov/entity/disclosure-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1434,6 +1471,12 @@ aiprov:Contribution a owl:Class ;
     aiprov:usedTool "bash",
         "edit" .
 
+<https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012> a aiprov:AuthoringPass ;
+    rdfs:label "Skill v0.12: research-software packaging. Apache-2.0 license (canonical text fetched from apache.org; operator directed the switch from the initially proposed MIT), NOTICE, CITATION.cff with preferred citation at status in-preparation, codemeta.json, README badges + License/Citing sections, ladder table in README updated to current rung semantics."@en ;
+    prov:endedAtTime "2026-07-25T18:35:19.983701+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
     rdfs:label "Bootstrap the f-ai2-r repository: vendor aiprov schema, provlog CLI, dashboard builder, attribute catalogue; write README; seed this provenance graph"@en ;
     prov:endedAtTime "2026-07-24T18:09:26.757162+00:00"^^xsd:dateTime ;
@@ -1473,10 +1516,6 @@ aiprov:Contribution a owl:Class ;
         "edit",
         "write" .
 
-<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
-
 aiprov:VerificationState a owl:Class ;
     rdfs:comment "A rung on the verification ladder. Higher position = stronger check. Rungs at position 5+ are human-only: an AI agent must never grant them."@en .
 
@@ -1487,6 +1526,10 @@ aiprov:VerificationState a owl:Class ;
     aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
     aiprov:usedTool "bash",
         "edit" .
+
+<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 aiprov:Claim a owl:Class ;
     rdfs:comment "An assertion in any artefact that warrants attribution and verification."@en ;
@@ -1504,15 +1547,15 @@ verif:reference-resolved a aiprov:VerificationState ;
         "retrieved"@en ;
     aiprov:ladderPosition 2 .
 
-aiprov:Artefact a owl:Class ;
-    rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
+aiprov:Source a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 aiprov:AuthoringPass a owl:Class ;
     rdfs:comment "AI or human produces/edits an artefact."@en ;
     rdfs:subClassOf prov:Activity .
 
-aiprov:Source a owl:Class ;
+aiprov:Artefact a owl:Class ;
+    rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
     rdfs:subClassOf prov:Entity .
 
 aiprov:AuditPass a owl:Class ;
