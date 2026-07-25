@@ -316,14 +316,17 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s11-lineage>,
         <https://noheton.org/f-ai2-r/prov/activity/s14-aas-semantics>,
         <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
-        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass> ;
     aiprov:contentHash "sha256:65e2d4a7848de93fd39e2b8dcd722dfe8023971944789d508b91a695f7af7141",
         "sha256:8920fe38639a9406df5a865983817ce8c291932611fe185e768d112eb3cc3a90",
         "sha256:9b96b3b3c47c115af143321687b39368552d5196539b99a9b3483529089e2f50",
         "sha256:d9ed9546b69fb3755369423b9a39dea5ff84951d4711347152f62b546fdaab92",
-        "sha256:e80f91f99ba2b913cbbfac91acf425622952a0fd7c47fd64300b62724ee611ef" ;
+        "sha256:e80f91f99ba2b913cbbfac91acf425622952a0fd7c47fd64300b62724ee611ef",
+        "sha256:fffb16e53db85bba03f1a6325e02e6253603e92b1e12b7d3d230b77a2d320a27" ;
     aiprov:filePath "paper/sections/02-background.tex" ;
-    aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
+    aiprov:gitCommit "1aaab86",
+        "4c17c02faf15034458e93ddecd1d8da829020f3e" .
 
 <https://noheton.org/f-ai2-r/prov/entity/03-dilution-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -331,14 +334,17 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
         <https://noheton.org/f-ai2-r/prov/activity/s29-ethics-incentives>,
         <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s39-audit-repairs> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s39-audit-repairs>,
+        <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass> ;
     aiprov:contentHash "sha256:1fdc7395fc56edf652a6c2bc0161a5ecb9b52eb3d9e8a1c875b67114d975374c",
         "sha256:40cf8adfa95da80a5b380c8101e1a022ed36b7878d39ded453a3d582b49e2222",
         "sha256:51446ed731fbcb1f923b50a2886c0030c891a1237f68e60e33418a98357756fb",
+        "sha256:78e0071f80a541f94bcf17a9070f15b84cfb2326df79c86462560c60f311c8e5",
         "sha256:8f02477e281afd92ced537d1f93211fd4602e422d7d89d789f63cc23fb6ac65e",
         "sha256:f229db9c262237ed1fd7a2254f9a80ca46986168abf6569cd5a62bfe473e1dcd" ;
     aiprov:filePath "paper/sections/03-dilution.tex" ;
-    aiprov:gitCommit "63bde89" .
+    aiprov:gitCommit "1aaab86",
+        "63bde89" .
 
 <https://noheton.org/f-ai2-r/prov/entity/03-method-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -355,16 +361,19 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s24-discussion-bullets>,
         <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite>,
         <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s39-audit-repairs> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s39-audit-repairs>,
+        <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass> ;
     aiprov:contentHash "sha256:1272492da6ea855f67d8c74337d336f3283292474fb2448320b7aafcffb40e21",
         "sha256:250f070dfac7344b065ca518cef78f206f58af1f475d5facf4506f380825c6d8",
         "sha256:381690b4013c932f1e940a0a103b5712eae31f4840493d82a192aa1efe90a25c",
         "sha256:4e4977bfbaac9669ebef71bf7a39b6bf455201c5f401855d6ef8f15a88887594",
         "sha256:5b125bf494a432ea1584a11ffcc2dd2ccf1237ebafdc395f72a4c2f7acfb39ee",
+        "sha256:8a13d230aa79472dc6a90f7f413b7566ad39d6c550ab9181c6518b4b3dabdb6a",
         "sha256:9af1e4add4be73ec7330ed67741ce0a1139f026a0087245bc1e518e6e4d4915a",
         "sha256:b0ddea32cc22ecca0b443c5763f51fc07e820748a3c48e2773a36fee2bea9f14" ;
     aiprov:filePath "paper/sections/04-method.tex" ;
-    aiprov:gitCommit "63bde89" .
+    aiprov:gitCommit "1aaab86",
+        "63bde89" .
 
 <https://noheton.org/f-ai2-r/prov/entity/04-skill-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -387,15 +396,18 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s32-data-analysis-example>,
         <https://noheton.org/f-ai2-r/prov/activity/s33-example-swap>,
-        <https://noheton.org/f-ai2-r/prov/activity/s38-auditability-examples> ;
-    aiprov:contentHash "sha256:359f3cdd6b2e1428bade3fa2e4ceabc1ca5f6fdccd83bb508278f0550699521e",
+        <https://noheton.org/f-ai2-r/prov/activity/s38-auditability-examples>,
+        <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass> ;
+    aiprov:contentHash "sha256:263f241a9b520e394b3fd1439163cad4f5285cfc9eeb4a8fcf8703b3eb7d5031",
+        "sha256:359f3cdd6b2e1428bade3fa2e4ceabc1ca5f6fdccd83bb508278f0550699521e",
         "sha256:4ce056ab41dddb7f64d9ea6ae775f94a04a1e8458dca49a61eac33bccfc7bc47",
         "sha256:6bd2f83a93a0033e1224833566e5b566d3e0abc7111e5708e578014162734e41",
         "sha256:7cf24beebcbd7d28f24f35b3f4f7e756b1ba5f78eddac5e149ed25663547a8f5",
         "sha256:a1885b28f19c8898eec42ef7dc28da66248a830fe690867b4457f7bd8cb3fb67",
         "sha256:e3e8528cf28abef84031f723e1ba7f3e9ae4d042d94bb6e0f12fbb6f4e4a1b24" ;
     aiprov:filePath "paper/sections/05-skill.tex" ;
-    aiprov:gitCommit "cf16dd2" .
+    aiprov:gitCommit "1aaab86",
+        "cf16dd2" .
 
 <https://noheton.org/f-ai2-r/prov/entity/06-discussion-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -448,8 +460,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s27-transparent-selfcite>,
         <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s34-cost-debate>,
-        <https://noheton.org/f-ai2-r/prov/activity/s37-cost-nostalgia-pass> ;
-    aiprov:contentHash "sha256:29dd7cb85f192a7581ce3d7de057df6506789848e5460030dc19e9a791b8c67d",
+        <https://noheton.org/f-ai2-r/prov/activity/s37-cost-nostalgia-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass> ;
+    aiprov:contentHash "sha256:0ae502fea46692d008b14632d42884f5e64adfa7b4cda32ff4fb0a96ac6f1860",
+        "sha256:29dd7cb85f192a7581ce3d7de057df6506789848e5460030dc19e9a791b8c67d",
         "sha256:57f5afcede656867022086e3befc3bcdb93da291e2da209e6acb9e5ae22714b8",
         "sha256:83a75492643a4a602c3831f08aec47cebfa6c61171591485b0f0f7582a16fee9",
         "sha256:95df2962d33775a71cb8dd4f8c5ae0f4aca6cf19702d37d1197faf7b5481baf9",
@@ -460,7 +474,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:e9ed6006dbdaf5586dfcab386f5c35f4a7665263ceafeb8fae055e89cc2b66a1",
         "sha256:f0b41bd559abf2febc296356d04a4657234a2bebc2767aa154cd4e0cd41caa63" ;
     aiprov:filePath "paper/sections/07-discussion.tex" ;
-    aiprov:gitCommit "540e2c2" .
+    aiprov:gitCommit "1aaab86",
+        "540e2c2" .
 
 <https://noheton.org/f-ai2-r/prov/entity/08-conclusion-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -615,11 +630,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s18-hoyer-klick-ack>,
         <https://noheton.org/f-ai2-r/prov/activity/s19-hmc-rdm-acks>,
         <https://noheton.org/f-ai2-r/prov/activity/s23-incident-figure>,
-        <https://noheton.org/f-ai2-r/prov/activity/s26-memas-inspiration> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s26-memas-inspiration>,
+        <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass> ;
     aiprov:contentHash "sha256:292ee450094d64465800f568cc319a3a5839d697137d2d8497eedb2cbb9587e8",
         "sha256:2bf4f82e8c20375dd1f6a64b9213d60e71822d3592fb9facb54c6ed3ca1fa160",
         "sha256:31a7ad8196528484eb264b1d7cf0b737b49554499f3d14a83e7fd3713fb24a76",
         "sha256:7ee7c6fa5c92b16acdaf2cda35b1c4bdf20ae0bf591dd05c7f05a8c8b2e097f7",
+        "sha256:bb3577f785bcdd3a56265f5c96af83b5b1d455f3b64f8574a95251a87b77300e",
         "sha256:c1f73aca74f5645d10385d70c662474ab94214785f60aab02abe638eae29d3f9",
         "sha256:c8a88d99a491d9629cc05d30fa8ba2706aed425673c59a17129d1ffd2f2f57de",
         "sha256:e879c1511e6994e719097fd8097e64e4d060708415793727d6c4e195b757e7ba",
@@ -630,7 +647,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:ff3d72212ad9e25814e889f98abca32e0ebfc29772d0b8fefb70c54b7eba2097" ;
     aiprov:filePath "assets/paper/main.tex",
         "paper/main.tex" ;
-    aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
+    aiprov:gitCommit "1aaab86",
+        "4c17c02faf15034458e93ddecd1d8da829020f3e" .
 
 <https://noheton.org/f-ai2-r/prov/entity/outline-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1353,6 +1371,12 @@ aiprov:Contribution a owl:Class ;
         "edit",
         "write" .
 
+<https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass> a aiprov:AuthoringPass ;
+    rdfs:label "Content pass under the raised 12-page cap: strong contributions expanded (real F2 vocabulary and F3 workflow TikZ figures replacing placeholders; prompts-as-plans rationale; validator's seven checks enumerated; two-commit tamper-evidence explanation; bounded search-horizon originality mechanics; fourth emerged practice content-checked-before-load-bearing), weaker material kept but shortened (background trust gap, metadata-community folded into lineage, dilution force-multiplier overlap, skill regulatory paragraph)."@en ;
+    prov:endedAtTime "2026-07-25T18:06:43.869298+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
     prov:endedAtTime "2026-07-24T18:43:45.977114+00:00"^^xsd:dateTime ;
@@ -1378,10 +1402,6 @@ aiprov:Contribution a owl:Class ;
     aiprov:usedTool "bash",
         "edit" .
 
-<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
-
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
     rdfs:label "Bootstrap the f-ai2-r repository: vendor aiprov schema, provlog CLI, dashboard builder, attribute catalogue; write README; seed this provenance graph"@en ;
     prov:endedAtTime "2026-07-24T18:09:26.757162+00:00"^^xsd:dateTime ;
@@ -1401,6 +1421,10 @@ aiprov:Contribution a owl:Class ;
     aiprov:usedTool "bash",
         "edit",
         "write" .
+
+<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> a aiprov:AuthoringPass ;
     rdfs:label "Meta-paper principal structure: IEEEtran chapter-per-file skeleton (main.tex + sections/01-07), page budget and figure plan (outline.md), F1 ladder figure in TikZ; grounded in the F(AI)2R method (authoring+audit passes, no-parentless-claim, repository-is-the-paper)"@en ;
@@ -1448,13 +1472,13 @@ verif:reference-resolved a aiprov:VerificationState ;
         "retrieved"@en ;
     aiprov:ladderPosition 2 .
 
-aiprov:AuthoringPass a owl:Class ;
-    rdfs:comment "AI or human produces/edits an artefact."@en ;
-    rdfs:subClassOf prov:Activity .
-
 aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
     rdfs:subClassOf prov:Entity .
+
+aiprov:AuthoringPass a owl:Class ;
+    rdfs:comment "AI or human produces/edits an artefact."@en ;
+    rdfs:subClassOf prov:Activity .
 
 aiprov:Source a owl:Class ;
     rdfs:subClassOf prov:Entity .
