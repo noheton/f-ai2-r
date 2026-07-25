@@ -10,6 +10,33 @@ Section~\ref{sec:meta} shows the mitigation working: with the
 repository as the process substrate, an AI mistake was a recoverable,
 recorded event rather than silent corruption.
 
+\textbf{From honesty to evidence: the dual-witness ask.} The
+remaining weakness is that the record has one witness. Telemetry is
+provider-generated but agent-relayed: nothing stops a dishonest agent
+from underreporting usage, omitting sessions, or inventing
+activities. Provider-side provenance, signed inference records
+carrying model, timestamps, usage, role labels, and hashes of prompt
+and response, would eliminate exactly that class of misreporting, and
+would subsume this paper's other provider asks (reported cost and
+energy, unambiguous roles) as by-products. It would not, however, be
+tamper-\emph{proof}, on three grounds. Trust shifts rather than
+vanishes: a signature proves the provider asserted the record, so key
+custody, compromise, and compulsion move to the centre. Coverage
+stops at the API seam: the server can attest what passed through it,
+not which files were touched, what CI ran, or the semantic bindings
+between an attested inference and a repository artefact, so a
+dishonest client can still mis-bind. And judgements stay judgements:
+a signature proves a model emitted a verdict, not that the verdict is
+sound, and no server can attest that a human read a source. The
+realistic endpoint is a \emph{dual witness}: provider-signed
+inference logs and repository-side commit binding, each referencing
+the other's hashes, so that falsifying the record requires collusion
+between independent parties with separately published histories, the
+same trust structure as certificate transparency or double-entry
+bookkeeping. aiprov supplies one witness and the seam for the
+second; signed provenance is the strongest standing ask this paper
+directs at providers.
+
 \textbf{Why human-only rungs stay human.} \texttt{ai-confirmed} is a
 machine judgement with known failure
 modes~\cite{ai-hallucination2023}. The ladder does not pretend
@@ -66,27 +93,20 @@ snapshots, a changelog, and per-activity commit binding keep every
 run attributable to the exact method version in force, so evolution
 does not blur attribution.
 
-\textbf{Practices that emerged.} Three are small enough to adopt
-tomorrow. Registry-fetched citation metadata: every BibTeX entry comes
-from doi.org content negotiation, never typed from memory, a concrete
-discipline against fabricated
-references~\cite{fabricated-citations2023}; the one failure was
-infrastructural, a registry serving malformed BibTeX, and CI caught
-it, not a reader. Registry-resolved identities: the operator,
-acknowledged colleagues, and co-authors enter the record via ORCID
-lookups, extending never-fabricate from telemetry to social metadata.
-Verified-before-cited: no reference appears in the bibliography
-without a ladder-backed source node, making the bibliography a view of
-the graph rather than a hand-maintained list. A fourth practice
-emerged late, out of this paper's own audit: content-checked before
-load-bearing. Registration proves a reference exists, not that it
-says what the citing sentence claims; the audit pass that flagged
-this gap and the content pass that closed it for the argument's
-load-bearing sources (Section~\ref{sec:meta}) suggest the general
-rule that any citation an argument leans on should reach
-\texttt{ai-confirmed} at minimum, with the checked depth, full text,
-slides, or abstract, disclosed in the promotion note rather than
-implied.
+\textbf{Practices that emerged.} Four, each small enough to adopt
+tomorrow. Registry-fetched citation metadata: every BibTeX entry
+comes from doi.org content negotiation, never typed from memory, a
+concrete discipline against fabricated
+references~\cite{fabricated-citations2023}; the one failure was a
+registry serving malformed BibTeX, and CI caught it, not a reader.
+Registry-resolved identities: people enter the record via ORCID
+lookups, extending never-fabricate to social metadata.
+Verified-before-cited: no reference without a ladder-backed source
+node, making the bibliography a view of the graph. And
+content-checked before load-bearing, born from this paper's own
+audit (Section~\ref{sec:meta}): any citation an argument leans on
+should reach \texttt{ai-confirmed} at minimum, with the checked
+depth disclosed in the promotion note rather than implied.
 
 \textbf{Transparent self-citation.} No-parentless-claim forces citing
 one's own priors; the lineage of Section~\ref{sec:background} is the
@@ -94,7 +114,7 @@ author's own repositories and specifications. Self-citation is
 frowned upon as metric gaming, yet unavoidable as provenance. The
 resolution is transparency instead of omission: sources carry
 \texttt{aiprov:selfCitation}, the report prints the ratio (here 4 of
-33), and a reviewer can judge necessity per source. The test that
+38), and a reviewer can judge necessity per source. The test that
 separates influence from inflation: a transparent self-citation is
 load-bearing, removing it would orphan a lineage or method claim, and
 it points at repositories and specifications rather than
