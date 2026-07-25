@@ -19,6 +19,18 @@ laundering machine confidence into apparent human endorsement.
 \textbf{Cost, and a gap that half closed.} The method's overhead in
 this experiment was one logging command and one extra commit per
 working round, plus the audit activities the tooling writes itself.
+Because the session record carries per-request usage and tool calls,
+that overhead is measurable rather than anecdotal: a mechanical
+classification of every provider request by its tool
+invocations, bookkeeping commands (logging, validation, promotion,
+graph and transcript commits) versus everything else, attributes
+9.5\% of requests, 9.0\% of output tokens, and 6.4\% of the
+computed session cost to the method itself; on the repository side,
+17 of 62 commits at measurement time carried only graph or
+transcript updates. No request mixed bookkeeping with substantive
+work, so upper and lower bounds coincide. Roughly a tenth of the
+activity, in other words, is the price of making the other nine
+tenths auditable.
 Token telemetry illustrates the omit-don't-estimate rule in motion:
 the harness exposes no live usage to the agent, so nothing was
 recorded at first; when the operator challenged the gap, the session
