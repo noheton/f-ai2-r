@@ -468,12 +468,14 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s34-cost-debate>,
         <https://noheton.org/f-ai2-r/prov/activity/s37-cost-nostalgia-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s42-portability-v011> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s42-portability-v011>,
+        <https://noheton.org/f-ai2-r/prov/activity/s44-overhead-measured> ;
     aiprov:contentHash "sha256:0ae502fea46692d008b14632d42884f5e64adfa7b4cda32ff4fb0a96ac6f1860",
         "sha256:29dd7cb85f192a7581ce3d7de057df6506789848e5460030dc19e9a791b8c67d",
         "sha256:4aeab1f9b1e2bb0d48fbe4801c55ad046a81317ce3b60a5ff668f6a64524bfba",
         "sha256:57f5afcede656867022086e3befc3bcdb93da291e2da209e6acb9e5ae22714b8",
         "sha256:83a75492643a4a602c3831f08aec47cebfa6c61171591485b0f0f7582a16fee9",
+        "sha256:93e3cdb0848ed5b5d6f402aeb4dd81839f9b514bbc2a2423e7bb09326c92ea6d",
         "sha256:95df2962d33775a71cb8dd4f8c5ae0f4aca6cf19702d37d1197faf7b5481baf9",
         "sha256:9f3a6f335fb0901d201700b7505fa5f837e048d7b06be9f499f0f9965af2432f",
         "sha256:a27f1ffd99e9847dbfb36751bbcd4ecfabb770ddd17f0a691ef1442f9eea1227",
@@ -484,6 +486,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:filePath "paper/sections/07-discussion.tex" ;
     aiprov:gitCommit "15a0d94",
         "1aaab86",
+        "2b22a73",
         "540e2c2" .
 
 <https://noheton.org/f-ai2-r/prov/entity/08-conclusion-tex> a aiprov:Artefact ;
@@ -1064,6 +1067,12 @@ aiprov:verificationState a owl:ObjectProperty ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s44-overhead-measured> a aiprov:AuditPass ;
+    rdfs:label "Method overhead measured from the session record (1,048 requests with usage at measurement time): tool-call classification attributes 100 requests (9.5 pct), 121,347 output tokens (9.0 pct), and USD 34.89 of USD 548.91 computed at list prices (6.4 pct) to method bookkeeping (provlog log/claim/validate/report/init/agent/disclosure/extract: 65 calls; promote/source: 6; graph/transcript commits: 16; transcript export: 13); 17 of 62 repository commits are graph/transcript-only. No request mixed bookkeeping with substantive work, so bounds coincide. Measured, not estimated; totals exceed the s36 cost snapshot because the session continued. Discussion paragraph updated with the shares."@en ;
+    prov:endedAtTime "2026-07-25T18:37:00.962551+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 agent:github-actions a aiprov:ToolAgent ;
     foaf:name "GitHub Actions (aiprov build workflow)" ;
     aiprov:provider "GitHub"^^xsd:string .
@@ -1527,13 +1536,13 @@ aiprov:VerificationState a owl:Class ;
     aiprov:usedTool "bash",
         "edit" .
 
-<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
-
 aiprov:Claim a owl:Class ;
     rdfs:comment "An assertion in any artefact that warrants attribution and verification."@en ;
     rdfs:subClassOf prov:Entity .
+
+<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;
