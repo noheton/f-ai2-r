@@ -26,7 +26,10 @@ PAPER = ROOT / "paper"
 
 
 def sh(cmd: list[str], **kw) -> subprocess.CompletedProcess:
-    return subprocess.run(cmd, capture_output=True, text=True, **kw)
+    # errors="replace": LaTeX tool output may carry non-UTF-8 bytes
+    # (e.g. Latin-1 umlauts echoed from the log by BibTeX entries).
+    return subprocess.run(cmd, capture_output=True, text=True,
+                          errors="replace", **kw)
 
 
 def build_pdf() -> None:
