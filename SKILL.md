@@ -14,6 +14,10 @@ description: >-
   workflows, verify literature sources/DOIs, track the source verification
   ladder, or ingest citations from literature databases — even if they only say "log this AI session", "track token usage",
   or "make this auditable".
+compatibility: >-
+  Any Agent Skills client (open SKILL.md format): Claude Code, Claude
+  apps, OpenCode, OpenWork, and compatible agents. Core tooling is plain
+  Python + git and model/provider-agnostic; see the Portability section.
 ---
 
 # AI Provenance Tracking (aiprov)
@@ -154,7 +158,46 @@ terms).
 | `scripts/provlog.py` | CLI: init / agent / log / claim / validate / report / search / source / promote / disclosure / extract | Always — prefer it over hand-writing Turtle |
 | `references/attributes.md` | Attribute catalogue with provider-API field mappings | Filling telemetry correctly |
 | `scripts/build_dashboard.py` | Self-contained HTML dashboard from provenance.ttl | Presenting results |
+| `scripts/export_transcript.py` | Session → `doc/transcripts/<session>.md` + `--usage` token aggregation (Claude Code session format; see Portability) | Transcript-as-artifact, token backfill |
+| `scripts/build_paper_preview.py` | Compile paper + render self-contained HTML preview (pages + structure notes) | Live preview / "show paper" |
 | `scripts/package_skill.sh` | Zip this tree into a distributable `dist/ai-provenance.skill` | Releasing the skill |
+
+## Portability
+
+The skill follows the open Agent Skills format (a folder with this
+`SKILL.md` plus `scripts/`, `assets/`, `references/`), so it loads in any
+client that supports the spec — Claude Code and Claude apps natively;
+OpenCode (and OpenWork, which runs on OpenCode) discover it at
+`.opencode/skills/ai-provenance/`, `.claude/skills/ai-provenance/`, or the
+neutral `.agents/skills/ai-provenance/`; OpenWork's Skills manager can also
+import the unpacked bundle directly. Clients without Agent Skills support
+can still operate the method: point their instruction file (e.g.
+`AGENTS.md`) at this document.
+
+What is universal vs. what needs a per-client shim:
+
+- **Universal (no changes):** `provlog.py`, the aiprov schema, the
+  validator, the verification ladder, the two-commit binding discipline,
+  CI templates, dashboard, paper scaffolding. All plain Python + git. The
+  graph is model- and provider-agnostic: any AI system (hosted or local)
+  registers as an `aiprov:AIAgent` with its model and provider recorded as
+  data.
+- **Per-client shims (adapt when not on Claude Code):**
+  1. *Turn-end hook* — the auto-export of the transcript after each turn is
+     wired via a Claude Code Stop hook (`.claude/settings.json`); other
+     clients use their own hook/plugin mechanism (e.g. an OpenCode plugin).
+  2. *Transcript exporter* — `scripts/export_transcript.py` parses Claude
+     Code's session JSONL layout; other clients store sessions differently
+     and need their own exporter (same output contract:
+     `doc/transcripts/<session>.md`).
+  3. *Usage aggregation* — `export_transcript.py --usage` reads
+     Anthropic-shaped usage blocks (`input_tokens`,
+     `cache_read_input_tokens`, …); map provider fields per
+     `references/attributes.md` (e.g. OpenAI `prompt_tokens` →
+     `aiprov:inputTokens`).
+
+The invariants do not change per client: omit-don't-estimate, no
+parentless claim, and human-only rungs hold everywhere.
 
 Requires Python 3.10+ with `rdflib` (`pip install rdflib`). The graph file is
 append-friendly Turtle; keep it in git next to the artefacts it describes.

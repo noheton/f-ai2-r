@@ -1,5 +1,19 @@
 # Changelog — ai-provenance skill
 
+## v0.11 (2026-07-25)
+
+- **Portability across Agent Skills clients.** The bundle follows the
+  open Agent Skills format, so it loads natively in Claude Code/Claude
+  apps and in OpenCode-based clients (including OpenWork), which
+  discover it at `.opencode/skills/`, `.claude/skills/`, or
+  `.agents/skills/`. New Portability section in `SKILL.md` separates
+  the universal core (provlog, schema, validator, ladder, two-commit
+  discipline, CI — plain Python + git, model/provider-agnostic) from
+  the three per-client shims (turn-end hook, transcript exporter,
+  usage-field mapping). Frontmatter gains the spec's `compatibility`
+  field; the package now bundles `export_transcript.py` and
+  `build_paper_preview.py` and prints install paths.
+
 ## v0.10 (2026-07-24)
 
 - **Operator-directed cost computation.** Cost may now be computed from

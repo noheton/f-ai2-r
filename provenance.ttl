@@ -20,6 +20,12 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/aas-part1-v30rc02> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-agent-skills-spec-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of agent-skills-spec: reference-resolved -> ai-confirmed (URL resolved (HTTP 200) at registration. Content checked against agentskills.io and the OpenCode skills documentation (opencode.ai/docs/skills): the format is 'a lightweight, open format' (folder + SKILL.md with name/description frontmatter), 'originally developed by Anthropic, released as an open standard, and has been adopted by a growing number of agent products'; the adopter list includes OpenCode, whose docs confirm native discovery incl. Claude-compatible .claude/skills paths; OpenWork (different-ai/openwork) states it is powered by OpenCode. Supports the paper's portability sentence. Page depth.)"@en ;
+    prov:endedAtTime "2026-07-25T18:30:14.248620+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/agent-skills-spec> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-ai-hallucination2023-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of ai-hallucination2023: reference-resolved -> ai-confirmed (Content checked against the gold-OA full text (assets.cureus.com PDF): 'None of the provided paper titles existed, and all provided PubMed IDs (PMIDs) were of different unrelated papers.' Supports 'LLMs fabricate plausible citations' (Sec. 2) and 'machine judgement with known failure modes' (Sec. 7). Full-text depth.)"@en ;
     prov:endedAtTime "2026-07-24T21:32:58.093686+00:00"^^xsd:dateTime ;
@@ -1021,6 +1027,11 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:selfCitation true ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/agent-skills-spec> a aiprov:Source ;
+    rdfs:label "Agent Skills: an open format for extending AI agent capabilities (specification and adopter list)"@en ;
+    dcterms:source <https://agentskills.io/> ;
+    aiprov:verificationState verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/aiprovenance-v0-skill> a aiprov:Source ;
     aiprov:filePath "archive/aiprovenance-v0.skill" .
 
@@ -1423,8 +1434,7 @@ aiprov:Contribution a owl:Class ;
         "write" .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> a aiprov:AuthoringPass ;
     rdfs:label "Meta-paper principal structure: IEEEtran chapter-per-file skeleton (main.tex + sections/01-07), page budget and figure plan (outline.md), F1 ladder figure in TikZ; grounded in the F(AI)2R method (authoring+audit passes, no-parentless-claim, repository-is-the-paper)"@en ;

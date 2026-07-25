@@ -99,10 +99,18 @@ Provenance-first authoring turns a compliance duty into a by-product.
 \textbf{Generality.} Beyond papers, the same invariants and ladder
 apply to code, data pipelines, CAD models, and AAS
 submodels~\cite{aas-part1-v30rc02}; what remains domain work is the
-choice of entity subclasses. The AAS case bridges to the outlook:
-digital-twin ecosystems already assume machine-readable semantics, so
-AI-work provenance slots in as one more submodel concern rather than a
-foreign add-on.
+choice of entity subclasses. Generality also holds across clients and
+models: the skill bundle follows the open Agent Skills
+format~\cite{agent-skills-spec}, which independent agent clients
+implement, so the same bundle loads beyond the environment that
+produced this paper, and the graph is provider-agnostic, since any AI
+system, hosted or local, registers as an \texttt{AIAgent} with model
+and provider as data. Only three capture shims are client-specific
+(turn-end hook, transcript export, usage-field mapping); graph,
+ladder, and validator are plain Python and git. The AAS case bridges
+to the outlook: digital-twin ecosystems already assume
+machine-readable semantics, so AI-work provenance slots in as one more
+submodel concern rather than a foreign add-on.
 
 \textbf{Nostalgia for the paper, or the wrong artefact instrumented?}
 The sharpest objection to this work is not about any rung or invariant
