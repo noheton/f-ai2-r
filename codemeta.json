@@ -1,0 +1,41 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "ai-provenance (aiprov)",
+  "description": "Domain-agnostic AI provenance tracking over PROV-O: agent/activity/entity classes for AI-in-the-loop work, full inference telemetry, a source verification ladder with human-only rungs, a conformance validator suitable as a CI gate, and packaging as an executable Agent Skill. Generalized from the F(AI)²R experiment.",
+  "codeRepository": "https://github.com/noheton/f-ai2-r",
+  "issueTracker": "https://github.com/noheton/f-ai2-r/issues",
+  "license": "https://spdx.org/licenses/Apache-2.0",
+  "version": "0.11.0",
+  "dateModified": "2026-07-25",
+  "programmingLanguage": "Python",
+  "operatingSystem": "OS Independent",
+  "softwareRequirements": [
+    "Python >= 3.10",
+    "rdflib"
+  ],
+  "keywords": [
+    "provenance",
+    "PROV-O",
+    "AI transparency",
+    "research integrity",
+    "verification ladder",
+    "agent skills",
+    "EU AI Act",
+    "FAIR"
+  ],
+  "author": [
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0000-0001-6033-801X",
+      "givenName": "Florian",
+      "familyName": "Krebs",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"
+      }
+    }
+  ],
+  "developmentStatus": "active",
+  "referencePublication": "F(AI)²R — FAIR Research with AI in the Loop, Twice: Verifiable AI Provenance as an Executable Skill (draft in paper/, built by CI)"
+}

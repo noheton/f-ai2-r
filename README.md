@@ -1,5 +1,9 @@
 # F(AI)²R — domain-agnostic AI provenance tracking (`aiprov`)
 
+[![build](https://github.com/noheton/f-ai2-r/actions/workflows/aiprov-build.yml/badge.svg)](https://github.com/noheton/f-ai2-r/actions/workflows/aiprov-build.yml)
+[![license: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![citation](https://img.shields.io/badge/cite-CITATION.cff-green.svg)](CITATION.cff)
+
 Records every AI-in-the-loop activity as a [PROV-O](https://www.w3.org/TR/prov-o/)
 graph so a later human or AI can **verify, replay, or contest** each output.
 Generalized from [F(AI)²R](https://github.com/noheton/f-ai-r) and decoupled
@@ -73,9 +77,9 @@ the graph. Legacy names (`retrieved`, `lit-retrieved`, `lit-read`,
 | 1 | `needs-research` | A check was attempted and failed (e.g. DOI unresolvable). Do not cite. |
 | 2 | `reference-resolved` | The reference *exists*: DOI/URL resolved in a registry |
 | 3 | `ai-confirmed` | An AI checked the source content supports the claim — highest rung an AI may grant |
-| 4 | `source-vendored` | A copy of the source is preserved in the repo |
+| 4 | `source-vendored` | A content-hashed copy is preserved in the repo. No evidential value alone — the *access gate*: `promote` refuses rungs 5–6 unless the source is vendored or carries a clear DOI/URL, and prints the review material |
 | 5 | `human-confirmed` | A **human** spot-checked the claim against the source. Human-only. |
-| 6 | `human-read` | A **human** read the source in full. Human-only. |
+| 6 | `human-read` | A **human** read the source in full *and* confirms the claim with that context — subsumes rung 5. Reading without confirming is not a rung. Human-only. |
 
 The offence the validator hunts is who *granted* a rung, not who authored the
 claim: an AI-authored claim may legitimately sit at `human-read` if a human
@@ -113,6 +117,23 @@ the provider did not report, and never invent token counts, costs, or
 verification promotions.
 
 `provlog.py validate` is suitable as a pre-commit hook or CI step.
+
+## License
+
+[Apache-2.0](LICENSE), the patent-granting permissive license common in
+institutional research software; the tooling has no other
+licensing entanglements (pure Python + rdflib).
+
+## Citing
+
+Citation metadata lives in [`CITATION.cff`](CITATION.cff) (used by GitHub's
+"Cite this repository" button and Zenodo) and [`codemeta.json`](codemeta.json)
+(schema.org/CodeMeta). The preferred citation is the accompanying paper,
+drafted in [`paper/`](paper/) and built to PDF by CI on every push; until it
+is published, cite the repository at a specific version. AI contributions to
+this repository are not authorship: they are recorded, per activity, in
+[`provenance.ttl`](provenance.ttl), and the paper's acknowledgement carries
+the generated transparency statement.
 
 ---
 *AI note: this repository was bootstrapped with AI assistance; its own

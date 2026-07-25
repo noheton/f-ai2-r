@@ -1,5 +1,16 @@
 # Changelog — ai-provenance skill
 
+## v0.12 (2026-07-25)
+
+- **Research-software packaging.** `LICENSE` (Apache-2.0) + `NOTICE`, `CITATION.cff`
+  (software metadata + preferred citation pointing at the in-preparation
+  paper, `status: in-preparation`), and `codemeta.json`
+  (schema.org/CodeMeta). README gains build/license/citation badges,
+  License and Citing sections (AI contributions are recorded provenance,
+  not authorship), and its ladder table is updated to the current rung-4
+  access-gate and rung-6 subsumption semantics. Skill frontmatter
+  declares `license: Apache-2.0`.
+
 ## v0.11 (2026-07-25)
 
 - **Portability across Agent Skills clients.** The bundle follows the

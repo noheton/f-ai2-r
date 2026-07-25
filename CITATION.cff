@@ -1,0 +1,49 @@
+# Citation metadata for this repository (Citation File Format).
+# GitHub, Zenodo, and cffconvert-based tooling read this file.
+cff-version: 1.2.0
+message: >-
+  If you use this software or the aiprov method, please cite it using the
+  metadata from this file; the preferred citation is the accompanying paper.
+type: software
+title: "ai-provenance (aiprov): verifiable AI provenance as an executable skill"
+abstract: >-
+  Domain-agnostic AI provenance tracking over PROV-O: agent, activity, and
+  entity classes for AI-in-the-loop work, full inference telemetry
+  (tokens, cost, energy, prompts as plans, transcripts), a source
+  verification ladder with human-only rungs, a conformance validator
+  suitable as a CI gate, and packaging as an executable Agent Skill that an
+  AI agent operates itself. Generalized from the F(AI)²R experiment.
+version: 0.11.0
+date-released: "2026-07-25"
+license: Apache-2.0
+repository-code: "https://github.com/noheton/f-ai2-r"
+authors:
+  - family-names: Krebs
+    given-names: Florian
+    orcid: "https://orcid.org/0000-0001-6033-801X"
+    affiliation: "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"
+keywords:
+  - provenance
+  - PROV-O
+  - AI transparency
+  - research integrity
+  - verification ladder
+  - agent skills
+  - EU AI Act
+  - FAIR
+preferred-citation:
+  type: report
+  status: in-preparation
+  year: 2026
+  title: >-
+    F(AI)²R — FAIR Research with AI in the Loop, Twice: Verifiable AI
+    Provenance as an Executable Skill
+  authors:
+    - family-names: Krebs
+      given-names: Florian
+      orcid: "https://orcid.org/0000-0001-6033-801X"
+      affiliation: "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"
+  notes: >-
+    Draft manuscript in this repository (paper/); built to PDF by CI on
+    every push. Its production is recorded in the repository's provenance
+    graph (provenance.ttl).

@@ -14,6 +14,7 @@ description: >-
   workflows, verify literature sources/DOIs, track the source verification
   ladder, or ingest citations from literature databases — even if they only say "log this AI session", "track token usage",
   or "make this auditable".
+license: Apache-2.0
 compatibility: >-
   Any Agent Skills client (open SKILL.md format): Claude Code, Claude
   apps, OpenCode, OpenWork, and compatible agents. Core tooling is plain
