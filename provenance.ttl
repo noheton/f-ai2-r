@@ -434,9 +434,11 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite>,
         <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s39-audit-repairs>,
-        <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s51-style-pass> ;
     aiprov:contentHash "sha256:1272492da6ea855f67d8c74337d336f3283292474fb2448320b7aafcffb40e21",
         "sha256:250f070dfac7344b065ca518cef78f206f58af1f475d5facf4506f380825c6d8",
+        "sha256:25292007eba664ca8bf2971cbb75bc6613310884a4807b1e16fabd5efa20d187",
         "sha256:381690b4013c932f1e940a0a103b5712eae31f4840493d82a192aa1efe90a25c",
         "sha256:4e4977bfbaac9669ebef71bf7a39b6bf455201c5f401855d6ef8f15a88887594",
         "sha256:5b125bf494a432ea1584a11ffcc2dd2ccf1237ebafdc395f72a4c2f7acfb39ee",
@@ -445,6 +447,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:b0ddea32cc22ecca0b443c5763f51fc07e820748a3c48e2773a36fee2bea9f14" ;
     aiprov:filePath "paper/sections/04-method.tex" ;
     aiprov:gitCommit "1aaab86",
+        "390d3af",
         "63bde89" .
 
 <https://noheton.org/f-ai2-r/prov/entity/04-skill-tex> a aiprov:Artefact ;
@@ -501,11 +504,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s40-content-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division>,
         <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage>,
-        <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s51-style-pass> ;
     aiprov:contentHash "sha256:1990ebaa3dffa13626c417064c24e8dc4c1eb64681be4e09373abe328b6e842e",
         "sha256:1e6886e01eb1a921111e3aa4bdcd33fa82caa63089c14600bff9610ad8982abb",
         "sha256:3c8f52250d24db413e33d7c3c71432f1a3f8e1366b10fde8c9060167722c7e64",
         "sha256:4214500eceeb106449ec03789aaacc4501453495ccd9dca2ce9a8fa311c1a20d",
+        "sha256:4e746283a1817bae0900a3c1b504319f84e2fc3558c7d2bfa06b1dc78ec0570e",
         "sha256:4ebc3629b1c0925e1de72d9a89bb739862907714bbf73246cabdc9e1c5520ffb",
         "sha256:68c2ed67d3856ec2be1a25282bb23a0bc1d34104d85216745d1e76a63b63b975",
         "sha256:9d0461aba72aaaf3ed800249cea37733665ed152dd1c9566bb45895f53f71ecb",
@@ -515,7 +520,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:fb17bd85e1269861fae391fe4354ab127bff7b1d4d2be06ec439c1211555e7e8",
         "sha256:fd265a536fb8a32e3dfa64d5eb01f28f6270b07d30e8bdfd0f53634abc4b7e63" ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
-    aiprov:gitCommit "540e2c2",
+    aiprov:gitCommit "390d3af",
+        "540e2c2",
         "63bde89",
         "73a11cd",
         "82ffc86",
@@ -794,10 +800,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s19-hmc-rdm-acks>,
         <https://noheton.org/f-ai2-r/prov/activity/s23-incident-figure>,
         <https://noheton.org/f-ai2-r/prov/activity/s26-memas-inspiration>,
-        <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s51-style-pass> ;
     aiprov:contentHash "sha256:292ee450094d64465800f568cc319a3a5839d697137d2d8497eedb2cbb9587e8",
         "sha256:2bf4f82e8c20375dd1f6a64b9213d60e71822d3592fb9facb54c6ed3ca1fa160",
         "sha256:31a7ad8196528484eb264b1d7cf0b737b49554499f3d14a83e7fd3713fb24a76",
+        "sha256:60ae56b3f363c97288866ce11315e8cc911ebf22e2245c97388417c83d3956a0",
         "sha256:7ee7c6fa5c92b16acdaf2cda35b1c4bdf20ae0bf591dd05c7f05a8c8b2e097f7",
         "sha256:bb3577f785bcdd3a56265f5c96af83b5b1d455f3b64f8574a95251a87b77300e",
         "sha256:c1f73aca74f5645d10385d70c662474ab94214785f60aab02abe638eae29d3f9",
@@ -811,6 +819,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:filePath "assets/paper/main.tex",
         "paper/main.tex" ;
     aiprov:gitCommit "1aaab86",
+        "390d3af",
         "4c17c02faf15034458e93ddecd1d8da829020f3e" .
 
 <https://noheton.org/f-ai2-r/prov/entity/outline-md> a aiprov:Artefact ;
@@ -1338,10 +1347,6 @@ aiprov:Build a owl:Class ;
     rdfs:comment "Deterministic build/compile/CI activity."@en ;
     rdfs:subClassOf prov:Activity .
 
-aiprov:Repair a owl:Class ;
-    rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
-    rdfs:subClassOf prov:Activity .
-
 aiprov:ToolAgent a owl:Class ;
     rdfs:label "Deterministic tool"@en ;
     rdfs:comment "Non-AI software (compiler, linter, CI job) acting in the pipeline."@en ;
@@ -1515,6 +1520,10 @@ aiprov:HumanAgent a owl:Class ;
     rdfs:label "Human agent"@en ;
     rdfs:subClassOf prov:Person .
 
+aiprov:Repair a owl:Class ;
+    rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
+    rdfs:subClassOf prov:Activity .
+
 <https://noheton.org/f-ai2-r/prov/activity/s13-shepard-outlook> a aiprov:AuthoringPass ;
     rdfs:label "Outlook: shepard (jointly developed DLR data-management system for heterogeneous product and research data) named as the method-to-infrastructure integration path, via the experimental fork as staging ground (attributed as planned work, since the fork README does not yet state the integration); intro gains AI-as-force-multiplier framing: parallel strands under one operator are exactly why per-activity accounting matters. Both repos fetched before registration"@en ;
     prov:endedAtTime "2026-07-24T18:53:46.814165+00:00"^^xsd:dateTime ;
@@ -1549,6 +1558,12 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:usedTool "bash",
         "edit",
         "web_fetch" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s51-style-pass> a aiprov:Repair ;
+    rdfs:label "Operator's clean-prose style rules transferred to the paper's scientific English: em-dash punctuation eliminated (title, abstract, acknowledgement, ladder table, figure caption; numeric ranges and quoted verbatim output exempt); audit confirmed absence of formulaic transitions, buzzwords, puffery and hedges, with one deliberate 'perhaps' retained as the objector's voice in the nostalgia paragraph."@en ;
+    prov:endedAtTime "2026-07-25T20:29:07.810798+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .
