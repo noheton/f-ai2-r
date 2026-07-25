@@ -32,6 +32,12 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-better-architecture2025-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of better-architecture2025: reference-resolved -> ai-confirmed (Content checked against the open-access full text (eprints.soton.ac.uk / elib.dlr.de/215763 mirrors of the CiSE article): abstract states 'Better software drives better research... better architecture underpins better software... we advocate and emphasize the importance of designing robust architectures for research software to elevate the quality of research outcomes'; body documents the incentive diagnosis (funding rewards novelty, few resources for maintenance; accidental architectures) and CI static-analysis recommendations. Supports the citing sentence that the infrastructural-quality-to-research-quality argument shape is established in RSE. Full-text depth.)"@en ;
+    prov:endedAtTime "2026-07-25T19:28:01.552010+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/better-architecture2025> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-chatgpt-wrote-it2023-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of chatgpt-wrote-it2023: reference-resolved -> ai-confirmed (Content checked against the open-access ScienceDirect abstract: 43 expert contributions across disciplines on opportunities, challenges and policy implications of generative conversational AI. Supports 'the debate ... is loud and well documented'. Abstract depth.)"@en ;
     prov:endedAtTime "2026-07-24T21:32:58.744629+00:00"^^xsd:dateTime ;
@@ -162,6 +168,12 @@
     rdfs:label "DOI verification of src:ai-hallucination2023 via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T18:25:53.430471+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-better-architecture2025> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:better-architecture2025 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-25T19:28:01.316451+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/better-architecture2025> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-chatgpt-priorities2023> a aiprov:AuditPass ;
@@ -1413,6 +1425,13 @@ aiprov:Transcript a owl:Class ;
     aiprov:doi "https://doi.org/10.7759/cureus.35179"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/better-architecture2025> a aiprov:Source ;
+    rdfs:label "Better Architecture, Better Software, Better Research"@en ;
+    dcterms:date "2025" ;
+    dcterms:isPartOf "Computing in Science &amp; Engineering" ;
+    aiprov:doi "https://doi.org/10.1109/MCSE.2025.3573887"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/chatgpt-wrote-it2023> a aiprov:Source ;
     rdfs:label "Opinion Paper: “So what if ChatGPT wrote it?” Multidisciplinary perspectives on opportunities, challenges and implications of generative conversational AI for research, practice and policy"@en ;
     dcterms:date "2023" ;
@@ -1705,13 +1724,7 @@ aiprov:Claim a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
-
-verif:ai-confirmed a aiprov:VerificationState ;
-    rdfs:label "AI-confirmed"@en ;
-    rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
-    aiprov:ladderPosition 3 .
+    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:reference-resolved a aiprov:VerificationState ;
     rdfs:label "reference resolved"@en ;
@@ -1720,16 +1733,21 @@ verif:reference-resolved a aiprov:VerificationState ;
         "retrieved"@en ;
     aiprov:ladderPosition 2 .
 
+verif:ai-confirmed a aiprov:VerificationState ;
+    rdfs:label "AI-confirmed"@en ;
+    rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
+    aiprov:ladderPosition 3 .
+
 aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
-    rdfs:subClassOf prov:Entity .
-
-aiprov:Source a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 aiprov:AuthoringPass a owl:Class ;
     rdfs:comment "AI or human produces/edits an artefact."@en ;
     rdfs:subClassOf prov:Activity .
+
+aiprov:Source a owl:Class ;
+    rdfs:subClassOf prov:Entity .
 
 aiprov:AuditPass a owl:Class ;
     rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
