@@ -9,7 +9,13 @@ as source code and bound to activities as plans
 (Figure~\ref{fig:vocab}). Humans carry ORCID and affiliation; AI
 agents carry model, version, provider, endpoint, context window, and
 knowledge cutoff; tool agents cover deterministic actors such as CI
-jobs.
+jobs. Treating prompts as plans deserves a word: a prompt is to an AI
+activity what a script is to a batch job, the executable
+specification of intent, so it is hashed and bound with
+\texttt{prov:hadPlan} rather than paraphrased into a comment. An
+auditor who wants to know \emph{why} an artefact came out as it did
+reads the plan and the transcript; neither is recoverable after the
+fact if not captured when the activity runs.
 
 \textbf{Telemetry.} Activities carry session and request identifiers,
 token counts by class (input, output, cache, reasoning), sampling
@@ -56,7 +62,32 @@ already exists, and a commit cannot contain the graph entry describing
 itself. The working discipline that follows: commit the artefacts, log
 the activity with that commit's hash, then commit the graph update
 separately. The graph never claims a hash it could not have known; the
-cost is one extra commit per logged round.
+cost is one extra commit per logged round. What the two commits buy
+is tamper evidence in both directions. The graph entry names a commit
+whose tree contains the artefacts it describes, content-hashed; the
+graph itself lives in later commits of the same history. Backdating a
+record would require rewriting published git history, and quietly
+swapping an artefact would break its recorded hash: either
+falsification is possible, but neither is silent, and that asymmetry,
+honest work is cheap and dishonest work is loud, is the design goal
+throughout.
+
+\textbf{The validator, exhaustively.} Conformance is seven concrete
+checks, each a SPARQL query over the graph, and naming them makes the
+invariants operational rather than aspirational. Three enforce
+Invariant~I: no claim without a generating activity, no claim without
+an attributed agent, no activity without an associated agent. Two
+enforce Invariant~II: no human-only rung granted by an AI agent, and
+no human-only rung without a recorded promotion activity naming a
+human grantor, which closes the loophole of a rung edited directly
+into the graph without an audit trail. Two enforce the access gate:
+no source above \texttt{needs-research} without a resolvable DOI, URL,
+or vendored copy, and a warning, rather than a failure, for
+human-verified sources whose audit target is link-only and therefore
+mutable. Six checks are hard failures with a nonzero exit code;
+that exit code is the entire integration contract, which is why the
+same command serves unchanged as a pre-commit hook, a CI gate, and an
+auditor's first step.
 
 \textbf{Auditability operations.} \texttt{report} aggregates tokens,
 cost, and rung distributions; \texttt{extract} computes the backward
@@ -69,12 +100,66 @@ if the registry actually resolves it.
 
 \begin{figure}[t]
 \centering
-% TODO(F2): TikZ diagram of aiprov core classes over PROV-O:
-% Agent subtree, Activity subtree, Entity subtree, key properties
-% (wasGeneratedBy, wasAttributedTo, verificationState, transcript).
-\fbox{\parbox[c][4.2cm][c]{0.9\linewidth}{\centering\itshape
-F2 placeholder: aiprov core vocabulary over PROV-O}}
-\caption{Core aiprov classes and properties as an extension of PROV-O.}
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}[
+  font=\scriptsize, node distance=2.5mm,
+  ecls/.style={draw=orange!60!black, fill=yellow!22, rounded corners=1pt,
+               inner sep=2.5pt, font=\tiny\ttfamily, align=center},
+  acls/.style={draw=blue!50!black, fill=blue!10, rounded corners=1pt,
+               inner sep=2.5pt, font=\tiny\ttfamily, align=center},
+  gcls/.style={draw=orange!75!black, fill=orange!25, rounded corners=1pt,
+               inner sep=2.5pt, font=\tiny\ttfamily, align=center},
+  pkg/.style={draw=black!45, rounded corners=2pt, inner sep=3.5pt},
+  pkl/.style={font=\tiny\itshape, text=black!60},
+  e/.style={-{Stealth[length=1.7mm]}},
+  lbl/.style={font=\tiny\itshape, fill=white, inner sep=1pt}]
+% Entities (top)
+\node[ecls] (claim) at (0,0)
+  {Claim\\[-2pt]\tiny verificationState};
+\node[ecls, right=of claim] (artefact)
+  {Artefact\\[-2pt]\tiny sha256, commit};
+\node[ecls, right=of artefact] (source)
+  {Source\\[-2pt]\tiny doi, rung, self};
+\node[ecls, right=of source] (transcript)
+  {Transcript};
+\node[ecls, right=of transcript] (prompt)
+  {Prompt\\[-2pt]\tiny promptHash};
+\node[pkg, fit=(claim)(prompt)] (epkg) {};
+\node[pkl, anchor=south west] at (epkg.north west)
+  {Entities \(\sqsubseteq\) prov:Entity};
+% Activities (middle)
+\node[acls] (auth) at (0.6,-1.75) {AuthoringPass};
+\node[acls, right=of auth] (audit) {AuditPass};
+\node[acls, right=of audit] (build) {Build};
+\node[acls, right=of build] (repair) {Repair};
+\node[acls, right=of repair, draw=black!35, fill=black!5]
+  (tele) {\tiny session, tokens,\\[-3pt]\tiny cost, energy, tools};
+\node[pkg, fit=(auth)(tele)] (apkg) {};
+\node[pkl, anchor=south west] at ([xshift=2mm]apkg.north west)
+  {Activities \(\sqsubseteq\) prov:Activity};
+% Agents (bottom)
+\node[gcls] (human) at (1.4,-3.5) {HumanAgent\\[-2pt]\tiny orcid, affiliation};
+\node[gcls, right=of human] (ai) {AIAgent\\[-2pt]\tiny model, provider};
+\node[gcls, right=of ai] (toolag) {ToolAgent\\[-2pt]\tiny e.g.\ CI};
+\node[pkg, fit=(human)(toolag)] (gpkg) {};
+\node[pkl, anchor=south west] at ([xshift=2mm]gpkg.north west)
+  {Agents \(\sqsubseteq\) prov:Agent};
+% properties
+\draw[e] ([xshift=-16mm]epkg.south) -- ([xshift=-19.5mm]apkg.north)
+  node[lbl, midway] {wasGeneratedBy};
+\draw[e] ([xshift=17mm]apkg.north) -- ([xshift=20mm]epkg.south)
+  node[lbl, midway] {used, hadPlan, transcript};
+\draw[e] (apkg.south) -- (gpkg.north)
+  node[lbl, midway] {wasAssociatedWith};
+\draw[e] (claim.west) to[bend right=40]
+  node[lbl, pos=0.45, rotate=90] {wasAttributedTo} (gpkg.west);
+\end{tikzpicture}%
+}
+\caption{Core aiprov vocabulary as an extension of PROV-O. Every class
+subclasses a \texttt{prov:} term; tiny annotations name characteristic
+attributes. Claims point to their generating activity, their
+attributed agent, and a verification state; activities carry inference
+telemetry and link prompts (as plans) and transcripts.}
 \label{fig:vocab}
 \end{figure}
 

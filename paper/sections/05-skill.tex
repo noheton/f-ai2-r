@@ -44,11 +44,11 @@ exists to defend it, and both passes are logged, so the audit trail
 shows which structural decisions preceded which text. Two rungs of the
 ladder were redesigned exactly this way during this experiment.
 
-\textbf{Regulatory fit by construction.} The skill derives the EU AI
-Act transparency statement from the graph itself
-(Section~\ref{sec:meta}); disclosure is a build product, not an
+\textbf{Regulatory fit by construction.} The EU AI Act transparency
+statement is derived from the graph on every build
+(Section~\ref{sec:discussion}); disclosure is a build product, not an
 authoring chore, and adopters inherit the mechanism with the
-scaffolded paper skeleton.
+scaffolded skeleton.
 
 \textbf{Worked example: analysing experimental data.} The workflow is
 not specific to writing papers; consider a study like the comparison
@@ -171,14 +171,46 @@ artefact.
 
 \begin{figure}[t]
 \centering
-% TODO(F3): TikZ workflow loop: ORCID question -> init (seed graph,
-% register human, scaffold CI + paper) -> register AI agent -> work
-% loop (log / claim / source --verify / disclosure) -> validate ->
-% push -> CI (validate, dashboard, PDF artifact) -> audit/promote
-% (human rungs) -> live preview republish.
-\fbox{\parbox[c][4.2cm][c]{0.9\linewidth}{\centering\itshape
-F3 placeholder: skill workflow from ORCID question to CI artifact}}
-\caption{The skill's operating loop from first setup question to
-continuously published paper build.}
+\begin{tikzpicture}[
+  font=\scriptsize, node distance=2.2mm,
+  stp/.style={draw=blue!50!black, fill=blue!10, rounded corners=1.5pt,
+               inner sep=3pt, align=center, font=\scriptsize,
+               minimum width=5.2cm},
+  hstp/.style={stp, draw=orange!75!black, fill=orange!20},
+  cstp/.style={stp, draw=black!50, fill=black!6},
+  e/.style={-{Stealth[length=1.8mm]}},
+  lbl/.style={font=\tiny\itshape, text=black!60, align=left}]
+\node[hstp] (orcid) at (0,0) {the one setup question: ORCID iD};
+\node[stp, below=of orcid] (init)
+  {\texttt{init}: seed graph \(\cdot\) resolve identity \(\cdot\)
+   scaffold CI + paper};
+\node[stp, below=of init] (agent)
+  {\texttt{agent}: register the AI system (model, provider)};
+\node[stp, below=of agent] (work)
+  {work round: author or edit artefacts \(\cdot\) commit};
+\node[stp, below=of work] (log)
+  {\texttt{log} activity binding that commit \(\cdot\) \texttt{claim}
+   \(\cdot\) \texttt{source --verify}};
+\node[stp, below=of log] (graphc)
+  {commit graph \(\cdot\) \texttt{validate} \(\cdot\) push};
+\node[cstp, below=of graphc] (ci)
+  {CI (ToolAgent): validate \(\cdot\) dashboard \(\cdot\) disclosure
+   \(\cdot\) PDF artifact};
+\node[stp, below=of ci] (preview)
+  {republish live preview at stable URL};
+\node[hstp, below=of preview] (humanp)
+  {human audit: \texttt{promote} to rungs 5--6 (gate hands over
+   evidence)};
+\foreach \a/\b in {orcid/init, init/agent, agent/work, work/log,
+                   log/graphc, graphc/ci, ci/preview, preview/humanp}
+  \draw[e] (\a) -- (\b);
+\draw[e] (humanp.east) -- ++(0.45,0) |- (work.east)
+  node[lbl, pos=0.25, rotate=90, anchor=south] {next round};
+\end{tikzpicture}
+\caption{The skill's operating loop from the single setup question to
+the continuously published build. Orange steps involve the human
+operator; the grey step runs deterministically in CI; everything else
+is the AI agent operating the method, two commits per logged round
+(Section~\ref{sec:method}).}
 \label{fig:workflow}
 \end{figure}

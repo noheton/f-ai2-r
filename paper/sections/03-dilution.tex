@@ -26,10 +26,10 @@ rates~\cite{fabricated-citations2023, ai-hallucination2023}; once such
 a reference is indexed, nothing in today's retrieval chain stops it
 from being cited onward, and models trained on the polluted pool
 degrade further~\cite{model-collapse2024}, so dilution compounds. The
-force multiplier of Section~\ref{sec:intro} cuts both ways: the
-parallelism that lets one operator advance several strands is the same
-parallelism that industrializes pollution. Per-activity accounting is
-what tells the two apart. Research infrastructures already treat
+parallelism that lets one operator advance several strands equally
+industrializes pollution (Section~\ref{sec:discussion});
+per-activity accounting is what tells the two apart.
+Research infrastructures already treat
 metadata quality as the lever against data
 swamps~\cite{hmc-conference2025}; the diluted literature is the same
 failure mode one level up, and it admits the same remedy.
@@ -37,9 +37,14 @@ failure mode one level up, and it admits the same remedy.
 When text is cheap, the scarce good is an original idea whose support
 is checkable. We treat originality as a provenance property: a novelty
 claim carries its recorded search horizon, that is, what was searched,
-where, and when. The literature sweeps behind this paper are logged
-activities, so the horizon behind its claims is inspectable. Every
-claim must then be supported, or refuted, by facts.
+where, and when. Concretely, the tooling's registry sweeps (Crossref,
+OpenAlex, arXiv, DataCite) are logged activities with their query
+terms, so ``no prior work found'' stops being an unfalsifiable
+assertion and becomes a bounded one: no prior work found \emph{within
+this recorded horizon}, which a sceptical reader can re-run, widen,
+and possibly refute. The literature sweeps behind this paper are
+logged exactly so. Every claim must then be supported, or refuted, by
+facts, and both outcomes leave a record.
 
 aiprov's answer makes claims first-class. Each assertion carries
 \texttt{prov:wasGeneratedBy}, \texttt{prov:wasAttributedTo}, and a
