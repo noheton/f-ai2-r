@@ -80,6 +80,12 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/publishing-strain2024> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-urhg-para2-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of urhg-para2: reference-resolved -> ai-confirmed (Content checked against the official gesetze-im-internet.de text: § 2 Abs. 2 UrhG reads verbatim 'Werke im Sinne dieses Gesetzes sind nur persoenliche geistige Schoepfungen' - only personal intellectual creations are works, which excludes output lacking a personal (human) creation from protection. Supports the German-law sentence in the copyright paragraph. Statute-text depth.)"@en ;
+    prov:endedAtTime "2026-07-25T18:45:24.089111+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/urhg-para2> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-usco-ai-copyrightability2025-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of usco-ai-copyrightability2025: reference-resolved -> ai-confirmed (Content checked against the full report PDF (fetched from copyright.gov): 'Copyright does not extend to purely AI-generated material, or material where there is insufficient human control over the expressive elements'; 'prompts do not alone provide sufficient control'; protection can rest on perceptible human-authored expression and 'the creative selection, coordination, or arrangement of material in the outputs, or creative modifications of the outputs'; international consensus that AI content is eligible 'only if the human input in the creative process was significant'. Full-text depth.)"@en ;
     prov:endedAtTime "2026-07-25T18:39:29.772529+00:00"^^xsd:dateTime ;
@@ -1216,6 +1222,11 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1016/j.compositesa.2025.109194"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
+<https://noheton.org/f-ai2-r/prov/source/urhg-para2> a aiprov:Source ;
+    rdfs:label "Gesetz über Urheberrecht und verwandte Schutzrechte (UrhG), § 2 Geschützte Werke"@en ;
+    dcterms:source <https://www.gesetze-im-internet.de/urhg/__2.html> ;
+    aiprov:verificationState verif:ai-confirmed .
+
 verif:source-vendored a aiprov:VerificationState ;
     rdfs:label "source vendored"@en ;
     rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
@@ -1585,8 +1596,7 @@ aiprov:Claim a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;
@@ -1600,12 +1610,12 @@ verif:reference-resolved a aiprov:VerificationState ;
         "retrieved"@en ;
     aiprov:ladderPosition 2 .
 
-aiprov:Source a owl:Class ;
-    rdfs:subClassOf prov:Entity .
-
 aiprov:AuthoringPass a owl:Class ;
     rdfs:comment "AI or human produces/edits an artefact."@en ;
     rdfs:subClassOf prov:Activity .
+
+aiprov:Source a owl:Class ;
+    rdfs:subClassOf prov:Entity .
 
 aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;

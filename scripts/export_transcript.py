@@ -114,7 +114,28 @@ def main() -> None:
             lines: list[str] = []
             render_content(msg.get("content"), lines)
             if lines:
-                turns.append(f"## Human — {stamp}\n\n" + "\n\n".join(lines))
+                # The session format returns tool results under the user
+                # role; label them honestly so role counts over the
+                # transcript are not inflated on the human side.
+                content = msg.get("content")
+                has_tool_result = isinstance(content, list) and any(
+                    isinstance(b, dict) and b.get("type") == "tool_result"
+                    for b in content
+                )
+                has_text = isinstance(content, str) or (
+                    isinstance(content, list) and any(
+                        isinstance(b, dict) and b.get("type") == "text"
+                        and (b.get("text") or "").strip()
+                        for b in content
+                    )
+                )
+                if has_tool_result and not has_text:
+                    role = "Tool result"
+                elif any("Stop hook feedback" in ln for ln in lines):
+                    role = "Hook"
+                else:
+                    role = "Human"
+                turns.append(f"## {role} — {stamp}\n\n" + "\n\n".join(lines))
         elif kind == "assistant" and msg:
             lines = []
             render_content(msg.get("content"), lines)

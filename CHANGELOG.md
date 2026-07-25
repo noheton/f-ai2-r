@@ -1,5 +1,16 @@
 # Changelog — ai-provenance skill
 
+## v0.13 (2026-07-25)
+
+- **Honest role labels in transcripts.** The agent-session format
+  returns tool results under the *user* role, so naive role counts
+  inflate the human contribution by an order of magnitude (595 of 663
+  user-role messages in this session were tool results).
+  `export_transcript.py` now labels turns as Human, Assistant, Tool
+  result, or Hook, so role counts over the committed transcript are
+  truthful. The same unambiguous labeling is a standing ask of provider
+  session formats, alongside provider-reported cost and energy.
+
 ## v0.12 (2026-07-25)
 
 - **Research-software packaging.** `LICENSE` (Apache-2.0) + `NOTICE`, `CITATION.cff`

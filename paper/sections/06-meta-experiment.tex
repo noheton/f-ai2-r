@@ -195,7 +195,28 @@ claim and source visibly awaits the human, and the reader can see
 exactly what. The hypothesis that AI absorbs tedium while humans
 connect ideas and people (Section~\ref{sec:discussion}) is thereby
 testable from the committed log and transcript, for this one
-experiment.
+experiment. One measurement pitfall became a method fix: the session
+format returns tool results under the \emph{user} role, so a naive
+role count inflates the human by an order of magnitude (595 of 663
+user-role messages were tool results). The transcript exporter now
+labels Human, Assistant, Tool result, and Hook distinctly; the same
+unambiguous role labeling is worth asking of provider session formats
+generally, in the same breath as provider-reported cost.
+
+\textbf{Leverage as data.} The same record measures what the
+multiplication bought, without estimating any counterfactual. The
+operator typed 947 words of direction in total, median 14 words per
+message; active session time, clustering request timestamps and
+counting gaps under thirty minutes, is about 4.2 hours inside a
+25-hour wall-clock span. Against that input stand roughly 7,300 words
+of typeset prose, about 1,700 lines of tooling, 35 ladder-backed
+sources, and the graph itself. What a solo baseline would have cost
+is deliberately not estimated, omit-don't-estimate applies to
+counterfactuals too; what the record does show is \emph{where} the
+freed attention went: nearly every typed word carries scope,
+semantics, lineage, or people, not prose. The freedom gained is not
+mainly time; it is that the human's whole contribution could be
+judgement.
 
 \begin{table}[t]
 \caption{Division of work in the meta-experiment, counted from the
@@ -209,6 +230,8 @@ Contribution & Agent & Count \\
 \midrule
 Direction messages: scope, lineage, people, contested semantics (two
 ladder redesigns, cost policy, license, page budget) & human & 57 \\
+Typed direction volume (median 14 words/message) & human & 947 w \\
+Active session time (request-gap clustering) & both & 4.2 h \\
 Authoring passes: prose, code, figures, method releases & AI & 35 \\
 Audit passes: validation, promotions, content checks, incident
 reports, measurements & AI & 41 \\
