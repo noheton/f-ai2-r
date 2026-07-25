@@ -451,7 +451,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s38-auditability-examples>,
         <https://noheton.org/f-ai2-r/prov/activity/s39-audit-repairs>,
         <https://noheton.org/f-ai2-r/prov/activity/s40-content-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division>,
+        <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage> ;
     aiprov:contentHash "sha256:1990ebaa3dffa13626c417064c24e8dc4c1eb64681be4e09373abe328b6e842e",
         "sha256:1e6886e01eb1a921111e3aa4bdcd33fa82caa63089c14600bff9610ad8982abb",
         "sha256:3c8f52250d24db413e33d7c3c71432f1a3f8e1366b10fde8c9060167722c7e64",
@@ -459,12 +460,14 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:4ebc3629b1c0925e1de72d9a89bb739862907714bbf73246cabdc9e1c5520ffb",
         "sha256:68c2ed67d3856ec2be1a25282bb23a0bc1d34104d85216745d1e76a63b63b975",
         "sha256:9d0461aba72aaaf3ed800249cea37733665ed152dd1c9566bb45895f53f71ecb",
+        "sha256:b1db9415997e92b7647bee623bf214ed2e01548d09e7ce0c7acdd29ccbac1d40",
         "sha256:b7fd4b09d8f7bcfd2b0395d56df5dc5b4dc028afd3e9144ecdbe0dac04785cf1",
         "sha256:c6e2d6abf48db6d9180b423ddb7aaa6fe557a91dcff7d8d0ef053d4c54b96adf",
         "sha256:fd265a536fb8a32e3dfa64d5eb01f28f6270b07d30e8bdfd0f53634abc4b7e63" ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
     aiprov:gitCommit "540e2c2",
         "63bde89",
+        "73a11cd",
         "b9d1293",
         "cf16dd2",
         "fb1a484" .
@@ -491,10 +494,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s42-portability-v011>,
         <https://noheton.org/f-ai2-r/prov/activity/s44-overhead-measured>,
-        <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division>,
+        <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage> ;
     aiprov:contentHash "sha256:0ae502fea46692d008b14632d42884f5e64adfa7b4cda32ff4fb0a96ac6f1860",
         "sha256:15a12cee502951add09328fc131772fe7655d80a61a6e83b7d4b3055b4965649",
         "sha256:29dd7cb85f192a7581ce3d7de057df6506789848e5460030dc19e9a791b8c67d",
+        "sha256:4284e75a6de4491b41b52762e60a8f681c61a33501fe0fbea5cc7811bd78bb57",
         "sha256:4aeab1f9b1e2bb0d48fbe4801c55ad046a81317ce3b60a5ff668f6a64524bfba",
         "sha256:57f5afcede656867022086e3befc3bcdb93da291e2da209e6acb9e5ae22714b8",
         "sha256:83a75492643a4a602c3831f08aec47cebfa6c61171591485b0f0f7582a16fee9",
@@ -511,6 +516,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "1aaab86",
         "2b22a73",
         "540e2c2",
+        "73a11cd",
         "fb1a484" .
 
 <https://noheton.org/f-ai2-r/prov/entity/08-conclusion-tex> a aiprov:Artefact ;
@@ -542,12 +548,14 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging>,
         <https://noheton.org/f-ai2-r/prov/activity/s37-cost-nostalgia-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s42-portability-v011>,
-        <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012>,
+        <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage> ;
     aiprov:contentHash "sha256:0f6b3e6665b218d527bbcd404b6c45f127596888482cdf7c20f95d48a971f28b",
         "sha256:348bff9c352d8100c2c308d2d6d557aeed976e529d4ac653cb15d9e412ac7b2d",
         "sha256:4c07f3bc89b11e02d73459a8ff27db5c6113bec464b9de67aca5bb9aea8bcf45",
         "sha256:71f509608baa793c77e8bd9f05d5500cafd18943d3e7aa91c4964ce4c866bb11",
         "sha256:a36e7fbec05e566ca79c60b150a896a9cf5047989b24d40fb962f21c0e654463",
+        "sha256:aff3dfa3147f9f4c32c9d1671309ab353d6e594d78cf9132a65ad7f33b72b3c0",
         "sha256:c5375067d0182ed473f612999edb0c3420878ca6cc4da458d9c29413671c1b8f",
         "sha256:cb69fb786e0e97f03501c365e6784f770e50c5f45757599be255ac69a5e2f796",
         "sha256:d4d2beedd48dfed8d7ac9b367bfbe70af4b6a27b19551f947a37e11bdc336bcf",
@@ -557,6 +565,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:gitCommit "15a0d94",
         "30839e87e71b86a51db47795a5fc442765934c4b",
         "540e2c2",
+        "73a11cd",
         "dbed058" .
 
 <https://noheton.org/f-ai2-r/prov/entity/CITATION-cff> a aiprov:Artefact ;
@@ -666,11 +675,14 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s10-show-paper>,
         <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging>,
-        <https://noheton.org/f-ai2-r/prov/activity/s29-ethics-incentives> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s29-ethics-incentives>,
+        <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage> ;
     aiprov:contentHash "sha256:03ae2fc848ffea2d468a69d5c9ad5ce015f8b2fed2dcd5765ef463e5819abfbc",
         "sha256:4e13ed79bea23cb89f32e99b9896daa02ed66323f84b7f8a9216dd80463bcdcd",
+        "sha256:b45713f43001d699f308fb520bc56d5af6abdee6204f6d21ca0003128a05b36f",
         "sha256:c1cb8cf35473b636c656ab56a4f0b566bb2fd9a7ac6c0bac7f9ae7143c70acac" ;
-    aiprov:filePath "scripts/build_paper_preview.py" .
+    aiprov:filePath "scripts/build_paper_preview.py" ;
+    aiprov:gitCommit "73a11cd" .
 
 <https://noheton.org/f-ai2-r/prov/entity/codemeta-json> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -695,9 +707,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
 
 <https://noheton.org/f-ai2-r/prov/entity/export_transcript-py> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging> ;
-    aiprov:contentHash "sha256:e7d118f3194036073ca4c5ec580002687fe28df9ec0f054995a7821b58c797e3" ;
-    aiprov:filePath "scripts/export_transcript.py" .
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging>,
+        <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage> ;
+    aiprov:contentHash "sha256:900a3cbcff976b2437a127460dbe4efb89635aa03755e5112062eaa92a4149d8",
+        "sha256:e7d118f3194036073ca4c5ec580002687fe28df9ec0f054995a7821b58c797e3" ;
+    aiprov:filePath "scripts/export_transcript.py" ;
+    aiprov:gitCommit "73a11cd" .
 
 <https://noheton.org/f-ai2-r/prov/entity/main-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -795,7 +810,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s32-data-analysis-example>,
         <https://noheton.org/f-ai2-r/prov/activity/s33-example-swap>,
         <https://noheton.org/f-ai2-r/prov/activity/s42-portability-v011>,
-        <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division>,
+        <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
         "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
         "sha256:23324f3765caa803c29fb8eee66146db6773a4e0b6f002c800bba9788e068e14",
@@ -809,11 +825,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:99e27890719bcceea1f8a350ffe174ba3975c407220939a18ee246be0c48ca35",
         "sha256:a45b76e222184cbbe7576f3d9a8549505eb1f69f1b307915a551b53aa56d5e28",
         "sha256:c36a397e5afe052f6d133968b0d1e2d663658aa045e11b9724ba3b055aeb0fc3",
+        "sha256:dbcb3e59f67f1963ef9c803429d701ed091897dfef90397cd62a1e3dbf407739",
         "sha256:e63a541ac075dbdbd2250a9466789d6e8911bd93f2e603310f76cc0ab3536d67",
         "sha256:f268d78c68521714acd7e5ce3f0ca304d24c5ecb91360c6e034f262a3ceade9c" ;
     aiprov:filePath "paper/references.bib" ;
     aiprov:gitCommit "15a0d94",
         "4c17c02faf15034458e93ddecd1d8da829020f3e",
+        "73a11cd",
         "fb1a484" .
 
 <https://noheton.org/f-ai2-r/prov/entity/settings-json> a aiprov:Artefact ;
@@ -1510,6 +1528,12 @@ aiprov:Contribution a owl:Class ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage> a aiprov:AuthoringPass ;
+    rdfs:label "Three additions: (1) German copyright position from the statute itself - s2(2) UrhG 'Werke im Sinne dieses Gesetzes sind nur persoenliche geistige Schoepfungen' (urhg-para2, statute-text depth) - added to the copyright paragraph; (2) skill v0.13: transcript exporter labels Human/Assistant/Tool result/Hook (session format returns tool results under the user role; 595 of 663 user-role messages were tool results), noted in the paper as a standing provider ask; (3) leverage measured without counterfactuals: 947 typed direction words (53 messages, median 14), ~4.2 active hours in a ~25h span, against ~7,300 prose words, ~1,700 tooling lines, 35 ladder-backed sources; division table extended, force-multiplier paragraph closes on the measured check. Incident on record: the UrhG bib entry broke the LaTeX build (IEEEtran downcased \\S to undefined \\s) while the preview builder's decode crash masked the error; both fixed in commits 156d9b6/73a11cd."@en ;
+    prov:endedAtTime "2026-07-25T18:49:16.116326+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
     prov:endedAtTime "2026-07-24T18:43:45.977114+00:00"^^xsd:dateTime ;
@@ -1596,7 +1620,8 @@ aiprov:Claim a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;
@@ -1610,12 +1635,12 @@ verif:reference-resolved a aiprov:VerificationState ;
         "retrieved"@en ;
     aiprov:ladderPosition 2 .
 
+aiprov:Source a owl:Class ;
+    rdfs:subClassOf prov:Entity .
+
 aiprov:AuthoringPass a owl:Class ;
     rdfs:comment "AI or human produces/edits an artefact."@en ;
     rdfs:subClassOf prov:Activity .
-
-aiprov:Source a owl:Class ;
-    rdfs:subClassOf prov:Entity .
 
 aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
