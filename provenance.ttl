@@ -532,7 +532,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s44-overhead-measured>,
         <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division>,
         <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage>,
-        <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s49-dual-witness> ;
     aiprov:contentHash "sha256:0ae502fea46692d008b14632d42884f5e64adfa7b4cda32ff4fb0a96ac6f1860",
         "sha256:15a12cee502951add09328fc131772fe7655d80a61a6e83b7d4b3055b4965649",
         "sha256:2486c8f697d83820c14bca9fcb06297536fcd53154dced01fbced342a5256cb0",
@@ -547,10 +548,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:a27f1ffd99e9847dbfb36751bbcd4ecfabb770ddd17f0a691ef1442f9eea1227",
         "sha256:b600eebd1cc748d22001591a480735f2593dde0e3468a1aabf7202639d69b338",
         "sha256:bf6cf0ab48d380c311988c7ad6ed06ae16615bab326d7dfa4cbfcb74522ae56b",
+        "sha256:e0d31c329699c1e2f468063a79a86c452a67be98e11c200c22710bca0c250e20",
         "sha256:e9ed6006dbdaf5586dfcab386f5c35f4a7665263ceafeb8fae055e89cc2b66a1",
         "sha256:f0b41bd559abf2febc296356d04a4657234a2bebc2767aa154cd4e0cd41caa63" ;
     aiprov:filePath "paper/sections/07-discussion.tex" ;
-    aiprov:gitCommit "15a0d94",
+    aiprov:gitCommit "0a0414f",
+        "15a0d94",
         "1aaab86",
         "2b22a73",
         "540e2c2",
@@ -1180,6 +1183,12 @@ aiprov:verificationState a owl:ObjectProperty ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s49-dual-witness> a aiprov:AuthoringPass ;
+    rdfs:label "Dual-witness paragraph added to the discussion: server-side signed provenance would close the agent-relay honesty gap and subsume the cost/energy/role provider asks, but is tamper-evident-under-non-collusion rather than tamper-proof (trust shifts to key custody; coverage stops at the API seam; judgements and human rungs remain assertions). Endpoint: provider-signed inference logs + repository commit binding as mutually referencing witnesses. Practices paragraph compressed to pay for it under the 12-page cap; self-citation ratio updated to 4 of 38."@en ;
+    prov:endedAtTime "2026-07-25T18:59:27.595894+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 agent:github-actions a aiprov:ToolAgent ;
     foaf:name "GitHub Actions (aiprov build workflow)" ;
     aiprov:provider "GitHub"^^xsd:string .
@@ -1715,12 +1724,12 @@ aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
     rdfs:subClassOf prov:Entity .
 
+aiprov:Source a owl:Class ;
+    rdfs:subClassOf prov:Entity .
+
 aiprov:AuthoringPass a owl:Class ;
     rdfs:comment "AI or human produces/edits an artefact."@en ;
     rdfs:subClassOf prov:Activity .
-
-aiprov:Source a owl:Class ;
-    rdfs:subClassOf prov:Entity .
 
 aiprov:AuditPass a owl:Class ;
     rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
