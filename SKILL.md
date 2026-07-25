@@ -208,3 +208,14 @@ exception: when the operator directs it, cost may be *computed* from
 provider-reported token counts and a published price list — log it with the
 price basis (rates, cache TTL class) in the activity label so the record shows
 a computed figure, never a provider-reported one.
+
+**Derived numbers carry their derivation.** Any computed, aggregated, or
+estimated figure that enters the graph or a published artefact must state its
+methodology where the figure is recorded: inputs, formula, thresholds, and
+exclusions (e.g. the gap threshold behind an active-time clustering, the price
+basis behind a computed cost, the filters behind a word or message count), in
+the activity label or promotion note. Prefer committing the measurement script
+or making the computation reproducible from the record. Counterfactuals ("what
+this would have cost without AI") are not measurable from the record and are
+not estimated — omit-don't-estimate applies to them in full. An unexplained
+number is treated the same as a fabricated one.

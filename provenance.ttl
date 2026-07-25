@@ -56,6 +56,12 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/gpt-fabricated2024> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-llm-homogenization2024-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of llm-homogenization2024: reference-resolved -> ai-confirmed (Abstract checked (preprint, not peer-reviewed - cited as such): across three preregistered studies on 2,200 essays, 'each additional human-written essay contributed more new ideas than each additional GPT-4 essay', homogenization persisting under prompt/parameter enhancements. Supports the originality paragraph's claim that collective novelty enters through the human side. Abstract depth.)"@en ;
+    prov:endedAtTime "2026-07-25T18:53:42.755402+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/llm-homogenization2024> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-model-collapse2024-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of model-collapse2024: reference-resolved -> ai-confirmed (Content checked against the Nature abstract: 'indiscriminate use of model-generated content in training causes irreversible defects in the resulting models ... we refer to this effect as model collapse'. Supports 'models trained on the polluted pool degrade further'. Abstract depth; full text paywalled.)"@en ;
     prov:endedAtTime "2026-07-24T21:32:57.570669+00:00"^^xsd:dateTime ;
@@ -66,6 +72,12 @@
     rdfs:label "Promotion of perverse-incentives2017: reference-resolved -> ai-confirmed (Content checked against the publisher full text: 'Quantitative metrics now dominate decision-making in faculty hiring, promotion and tenure, awards, and funding'; hypercompetition 'selectively weeds out ethical and altruistic actors, while selecting for academics ... responsive to perverse incentives'. Supports both citing sentences. Full-text depth.)"@en ;
     prov:endedAtTime "2026-07-24T21:32:58.304319+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/perverse-incentives2017> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-prov-agent2025-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of prov-agent2025: reference-resolved -> ai-confirmed (Abstract checked (doi.org resolution): PROV-AGENT 'extends W3C PROV and leverages the Model Context Protocol' to 'integrate agent interactions into end-to-end workflow provenance' with near-real-time capture. Confirms it as nearest neighbor to aiprov - shared PROV substrate and agent-centric metadata (prompts, responses) - and confirms absence of human-only verification rungs, skill packaging, and self-application in its stated contributions. Abstract depth.)"@en ;
+    prov:endedAtTime "2026-07-25T18:53:41.936739+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/prov-agent2025> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-provenance-overview2022-ai-confirmed> a aiprov:AuditPass ;
@@ -200,6 +212,12 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/gpt-fabricated2024> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-llm-homogenization2024> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:llm-homogenization2024 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-25T18:53:42.484063+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/llm-homogenization2024> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-memas2024> a aiprov:AuditPass ;
     rdfs:label "DOI verification of src:memas2024 via openalex -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T20:04:39.251768+00:00"^^xsd:dateTime ;
@@ -240,6 +258,12 @@
     rdfs:label "DOI verification of src:perverse-incentives2017 via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T20:29:08.548799+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/perverse-incentives2017> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-prov-agent2025> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:prov-agent2025 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-25T18:53:41.631595+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/prov-agent2025> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-publishing-strain2024> a aiprov:AuditPass ;
@@ -305,6 +329,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
     rdfs:label "promote refuses to grant human-confirmed or human-read to a Source lacking both a vendored copy (aiprov:filePath) and a clear access link (DOI or URL), prints the review material on every human-rung promotion, and requires --file with recorded sha256 for source-vendored (verified by test-run: refusal, provisioning, and warning paths all exercised in a scratch repository)"@en ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate> ;
+    aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/claim/c8> a aiprov:Claim ;
+    rdfs:label "Within the recorded search horizon (the logged literature sweeps including the s47 novelty sweep), no prior work was found that combines per-activity AI provenance with a human-only verification ladder, packages the method as an executable skill, and applies it to its own production; the nearest neighbor, PROV-AGENT, captures agent-interaction provenance on the same PROV substrate without human verification rungs or self-application."@en ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s47-novelty-sweep> ;
     aiprov:verificationState verif:ai-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/entity/-gitignore> a aiprov:Artefact ;
@@ -1123,6 +1153,12 @@ aiprov:verificationState a owl:ObjectProperty ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s47-novelty-sweep> a aiprov:AuditPass ;
+    rdfs:label "Novelty sweep refreshing the search horizon for the originality discussion: queries 'AI provenance PROV-O executable skill agent verification ladder' and 'provenance tracking large language model scientific writing human verification' over Crossref (OpenAlex rate-limited, disclosed). Nearest neighbor found: PROV-AGENT (2025, IEEE eScience) - agent-interaction provenance; also surfaced: LLM homogenization-of-creativity preprint. Horizon recorded; the bounded novelty claim c8 is parented here."@en ;
+    prov:endedAtTime "2026-07-25T18:50:42.772620+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 agent:github-actions a aiprov:ToolAgent ;
     foaf:name "GitHub Actions (aiprov build workflow)" ;
     aiprov:provider "GitHub"^^xsd:string .
@@ -1368,6 +1404,12 @@ aiprov:Transcript a owl:Class ;
     aiprov:doi "https://doi.org/10.37016/mr-2020-156"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/llm-homogenization2024> a aiprov:Source ;
+    rdfs:label "Homogenizing Effect of a Large Language Model (LLM) on Creative Diversity: An Empirical Comparison of Human and ChatGPT Writing"@en ;
+    dcterms:date "2024" ;
+    aiprov:doi "https://doi.org/10.31234/osf.io/8p9wu"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/model-collapse2024> a aiprov:Source ;
     rdfs:label "AI models collapse when trained on recursively generated data"@en ;
     dcterms:date "2024" ;
@@ -1380,6 +1422,13 @@ aiprov:Transcript a owl:Class ;
     dcterms:date "2017" ;
     dcterms:isPartOf "Environmental Engineering Science" ;
     aiprov:doi "https://doi.org/10.1089/ees.2016.0223"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/prov-agent2025> a aiprov:Source ;
+    rdfs:label "PROV-AGENT: Unified Provenance for Tracking AI Agent Interactions in Agentic Workflows"@en ;
+    dcterms:date "2025" ;
+    dcterms:isPartOf "2025 IEEE International Conference on eScience (eScience)" ;
+    aiprov:doi "https://doi.org/10.1109/escience65000.2025.00093"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/publishing-strain2024> a aiprov:Source ;
@@ -1620,8 +1669,7 @@ aiprov:Claim a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;
@@ -1635,15 +1683,15 @@ verif:reference-resolved a aiprov:VerificationState ;
         "retrieved"@en ;
     aiprov:ladderPosition 2 .
 
-aiprov:Source a owl:Class ;
-    rdfs:subClassOf prov:Entity .
-
 aiprov:AuthoringPass a owl:Class ;
     rdfs:comment "AI or human produces/edits an artefact."@en ;
     rdfs:subClassOf prov:Activity .
 
 aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
+    rdfs:subClassOf prov:Entity .
+
+aiprov:Source a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 aiprov:AuditPass a owl:Class ;

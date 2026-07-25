@@ -1,5 +1,14 @@
 # Changelog — ai-provenance skill
 
+## v0.14 (2026-07-25)
+
+- **Derived numbers carry their derivation.** New rule: any computed,
+  aggregated, or estimated figure entering the graph or a published
+  artefact must state its methodology (inputs, formula, thresholds,
+  exclusions) where it is recorded, with the measurement reproducible
+  from the record; counterfactuals are never estimated. An unexplained
+  number is treated the same as a fabricated one.
+
 ## v0.13 (2026-07-25)
 
 - **Honest role labels in transcripts.** The agent-session format
