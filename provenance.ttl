@@ -384,16 +384,19 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
         <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s50-rse-lineage> ;
     aiprov:contentHash "sha256:25824f8b11f6a188c0f6382ccbda4791e6e7d9c9993d3041878fb6fd9c0d9b3a",
         "sha256:65e2d4a7848de93fd39e2b8dcd722dfe8023971944789d508b91a695f7af7141",
         "sha256:8920fe38639a9406df5a865983817ce8c291932611fe185e768d112eb3cc3a90",
         "sha256:9b96b3b3c47c115af143321687b39368552d5196539b99a9b3483529089e2f50",
+        "sha256:b6ccb95222818e6bc114090061775e0f02f76483d8e97ff45844f08690695a31",
         "sha256:d9ed9546b69fb3755369423b9a39dea5ff84951d4711347152f62b546fdaab92",
         "sha256:e80f91f99ba2b913cbbfac91acf425622952a0fd7c47fd64300b62724ee611ef",
         "sha256:fffb16e53db85bba03f1a6325e02e6253603e92b1e12b7d3d230b77a2d320a27" ;
     aiprov:filePath "paper/sections/02-background.tex" ;
     aiprov:gitCommit "1aaab86",
+        "32dd409",
         "4c17c02faf15034458e93ddecd1d8da829020f3e",
         "82ffc86" .
 
@@ -875,11 +878,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s42-portability-v011>,
         <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division>,
         <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage>,
-        <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s50-rse-lineage> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
         "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
         "sha256:23324f3765caa803c29fb8eee66146db6773a4e0b6f002c800bba9788e068e14",
         "sha256:2c9083a5cbae565f108062cd367f9fd5f7f14e725c53f6ef49e8deffb7c4da06",
+        "sha256:2e60f501be4fc0abdb527db479644c2821171a5f2f4b6fff11093799991d8092",
         "sha256:4374a3098b37b2edf2b377f2b857bd6f2e53a52d76e21a377470671637a15577",
         "sha256:5d082ed5e49f97ceb00af346ff9835f06feb91c207d5f11c664046e6707f124e",
         "sha256:612114cefc96f9b6317ad638ddc7390822a4d580b4beb8decc53d5d93fe8419c",
@@ -895,6 +900,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:f8ac8ee3d13cb7fff772ba343bc1db2126fc4777237082cd89bafb1836267981" ;
     aiprov:filePath "paper/references.bib" ;
     aiprov:gitCommit "15a0d94",
+        "32dd409",
         "4c17c02faf15034458e93ddecd1d8da829020f3e",
         "73a11cd",
         "82ffc86",
@@ -1418,6 +1424,12 @@ aiprov:Transcript a owl:Class ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s50-rse-lineage> a aiprov:AuthoringPass ;
+    rdfs:label "Druskat et al. 2025 (Better Architecture, Better Software, Better Research; CiSE 27(2)) registered, DOI-verified and content-checked at full-text depth via open-access mirrors after IEEE Xplore blocked automated access (recorded fallback, same pattern as incident iii); cited in the background lineage as the established RSE argument shape - infrastructural quality propagates to research quality - which aiprov extends from the software to the record of its making. Operator-directed addition following the parallels discussion in the session log."@en ;
+    prov:endedAtTime "2026-07-25T19:28:42.204288+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> a aiprov:Source ;
     rdfs:label "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing"@en ;
     dcterms:date "2023" ;
@@ -1724,7 +1736,8 @@ aiprov:Claim a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:reference-resolved a aiprov:VerificationState ;
     rdfs:label "reference resolved"@en ;
@@ -1742,12 +1755,12 @@ aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
     rdfs:subClassOf prov:Entity .
 
+aiprov:Source a owl:Class ;
+    rdfs:subClassOf prov:Entity .
+
 aiprov:AuthoringPass a owl:Class ;
     rdfs:comment "AI or human produces/edits an artefact."@en ;
     rdfs:subClassOf prov:Activity .
-
-aiprov:Source a owl:Class ;
-    rdfs:subClassOf prov:Entity .
 
 aiprov:AuditPass a owl:Class ;
     rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
