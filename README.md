@@ -124,6 +124,15 @@ verification promotions.
 institutional research software; the tooling has no other
 licensing entanglements (pure Python + rdflib).
 
+Note: most of this repository was AI-generated under human direction. A
+license grants only what copyright protects — under current guidance
+(e.g. the U.S. Copyright Office's 2025 copyrightability report), purely
+AI-generated material is not copyrightable, and protection attaches to
+human-authored expression, selection, arrangement, and modification.
+The provenance graph records the per-activity human/AI split on which
+any such rights analysis would turn; the paper's discussion section
+treats this in depth.
+
 ## Citing
 
 Citation metadata lives in [`CITATION.cff`](CITATION.cff) (used by GitHub's

@@ -56,14 +56,14 @@ by the provider, and is recorded in the graph as computed.}
 \toprule
 Metric & Value \\
 \midrule
-Triples & 1280 \\
-Logged activities & 73 \\
+Triples & 1362 \\
+Logged activities & 78 \\
 Claims (all \texttt{ai-confirmed}) & 7 \\
-Sources on the ladder & 34 \\
-\quad thereof content-checked (\texttt{ai-confirmed}) & 11 \\
+Sources on the ladder & 35 \\
+\quad thereof content-checked (\texttt{ai-confirmed}) & 12 \\
 \quad thereof marked self-citation & 4 \\
 Registered agents (human / AI / tool) & 1 / 1 / 1 \\
-Commits & 41 \\
+Commits & 64 \\
 Transcript & 1 session, $>$900 turns \\
 Output tokens & 954\,612 \\
 Input tokens (uncached) & 9\,902 \\
@@ -179,17 +179,45 @@ the ordinary vocabulary.}
 \label{fig:incident}
 \end{figure*}
 
-\textbf{Division of labour as data.} An informal reading of this
-experiment's log, sorting activities by what triggered them, suggests
-a clean separation of roles. The human turns in the session log are
-direction, lineage, people, and judgement calls, including both
-ladder redesigns; the AI activities are verification mechanics:
-registry resolution, hashing, validation, builds. We have not
-performed a systematic classification; what the record does establish
-is that the hypothesis that AI absorbs tedium while humans connect
-ideas and people (Section~\ref{sec:discussion}) is testable from the
-committed log and transcript rather than from memory, for this one
+\textbf{Division of labour as data.} The record makes the division of
+work between operator, AI agent, and infrastructure countable
+(Table~\ref{tab:division}). The class-by-agent counts are exact,
+machine-readable queries over the graph; attributing \emph{triggers},
+what prompted each activity, still requires reading the session log,
+and that reading is consistent: the operator's direction messages
+carry scope, lineage, people, and every contested semantic decision,
+including both ladder redesigns, the cost-computation policy, the
+license choice, and the page budget, while the AI executed all
+authoring, audit, and repair activities and CI contributed the
+deterministic builds. That no rung above the AI ceiling has been
+granted yet is itself part of the record, not a gap in it: every
+claim and source visibly awaits the human, and the reader can see
+exactly what. The hypothesis that AI absorbs tedium while humans
+connect ideas and people (Section~\ref{sec:discussion}) is thereby
+testable from the committed log and transcript, for this one
 experiment.
+
+\begin{table}[t]
+\caption{Division of work in the meta-experiment, counted from the
+provenance graph and the session record at the time of writing
+(regenerated before submission).}
+\label{tab:division}
+\centering
+\begin{tabular}{p{5.2cm}lr}
+\toprule
+Contribution & Agent & Count \\
+\midrule
+Direction messages: scope, lineage, people, contested semantics (two
+ladder redesigns, cost policy, license, page budget) & human & 57 \\
+Authoring passes: prose, code, figures, method releases & AI & 35 \\
+Audit passes: validation, promotions, content checks, incident
+reports, measurements & AI & 41 \\
+Repair passes & AI & 1 \\
+Deterministic builds logged & CI & 1 \\
+Rungs granted above the AI ceiling & human & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \textbf{What the auditor can and cannot verify.} Hashes, commits,
 resolving DOIs, rung grants, and the validator's verdicts are

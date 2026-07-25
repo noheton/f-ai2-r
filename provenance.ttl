@@ -80,6 +80,18 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/publishing-strain2024> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-usco-ai-copyrightability2025-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of usco-ai-copyrightability2025: reference-resolved -> ai-confirmed (Content checked against the full report PDF (fetched from copyright.gov): 'Copyright does not extend to purely AI-generated material, or material where there is insufficient human control over the expressive elements'; 'prompts do not alone provide sufficient control'; protection can rest on perceptible human-authored expression and 'the creative selection, coordination, or arrangement of material in the outputs, or creative modifications of the outputs'; international consensus that AI content is eligible 'only if the human input in the creative process was significant'. Full-text depth.)"@en ;
+    prov:endedAtTime "2026-07-25T18:39:29.772529+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-usco-ai-copyrightability2025-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of usco-ai-copyrightability2025: ai-confirmed -> source-vendored"@en ;
+    prov:endedAtTime "2026-07-25T18:39:30.047670+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/s09-incident> a aiprov:AuditPass ;
     rdfs:label "Incident record (honest self-report): while creating paper-template stubs, a persisted working directory caused the agent to overwrite paper/sections/01-introduction.tex and 02-background.tex with generic stubs and create four stray stub files. Detected immediately via file-change notices and git status; both files restored with git checkout from commit 75d21bd; stray files deleted; nothing lost or pushed. Kept in the graph as evidence for the repository-is-the-process discussion (paper section 6.2)"@en ;
     prov:endedAtTime "2026-07-24T18:45:54.248700+00:00"^^xsd:dateTime ;
@@ -856,11 +868,6 @@ verif:needs-research a aiprov:VerificationState ;
     rdfs:comment "A check was attempted or demanded and did not succeed (e.g. DOI did not resolve). Must not be cited or relied upon until re-verified."@en ;
     aiprov:ladderPosition 1 .
 
-verif:source-vendored a aiprov:VerificationState ;
-    rdfs:label "source vendored"@en ;
-    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
-    aiprov:ladderPosition 4 .
-
 verif:unverified a aiprov:VerificationState ;
     rdfs:label "unverified"@en ;
     rdfs:comment "Recorded, nothing checked yet by anyone. Default state at creation."@en ;
@@ -1190,6 +1197,11 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1016/j.compositesa.2025.109194"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
+verif:source-vendored a aiprov:VerificationState ;
+    rdfs:label "source vendored"@en ;
+    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
+    aiprov:ladderPosition 4 .
+
 aiprov:Build a owl:Class ;
     rdfs:comment "Deterministic build/compile/CI activity."@en ;
     rdfs:subClassOf prov:Activity .
@@ -1328,6 +1340,13 @@ aiprov:Transcript a owl:Class ;
     dcterms:isPartOf "Quantitative Science Studies" ;
     aiprov:doi "https://doi.org/10.1162/qss_a_00327"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> a aiprov:Source ;
+    rdfs:label "Copyright and Artificial Intelligence, Part 2: Copyrightability (Report of the Register of Copyrights)"@en ;
+    dcterms:source <https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf> ;
+    aiprov:contentHash "sha256:30889d027cb7ec5b1e29919f26b1603ae691db6e77472acb270a2f8b8e540947" ;
+    aiprov:filePath "doc/sources/usco-ai-copyrightability2025.pdf" ;
+    aiprov:verificationState verif:source-vendored .
 
 aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;
@@ -1541,8 +1560,7 @@ aiprov:Claim a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;
@@ -1556,12 +1574,12 @@ verif:reference-resolved a aiprov:VerificationState ;
         "retrieved"@en ;
     aiprov:ladderPosition 2 .
 
-aiprov:Source a owl:Class ;
-    rdfs:subClassOf prov:Entity .
-
 aiprov:AuthoringPass a owl:Class ;
     rdfs:comment "AI or human produces/edits an artefact."@en ;
     rdfs:subClassOf prov:Activity .
+
+aiprov:Source a owl:Class ;
+    rdfs:subClassOf prov:Entity .
 
 aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
