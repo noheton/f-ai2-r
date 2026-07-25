@@ -176,7 +176,7 @@ claim or source holds has a recorded grantor.}
 Pos & Rung & What it asserts & Who may grant \\
 \midrule
 0 & \texttt{unverified} & Recorded; nothing checked yet by anyone.
-    Default state at creation. & --- (default) \\
+    Default state at creation. & (default) \\
 1 & \texttt{needs-research} & A check was attempted or demanded and did
     \emph{not} succeed (e.g.\ a DOI failed to resolve). Must not be
     cited or relied upon until re-verified. & any agent \\
@@ -184,12 +184,12 @@ Pos & Rung & What it asserts & Who may grant \\
     DOI/URL resolved in a bibliographic registry and metadata was
     captured. Says nothing about content. & any agent (tool-checkable) \\
 3 & \texttt{ai-confirmed} & An AI checked that the source
-    \emph{content} supports the associated claim. A machine judgement
-    --- the highest rung an AI may grant. & AI or human \\
+    \emph{content} supports the associated claim. A machine judgement,
+    the highest rung an AI may grant. & AI or human \\
 4 & \texttt{source-vendored} & A copy of the source is preserved inside
     the repository (content-hashed), immune to link rot and silent
     revision. Of no evidential value by itself: this rung is the
-    \emph{access gate} to human verification --- the agent hands the
+    \emph{access gate} to human verification: the agent hands the
     human the evidence, and tooling refuses rungs 5--6 unless the
     source is vendored or carries a clear access link (DOI/URL). &
     any agent (hash-checkable) \\
@@ -197,7 +197,7 @@ Pos & Rung & What it asserts & Who may grant \\
     source supports the claim. & human only \\
 6 & \texttt{human-read} & A \emph{human} has read the source in full
     \emph{and}, with that full context, confirms the claim is
-    supported --- subsumes rung 5's confirmation with deeper
+    supported, subsuming rung 5's confirmation with deeper
     familiarity. Reading without confirming is not a rung. Top of the
     ladder. & human only \\
 \bottomrule
