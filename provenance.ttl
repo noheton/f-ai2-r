@@ -453,7 +453,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s39-audit-repairs>,
         <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s51-style-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s51-style-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure> ;
     aiprov:contentHash "sha256:1272492da6ea855f67d8c74337d336f3283292474fb2448320b7aafcffb40e21",
         "sha256:250f070dfac7344b065ca518cef78f206f58af1f475d5facf4506f380825c6d8",
         "sha256:25292007eba664ca8bf2971cbb75bc6613310884a4807b1e16fabd5efa20d187",
@@ -462,10 +463,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:5b125bf494a432ea1584a11ffcc2dd2ccf1237ebafdc395f72a4c2f7acfb39ee",
         "sha256:8a13d230aa79472dc6a90f7f413b7566ad39d6c550ab9181c6518b4b3dabdb6a",
         "sha256:9af1e4add4be73ec7330ed67741ce0a1139f026a0087245bc1e518e6e4d4915a",
-        "sha256:b0ddea32cc22ecca0b443c5763f51fc07e820748a3c48e2773a36fee2bea9f14" ;
+        "sha256:b0ddea32cc22ecca0b443c5763f51fc07e820748a3c48e2773a36fee2bea9f14",
+        "sha256:e67237f533d37fcff1d0169cc623bbd2110e1f5e28d4d7aa638cad43caa09f61" ;
     aiprov:filePath "paper/sections/04-method.tex" ;
     aiprov:gitCommit "1aaab86",
         "390d3af",
+        "42d3042",
         "63bde89" .
 
 <https://noheton.org/f-ai2-r/prov/entity/04-skill-tex> a aiprov:Artefact ;
@@ -490,16 +493,19 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s32-data-analysis-example>,
         <https://noheton.org/f-ai2-r/prov/activity/s33-example-swap>,
         <https://noheton.org/f-ai2-r/prov/activity/s38-auditability-examples>,
-        <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure> ;
     aiprov:contentHash "sha256:263f241a9b520e394b3fd1439163cad4f5285cfc9eeb4a8fcf8703b3eb7d5031",
         "sha256:359f3cdd6b2e1428bade3fa2e4ceabc1ca5f6fdccd83bb508278f0550699521e",
         "sha256:4ce056ab41dddb7f64d9ea6ae775f94a04a1e8458dca49a61eac33bccfc7bc47",
         "sha256:6bd2f83a93a0033e1224833566e5b566d3e0abc7111e5708e578014162734e41",
         "sha256:7cf24beebcbd7d28f24f35b3f4f7e756b1ba5f78eddac5e149ed25663547a8f5",
         "sha256:a1885b28f19c8898eec42ef7dc28da66248a830fe690867b4457f7bd8cb3fb67",
-        "sha256:e3e8528cf28abef84031f723e1ba7f3e9ae4d042d94bb6e0f12fbb6f4e4a1b24" ;
+        "sha256:e3e8528cf28abef84031f723e1ba7f3e9ae4d042d94bb6e0f12fbb6f4e4a1b24",
+        "sha256:fbafa0a7ff24c77d55224cab12115e1984b8e18c5251ac24a75eb4ee106164b1" ;
     aiprov:filePath "paper/sections/05-skill.tex" ;
     aiprov:gitCommit "1aaab86",
+        "42d3042",
         "cf16dd2" .
 
 <https://noheton.org/f-ai2-r/prov/entity/06-discussion-tex> a aiprov:Artefact ;
@@ -523,13 +529,15 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division>,
         <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage>,
         <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
-        <https://noheton.org/f-ai2-r/prov/activity/s51-style-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s51-style-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure> ;
     aiprov:contentHash "sha256:1990ebaa3dffa13626c417064c24e8dc4c1eb64681be4e09373abe328b6e842e",
         "sha256:1e6886e01eb1a921111e3aa4bdcd33fa82caa63089c14600bff9610ad8982abb",
         "sha256:3c8f52250d24db413e33d7c3c71432f1a3f8e1366b10fde8c9060167722c7e64",
         "sha256:4214500eceeb106449ec03789aaacc4501453495ccd9dca2ce9a8fa311c1a20d",
         "sha256:4e746283a1817bae0900a3c1b504319f84e2fc3558c7d2bfa06b1dc78ec0570e",
         "sha256:4ebc3629b1c0925e1de72d9a89bb739862907714bbf73246cabdc9e1c5520ffb",
+        "sha256:60d7b60b4303d1e397568da3d493fefe87a68d9b73d3828c46ba4d55f73d947a",
         "sha256:68c2ed67d3856ec2be1a25282bb23a0bc1d34104d85216745d1e76a63b63b975",
         "sha256:9d0461aba72aaaf3ed800249cea37733665ed152dd1c9566bb45895f53f71ecb",
         "sha256:b1db9415997e92b7647bee623bf214ed2e01548d09e7ce0c7acdd29ccbac1d40",
@@ -539,6 +547,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:fd265a536fb8a32e3dfa64d5eb01f28f6270b07d30e8bdfd0f53634abc4b7e63" ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
     aiprov:gitCommit "390d3af",
+        "42d3042",
         "540e2c2",
         "63bde89",
         "73a11cd",
@@ -573,7 +582,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage>,
         <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
         <https://noheton.org/f-ai2-r/prov/activity/s49-dual-witness>,
-        <https://noheton.org/f-ai2-r/prov/activity/s52-shepard-zenodo-industry> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s52-shepard-zenodo-industry>,
+        <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure> ;
     aiprov:contentHash "sha256:0ae502fea46692d008b14632d42884f5e64adfa7b4cda32ff4fb0a96ac6f1860",
         "sha256:15a12cee502951add09328fc131772fe7655d80a61a6e83b7d4b3055b4965649",
         "sha256:2486c8f697d83820c14bca9fcb06297536fcd53154dced01fbced342a5256cb0",
@@ -586,6 +596,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:95df2962d33775a71cb8dd4f8c5ae0f4aca6cf19702d37d1197faf7b5481baf9",
         "sha256:9f3a6f335fb0901d201700b7505fa5f837e048d7b06be9f499f0f9965af2432f",
         "sha256:a27f1ffd99e9847dbfb36751bbcd4ecfabb770ddd17f0a691ef1442f9eea1227",
+        "sha256:ab02f58905c5066dfda3a157446b798ea2ca2285e7c54079e9fef2ca70eefd07",
         "sha256:b600eebd1cc748d22001591a480735f2593dde0e3468a1aabf7202639d69b338",
         "sha256:bf6cf0ab48d380c311988c7ad6ed06ae16615bab326d7dfa4cbfcb74522ae56b",
         "sha256:e0d31c329699c1e2f468063a79a86c452a67be98e11c200c22710bca0c250e20",
@@ -597,6 +608,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "15a0d94",
         "1aaab86",
         "2b22a73",
+        "42d3042",
         "4465d74",
         "540e2c2",
         "73a11cd",
@@ -784,6 +796,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:filePath "codemeta.json" ;
     aiprov:gitCommit "dbed058" .
 
+<https://noheton.org/f-ai2-r/prov/entity/dashboard-png> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure> ;
+    aiprov:contentHash "sha256:3c69e40455b755038860855feb34a70f1adcabcfcc9e9ba2a5239a56df368931" ;
+    aiprov:filePath "paper/figures/dashboard.png" ;
+    aiprov:gitCommit "42d3042" .
+
 <https://noheton.org/f-ai2-r/prov/entity/disclosure-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
@@ -910,7 +929,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage>,
         <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
         <https://noheton.org/f-ai2-r/prov/activity/s50-rse-lineage>,
-        <https://noheton.org/f-ai2-r/prov/activity/s52-shepard-zenodo-industry> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s52-shepard-zenodo-industry>,
+        <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
         "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
         "sha256:23324f3765caa803c29fb8eee66146db6773a4e0b6f002c800bba9788e068e14",
@@ -924,6 +944,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:972f6e5c4ad55b80381b3726d8b3ab766531da962543beb34fc9a0865de37969",
         "sha256:99e27890719bcceea1f8a350ffe174ba3975c407220939a18ee246be0c48ca35",
         "sha256:a45b76e222184cbbe7576f3d9a8549505eb1f69f1b307915a551b53aa56d5e28",
+        "sha256:ad576853ce4fb03a5ec2e110b53e57fb308c931d82663819209bb16533ba92ea",
         "sha256:c36a397e5afe052f6d133968b0d1e2d663658aa045e11b9724ba3b055aeb0fc3",
         "sha256:dbcb3e59f67f1963ef9c803429d701ed091897dfef90397cd62a1e3dbf407739",
         "sha256:e63a541ac075dbdbd2250a9466789d6e8911bd93f2e603310f76cc0ab3536d67",
@@ -933,6 +954,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:filePath "paper/references.bib" ;
     aiprov:gitCommit "15a0d94",
         "32dd409",
+        "42d3042",
         "4465d74",
         "4c17c02faf15034458e93ddecd1d8da829020f3e",
         "73a11cd",
@@ -1699,6 +1721,12 @@ aiprov:Contribution a owl:Class ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure> a aiprov:AuthoringPass ;
+    rdfs:label "Industry path grounded in EASA AI Concept Paper Issue 2 (easa-ai-concept2024 registered, content-checked at full-document depth: Level 2 systems 'automatically take decisions under human oversight'; 'traceability of the data from their origin to their final operation through the whole pipeline of operations'; record-keeping of AI-related data). EASA news announcement also checked at operator direction: corroborates the summary and records the guidance entering rulemaking via RMT.0742, i.e. on a path to binding rules. Dashboard figure added to the meta-experiment (headless-Chromium capture of build_dashboard output; cropped to header/agents/ledger, excluding the totals row whose per-activity aggregation over-counts the cumulative token-backfill activities - a known reporting limit kept out of the paper rather than presented). Ladder and workflow figures scaled and listing whitespace trimmed to hold the 12-page cap."@en ;
+    prov:endedAtTime "2026-07-26T05:37:42.587566+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
     prov:endedAtTime "2026-07-24T18:43:45.977114+00:00"^^xsd:dateTime ;
@@ -1791,7 +1819,8 @@ aiprov:Claim a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:reference-resolved a aiprov:VerificationState ;
     rdfs:label "reference resolved"@en ;
