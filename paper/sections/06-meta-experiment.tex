@@ -25,7 +25,9 @@ statistics in the header.}
 \end{figure*}
 
 \textbf{The graph as evaluation object.} Table~\ref{tab:telemetry}
-reports the state of the graph at the time of writing. Token counts
+reports the state of the graph at the time of writing, and
+Figure~\ref{fig:dashboard} shows the ledger view rendered from the
+same file. Token counts
 were initially absent: the harness exposes no live usage to the agent,
 and under omit-don't-estimate nothing was recorded. The operator's
 challenge (``why is this not reported?'') prompted a check of the
@@ -72,6 +74,19 @@ Cost (computed, not reported) & $\approx$ USD~415 \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/dashboard.png}
+\caption{The dashboard rendered from \texttt{provenance.ttl}
+(excerpt: header, registered agents, and the first entries of the
+activity ledger of this paper's production). The full page is one
+self-contained HTML file, including the ladder chart and an
+interactive graph view; the cost figure is the computed one of
+Table~\ref{tab:telemetry}, and per-activity rows carry pass class,
+agent, session, and generated artefacts.}
+\label{fig:dashboard}
+\end{figure}
 
 \textbf{Worked examples.} Invariant enforcement was verified by
 test-run before any claim entered the graph: an injected parentless

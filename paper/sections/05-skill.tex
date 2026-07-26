@@ -120,13 +120,11 @@ REFUSED: rung 'human-confirmed' is human-only;
   agent:claude-code is not a registered
   HumanAgent. An AI must never grant this rung.
                                           exit 1
-
 # a parentless claim spliced into the graph
 $ provlog.py validate
 [FAIL] parentless claims: 1
 [FAIL] unattributed claims: 1
     -> .../prov/claim/rogue               exit 1
-
 # access gate: human rung, source not in hand
 $ provlog.py promote --id demo-src \
     --to human-confirmed --agent florian-krebs
@@ -134,7 +132,6 @@ REFUSED: 'human-confirmed' requires the source
   in hand -- vendor a copy first (promote
   --to source-vendored --file <path>) or
   record a DOI/URL for it                 exit 1
-
 # vendor the copy, then the gate hands it over
 $ provlog.py promote --id demo-src \
     --to source-vendored --agent claude-code \
@@ -171,6 +168,7 @@ artefact.
 
 \begin{figure}[t]
 \centering
+\resizebox{0.84\columnwidth}{!}{%
 \begin{tikzpicture}[
   font=\scriptsize, node distance=2.2mm,
   stp/.style={draw=blue!50!black, fill=blue!10, rounded corners=1.5pt,
@@ -206,7 +204,8 @@ artefact.
   \draw[e] (\a) -- (\b);
 \draw[e] (humanp.east) -- ++(0.45,0) |- (work.east)
   node[lbl, pos=0.25, rotate=90, anchor=south] {next round};
-\end{tikzpicture}
+\end{tikzpicture}%
+}
 \caption{The skill's operating loop from the single setup question to
 the continuously published build. Orange steps involve the human
 operator; the grey step runs deterministically in CI; everything else

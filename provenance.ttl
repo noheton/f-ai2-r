@@ -44,6 +44,12 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/chatgpt-wrote-it2023> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-easa-ai-concept2024-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of easa-ai-concept2024: reference-resolved -> ai-confirmed (Content checked at full-document depth (PDF fetched from easa.europa.eu): Level 2 AI is defined as systems that 'automatically take decisions under human oversight' (human-AI teaming); the guidance requires 'the traceability of the data from their origin to their final operation through the whole pipeline of operations' and names record-keeping of AI-related data and continuous safety assessment among the needed methodologies. Supports the industry-relevance paragraph: certified aviation guidance already anticipates AI decisions under human oversight with pipeline-wide traceability.)"@en ;
+    prov:endedAtTime "2026-07-26T05:32:05.220184+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/easa-ai-concept2024> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-eu-ai-act2024-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of eu-ai-act2024: reference-resolved -> ai-confirmed (Article-level check via the AI Act explorer rendering of the canonical text (EUR-Lex ELI recorded on this source): Art. 50 requires outputs 'marked in a machine-readable format and detectable as artificially generated or manipulated' and disclosure of AI interaction; Art. 14 requires high-risk systems be 'effectively overseen by natural persons', incl. override/intervention. Supports the transparency-marking and human-oversight citing sentences.)"@en ;
     prov:endedAtTime "2026-07-24T21:32:58.520556+00:00"^^xsd:dateTime ;
@@ -1278,6 +1284,11 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1145/3458723"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
+<https://noheton.org/f-ai2-r/prov/source/easa-ai-concept2024> a aiprov:Source ;
+    rdfs:label "EASA Artificial Intelligence Concept Paper Issue 2: Guidance for Level 1 and 2 machine-learning applications"@en ;
+    dcterms:source <https://www.easa.europa.eu/en/document-library/general-publications/easa-artificial-intelligence-concept-paper-issue-2> ;
+    aiprov:verificationState verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/eu-ai-act2024> a aiprov:Source ;
     rdfs:label "Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)"@en ;
     dcterms:source <https://eur-lex.europa.eu/eli/reg/2024/1689/oj> ;
@@ -1780,8 +1791,7 @@ aiprov:Claim a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:reference-resolved a aiprov:VerificationState ;
     rdfs:label "reference resolved"@en ;

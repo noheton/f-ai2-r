@@ -206,6 +206,7 @@ Pos & Rung & What it asserts & Who may grant \\
 
 \begin{figure}[t]
 \centering
+\resizebox{0.84\columnwidth}{!}{%
 \begin{tikzpicture}[
   rung/.style={draw, rounded corners=1pt, minimum width=5.6cm,
                minimum height=0.52cm, font=\footnotesize, align=center},
@@ -224,7 +225,8 @@ Pos & Rung & What it asserts & Who may grant \\
 \node[note, right=0.15cm of r3] {highest AI-grantable};
 \draw[-{Stealth}, thick] ([xshift=-0.5cm]r0.west) -- ([xshift=-0.5cm]r6.west)
   node[midway, sloped, above, font=\scriptsize] {promotions strictly climb};
-\end{tikzpicture}
+\end{tikzpicture}%
+}
 \caption{The verification ladder. Every promotion is logged as an audit
 activity; rungs 5--6 may never be granted by an AI agent, and the
 validator treats such grants as hard failures.}
