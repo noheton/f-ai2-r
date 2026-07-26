@@ -566,7 +566,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division>,
         <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage>,
         <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
-        <https://noheton.org/f-ai2-r/prov/activity/s49-dual-witness> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s49-dual-witness>,
+        <https://noheton.org/f-ai2-r/prov/activity/s52-shepard-zenodo-industry> ;
     aiprov:contentHash "sha256:0ae502fea46692d008b14632d42884f5e64adfa7b4cda32ff4fb0a96ac6f1860",
         "sha256:15a12cee502951add09328fc131772fe7655d80a61a6e83b7d4b3055b4965649",
         "sha256:2486c8f697d83820c14bca9fcb06297536fcd53154dced01fbced342a5256cb0",
@@ -583,12 +584,14 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:bf6cf0ab48d380c311988c7ad6ed06ae16615bab326d7dfa4cbfcb74522ae56b",
         "sha256:e0d31c329699c1e2f468063a79a86c452a67be98e11c200c22710bca0c250e20",
         "sha256:e9ed6006dbdaf5586dfcab386f5c35f4a7665263ceafeb8fae055e89cc2b66a1",
+        "sha256:ef93fac17f8294ef6def9eee48bf447394bac69c0609d6289d28d45631c598b2",
         "sha256:f0b41bd559abf2febc296356d04a4657234a2bebc2767aa154cd4e0cd41caa63" ;
     aiprov:filePath "paper/sections/07-discussion.tex" ;
     aiprov:gitCommit "0a0414f",
         "15a0d94",
         "1aaab86",
         "2b22a73",
+        "4465d74",
         "540e2c2",
         "73a11cd",
         "82ffc86",
@@ -900,7 +903,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division>,
         <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage>,
         <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
-        <https://noheton.org/f-ai2-r/prov/activity/s50-rse-lineage> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s50-rse-lineage>,
+        <https://noheton.org/f-ai2-r/prov/activity/s52-shepard-zenodo-industry> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
         "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
         "sha256:23324f3765caa803c29fb8eee66146db6773a4e0b6f002c800bba9788e068e14",
@@ -918,10 +922,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:dbcb3e59f67f1963ef9c803429d701ed091897dfef90397cd62a1e3dbf407739",
         "sha256:e63a541ac075dbdbd2250a9466789d6e8911bd93f2e603310f76cc0ab3536d67",
         "sha256:f268d78c68521714acd7e5ce3f0ca304d24c5ecb91360c6e034f262a3ceade9c",
+        "sha256:f7a42caaee38d47049539b693bffecf8c063c41c27acfb04ebc9bad558beec91",
         "sha256:f8ac8ee3d13cb7fff772ba343bc1db2126fc4777237082cd89bafb1836267981" ;
     aiprov:filePath "paper/references.bib" ;
     aiprov:gitCommit "15a0d94",
         "32dd409",
+        "4465d74",
         "4c17c02faf15034458e93ddecd1d8da829020f3e",
         "73a11cd",
         "82ffc86",
@@ -1442,6 +1448,12 @@ aiprov:Transcript a owl:Class ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s52-shepard-zenodo-industry> a aiprov:AuthoringPass ;
+    rdfs:label "Operator-provided better source for shepard adopted: Zenodo archived release v5.1.2 (DOI 10.5281/zenodo.17897485, concept 10.5281/zenodo.5091603), DOI-verified, content-checked at record depth, marked selfCitation (record names the operator as contributor, sponsor role); bib entry now carries named authors and DOI instead of a bare gitlab link. Industry-relevance paragraph added to the discussion: AI operational decisions in manufacturing, EU AI Act Art. 12 automatic-logging duty verified at article level before citing, human-only rungs as release decisions, shepard as the production-data backbone. Self-citation ratio updated to 5 of 39."@en ;
+    prov:endedAtTime "2026-07-26T05:30:02.382676+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> a aiprov:Source ;
     rdfs:label "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing"@en ;
     dcterms:date "2023" ;
@@ -1768,7 +1780,8 @@ aiprov:Claim a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:reference-resolved a aiprov:VerificationState ;
     rdfs:label "reference resolved"@en ;
