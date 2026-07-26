@@ -58,19 +58,19 @@ by the provider, and is recorded in the graph as computed.}
 \toprule
 Metric & Value \\
 \midrule
-Triples & 1458 \\
-Logged activities & 86 \\
+Triples & 1602 \\
+Logged activities & 98 \\
 Claims (all \texttt{ai-confirmed}) & 8 \\
-Sources on the ladder & 38 \\
-\quad thereof content-checked (\texttt{ai-confirmed}) & 14 \\
-\quad thereof marked self-citation & 4 \\
+Sources on the ladder & 40 \\
+\quad thereof content-checked (\texttt{ai-confirmed}) & 18 \\
+\quad thereof marked self-citation & 5 \\
 Registered agents (human / AI / tool) & 1 / 1 / 1 \\
-Commits & 70 \\
-Transcript & 1 session, $>$900 turns \\
-Output tokens & 954\,612 \\
-Input tokens (uncached) & 9\,902 \\
-Cache tokens (read / write) & 214.4\,M / 7.6\,M \\
-Cost (computed, not reported) & $\approx$ USD~415 \\
+Commits & 90 \\
+Transcript & 1 session, 2\,214 turns \\
+Output tokens & 1\,606\,863 \\
+Input tokens (uncached) & 14\,752 \\
+Cache tokens (read / write) & 377.0\,M / 14.0\,M \\
+Cost (computed, not reported) & $\approx$ USD~737 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -79,12 +79,13 @@ Cost (computed, not reported) & $\approx$ USD~415 \\
 \centering
 \includegraphics[width=\columnwidth]{figures/dashboard.png}
 \caption{The dashboard rendered from \texttt{provenance.ttl}
-(excerpt: header, registered agents, and the first entries of the
+(excerpt: header, registered agents, and the first entry of the
 activity ledger of this paper's production). The full page is one
 self-contained HTML file, including the ladder chart and an
 interactive graph view; the cost figure is the computed one of
-Table~\ref{tab:telemetry}, and per-activity rows carry pass class,
-agent, session, and generated artefacts.}
+Table~\ref{tab:telemetry}. The token column sums per-activity
+records, whose overlapping cumulative backfills read high; the table
+aggregates the session record directly.}
 \label{fig:dashboard}
 \end{figure}
 
@@ -107,8 +108,9 @@ argument's load-bearing sources one rung further: for each, the AI
 agent fetched the actual content (full text or slides where openly
 accessible, abstracts otherwise) and checked it against the specific
 sentence citing it, recording the supporting quotation and the
-checked depth in the promotion note. Ten sources now sit at
-\texttt{ai-confirmed}; two outcomes were negative and stayed
+checked depth in the promotion note. Ten sources were promoted in
+that pass, and later registrations continued the practice, to 18
+content-checked at the time of writing; two outcomes were negative and stayed
 recorded rather than smoothed over: one publisher's bot-wall left a
 source checked at metadata depth only, so it was not promoted, and
 the two self-cited repositories were skipped because the session's
@@ -220,11 +222,11 @@ generally, in the same breath as provider-reported cost.
 
 \textbf{Leverage as data.} The same record measures what the
 multiplication bought, without estimating any counterfactual. The
-operator typed 947 words of direction in total, median 14 words per
+operator typed 1,074 words of direction in total, median 9 words per
 message; active session time, clustering request timestamps and
-counting gaps under thirty minutes, is about 4.2 hours inside a
-25-hour wall-clock span. Against that input stand roughly 7,300 words
-of typeset prose, about 1,700 lines of tooling, 35 ladder-backed
+counting gaps under thirty minutes, is about 5.4 hours inside a
+36-hour wall-clock span. Against that input stand roughly 8,500 words
+of typeset prose, about 1,700 lines of tooling, 40 ladder-backed
 sources, and the graph itself. What a solo baseline would have cost
 is deliberately not estimated, omit-don't-estimate applies to
 counterfactuals too; what the record does show is \emph{where} the
@@ -250,13 +252,13 @@ provenance graph and the session record at the time of writing
 Contribution & Agent & Count \\
 \midrule
 Direction messages: scope, lineage, people, contested semantics (two
-ladder redesigns, cost policy, license, page budget) & human & 57 \\
-Typed direction volume (median 14 words/message) & human & 947 w \\
-Active session time (request-gap clustering) & both & 4.2 h \\
-Authoring passes: prose, code, figures, method releases & AI & 35 \\
+ladder redesigns, cost policy, license, page budget) & human & 63 \\
+Typed direction volume (median 9 words/message) & human & 1074 w \\
+Active session time (request-gap clustering) & both & 5.4 h \\
+Authoring passes: prose, code, figures, method releases & AI & 42 \\
 Audit passes: validation, promotions, content checks, incident
-reports, measurements & AI & 41 \\
-Repair passes & AI & 1 \\
+reports, measurements & AI & 53 \\
+Repair passes & AI & 2 \\
 Deterministic builds logged & CI & 1 \\
 Rungs granted above the AI ceiling & human & 0 \\
 \bottomrule

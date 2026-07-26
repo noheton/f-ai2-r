@@ -51,9 +51,9 @@ that overhead is measurable rather than anecdotal: a mechanical
 classification of every provider request by its tool
 invocations, bookkeeping commands (logging, validation, promotion,
 graph and transcript commits) versus everything else, attributes
-9.5\% of requests, 9.0\% of output tokens, and 6.4\% of the
+10.6\% of requests, 9.5\% of output tokens, and 7.2\% of the
 computed session cost to the method itself; on the repository side,
-17 of 62 commits at measurement time carried only graph or
+33 of 90 commits at measurement time carried only graph or
 transcript updates. No request mixed bookkeeping with substantive
 work, so upper and lower bounds coincide. Roughly a tenth of the
 activity, in other words, is the price of making the other nine
@@ -67,15 +67,16 @@ them, reported rather than estimated. Cost closed the same way, one
 step later and one grade weaker: the record is unpriced, so under
 omit-don't-estimate no cost was recorded until the operator directed
 pricing the recorded tokens against the provider's published price
-list, roughly USD~415 for this session at time of writing. The
+list, first roughly USD~415, refreshed to the figure in
+Table~\ref{tab:telemetry} as the session continued. The
 distinction the graph preserves is between \emph{reported} telemetry
 (the token counts, carried in the provider's own usage blocks) and
 \emph{computed} telemetry (the cost, derived from those counts and a
 price list that the activity's label discloses). Computed values are
 honest only while their basis is recorded; provider-reported cost
 would still be the stronger record. A larger question stays open
-behind the numbers. This one session consumed 214~million cache-read
-tokens, roughly USD~415 at list prices, to produce one draft paper
+behind the numbers. This one session consumed 377~million cache-read
+tokens, roughly USD~737 at list prices, to produce one draft paper
 and one method release; whether that expenditure justifies its
 environmental footprint and its other costs is a debate this paper
 does not settle and does not want to hide. The schema reserves
@@ -87,7 +88,7 @@ obviously wasteful nor excusing it as obviously worthwhile. The graph
 makes the bill legible; whether it is worth paying is a judgement the
 record enables but cannot make.
 
-\textbf{Skill drift.} The method evolved mid-experiment, v0 to v0.8,
+\textbf{Skill drift.} The method evolved mid-experiment, v0 to v0.14,
 including two operator-contested ladder redesigns. Immutable archived
 snapshots, a changelog, and per-activity commit binding keep every
 run attributable to the exact method version in force, so evolution
@@ -114,7 +115,7 @@ author's own repositories and specifications. Self-citation is
 frowned upon as metric gaming, yet unavoidable as provenance. The
 resolution is transparency instead of omission: sources carry
 \texttt{aiprov:selfCitation}, the report prints the ratio (here 5 of
-39), and a reviewer can judge necessity per source. The test that
+40), and a reviewer can judge necessity per source. The test that
 separates influence from inflation: a transparent self-citation is
 load-bearing, removing it would orphan a lineage or method claim, and
 it points at repositories and specifications rather than
@@ -176,7 +177,7 @@ that~\cite{prov-agent2025}; what no found work combines is human-only
 verification rungs, executable-skill packaging, and self-application,
 and that combination, within the recorded horizon, is this paper's
 originality claim, refutable by widening the sweep. The effort behind
-it divides tellingly. The fast side, the AI's 4.2 active hours,
+it divides tellingly. The fast side, the AI's five active hours,
 supplied execution and recombination, and recombination is exactly
 what the empirical evidence says models supply: in preregistered
 comparisons, each additional human-written text contributes more new
@@ -184,7 +185,7 @@ ideas to the collective pool than each additional model-written
 one~\cite{llm-homogenization2024}. The slow side is where the
 originality entered: years of experiments, specification
 co-authoring, committee work, and conversations, the lineage of
-Section~\ref{sec:background}, compressed into 947 words of direction.
+Section~\ref{sec:background}, compressed into 1,074 words of direction.
 Neither side alone would have produced the work: without the slow
 ideas the fast hours had nothing original to execute; without the
 fast execution the slow ideas would still be scattered across
@@ -264,6 +265,6 @@ supply, connecting ideas and connecting people. This experiment's own
 activity log shows that division of labour. No guarantee, only a
 chance; a provenance graph is how one would check, later, whether the
 chance was taken. For this experiment the leverage measurement of
-Section~\ref{sec:meta} is that check, taken early: 947 typed words
-steering four active hours, and nearly every one of them spent on
+Section~\ref{sec:meta} is that check, taken early: 1,074 typed words
+steering five active hours, and nearly every one of them spent on
 scope, semantics, lineage, or people. Here, the chance was taken.

@@ -170,6 +170,15 @@
     aiprov:totalTokens 964514 ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s54-consistency-snapshot> a aiprov:AuditPass ;
+    rdfs:label "Consistency snapshot, one coherent measurement set (methodology identical to s36/s44/s46; derivation rule applies): session cumulative at snapshot: input 14,752 / output 1,606,863 / cache-read 376,992,315 / cache-write 13,973,513 (all 1h-TTL), 1,358 requests; cost computed at the s36 price basis: USD 736.95. The cost attribute on this activity carries the increment since s36 (321.73) so the graph-wide cost sum equals the fresh cumulative exactly; token attributes are deliberately omitted because earlier cumulative backfills (s31, s36) already overlap in naive sums - totals should be read from this label, not summed from activities. Other fresh counts: 97 activities (42 authoring / 52 audit / 2 repair / 1 build), 40 sources (18 content-checked, 5 self), 8 claims, 90 commits (33 graph/transcript-only), 2,214 transcript turns; 63 typed direction messages, 1,074 words, median 9; active time 5.4 h in a 35.6 h span; overhead 144/1358 requests (10.6 pct), 9.5 pct of output tokens, 7.2 pct of computed cost; paper ~8,500 prose words, 1,681 tooling lines."@en ;
+    prov:endedAtTime "2026-07-26T05:46:09.055205+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:cost 321.73 ;
+    aiprov:costCurrency "USD"^^xsd:string ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-aas-part1-idta> a aiprov:AuditPass ;
     rdfs:label "DOI verification of src:aas-part1-idta via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T19:01:13.224813+00:00"^^xsd:dateTime ;
