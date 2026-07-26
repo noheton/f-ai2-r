@@ -664,6 +664,28 @@ def cmd_promote(a) -> None:
     a.to = canon_rung(a.to)
     if a.to not in LADDER:
         sys.exit(f"unknown rung '{a.to}'; ladder: {' -> '.join(LADDER)}")
+    if a.refuse:
+        # Disagreement is first-class: a refused promotion changes no
+        # state, but the refusal itself is a logged audit activity
+        # carrying the refused rung, so "checked and NOT convinced" is
+        # distinguishable from "never checked".
+        if not a.note:
+            sys.exit("--refuse requires --note: record WHY the rung was refused")
+        agent = ns(a.base, "agent")[a.agent]
+        act = ns(a.base, "activity")[f"refuse-{a.id}-{a.to}"]
+        g.add((act, RDF.type, AIPROV.AuditPass))
+        g.add((act, RDFS.label, Literal(
+            f"REFUSED promotion of {a.id} to {a.to} (current rung stays "
+            f"{cur}): {a.note}", lang="en")))
+        g.add((act, AIPROV.refusedRung,
+               ns(a.base, "verification")[a.to]))
+        g.add((act, PROV.endedAtTime, now()))
+        g.add((act, PROV.used, node))
+        g.add((act, PROV.wasAssociatedWith, agent))
+        save(g)
+        print(f"{a.id}: promotion to {a.to} REFUSED by agent:{a.agent} "
+              f"(rung stays {cur}; refusal logged as AuditPass)")
+        return
     if LADDER.index(a.to) <= LADDER.index(cur):
         sys.exit(f"'{a.to}' is not above current rung '{cur}' — "
                  f"demotions/no-ops are graph repairs, not promotions")
@@ -883,6 +905,10 @@ def main() -> None:
     s.add_argument("--note")
     s.add_argument("--file", help="vendored copy of the source (required for "
                    "--to source-vendored); path + sha256 are recorded")
+    s.add_argument("--refuse", action="store_true",
+                   help="refuse the promotion instead of granting it: no "
+                   "state change, but the refusal is logged as an AuditPass "
+                   "carrying aiprov:refusedRung (requires --note)")
 
     s = sub.add_parser("extract")
     s.add_argument("--graph", help="input TTL (default provenance.ttl)")

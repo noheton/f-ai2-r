@@ -34,7 +34,10 @@ and is suitable as a pre-commit hook or CI gate.
 checked what (Figure~\ref{fig:ladder}, Table~\ref{tab:ladder}).
 Promotions must strictly climb and are themselves logged as audit
 activities, so every rung a claim or source holds has a recorded
-grantor. Rungs 5--6 are human-only; an AI-granted promotion to them is
+grantor. Disagreement is first-class: an agent may \emph{refuse} a
+promotion, which changes no state but is logged as an audit activity
+carrying the refused rung, so ``checked and not convinced'' is
+distinguishable from ``never checked''. Rungs 5--6 are human-only; an AI-granted promotion to them is
 a validator hard failure. Two rungs deserve comment. Vendoring
 (rung~4) is not a verification statement: an unread vendored copy
 proves nothing beyond \texttt{reference-resolved}. Its role is

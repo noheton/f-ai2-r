@@ -9,7 +9,10 @@ Section~\ref{sec:method}, so each logged activity binds a real commit.
 Figure~\ref{fig:environment} shows the working environment: the
 operator's conversation with the agent on the left, the continuously
 rebuilt draft of this paper on the right, the loop of
-Section~\ref{sec:skill} in operation.
+Section~\ref{sec:skill} in operation. Scope, before any number:
+this is a demonstration, not a study; one operator, one domain, one
+session. The quantities below characterize this instance of an idea
+in use (Section~\ref{sec:conclusion} lists the trials it owes).
 
 \begin{figure*}[t]
 \centering
@@ -58,19 +61,19 @@ by the provider, and is recorded in the graph as computed.}
 \toprule
 Metric & Value \\
 \midrule
-Triples & 1602 \\
-Logged activities & 98 \\
-Claims (all \texttt{ai-confirmed}) & 8 \\
-Sources on the ladder & 40 \\
-\quad thereof content-checked (\texttt{ai-confirmed}) & 18 \\
-\quad thereof marked self-citation & 5 \\
+Triples & \MTriples \\
+Logged activities & \MActivities \\
+Claims (all \texttt{ai-confirmed}) & \MClaims \\
+Sources on the ladder & \MSources \\
+\quad thereof content-checked (\texttt{ai-confirmed}) & \MSrcChecked \\
+\quad thereof marked self-citation & \MSrcSelf \\
 Registered agents (human / AI / tool) & 1 / 1 / 1 \\
-Commits & 90 \\
-Transcript & 1 session, 2\,214 turns \\
-Output tokens & 1\,606\,863 \\
-Input tokens (uncached) & 14\,752 \\
-Cache tokens (read / write) & 377.0\,M / 14.0\,M \\
-Cost (computed, not reported) & $\approx$ USD~737 \\
+Commits & \MCommits \\
+Transcript & 1 session, \MTurns{} turns \\
+Output tokens & \MOutTok \\
+Input tokens (uncached) & \MInTok \\
+Cache tokens (read / write) & \MCacheReadM\,M / \MCacheWriteM\,M \\
+Cost (computed, not reported) & $\approx$ USD~\MCostUSD \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -109,8 +112,8 @@ agent fetched the actual content (full text or slides where openly
 accessible, abstracts otherwise) and checked it against the specific
 sentence citing it, recording the supporting quotation and the
 checked depth in the promotion note. Ten sources were promoted in
-that pass, and later registrations continued the practice, to 18
-content-checked at the time of writing; two outcomes were negative and stayed
+that pass, and later registrations continued the practice, to
+\MSrcChecked{} content-checked at the time of writing; two outcomes were negative and stayed
 recorded rather than smoothed over: one publisher's bot-wall left a
 source checked at metadata depth only, so it was not promoted, and
 the two self-cited repositories were skipped because the session's
@@ -222,11 +225,12 @@ generally, in the same breath as provider-reported cost.
 
 \textbf{Leverage as data.} The same record measures what the
 multiplication bought, without estimating any counterfactual. The
-operator typed 1,074 words of direction in total, median 9 words per
-message; active session time, clustering request timestamps and
-counting gaps under thirty minutes, is about 5.4 hours inside a
-36-hour wall-clock span. Against that input stand roughly 8,500 words
-of typeset prose, about 1,700 lines of tooling, 40 ladder-backed
+operator typed \MDirWords{} words of direction in total, median
+\MDirMedian{} words per message; active session time, clustering
+request timestamps and counting gaps under thirty minutes, is about
+\MActiveH{} hours inside a \MSpanH-hour wall-clock span. Against
+that input stand roughly \MProseWordsK{} words of typeset prose,
+about \MToolLinesK{} lines of tooling, \MSources{} ladder-backed
 sources, and the graph itself. What a solo baseline would have cost
 is deliberately not estimated, omit-don't-estimate applies to
 counterfactuals too; what the record does show is \emph{where} the
@@ -252,15 +256,15 @@ provenance graph and the session record at the time of writing
 Contribution & Agent & Count \\
 \midrule
 Direction messages: scope, lineage, people, contested semantics (two
-ladder redesigns, cost policy, license, page budget) & human & 63 \\
-Typed direction volume (median 9 words/message) & human & 1074 w \\
-Active session time (request-gap clustering) & both & 5.4 h \\
-Authoring passes: prose, code, figures, method releases & AI & 42 \\
+ladder redesigns, cost policy, license, page budget) & human & \MDirMsgs \\
+Typed direction volume (median \MDirMedian{} words/message) & human & \MDirWords{} w \\
+Active session time (request-gap clustering) & both & \MActiveH{} h \\
+Authoring passes: prose, code, figures, method releases & AI & \MPassAuth \\
 Audit passes: validation, promotions, content checks, incident
-reports, measurements & AI & 53 \\
-Repair passes & AI & 2 \\
-Deterministic builds logged & CI & 1 \\
-Rungs granted above the AI ceiling & human & 0 \\
+reports, measurements & AI & \MPassAudit \\
+Repair passes & AI & \MPassRepair \\
+Deterministic builds logged & CI & \MPassBuild \\
+Rungs granted above the AI ceiling & human & \MHumanRungs \\
 \bottomrule
 \end{tabular}
 \end{table}

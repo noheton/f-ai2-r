@@ -160,6 +160,7 @@ terms).
 | `references/attributes.md` | Attribute catalogue with provider-API field mappings | Filling telemetry correctly |
 | `scripts/build_dashboard.py` | Self-contained HTML dashboard from provenance.ttl | Presenting results |
 | `scripts/export_transcript.py` | Session → `doc/transcripts/<session>.md` + `--usage` token aggregation (Claude Code session format; see Portability) | Transcript-as-artifact, token backfill |
+| `scripts/build_metrics.py` | Single source of numbers: every quantity the paper cites → `doc/metrics.json` + `paper/metrics.tex` macros | Before every build; rerun = consistency pass |
 | `scripts/build_paper_preview.py` | Compile paper + render self-contained HTML preview (pages + structure notes) | Live preview / "show paper" |
 | `scripts/package_skill.sh` | Zip this tree into a distributable `dist/ai-provenance.skill` | Releasing the skill |
 

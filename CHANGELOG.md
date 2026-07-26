@@ -1,5 +1,21 @@
 # Changelog — ai-provenance skill
 
+## v0.15 (2026-07-26)
+
+- **Single source of numbers.** New `scripts/build_metrics.py` computes
+  every quantity a paper cites from the primary records (graph, session
+  record, transcript, git) and writes `doc/metrics.json` (citable
+  snapshot with methodology) plus `paper/metrics.tex` (LaTeX macros).
+  Manuscripts use the macros instead of hand-typed numbers, so one
+  rerun refreshes every figure coherently — no number in the paper is
+  typed by hand, and drift between prose, tables, and record becomes
+  structurally impossible.
+- **Disagreement is first-class.** `promote --refuse --note "..."`
+  records a refused promotion: no verification state changes, but the
+  refusal is a logged `AuditPass` carrying `aiprov:refusedRung`, so
+  "checked and not convinced" is distinguishable from "never checked".
+  Schema property added.
+
 ## v0.14 (2026-07-25)
 
 - **Derived numbers carry their derivation.** New rule: any computed,

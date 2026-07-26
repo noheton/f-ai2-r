@@ -134,6 +134,8 @@ aiprov:doi              a owl:DatatypeProperty ; rdfs:range xsd:anyURI .
 aiprov:selfCitation     a owl:DatatypeProperty ; rdfs:domain aiprov:Source ;
     rdfs:range xsd:boolean ;
     rdfs:comment "Marks a source authored (wholly or partly) by a contributor of the present work. Provenance-driven self-citation — declaring intellectual ancestry — is legitimate and MUST be visible: this flag makes the self-citation ratio machine-queryable instead of hidden."@en .
+aiprov:refusedRung      a owl:ObjectProperty ; rdfs:domain aiprov:AuditPass ;
+    rdfs:comment "The rung an agent examined and declined to grant. Disagreement is first-class: a refusal changes no verification state, but it is a logged audit activity, so 'checked and not convinced' is distinguishable from 'never checked'."@en .
 
 #--- Verification ladder -------------------------------------------------
 # Design: rung names answer "WHO checked WHAT". Each rung carries a
