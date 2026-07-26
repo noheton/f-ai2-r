@@ -539,7 +539,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage>,
         <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
         <https://noheton.org/f-ai2-r/prov/activity/s51-style-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure>,
+        <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass> ;
     aiprov:contentHash "sha256:1990ebaa3dffa13626c417064c24e8dc4c1eb64681be4e09373abe328b6e842e",
         "sha256:1e6886e01eb1a921111e3aa4bdcd33fa82caa63089c14600bff9610ad8982abb",
         "sha256:3c8f52250d24db413e33d7c3c71432f1a3f8e1366b10fde8c9060167722c7e64",
@@ -552,6 +553,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:b1db9415997e92b7647bee623bf214ed2e01548d09e7ce0c7acdd29ccbac1d40",
         "sha256:b7fd4b09d8f7bcfd2b0395d56df5dc5b4dc028afd3e9144ecdbe0dac04785cf1",
         "sha256:c6e2d6abf48db6d9180b423ddb7aaa6fe557a91dcff7d8d0ef053d4c54b96adf",
+        "sha256:f245b62d59e26d0b7d0dab6ec6a099d631dde182f2c067170f22948705286520",
         "sha256:fb17bd85e1269861fae391fe4354ab127bff7b1d4d2be06ec439c1211555e7e8",
         "sha256:fd265a536fb8a32e3dfa64d5eb01f28f6270b07d30e8bdfd0f53634abc4b7e63" ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
@@ -561,6 +563,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "63bde89",
         "73a11cd",
         "82ffc86",
+        "8984dcb",
         "b9d1293",
         "cf16dd2",
         "fb1a484" .
@@ -592,8 +595,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
         <https://noheton.org/f-ai2-r/prov/activity/s49-dual-witness>,
         <https://noheton.org/f-ai2-r/prov/activity/s52-shepard-zenodo-industry>,
-        <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure>,
+        <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass> ;
     aiprov:contentHash "sha256:0ae502fea46692d008b14632d42884f5e64adfa7b4cda32ff4fb0a96ac6f1860",
+        "sha256:12d5dd72efdf48971de13781d1fada4d0387bd37160ecd4387c0be54ca81f402",
         "sha256:15a12cee502951add09328fc131772fe7655d80a61a6e83b7d4b3055b4965649",
         "sha256:2486c8f697d83820c14bca9fcb06297536fcd53154dced01fbced342a5256cb0",
         "sha256:29dd7cb85f192a7581ce3d7de057df6506789848e5460030dc19e9a791b8c67d",
@@ -622,6 +627,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "540e2c2",
         "73a11cd",
         "82ffc86",
+        "8984dcb",
         "fb1a484" .
 
 <https://noheton.org/f-ai2-r/prov/entity/08-conclusion-tex> a aiprov:Artefact ;
@@ -681,10 +687,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
 
 <https://noheton.org/f-ai2-r/prov/entity/CITATION-cff> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012> ;
-    aiprov:contentHash "sha256:578727823e5f494d7c07acc3b871c5c582560de43f1b509988f8b90200fd7513" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012>,
+        <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass> ;
+    aiprov:contentHash "sha256:578727823e5f494d7c07acc3b871c5c582560de43f1b509988f8b90200fd7513",
+        "sha256:f1758cc6b965ff81c525d0256877aa07a25e6e2850187b092a63fe8537dcf181" ;
     aiprov:filePath "CITATION.cff" ;
-    aiprov:gitCommit "dbed058" .
+    aiprov:gitCommit "8984dcb",
+        "dbed058" .
 
 <https://noheton.org/f-ai2-r/prov/entity/LICENSE> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -800,17 +809,23 @@ agent:florian-krebs a aiprov:HumanAgent ;
 
 <https://noheton.org/f-ai2-r/prov/entity/codemeta-json> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012> ;
-    aiprov:contentHash "sha256:d217a2538acf9254d7378eba10e37087fea72d374b5975ff9e1c265f8104c11a" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012>,
+        <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass> ;
+    aiprov:contentHash "sha256:21f48c6fd645f3a9103314dd87d3569703a1ba81216c1f05fa4a4d89d8b35734",
+        "sha256:d217a2538acf9254d7378eba10e37087fea72d374b5975ff9e1c265f8104c11a" ;
     aiprov:filePath "codemeta.json" ;
-    aiprov:gitCommit "dbed058" .
+    aiprov:gitCommit "8984dcb",
+        "dbed058" .
 
 <https://noheton.org/f-ai2-r/prov/entity/dashboard-png> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure> ;
-    aiprov:contentHash "sha256:3c69e40455b755038860855feb34a70f1adcabcfcc9e9ba2a5239a56df368931" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure>,
+        <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass> ;
+    aiprov:contentHash "sha256:3c69e40455b755038860855feb34a70f1adcabcfcc9e9ba2a5239a56df368931",
+        "sha256:85d4cedf287064a5b3bf55f20f38cb9cd6a36f067bfe442ebeba55f175c81620" ;
     aiprov:filePath "paper/figures/dashboard.png" ;
-    aiprov:gitCommit "42d3042" .
+    aiprov:gitCommit "42d3042",
+        "8984dcb" .
 
 <https://noheton.org/f-ai2-r/prov/entity/disclosure-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -939,7 +954,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
         <https://noheton.org/f-ai2-r/prov/activity/s50-rse-lineage>,
         <https://noheton.org/f-ai2-r/prov/activity/s52-shepard-zenodo-industry>,
-        <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure>,
+        <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
         "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
         "sha256:23324f3765caa803c29fb8eee66146db6773a4e0b6f002c800bba9788e068e14",
@@ -954,6 +970,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:99e27890719bcceea1f8a350ffe174ba3975c407220939a18ee246be0c48ca35",
         "sha256:a45b76e222184cbbe7576f3d9a8549505eb1f69f1b307915a551b53aa56d5e28",
         "sha256:ad576853ce4fb03a5ec2e110b53e57fb308c931d82663819209bb16533ba92ea",
+        "sha256:b37e994933524b7f5ba5585f91faccc7f218dc3bcbbe343945bda8c331720f4a",
         "sha256:c36a397e5afe052f6d133968b0d1e2d663658aa045e11b9724ba3b055aeb0fc3",
         "sha256:dbcb3e59f67f1963ef9c803429d701ed091897dfef90397cd62a1e3dbf407739",
         "sha256:e63a541ac075dbdbd2250a9466789d6e8911bd93f2e603310f76cc0ab3536d67",
@@ -968,6 +985,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "4c17c02faf15034458e93ddecd1d8da829020f3e",
         "73a11cd",
         "82ffc86",
+        "8984dcb",
         "fb1a484" .
 
 <https://noheton.org/f-ai2-r/prov/entity/settings-json> a aiprov:Artefact ;
@@ -1591,10 +1609,6 @@ aiprov:HumanAgent a owl:Class ;
     rdfs:label "Human agent"@en ;
     rdfs:subClassOf prov:Person .
 
-aiprov:Repair a owl:Class ;
-    rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
-    rdfs:subClassOf prov:Activity .
-
 <https://noheton.org/f-ai2-r/prov/activity/s13-shepard-outlook> a aiprov:AuthoringPass ;
     rdfs:label "Outlook: shepard (jointly developed DLR data-management system for heterogeneous product and research data) named as the method-to-infrastructure integration path, via the experimental fork as staging ground (attributed as planned work, since the fork README does not yet state the integration); intro gains AI-as-force-multiplier framing: parallel strands under one operator are exactly why per-activity accounting matters. Both repos fetched before registration"@en ;
     prov:endedAtTime "2026-07-24T18:53:46.814165+00:00"^^xsd:dateTime ;
@@ -1638,6 +1652,10 @@ aiprov:Repair a owl:Class ;
 
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .
+
+aiprov:Repair a owl:Class ;
+    rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
+    rdfs:subClassOf prov:Activity .
 
 <https://noheton.org/f-ai2-r/prov/activity/s10-show-paper> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.5: show-paper preview — build_paper_preview.py renders compiled paper as self-contained HTML (typeset pages as embedded images + status strip with commit/build time/graph stats); published as Claude Artifact with stable URL, re-published after each editing round; discussion section gains worked incident 6.2 (overwrite caught and reverted by git, activity s09-incident)"@en ;
@@ -1736,6 +1754,12 @@ aiprov:Contribution a owl:Class ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass> a aiprov:Repair ;
+    rdfs:label "Consistency pass over paper, figures, and repo metadata, aligned to the s54 snapshot: telemetry table fully refreshed to one coherent measurement set (incl. computed cost USD 736.95); division-of-work table recounted (63/1074w/5.4h; 42 authoring, 53 audit, 2 repair, 1 build); overhead, leverage, environmental, originality, force-multiplier and self-citation prose aligned; stale ranges fixed (skill drift v0 to v0.14; historical USD 415 sentence dated); dashboard figure re-captured post-snapshot so its cost matches the table, token-column overlap disclosed in the caption; CITATION.cff and codemeta.json bumped to 0.14.0; bib entries trimmed to hold the 12-page cap."@en ;
+    prov:endedAtTime "2026-07-26T05:50:17.172064+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
     prov:endedAtTime "2026-07-24T18:43:45.977114+00:00"^^xsd:dateTime ;
@@ -1827,16 +1851,16 @@ aiprov:Claim a owl:Class ;
     rdfs:comment "An assertion in any artefact that warrants attribution and verification."@en ;
     rdfs:subClassOf prov:Entity .
 
-<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
-
 verif:reference-resolved a aiprov:VerificationState ;
     rdfs:label "reference resolved"@en ;
     rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
     skos:altLabel "lit-retrieved"@en,
         "retrieved"@en ;
     aiprov:ladderPosition 2 .
+
+<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;
