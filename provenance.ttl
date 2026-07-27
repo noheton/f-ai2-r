@@ -128,6 +128,11 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/release-v0160> a aiprov:Build ;
+    rdfs:label "GitHub Release v0.16.0 published by aiprov-release.yml run 30242563565 (workflow_dispatch with tag input; the session git proxy blocks tag pushes, so the release action created the tag server-side at commit 66e47d7). Conformance gate passed; disclosure regenerated from the graph before compiling. Assets and sha256 digests: paper-v0.16.0.pdf 7e51a022...; provenance-v0.16.0.ttl e925449e...; dashboard-v0.16.0.html 579fae40...; metrics-v0.16.0.json a07a8f86...; ai-provenance.skill 0f5bc9ff...; checksums-v0.16.0.sha256 1bceac00... Release URL: github.com/noheton/f-ai2-r/releases/tag/v0.16.0"@en ;
+    prov:endedAtTime "2026-07-27T06:39:29.732606+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:github-actions .
+
 <https://noheton.org/f-ai2-r/prov/activity/s09-incident> a aiprov:AuditPass ;
     rdfs:label "Incident record (honest self-report): while creating paper-template stubs, a persisted working directory caused the agent to overwrite paper/sections/01-introduction.tex and 02-background.tex with generic stubs and create four stray stub files. Detected immediately via file-change notices and git status; both files restored with git checkout from commit 75d21bd; stray files deleted; nothing lost or pushed. Kept in the graph as evidence for the repository-is-the-process discussion (paper section 6.2)"@en ;
     prov:endedAtTime "2026-07-24T18:45:54.248700+00:00"^^xsd:dateTime ;
@@ -1364,10 +1369,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
-agent:github-actions a aiprov:ToolAgent ;
-    foaf:name "GitHub Actions (aiprov build workflow)" ;
-    aiprov:provider "GitHub"^^xsd:string .
-
 <https://noheton.org/f-ai2-r/prov/source/aas-part1-idta> a aiprov:Source ;
     rdfs:label "Specification of the Asset Administration Shell Part 1: Metamodel"@en ;
     aiprov:doi "https://doi.org/10.62628/idta.01001-3-1-1"^^xsd:anyURI ;
@@ -1496,10 +1497,6 @@ verif:source-vendored a aiprov:VerificationState ;
     rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
     aiprov:ladderPosition 4 .
 
-aiprov:Build a owl:Class ;
-    rdfs:comment "Deterministic build/compile/CI activity."@en ;
-    rdfs:subClassOf prov:Activity .
-
 aiprov:ToolAgent a owl:Class ;
     rdfs:label "Deterministic tool"@en ;
     rdfs:comment "Non-AI software (compiler, linter, CI job) acting in the pipeline."@en ;
@@ -1594,6 +1591,10 @@ aiprov:Transcript a owl:Class ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+agent:github-actions a aiprov:ToolAgent ;
+    foaf:name "GitHub Actions (aiprov build workflow)" ;
+    aiprov:provider "GitHub"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> a aiprov:Source ;
     rdfs:label "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing"@en ;
     dcterms:date "2023" ;
@@ -1684,6 +1685,10 @@ aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;
     rdfs:comment "An LLM- or ML-driven agent participating in artefact production."@en ;
     rdfs:subClassOf prov:SoftwareAgent .
+
+aiprov:Build a owl:Class ;
+    rdfs:comment "Deterministic build/compile/CI activity."@en ;
+    rdfs:subClassOf prov:Activity .
 
 aiprov:HumanAgent a owl:Class ;
     rdfs:label "Human agent"@en ;
@@ -1957,8 +1962,7 @@ verif:reference-resolved a aiprov:VerificationState ;
     aiprov:ladderPosition 2 .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;
