@@ -23,15 +23,31 @@ RUNG_ORDER = ["unverified", "needs-research", "reference-resolved",
               "human-read"]
 
 
-def cite_locations(sid: str) -> list[str]:
-    locs = []
+def cite_locations(sid: str) -> tuple[list[str], int]:
+    """Where and how often the paper cites the source.
+
+    The occurrence count doubles as the relevance score for worksheet
+    ordering: a source the argument leans on repeatedly is checked
+    before one cited once in passing. Computed, not judged — the
+    methodology is disclosed in the worksheet header.
+    """
+    cite_groups = re.compile(r"\\cite\{([^}]*)\}")
+
+    def hits_in(text: str) -> int:
+        return sum(1 for grp in cite_groups.findall(text)
+                   if sid in (k.strip() for k in grp.split(",")))
+
+    locs, count = [], 0
     for f in sorted((ROOT / "paper" / "sections").glob("*.tex")):
-        if re.search(r"\\cite\{[^}]*\b" + re.escape(sid) + r"\b", f.read_text()):
+        hits = hits_in(f.read_text())
+        if hits:
             locs.append(f.stem)
-    if re.search(r"\\cite\{[^}]*\b" + re.escape(sid) + r"\b",
-                 (ROOT / "paper" / "main.tex").read_text()):
+            count += hits
+    hits = hits_in((ROOT / "paper" / "main.tex").read_text())
+    if hits:
         locs.append("main (acknowledgment)")
-    return locs
+        count += hits
+    return locs, count
 
 
 def main():
@@ -58,8 +74,9 @@ def main():
             if lbl and ("Promotion" in str(lbl) or "REFUSED" in str(lbl)):
                 notes.append(str(lbl))
         note = max(notes, key=len) if notes else ""
+        locs, cites = cite_locations(sid)
         rows.append((sid, title, rung, self_cited, files, hashes, links,
-                     note, cite_locations(sid)))
+                     note, locs, cites))
 
     HUMAN = ("human-confirmed", "human-read")
     READY = ("ai-confirmed", "source-vendored")
@@ -73,7 +90,9 @@ def main():
         return "pending"
 
     order = {"ready-vendored": 0, "ready-link": 1, "pending": 2, "done": 3}
-    rows.sort(key=lambda r: (order[bucket(r)], r[0]))
+    # Within each bucket: most-cited first (relevance to the paper's
+    # argument), spread across sections as tie-break, then id.
+    rows.sort(key=lambda r: (order[bucket(r)], -r[9], -len(r[8]), r[0]))
     n = {k: sum(1 for r in rows if bucket(r) == k) for k in order}
 
     L = ["# Source verification worksheet",
@@ -96,6 +115,13 @@ def main():
          "`human-read` means you read it in full **and** confirm (it subsumes "
          "rung 5). Refusing is first-class: a refusal is logged, changes no "
          "state, and beats silence.",
+         "",
+         "Within each bucket, sources are ordered by expected relevance to "
+         "the paper's argument. Relevance is computed, not judged: the number "
+         "of `\\cite` occurrences across the paper sources (shown per entry), "
+         "with the spread across sections as tie-break — a source the "
+         "argument leans on repeatedly comes before one cited once in "
+         "passing. Check from the top.",
          ""]
 
     GROUPS = [
@@ -121,7 +147,7 @@ def main():
             continue
         L.append(f"{heading} ({len(group)})")
         L.append("")
-        for sid, title, rung, selfc, files, hashes, links, note, locs in group:
+        for sid, title, rung, selfc, files, hashes, links, note, locs, cites in group:
             flag = " *(self-citation)*" if selfc else ""
             L.append(f"## {ICON[key]} `{sid}` — {rung}{flag}")
             L.append("")
@@ -129,7 +155,9 @@ def main():
             L.append("")
             L.append(f"- {ACTION[key]}")
             if locs:
-                L.append(f"- Cited in: {', '.join(locs)}")
+                L.append(f"- Cited: {cites}× in {', '.join(locs)}")
+            else:
+                L.append("- Cited: not currently cited in the paper")
             if files:
                 for f_, h in zip(files, hashes or [""] * len(files)):
                     L.append(f"- Vendored copy: `{f_}` ({h or 'hash in graph'})")
