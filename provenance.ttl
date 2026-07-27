@@ -583,7 +583,8 @@
         <https://noheton.org/f-ai2-r/prov/activity/s51-style-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure>,
         <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
+        <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung> ;
     aiprov:contentHash "sha256:1990ebaa3dffa13626c417064c24e8dc4c1eb64681be4e09373abe328b6e842e",
         "sha256:1e6886e01eb1a921111e3aa4bdcd33fa82caa63089c14600bff9610ad8982abb",
         "sha256:3c8f52250d24db413e33d7c3c71432f1a3f8e1366b10fde8c9060167722c7e64",
@@ -592,6 +593,7 @@
         "sha256:4ebc3629b1c0925e1de72d9a89bb739862907714bbf73246cabdc9e1c5520ffb",
         "sha256:60d7b60b4303d1e397568da3d493fefe87a68d9b73d3828c46ba4d55f73d947a",
         "sha256:68c2ed67d3856ec2be1a25282bb23a0bc1d34104d85216745d1e76a63b63b975",
+        "sha256:891bd4ea041565962f1ca339b65b0eca8a0545cc221a62c85c7818062f9cc422",
         "sha256:9d0461aba72aaaf3ed800249cea37733665ed152dd1c9566bb45895f53f71ecb",
         "sha256:b1db9415997e92b7647bee623bf214ed2e01548d09e7ce0c7acdd29ccbac1d40",
         "sha256:b7fd4b09d8f7bcfd2b0395d56df5dc5b4dc028afd3e9144ecdbe0dac04785cf1",
@@ -604,6 +606,7 @@
     aiprov:gitCommit "390d3af",
         "42d3042",
         "43af99d",
+        "4578a83",
         "540e2c2",
         "63bde89",
         "73a11cd",
@@ -833,10 +836,13 @@
 
 <https://noheton.org/f-ai2-r/prov/entity/VERIFICATION-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet> ;
-    aiprov:contentHash "sha256:d847d04bc3613e89b459f1bc61eeb0f6ed398c2a855b84368f875f12cea5c1ea" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet>,
+        <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung> ;
+    aiprov:contentHash "sha256:19db5ad5930b384cec80e36eb66cb6b96447d9d2a47683c8d544fa60e3ecff9b",
+        "sha256:d847d04bc3613e89b459f1bc61eeb0f6ed398c2a855b84368f875f12cea5c1ea" ;
     aiprov:filePath "doc/sources/VERIFICATION.md" ;
-    aiprov:gitCommit "fb091d5" .
+    aiprov:gitCommit "4578a83",
+        "fb091d5" .
 
 <https://noheton.org/f-ai2-r/prov/entity/ai-hallucination2023-pdf> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1040,21 +1046,27 @@
 <https://noheton.org/f-ai2-r/prov/entity/metrics-json> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
-        <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160>,
+        <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung> ;
     aiprov:contentHash "sha256:7287d05be915dc9176785fa10fb9e3f49d7808a95519e969774e7f2c2fdbccfb",
-        "sha256:a07a8f86ead8227a8200f1519bbdc1070f55c16107ef3279cf07f22f6d68d8cd" ;
+        "sha256:a07a8f86ead8227a8200f1519bbdc1070f55c16107ef3279cf07f22f6d68d8cd",
+        "sha256:a8627d096b9424fc9265f5112b953c88d1d5ed4371d36554f76c74efaec7ed6b" ;
     aiprov:filePath "doc/metrics.json" ;
     aiprov:gitCommit "43af99d",
+        "4578a83",
         "a59c1de" .
 
 <https://noheton.org/f-ai2-r/prov/entity/metrics-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
-        <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160>,
+        <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung> ;
     aiprov:contentHash "sha256:1d22e6fd2ac682c9531be9f5db5f02c23c41d29582529d96a34c1c5e0d3a828e",
+        "sha256:244ea7e023117fe07d592c6360f53a0beda305e31b3b1dd28c19698a7065ef3c",
         "sha256:bb772a66512d5db692acd37ae7d2e31161051d3236cdc20ae149af0ef0eac72f" ;
     aiprov:filePath "paper/metrics.tex" ;
     aiprov:gitCommit "43af99d",
+        "4578a83",
         "a59c1de" .
 
 <https://noheton.org/f-ai2-r/prov/entity/outline-md> a aiprov:Artefact ;
@@ -1901,6 +1913,12 @@ aiprov:Repair a owl:Class ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung> a aiprov:AuditPass ;
+    rdfs:label "Records the first human-rung grant of the experiment: urhg-para2 promoted to human-confirmed by agent:florian-krebs at the operator's session direction (gate handed over the vendored copy; judgement and grant are the human's, command execution by the AI at explicit direction). Paper narrative, metrics macros (MHumanRungs=1), and verification worksheet updated."@en ;
+    prov:endedAtTime "2026-07-27T07:30:49.851444+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.2: repo becomes canonical skill source; ORCID-first setup, base derivation/auto-detection, CI/CD scaffolding (validate + LaTeX-to-PDF artifacts); packaging script; verified by test-run in scratch repository"@en ;
     prov:endedAtTime "2026-07-24T18:28:43.529594+00:00"^^xsd:dateTime ;
@@ -2108,7 +2126,8 @@ verif:ai-confirmed a aiprov:VerificationState ;
     aiprov:ladderPosition 3 .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 aiprov:Source a owl:Class ;
     rdfs:subClassOf prov:Entity .
