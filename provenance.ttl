@@ -26,6 +26,12 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/aas-part1-v30rc02> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-aas-part1-v30rc02-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of aas-part1-v30rc02: ai-confirmed -> human-confirmed (Granted by the human operator in the session ('confirm my selfcitations'). The operator co-authored this specification and confirms the citing sentences: AAS Part 1 defines the information content of the Asset Administration Shell with formal, machine-readable semantics for cross-partner exchange. Executed at explicit direction; judgement and grant are the human's.)"@en ;
+    prov:endedAtTime "2026-07-27T07:59:14.769233+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/aas-part1-v30rc02> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-agent-skills-spec-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of agent-skills-spec: reference-resolved -> ai-confirmed (URL resolved (HTTP 200) at registration. Content checked against agentskills.io and the OpenCode skills documentation (opencode.ai/docs/skills): the format is 'a lightweight, open format' (folder + SKILL.md with name/description frontmatter), 'originally developed by Anthropic, released as an open standard, and has been adopted by a growing number of agent products'; the adopter list includes OpenCode, whose docs confirm native discovery incl. Claude-compatible .claude/skills paths; OpenWork (different-ai/openwork) states it is powered by OpenCode. Supports the paper's portability sentence. Page depth.)"@en ;
     prov:endedAtTime "2026-07-25T18:30:14.248620+00:00"^^xsd:dateTime ;
@@ -110,6 +116,12 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/fair2016> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-fair2r-repo-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of fair2r-repo: reference-resolved -> human-confirmed (Granted by the human operator in the session ('confirm my selfcitations'). The operator authored this repository and confirms the citing sentences: the original F(AI)2R experiment formalized the two-pass model and the no-parentless-claim rule on a single scholarly paper. Executed at explicit direction; judgement and grant are the human's.)"@en ;
+    prov:endedAtTime "2026-07-27T07:59:13.820988+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/fair2r-repo> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-gpt-fabricated2024-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of gpt-fabricated2024: reference-resolved -> ai-confirmed (Content checked against the open-access article page: 'Google Scholar easily locates and lists these questionable papers alongside reputable, quality-controlled research.' Supports 'GPT-fabricated papers are already indexed and ranked by scholarly search engines'.)"@en ;
     prov:endedAtTime "2026-07-24T21:32:57.249746+00:00"^^xsd:dateTime ;
@@ -157,6 +169,12 @@
     prov:endedAtTime "2026-07-27T07:49:00.842686+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/modelcards2019> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-obscurity-is-dead-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of obscurity-is-dead: reference-resolved -> human-confirmed (Granted by the human operator in the session ('confirm my selfcitations'). The operator authored this repository and confirms the citing sentences: it established transcript-as-artifact and per-claim verification labels (repo-vendored, lit-read, unverified-external) while measuring how LLMs compress reverse-engineering effort. Command executed by the AI agent at explicit direction; judgement and grant are the human's.)"@en ;
+    prov:endedAtTime "2026-07-27T07:59:13.298121+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/obscurity-is-dead> ;
+    prov:wasAssociatedWith agent:florian-krebs .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-opm2010-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of opm2010: reference-resolved -> ai-confirmed (Title/venue checked: 'The Open Provenance Model core specification (v1.1)', FGCS 2011 - the community provenance model predating W3C PROV; together with the PROV-O Recommendation page this supports 'consolidated the lineage begun by the Open Provenance Model'. Title/venue depth, no abstract available; consolidation reasoning disclosed.)"@en ;
@@ -217,6 +235,18 @@
     prov:endedAtTime "2026-07-26T05:28:16.124787+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/shepard> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-shepard-fork-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of shepard-fork: reference-resolved -> human-confirmed (Granted by the human operator in the session ('confirm my selfcitations'). The operator owns this experimental fork and confirms the citing sentences: it is the staging ground for integrating aiprov into shepard as planned work. Executed at explicit direction; judgement and grant are the human's.)"@en ;
+    prov:endedAtTime "2026-07-27T07:59:14.306018+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/shepard-fork> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-shepard-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of shepard: ai-confirmed -> human-confirmed (Granted by the human operator in the session ('confirm my selfcitations'). The operator is a named contributor (sponsor role) of this jointly developed DLR system and confirms the citing sentences: shepard stores heterogeneous product and research data and serves as the data backbone the aiprov integration targets. Executed at explicit direction; judgement and grant are the human's.)"@en ;
+    prov:endedAtTime "2026-07-27T07:59:15.247958+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/shepard> ;
+    prov:wasAssociatedWith agent:florian-krebs .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-ultrasonic-welding2025-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of ultrasonic-welding2025: reference-resolved -> ai-confirmed (Abstract checked (elib.dlr.de/220058): 'evaluate two different control methods for continuous ultrasonic welding of carbon fibre reinforced high performance polymers', novel power-control compared - supports the worked example's description of the study. Abstract depth.)"@en ;
@@ -1338,27 +1368,9 @@
     aiprov:filePath "doc/sources/usco-ai-copyrightability2025.pdf" ;
     aiprov:gitCommit "fb1a484" .
 
-<https://noheton.org/f-ai2-r/prov/source/fair2r-repo> a aiprov:Source ;
-    rdfs:label "F(AI)²R: FAIR research with AI in the loop, twice (research repository)"@en ;
-    dcterms:source <https://github.com/noheton/f-ai-r> ;
-    aiprov:selfCitation true ;
-    aiprov:verificationState verif:reference-resolved .
-
-<https://noheton.org/f-ai2-r/prov/source/obscurity-is-dead> a aiprov:Source ;
-    rdfs:label "Obscurity Is Dead — Proprietary by Design, Open by AI (research repository)"@en ;
-    dcterms:source <https://github.com/noheton/Obscurity-Is-Dead> ;
-    aiprov:selfCitation true ;
-    aiprov:verificationState verif:reference-resolved .
-
 <https://noheton.org/f-ai2-r/prov/source/resistance-welding2024> a aiprov:Source ;
     rdfs:label "On the capabilities of static resistance welding of carbon fiber-reinforced thermoplastic composites (Endraß et al., ITHEC 2024)"@en ;
     dcterms:source <https://elib.dlr.de/209478/> ;
-    aiprov:verificationState verif:reference-resolved .
-
-<https://noheton.org/f-ai2-r/prov/source/shepard-fork> a aiprov:Source ;
-    rdfs:label "Experimental fork of shepard (development/research workspace, /v2 experimental endpoints)"@en ;
-    dcterms:source <https://github.com/noheton/shepard> ;
-    aiprov:selfCitation true ;
     aiprov:verificationState verif:reference-resolved .
 
 verif:human-read a aiprov:VerificationState ;
@@ -1596,17 +1608,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
-agent:florian-krebs a aiprov:HumanAgent ;
-    foaf:name "Florian Krebs" ;
-    aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
-    aiprov:orcid "https://orcid.org/0000-0001-6033-801X"^^xsd:anyURI .
-
-<https://noheton.org/f-ai2-r/prov/source/aas-part1-v30rc02> a aiprov:Source ;
-    rdfs:label "Details of the Asset Administration Shell. Part 1 — The exchange of information between partners in the value chain of Industrie 4.0 (Version 3.0RC02)"@en ;
-    dcterms:source <https://www.plattform-i40.de/IP/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html> ;
-    aiprov:selfCitation true ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/agent-skills-spec> a aiprov:Source ;
     rdfs:label "Agent Skills: an open format for extending AI agent capabilities (specification and adopter list)"@en ;
     dcterms:source <https://agentskills.io/> ;
@@ -1625,6 +1626,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
     dcterms:source <https://eur-lex.europa.eu/eli/reg/2024/1689/oj> ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/fair2r-repo> a aiprov:Source ;
+    rdfs:label "F(AI)²R: FAIR research with AI in the loop, twice (research repository)"@en ;
+    dcterms:source <https://github.com/noheton/f-ai-r> ;
+    aiprov:selfCitation true ;
+    aiprov:verificationState verif:human-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/hmc> a aiprov:Source ;
     rdfs:label "Helmholtz Metadata Collaboration (HMC)"@en ;
     dcterms:source <https://helmholtz-metadaten.de/> ;
@@ -1634,6 +1641,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
     rdfs:label "HMC Conference 2025 — Book of Abstracts (Helmholtz Metadata Collaboration)"@en ;
     dcterms:source <https://helmholtz-metadaten.de/storage/2298/HMC-Conference_2025_Book-of-Abstracts.pdf> ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/obscurity-is-dead> a aiprov:Source ;
+    rdfs:label "Obscurity Is Dead — Proprietary by Design, Open by AI (research repository)"@en ;
+    dcterms:source <https://github.com/noheton/Obscurity-Is-Dead> ;
+    aiprov:selfCitation true ;
+    aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/prov-o2013> a aiprov:Source ;
     rdfs:label "PROV-O: The PROV Ontology (W3C Recommendation, 30 April 2013)"@en ;
@@ -1645,15 +1658,23 @@ agent:florian-krebs a aiprov:HumanAgent ;
     dcterms:source <https://elib.dlr.de/185438/> ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/shepard-fork> a aiprov:Source ;
+    rdfs:label "Experimental fork of shepard (development/research workspace, /v2 experimental endpoints)"@en ;
+    dcterms:source <https://github.com/noheton/shepard> ;
+    aiprov:selfCitation true ;
+    aiprov:verificationState verif:human-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/uncertainty-prov2026> a aiprov:Source ;
     rdfs:label "An Uncertainty-Aware Provenance Framework for Enhanced Traceability in Engineering Systems"@en ;
     dcterms:source <https://elib.dlr.de/224241/> ;
     aiprov:verificationState verif:ai-confirmed .
 
-verif:human-confirmed a aiprov:VerificationState ;
-    rdfs:label "human-confirmed"@en ;
-    rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
-    aiprov:ladderPosition 5 .
+verif:reference-resolved a aiprov:VerificationState ;
+    rdfs:label "reference resolved"@en ;
+    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
+    skos:altLabel "lit-retrieved"@en,
+        "retrieved"@en ;
+    aiprov:ladderPosition 2 .
 
 aiprov:ToolAgent a owl:Class ;
     rdfs:label "Deterministic tool"@en ;
@@ -1757,6 +1778,12 @@ agent:github-actions a aiprov:ToolAgent ;
     rdfs:label "Specification of the Asset Administration Shell Part 1: Metamodel"@en ;
     aiprov:doi "https://doi.org/10.62628/idta.01001-3-1-1"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/aas-part1-v30rc02> a aiprov:Source ;
+    rdfs:label "Details of the Asset Administration Shell. Part 1 — The exchange of information between partners in the value chain of Industrie 4.0 (Version 3.0RC02)"@en ;
+    dcterms:source <https://www.plattform-i40.de/IP/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html> ;
+    aiprov:selfCitation true ;
+    aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/better-architecture2025> a aiprov:Source ;
     rdfs:label "Better Architecture, Better Software, Better Research"@en ;
@@ -1884,16 +1911,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.3233/ds-210053"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/shepard> a aiprov:Source ;
-    rdfs:label "shepard - storage for heterogeneous product and research data (v5.1.2, Zenodo archive)"@en,
-        "shepard: a storage for heterogeneous product and research data (DLR, jointly developed)"@en ;
-    dcterms:date "2025" ;
-    dcterms:isPartOf "Zenodo (CERN European Organization for Nuclear Research)" ;
-    dcterms:source <https://gitlab.com/dlr-shepard> ;
-    aiprov:doi "https://doi.org/10.5281/zenodo.17897485"^^xsd:anyURI ;
-    aiprov:selfCitation true ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/ultrasonic-welding2025> a aiprov:Source ;
     rdfs:label "Investigation of power and amplitude control in continuous ultrasonic welding of unidirectional CFRPs: A comparative study"@en ;
     dcterms:date "2025" ;
@@ -1996,6 +2013,16 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:filePath "doc/sources/gpt-fabricated2024.pdf" ;
     aiprov:verificationState verif:source-vendored .
 
+<https://noheton.org/f-ai2-r/prov/source/shepard> a aiprov:Source ;
+    rdfs:label "shepard - storage for heterogeneous product and research data (v5.1.2, Zenodo archive)"@en,
+        "shepard: a storage for heterogeneous product and research data (DLR, jointly developed)"@en ;
+    dcterms:date "2025" ;
+    dcterms:isPartOf "Zenodo (CERN European Organization for Nuclear Research)" ;
+    dcterms:source <https://gitlab.com/dlr-shepard> ;
+    aiprov:doi "https://doi.org/10.5281/zenodo.17897485"^^xsd:anyURI ;
+    aiprov:selfCitation true ;
+    aiprov:verificationState verif:human-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/urhg-para2> a aiprov:Source ;
     rdfs:label "Gesetz über Urheberrecht und verwandte Schutzrechte (UrhG), § 2 Geschützte Werke"@en ;
     dcterms:source <https://www.gesetze-im-internet.de/urhg/__2.html> ;
@@ -2062,13 +2089,6 @@ aiprov:Repair a owl:Class ;
     prov:endedAtTime "2026-07-27T07:34:52.712288+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
-
-verif:reference-resolved a aiprov:VerificationState ;
-    rdfs:label "reference resolved"@en ;
-    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
-    skos:altLabel "lit-retrieved"@en,
-        "retrieved"@en ;
-    aiprov:ladderPosition 2 .
 
 <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.2: repo becomes canonical skill source; ORCID-first setup, base derivation/auto-detection, CI/CD scaffolding (validate + LaTeX-to-PDF artifacts); packaging script; verified by test-run in scratch repository"@en ;
@@ -2166,6 +2186,16 @@ verif:source-vendored a aiprov:VerificationState ;
     prov:endedAtTime "2026-07-26T05:50:17.172064+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
+agent:florian-krebs a aiprov:HumanAgent ;
+    foaf:name "Florian Krebs" ;
+    aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
+    aiprov:orcid "https://orcid.org/0000-0001-6033-801X"^^xsd:anyURI .
+
+verif:human-confirmed a aiprov:VerificationState ;
+    rdfs:label "human-confirmed"@en ;
+    rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
+    aiprov:ladderPosition 5 .
 
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
@@ -2271,8 +2301,7 @@ aiprov:Claim a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;

@@ -105,22 +105,18 @@ intellectual ancestors are themselves registered sources, each fetched
 or URL-verified first, including a recorded fallback when a publisher
 blocked automated access and the canonical specification page was used
 instead. Registration, however, only proves a reference
-\emph{exists}; an audit pass over the graph flagged exactly this as
-the record's weakest point, and a subsequent content pass took the
-argument's load-bearing sources one rung further: for each, the AI
-agent fetched the actual content (full text or slides where openly
+\emph{exists}; an audit pass flagged exactly this as the record's
+weakest point, and content passes closed it: for every cited source
+the AI fetched the actual content (full text or slides where openly
 accessible, abstracts otherwise) and checked it against the specific
-sentence citing it, recording the supporting quotation and the
-checked depth in the promotion note. Ten sources were promoted in
-that pass, and later registrations continued the practice, to
-\MSrcChecked{} content-checked at the time of writing; two outcomes were negative and stayed
-recorded rather than smoothed over: one publisher's bot-wall left a
-source checked at metadata depth only, so it was not promoted, and
-the two self-cited repositories were skipped because the session's
-repository access was scoped to this project, leaving them for the
-operator's human rungs, where they belong anyway. One citation
-mismatch surfaced by the same audit was repaired in the text and
-logged as a \texttt{Repair} pass before any promotion.
+citing sentence, recording the supporting quotation and the checked
+depth in the promotion note, to \MSrcChecked{} content-checked at
+the time of writing. Negative outcomes stayed recorded rather than
+smoothed over: one publisher's bot-wall deferred a check until an
+open index carried the abstract, the operator-owned repositories were
+left to the operator's own rungs, and three citation overreaches
+surfaced by the checks were repaired in the text before any
+promotion.
 
 \textbf{Incidents as first-class records.} The experiment produced
 four incident types, and none needed special vocabulary; each is an
@@ -210,10 +206,11 @@ including both ladder redesigns, the cost-computation policy, the
 license choice, and the page budget, while the AI executed all
 authoring, audit, and repair activities and CI contributed the
 deterministic builds. Rungs above the AI ceiling remain scarce by
-design: the first \texttt{human-confirmed} was granted late in the
-experiment, by the operator against a vendored statute text after the
-gate handed over the review copy; everything else visibly awaits the
-human, and the reader can see exactly what. The hypothesis that AI absorbs tedium while humans
+design: the operator granted the first \texttt{human-confirmed}
+against a vendored statute text the gate handed over, then confirmed
+the five self-cited sources they authored, the class where the
+human's judgement is uniquely authoritative; everything else visibly
+awaits the human. The hypothesis that AI absorbs tedium while humans
 connect ideas and people (Section~\ref{sec:discussion}) is thereby
 testable from the committed log and transcript, for this one
 experiment. One measurement pitfall became a method fix: the session
