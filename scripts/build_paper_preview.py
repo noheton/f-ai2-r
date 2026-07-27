@@ -66,21 +66,37 @@ def structure_notes() -> list[tuple[str, str]]:
 
 def verification_html() -> str:
     """Collapsible rendering of doc/sources/VERIFICATION.md (the human-rung
-    review queue) for the bottom of the preview. Minimal markdown: ##
-    headings become entries, list items and code fences carry over."""
+    review queue) for the bottom of the preview, grouped by whether human
+    intervention is required."""
     src = ROOT / "doc" / "sources" / "VERIFICATION.md"
     if not src.exists():
         return ""
     import html as _h
-    entries, cur, buf, incode = [], None, [], False
-    n_human = 0
+    parts, cur, buf, incode = [], None, [], False
+    counts = {"\u26a0": 0, "\u2713": 0, "\u23f3": 0}
+
+    def flush():
+        nonlocal cur, buf
+        if cur is not None:
+            klass = ("act" if cur.startswith("\u26a0")
+                     else "done" if cur.startswith("\u2713") else "wait")
+            parts.append(
+                f'<details class="v-{klass}"><summary>'
+                f'{_h.escape(re.sub(r"[`*]", "", cur))}</summary>'
+                f'<pre>{"".join(buf)}</pre></details>')
+        cur, buf = None, []
+
     for line in src.read_text(encoding="utf-8").splitlines():
         if line.startswith("## "):
-            if cur:
-                entries.append((cur, buf))
-            cur, buf, incode = line[3:].strip(), [], False
-            if "human-confirmed" in cur or "human-read" in cur:
-                n_human += 1
+            flush()
+            cur, incode = line[3:].strip(), False
+            for icon in counts:
+                if cur.startswith(icon):
+                    counts[icon] += 1
+            continue
+        if line.startswith("# ") and parts is not None and (cur or parts):
+            flush()
+            parts.append(f'<h3 class="v-group">{_h.escape(line[2:].strip())}</h3>')
             continue
         if cur is None:
             continue
@@ -89,24 +105,23 @@ def verification_html() -> str:
             incode = not incode
             continue
         esc = _h.escape(line)
-        esc = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", esc)
-        esc = re.sub(r"`([^`]+)`", r"<i>\1</i>", esc)
+        esc = re.sub(r"\*\*(.+?)\*\*", r"<b>\\1</b>", esc)
+        esc = re.sub(r"`([^`]+)`", r"<i>\\1</i>", esc)
         buf.append(esc + ("" if incode else "<br>"))
-    if cur:
-        entries.append((cur, buf))
-    blocks = "\n".join(
-        f'<details><summary>{_h.escape(re.sub(r"[`*]", "", head))}</summary>'
-        f'<pre>{"".join(body)}</pre></details>'
-        for head, body in entries)
+    flush()
+    total = sum(counts.values())
+    warn, done, wait = counts["\u26a0"], counts["\u2713"], counts["\u23f3"]
     return (
         '<details class="notes verif"><summary><span class="pages-head">'
-        f'Source verification queue ({len(entries)} sources, '
-        f'{n_human} human-verified)</span></summary>'
-        '<p>The human rungs are the operator\'s alone. Each entry shows the '
-        'current rung, where the paper cites the source, the recorded check '
-        'evidence, and the access material the rung-4 gate hands over; '
-        'generated from provenance.ttl by build_review_list.py.</p>'
-        + blocks + '</details>')
+        f'Source verification queue \u2014 {warn} awaiting the '
+        f'operator, {done} human-verified, {wait} not '
+        f'yet ready ({total} total)</span></summary>'
+        '<p>Grouped by required action. \u26a0 needs the human operator now '
+        '(evidence handed over by the rung-4 gate); \u23f3 needs AI-side '
+        'work first; \u2713 is done. Generated from provenance.ttl; the '
+        'human rungs are the operator\'s alone.</p>'
+        + "\n".join(parts) + '</details>')
+
 
 def graph_stats() -> dict | None:
     if not (ROOT / "provenance.ttl").exists():
@@ -219,6 +234,10 @@ header .sub {{ color: var(--muted); font-size: .82rem; margin: 0 0 12px; }}
   border-radius: 3px; margin-bottom: 8px; }}
 .notes summary {{ cursor: pointer; padding: 6px 10px; font-weight: bold;
   font-size: .85rem; }}
+.v-group {{ font-size: .9rem; margin: 14px 0 6px; color: var(--muted); }}
+.notes .v-act summary {{ border-left: 3px solid #c77700; }}
+.notes .v-done summary {{ border-left: 3px solid #2e8540; }}
+.notes .v-wait summary {{ border-left: 3px solid var(--chip-line); color: var(--muted); }}
 .notes pre {{ margin: 0; padding: 8px 12px 12px; overflow-x: auto;
   font-size: .74rem; line-height: 1.45; color: var(--ink);
   border-top: 1px solid var(--chip-line); white-space: pre; }}
