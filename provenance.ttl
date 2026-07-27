@@ -843,11 +843,14 @@
 <https://noheton.org/f-ai2-r/prov/entity/VERIFICATION-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet>,
-        <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung>,
+        <https://noheton.org/f-ai2-r/prov/activity/s64-actionable-queue> ;
     aiprov:contentHash "sha256:19db5ad5930b384cec80e36eb66cb6b96447d9d2a47683c8d544fa60e3ecff9b",
+        "sha256:4589f7bfc5cda8d96c73a07560961887f8465e485bfd8f84514bb34080ec0868",
         "sha256:d847d04bc3613e89b459f1bc61eeb0f6ed398c2a855b84368f875f12cea5c1ea" ;
     aiprov:filePath "doc/sources/VERIFICATION.md" ;
     aiprov:gitCommit "4578a83",
+        "c1703b2",
         "fb091d5" .
 
 <https://noheton.org/f-ai2-r/prov/entity/ai-hallucination2023-pdf> a aiprov:Artefact ;
@@ -932,22 +935,28 @@
         <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging>,
         <https://noheton.org/f-ai2-r/prov/activity/s29-ethics-incentives>,
         <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage>,
-        <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s64-actionable-queue> ;
     aiprov:contentHash "sha256:03ae2fc848ffea2d468a69d5c9ad5ce015f8b2fed2dcd5765ef463e5819abfbc",
+        "sha256:33f9795a25e0b1d0c152b53b514c9e567ecf20f0e406cf39e5635a667738d517",
         "sha256:4e13ed79bea23cb89f32e99b9896daa02ed66323f84b7f8a9216dd80463bcdcd",
         "sha256:b45713f43001d699f308fb520bc56d5af6abdee6204f6d21ca0003128a05b36f",
         "sha256:b52a6115d2ec62810b3f38d29498e68f291c2e33a80e8c50ea4515d757d33b5d",
         "sha256:c1cb8cf35473b636c656ab56a4f0b566bb2fd9a7ac6c0bac7f9ae7143c70acac" ;
     aiprov:filePath "scripts/build_paper_preview.py" ;
     aiprov:gitCommit "720c9bf",
-        "73a11cd" .
+        "73a11cd",
+        "c1703b2" .
 
 <https://noheton.org/f-ai2-r/prov/entity/build_review_list-py> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet> ;
-    aiprov:contentHash "sha256:bf7306a2b06e3fc5805acb158ad06178289866baa5677d878d37c44e8bc0b170" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet>,
+        <https://noheton.org/f-ai2-r/prov/activity/s64-actionable-queue> ;
+    aiprov:contentHash "sha256:71d001eecd127b51796ae1aad20ce6f5a39e4bc8b59f8ead708d5a3eaef09044",
+        "sha256:bf7306a2b06e3fc5805acb158ad06178289866baa5677d878d37c44e8bc0b170" ;
     aiprov:filePath "scripts/build_review_list.py" ;
-    aiprov:gitCommit "fb091d5" .
+    aiprov:gitCommit "c1703b2",
+        "fb091d5" .
 
 <https://noheton.org/f-ai2-r/prov/entity/codemeta-json> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1840,6 +1849,12 @@ aiprov:HumanAgent a owl:Class ;
 <https://noheton.org/f-ai2-r/prov/activity/s51-style-pass> a aiprov:Repair ;
     rdfs:label "Operator's clean-prose style rules transferred to the paper's scientific English: em-dash punctuation eliminated (title, abstract, acknowledgement, ladder table, figure caption; numeric ranges and quoted verbatim output exempt); audit confirmed absence of formulaic transitions, buzzwords, puffery and hedges, with one deliberate 'perhaps' retained as the objector's voice in the nostalgia paragraph."@en ;
     prov:endedAtTime "2026-07-25T20:29:07.810798+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
+<https://noheton.org/f-ai2-r/prov/activity/s64-actionable-queue> a aiprov:AuthoringPass ;
+    rdfs:label "Verification queue restructured around required human intervention: bucket summary table, action-grouped sections (evidence-in-hand first, link-access second, AI-pending explicitly no-human-action-yet, done last), per-entry Your-action line, human-read deepening commands on done entries; preview mirrors the grouping with amber/green/grey markers and an intervention-count summary (18 awaiting the operator, 1 human-verified, 21 not yet ready of 40)."@en ;
+    prov:endedAtTime "2026-07-27T07:39:24.210229+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
