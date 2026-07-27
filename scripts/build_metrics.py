@@ -197,6 +197,8 @@ def tex_int(n):
 
 def write_outputs(m):
     m["_generated"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+    ver = re.search(r"^## (v[\d.]+)", (ROOT / "CHANGELOG.md").read_text(), re.M)
+    m["skill_version"] = ver.group(1) if ver else "v0"
     m["_methodology"] = {
         "cost": f"computed from token counts at price basis {PRICE} USD/1M; "
                 "all cache writes verified 1h-TTL; not provider-reported",
@@ -246,6 +248,7 @@ def write_outputs(m):
     mac("\\MPassBuild", m["pass_build"])
     mac("\\MProseWordsK", f"{round(m['prose_words'], -2):,}".replace(",", "\\,"))
     mac("\\MToolLinesK", f"{round(m['tool_lines'], -2):,}".replace(",", "\\,"))
+    mac("\\MSkillVersion", m["skill_version"])
     (ROOT / "paper" / "metrics.tex").write_text("\n".join(L) + "\n")
     print(f"doc/metrics.json + paper/metrics.tex written "
           f"({m['activities']} activities, cost {m['cost_usd']} USD)")
