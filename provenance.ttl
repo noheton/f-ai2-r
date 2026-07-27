@@ -794,7 +794,8 @@
         <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
         <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed>,
-        <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
+        <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation> ;
     aiprov:contentHash "sha256:03ad1f33420e1cbfb1e1c22753540234ca23bed2a6aef65d8df3f108f642c06a",
         "sha256:0ae502fea46692d008b14632d42884f5e64adfa7b4cda32ff4fb0a96ac6f1860",
         "sha256:12d5dd72efdf48971de13781d1fada4d0387bd37160ecd4387c0be54ca81f402",
@@ -809,6 +810,7 @@
         "sha256:95df2962d33775a71cb8dd4f8c5ae0f4aca6cf19702d37d1197faf7b5481baf9",
         "sha256:9f3a6f335fb0901d201700b7505fa5f837e048d7b06be9f499f0f9965af2432f",
         "sha256:a27f1ffd99e9847dbfb36751bbcd4ecfabb770ddd17f0a691ef1442f9eea1227",
+        "sha256:a8ec2433110bcb0346dc43fcff4b83e0d28bbbfeba35e453acdf30cfc69c9db1",
         "sha256:ab02f58905c5066dfda3a157446b798ea2ca2285e7c54079e9fef2ca70eefd07",
         "sha256:b49516b4dd9d146ac0a75c765085b478fa897713950184d495ee9d568ef15763",
         "sha256:b600eebd1cc748d22001591a480735f2593dde0e3468a1aabf7202639d69b338",
@@ -827,6 +829,7 @@
         "43af99d",
         "4465d74",
         "540e2c2",
+        "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "73a11cd",
         "82ffc86",
         "8984dcb",
@@ -1007,15 +1010,18 @@
         <https://noheton.org/f-ai2-r/prov/activity/s64-actionable-queue>,
         <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed>,
-        <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
+        <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation> ;
     aiprov:contentHash "sha256:19db5ad5930b384cec80e36eb66cb6b96447d9d2a47683c8d544fa60e3ecff9b",
         "sha256:437de47907cd202eec3f4c3f459eafb36fbcebc544c31b76dcf5c7714ac4c221",
         "sha256:4589f7bfc5cda8d96c73a07560961887f8465e485bfd8f84514bb34080ec0868",
+        "sha256:9bec8fc4bc0bf1ad0fc96c7dfb09be8cf074d0fa40c57591f9cbde747352415e",
         "sha256:d847d04bc3613e89b459f1bc61eeb0f6ed398c2a855b84368f875f12cea5c1ea",
         "sha256:f6723aa1cfd2301ceeed4fcb4b444eeef29ce838982876b39f2c6e6b7cc08544",
         "sha256:fb8ca64d527a5ab8dd996c106ef6eca71aac31df370cb2ffe747e73f428fc370" ;
     aiprov:filePath "doc/sources/VERIFICATION.md" ;
     aiprov:gitCommit "4578a83",
+        "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "9fba76d",
         "c1703b2",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
@@ -1237,16 +1243,19 @@
         <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung>,
         <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed>,
-        <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
+        <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation> ;
     aiprov:contentHash "sha256:0ecac01dd6686d42494449da9932c34ddfe521a456f3c9b7396fc334e7cbb893",
         "sha256:111b02d4bc097e1164f5c819d09a0255669c5b48eb304726d78b25cc680d58da",
         "sha256:402166d35efa68d25e296d063b8105d29150917eac55713c9677483a9b483dc6",
         "sha256:7287d05be915dc9176785fa10fb9e3f49d7808a95519e969774e7f2c2fdbccfb",
+        "sha256:72ea727c498e0ba6d8c7290eb173b5bdb17db6467fd628e6293b0f136eb7a285",
         "sha256:a07a8f86ead8227a8200f1519bbdc1070f55c16107ef3279cf07f22f6d68d8cd",
         "sha256:a8627d096b9424fc9265f5112b953c88d1d5ed4371d36554f76c74efaec7ed6b" ;
     aiprov:filePath "doc/metrics.json" ;
     aiprov:gitCommit "43af99d",
         "4578a83",
+        "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "9fba76d",
         "a59c1de",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
@@ -1259,8 +1268,10 @@
         <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung>,
         <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed>,
-        <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration> ;
-    aiprov:contentHash "sha256:1d22e6fd2ac682c9531be9f5db5f02c23c41d29582529d96a34c1c5e0d3a828e",
+        <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
+        <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation> ;
+    aiprov:contentHash "sha256:1b3edb4234474b2f0fc93dfb1b0447feb1e13f049ede37f460c2f1e5b03c480d",
+        "sha256:1d22e6fd2ac682c9531be9f5db5f02c23c41d29582529d96a34c1c5e0d3a828e",
         "sha256:244ea7e023117fe07d592c6360f53a0beda305e31b3b1dd28c19698a7065ef3c",
         "sha256:398f03d4d708b71e7c169a0aab509b3a18e17f8ea87c5740804ed0daa6af8438",
         "sha256:5f5dc1afd6a0df8db05405ad880fde8ff464d48906c26a9bb23df28ede84efef",
@@ -1269,6 +1280,7 @@
     aiprov:filePath "paper/metrics.tex" ;
     aiprov:gitCommit "43af99d",
         "4578a83",
+        "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "9fba76d",
         "a59c1de",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
@@ -1310,12 +1322,15 @@
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s02-register-human>,
         <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed>,
-        <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
+        <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation> ;
     aiprov:contentHash "sha256:1962e4cfb168cab3a02b7fc8f213de06f54ef1593cbe2ebf571954d85adb12e6",
         "sha256:90b1bd88ad320a22c98e2d0d23d94bb601a5abb7754c593d360d6a2f722e9fe1",
+        "sha256:ac028bddf7b68aca69707016a556a3f8fc29f001d47605b50d5233e543eb17fe",
         "sha256:ce9c9de5d625851abe745fba3fbdb665aecebe34577f6a20048c375602ebb361" ;
     aiprov:filePath "provenance.ttl" ;
-    aiprov:gitCommit "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
+    aiprov:gitCommit "60a4d3a70b4e24159c3555b651f051be69e3901e",
+        "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
         "f4710311911c087b88722cfb96bbf2dfa9662b3a" .
 
 <https://noheton.org/f-ai2-r/prov/entity/provlog-py> a aiprov:Artefact ;
@@ -1371,12 +1386,14 @@
         <https://noheton.org/f-ai2-r/prov/activity/s52-shepard-zenodo-industry>,
         <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure>,
         <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
+        <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
         "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
         "sha256:23324f3765caa803c29fb8eee66146db6773a4e0b6f002c800bba9788e068e14",
         "sha256:2c9083a5cbae565f108062cd367f9fd5f7f14e725c53f6ef49e8deffb7c4da06",
         "sha256:2e60f501be4fc0abdb527db479644c2821171a5f2f4b6fff11093799991d8092",
+        "sha256:30bb9669f6f41204045a99bff098153de8a53deac899ff456853e416d59a5681",
         "sha256:32c9a2409627258d4cf221aab0c6056b41c17d3ac7530be8663c7e59782238b3",
         "sha256:4374a3098b37b2edf2b377f2b857bd6f2e53a52d76e21a377470671637a15577",
         "sha256:5d082ed5e49f97ceb00af346ff9835f06feb91c207d5f11c664046e6707f124e",
@@ -1400,6 +1417,7 @@
         "42d3042",
         "4465d74",
         "4c17c02faf15034458e93ddecd1d8da829020f3e",
+        "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "73a11cd",
         "82ffc86",
         "8984dcb",
@@ -1732,9 +1750,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://elib.dlr.de/185438/> ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/references-bib> a aiprov:Source ;
-    aiprov:filePath "paper/references.bib" .
-
 <https://noheton.org/f-ai2-r/prov/source/shepard-fork> a aiprov:Source ;
     rdfs:label "Experimental fork of shepard (development/research workspace, /v2 experimental endpoints)"@en ;
     dcterms:source <https://github.com/noheton/shepard> ;
@@ -1856,9 +1871,6 @@ aiprov:Transcript a owl:Class ;
 agent:github-actions a aiprov:ToolAgent ;
     foaf:name "GitHub Actions (aiprov build workflow)" ;
     aiprov:provider "GitHub"^^xsd:string .
-
-<https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> a aiprov:Source ;
-    aiprov:filePath "paper/sections/07-discussion.tex" .
 
 <https://noheton.org/f-ai2-r/prov/source/aas-part1-idta> a aiprov:Source ;
     rdfs:label "Specification of the Asset Administration Shell Part 1: Metamodel"@en ;
@@ -1993,6 +2005,9 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1162/qss_a_00327"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/references-bib> a aiprov:Source ;
+    aiprov:filePath "paper/references.bib" .
+
 <https://noheton.org/f-ai2-r/prov/source/rocrate2022> a aiprov:Source ;
     rdfs:label "Packaging research artefacts with RO-Crate"@en ;
     dcterms:date "2022" ;
@@ -2074,6 +2089,9 @@ aiprov:HumanAgent a owl:Class ;
     prov:endedAtTime "2026-07-27T07:39:24.210229+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
+<https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> a aiprov:Source ;
+    aiprov:filePath "paper/sections/07-discussion.tex" .
 
 <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> a aiprov:Source ;
     rdfs:label "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing"@en ;
@@ -2282,6 +2300,13 @@ verif:source-vendored a aiprov:VerificationState ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex>,
         <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex>,
         <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation> a aiprov:AuthoringPass ;
+    rdfs:label "Continues the OECD integration after the operator obtained the arXiv cs.DL endorsement: the AI Incidents and Hazards Monitor registered as source oecd-aim, content-checked at page depth (methodology page quote in the promotion note), bib entry added, and the discussion's incident-aggregation clause now cites the monitor directly. 12-page cap unchanged; metrics regenerated."@en ;
+    prov:endedAtTime "2026-07-27T19:47:16.647563+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex>,
+        <https://noheton.org/f-ai2-r/prov/source/references-bib> ;
     prov:wasAssociatedWith agent:claude-code .
 
 agent:florian-krebs a aiprov:HumanAgent ;
