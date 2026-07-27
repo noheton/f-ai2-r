@@ -881,8 +881,10 @@
         <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
         <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016>,
         <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017>,
-        <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s71-skill-v019> ;
     aiprov:contentHash "sha256:0f6b3e6665b218d527bbcd404b6c45f127596888482cdf7c20f95d48a971f28b",
+        "sha256:1db1da7d36fc2177bd5969c097610e0558fcfd1aeca067ea59e86be5adddd2c9",
         "sha256:348bff9c352d8100c2c308d2d6d557aeed976e529d4ac653cb15d9e412ac7b2d",
         "sha256:3dac8df2d5a93e669c1558ddeb4d111093bc942f2e9f512250e5cd3bc9fe7af3",
         "sha256:4724beffb8c7d95594c38bd4211871098be2f777a24bb628368add8eb3eb53e5",
@@ -901,6 +903,7 @@
     aiprov:filePath "CHANGELOG.md" ;
     aiprov:gitCommit "15a0d94",
         "30839e87e71b86a51db47795a5fc442765934c4b",
+        "407dad0f62ea38e5b2fed49c01fbd5d469c7deee",
         "43af99d",
         "540e2c2",
         "720c9bf",
@@ -977,7 +980,8 @@
         <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016>,
         <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017>,
         <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet>,
-        <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s71-skill-v019> ;
     aiprov:contentHash "sha256:090a7be7d3bc8e3657cb69971334ffa70881d6c03b3d6092151040363d8defe7",
         "sha256:333e6cfb08385a0003b31e9acdb22e9f83f0bca42fc3b8799e30099d75f7d881",
         "sha256:39715e08fca65e1a38fff74a81880f5a6f1e48b5cd1fb93a5acbe78b62ffef0f",
@@ -987,6 +991,7 @@
         "sha256:8466bcfd82adde524e62f1788943865fae758938f1a9e31aaedba144adb3aa2b",
         "sha256:8963ec5023e470b5984b3ec07d503820e874be50c10bc407214fefbff79c198c",
         "sha256:a9557f62a62b10f5d07acc0d11bc80a05232572e74ab8e979a0d0a12cc3d1faa",
+        "sha256:b591fae54b529a6858afc190f0bcab63860744b190628bf7bf96d021a25ca0e5",
         "sha256:bb4ee96784b4141c46e31f52a962d424e1f324f6ec01ead34d2aad3ead3e5384",
         "sha256:c2cd1ecc506150e41e88ce98f6586efcf1fbe6cb0f824e678a244b4c668700db",
         "sha256:d4751e2ade136ee8df862c689a2f7fcf886c75b422805e537feac71ab15d0fbe",
@@ -997,6 +1002,7 @@
     aiprov:filePath "SKILL.md" ;
     aiprov:gitCommit "15a0d94",
         "30839e87e71b86a51db47795a5fc442765934c4b",
+        "407dad0f62ea38e5b2fed49c01fbd5d469c7deee",
         "43af99d",
         "540e2c2",
         "720c9bf",
@@ -1699,8 +1705,14 @@ aiprov:verificationState a owl:ObjectProperty ;
 <https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex> a aiprov:Source ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" .
 
+<https://noheton.org/f-ai2-r/prov/source/CHANGELOG-md> a aiprov:Source ;
+    aiprov:filePath "CHANGELOG.md" .
+
 <https://noheton.org/f-ai2-r/prov/source/README-md> a aiprov:Source ;
     aiprov:filePath "README.md" .
+
+<https://noheton.org/f-ai2-r/prov/source/SKILL-md> a aiprov:Source ;
+    aiprov:filePath "SKILL.md" .
 
 <https://noheton.org/f-ai2-r/prov/source/agent-skills-spec> a aiprov:Source ;
     rdfs:label "Agent Skills: an open format for extending AI agent capabilities (specification and adopter list)"@en ;
@@ -1881,6 +1893,13 @@ aiprov:Transcript a owl:Class ;
     rdfs:label "README licensing made explicit on operator request ('update readme - new license'): badge row split into code (Apache-2.0) and paper (CC BY-NC-SA 4.0), License section restructured around the two artefact types, and paper/LICENSE added so the operator's recorded arXiv licensing decision travels with the paper directory. No license terms changed; this documents the split already decided by the operator."@en ;
     prov:endedAtTime "2026-07-27T11:13:18.667077+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/README-md> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/s71-skill-v019> a aiprov:AuthoringPass ;
+    rdfs:label "Skill v0.19: session learnings folded into SKILL.md and CHANGELOG on operator request. (1) Review worksheet relevance ordering: computed cite counts, disclosed methodology, most load-bearing sources first. (2) Demonstrations-run-on-copies rule: tooling behaviour is shown from a scratch copy of the graph; staged entries in the live record are fabrication. (3) Blocked-canonical-source practice: record the failed canonical fetch and the actual access path; refusing source-vendored is the honest outcome when no redistributable text is obtainable. (4) Self-citations-first guidance: the operator's judgement is uniquely authoritative on works they authored. Skill repackaged."@en ;
+    prov:endedAtTime "2026-07-27T19:54:19.217480+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/CHANGELOG-md>,
+        <https://noheton.org/f-ai2-r/prov/source/SKILL-md> ;
     prov:wasAssociatedWith agent:claude-code .
 
 agent:github-actions a aiprov:ToolAgent ;
