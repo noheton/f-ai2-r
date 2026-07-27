@@ -14,6 +14,36 @@
     prov:endedAtTime "2026-07-24T18:48:20.669490+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:github-actions .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-06-meta-experiment-tex-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of 06-meta-experiment-tex: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time. Content is directly inspectable in git history; no external access path needed.)"@en ;
+    prov:endedAtTime "2026-07-27T20:05:57.256515+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-07-discussion-tex-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of 07-discussion-tex: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time. Content is directly inspectable in git history; no external access path needed.)"@en ;
+    prov:endedAtTime "2026-07-27T20:05:58.133807+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-CHANGELOG-md-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of CHANGELOG-md: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time. Content is directly inspectable in git history; no external access path needed.)"@en ;
+    prov:endedAtTime "2026-07-27T20:17:17.100682+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/CHANGELOG-md> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-README-md-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of README-md: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time. Content is directly inspectable in git history; no external access path needed.)"@en ;
+    prov:endedAtTime "2026-07-27T20:05:59.015208+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/README-md> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-SKILL-md-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of SKILL-md: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time. Content is directly inspectable in git history; no external access path needed.)"@en ;
+    prov:endedAtTime "2026-07-27T20:17:17.769078+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/SKILL-md> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-aas-part1-idta-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of aas-part1-idta: reference-resolved -> ai-confirmed (DOI resolution checked: 10.62628/idta.01001-3-1-1 resolves to 'Specification of the Asset Administration Shell Part 1: Metamodel' by the IDTA workstream. Supports 'continued as IDTA-01001'. Registry depth.)"@en ;
     prov:endedAtTime "2026-07-27T07:49:06.015367+00:00"^^xsd:dateTime ;
@@ -50,10 +80,28 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-aiprovenance-v0-skill-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of aiprovenance-v0-skill: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time. Content is directly inspectable in git history; no external access path needed.)"@en ;
+    prov:endedAtTime "2026-07-27T20:05:59.779331+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/aiprovenance-v0-skill> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-better-architecture2025-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of better-architecture2025: reference-resolved -> ai-confirmed (Content checked against the open-access full text (eprints.soton.ac.uk / elib.dlr.de/215763 mirrors of the CiSE article): abstract states 'Better software drives better research... better architecture underpins better software... we advocate and emphasize the importance of designing robust architectures for research software to elevate the quality of research outcomes'; body documents the incentive diagnosis (funding rewards novelty, few resources for maintenance; accidental architectures) and CI static-analysis recommendations. Supports the citing sentence that the infrastructural-quality-to-research-quality argument shape is established in RSE. Full-text depth.)"@en ;
     prov:endedAtTime "2026-07-25T19:28:01.552010+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/better-architecture2025> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-build_metrics-py-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of build_metrics-py: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time. Content is directly inspectable in git history; no external access path needed.)"@en ;
+    prov:endedAtTime "2026-07-27T20:17:18.423090+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/build_metrics-py> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-build_review_list-py-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of build_review_list-py: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time. Content is directly inspectable in git history; no external access path needed.)"@en ;
+    prov:endedAtTime "2026-07-27T20:17:19.132319+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/build_review_list-py> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-chatgpt-priorities2023-ai-confirmed> a aiprov:AuditPass ;
@@ -230,10 +278,28 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/provenance-overview2022> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-provenance-ttl-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of provenance-ttl: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time. Content is directly inspectable in git history; no external access path needed.)"@en ;
+    prov:endedAtTime "2026-07-27T20:06:00.545541+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-publishing-strain2024-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of publishing-strain2024: reference-resolved -> ai-confirmed (Content checked against the authors' arXiv preprint (2309.15884; publisher page returned 403 to automated access): 'exponential growth in the number of peer-reviewed journal articles, which has not been matched by the training of new researchers who can vet those articles', editors report difficulty recruiting qualified reviewers. Supports both citing sentences (output growing faster than review capacity; strained review system).)"@en ;
     prov:endedAtTime "2026-07-24T21:32:57.016494+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/publishing-strain2024> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-references-bib-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of references-bib: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time. Content is directly inspectable in git history; no external access path needed.)"@en ;
+    prov:endedAtTime "2026-07-27T20:06:01.243867+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/references-bib> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-resistance-welding2024-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of resistance-welding2024: reference-resolved -> ai-confirmed (Content checked at record depth against the DLR elib entry (elib.dlr.de/209478): Endrass, Bauer, Jarka, Larsen, Kupke, ITHEC 2024, Bremen. Abstract confirms scope: 'Static resistance welding is one of the most mature and yet often underestimated joining technologies for thermoplastic composites', covering 'process capabilities ... mechanical performance, advanced process control capabilities and applicability for aircraft production'. Registered during the literature sweep as a candidate for the section 5 worked example; the example now uses the ultrasonic-welding study instead, so this source is currently uncited in the paper. Kept on the ladder as recorded search-horizon evidence rather than deleted.)"@en ;
+    prov:endedAtTime "2026-07-27T20:16:44.159318+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/resistance-welding2024> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-rocrate2022-ai-confirmed> a aiprov:AuditPass ;
@@ -1474,11 +1540,6 @@
     aiprov:filePath "doc/sources/usco-ai-copyrightability2025.pdf" ;
     aiprov:gitCommit "fb1a484" .
 
-<https://noheton.org/f-ai2-r/prov/source/resistance-welding2024> a aiprov:Source ;
-    rdfs:label "On the capabilities of static resistance welding of carbon fiber-reinforced thermoplastic composites (Endraß et al., ITHEC 2024)"@en ;
-    dcterms:source <https://elib.dlr.de/209478/> ;
-    aiprov:verificationState verif:reference-resolved .
-
 verif:human-read a aiprov:VerificationState ;
     rdfs:label "human-read"@en ;
     rdfs:comment "A HUMAN has read the source in full. Top of the ladder; consolidates the former lit-read rung. Human-only: an AI agent must never grant this rung."@en ;
@@ -1489,6 +1550,13 @@ verif:needs-research a aiprov:VerificationState ;
     rdfs:label "needs research"@en ;
     rdfs:comment "A check was attempted or demanded and did not succeed (e.g. DOI did not resolve). Must not be cited or relied upon until re-verified."@en ;
     aiprov:ladderPosition 1 .
+
+verif:reference-resolved a aiprov:VerificationState ;
+    rdfs:label "reference resolved"@en ;
+    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
+    skos:altLabel "lit-retrieved"@en,
+        "retrieved"@en ;
+    aiprov:ladderPosition 2 .
 
 verif:unverified a aiprov:VerificationState ;
     rdfs:label "unverified"@en ;
@@ -1714,28 +1782,10 @@ aiprov:verificationState a owl:ObjectProperty ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
-<https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex> a aiprov:Source ;
-    aiprov:filePath "paper/sections/06-meta-experiment.tex" .
-
-<https://noheton.org/f-ai2-r/prov/source/README-md> a aiprov:Source ;
-    aiprov:filePath "README.md" .
-
-<https://noheton.org/f-ai2-r/prov/source/SKILL-md> a aiprov:Source ;
-    aiprov:filePath "SKILL.md" .
-
 <https://noheton.org/f-ai2-r/prov/source/agent-skills-spec> a aiprov:Source ;
     rdfs:label "Agent Skills: an open format for extending AI agent capabilities (specification and adopter list)"@en ;
     dcterms:source <https://agentskills.io/> ;
     aiprov:verificationState verif:ai-confirmed .
-
-<https://noheton.org/f-ai2-r/prov/source/aiprovenance-v0-skill> a aiprov:Source ;
-    aiprov:filePath "archive/aiprovenance-v0.skill" .
-
-<https://noheton.org/f-ai2-r/prov/source/build_metrics-py> a aiprov:Source ;
-    aiprov:filePath "scripts/build_metrics.py" .
-
-<https://noheton.org/f-ai2-r/prov/source/build_review_list-py> a aiprov:Source ;
-    aiprov:filePath "scripts/build_review_list.py" .
 
 <https://noheton.org/f-ai2-r/prov/source/easa-ai-concept2024> a aiprov:Source ;
     rdfs:label "EASA Artificial Intelligence Concept Paper Issue 2: Guidance for Level 1 and 2 machine-learning applications"@en ;
@@ -1789,6 +1839,11 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://elib.dlr.de/185438/> ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/resistance-welding2024> a aiprov:Source ;
+    rdfs:label "On the capabilities of static resistance welding of carbon fiber-reinforced thermoplastic composites (Endraß et al., ITHEC 2024)"@en ;
+    dcterms:source <https://elib.dlr.de/209478/> ;
+    aiprov:verificationState verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/shepard-fork> a aiprov:Source ;
     rdfs:label "Experimental fork of shepard (development/research workspace, /v2 experimental endpoints)"@en ;
     dcterms:source <https://github.com/noheton/shepard> ;
@@ -1799,13 +1854,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     rdfs:label "An Uncertainty-Aware Provenance Framework for Enhanced Traceability in Engineering Systems"@en ;
     dcterms:source <https://elib.dlr.de/224241/> ;
     aiprov:verificationState verif:ai-confirmed .
-
-verif:reference-resolved a aiprov:VerificationState ;
-    rdfs:label "reference resolved"@en ;
-    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
-    skos:altLabel "lit-retrieved"@en,
-        "retrieved"@en ;
-    aiprov:ladderPosition 2 .
 
 aiprov:ToolAgent a owl:Class ;
     rdfs:label "Deterministic tool"@en ;
@@ -1918,8 +1966,20 @@ agent:github-actions a aiprov:ToolAgent ;
     foaf:name "GitHub Actions (aiprov build workflow)" ;
     aiprov:provider "GitHub"^^xsd:string .
 
-<https://noheton.org/f-ai2-r/prov/source/CHANGELOG-md> a aiprov:Source ;
-    aiprov:filePath "CHANGELOG.md" .
+<https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex> a aiprov:Source ;
+    aiprov:contentHash "sha256:be480c648fbedb68fd4dd11e1e27910ba8090488d0ca113a40dfe47a858b9842" ;
+    aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
+    aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/README-md> a aiprov:Source ;
+    aiprov:contentHash "sha256:ed8488f5411c3c61d85829093c083cf0d647c8406b4d1b0700a54695d3c8628b" ;
+    aiprov:filePath "README.md" ;
+    aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/SKILL-md> a aiprov:Source ;
+    aiprov:contentHash "sha256:b591fae54b529a6858afc190f0bcab63860744b190628bf7bf96d021a25ca0e5" ;
+    aiprov:filePath "SKILL.md" ;
+    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/aas-part1-idta> a aiprov:Source ;
     rdfs:label "Specification of the Asset Administration Shell Part 1: Metamodel"@en ;
@@ -1932,12 +1992,27 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:selfCitation true ;
     aiprov:verificationState verif:human-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/aiprovenance-v0-skill> a aiprov:Source ;
+    aiprov:contentHash "sha256:51eef304e609d762af729fa2f6dcb7fa8ef8872a90186915b831179798cc07cd" ;
+    aiprov:filePath "archive/aiprovenance-v0.skill" ;
+    aiprov:verificationState verif:source-vendored .
+
 <https://noheton.org/f-ai2-r/prov/source/better-architecture2025> a aiprov:Source ;
     rdfs:label "Better Architecture, Better Software, Better Research"@en ;
     dcterms:date "2025" ;
     dcterms:isPartOf "Computing in Science &amp; Engineering" ;
     aiprov:doi "https://doi.org/10.1109/MCSE.2025.3573887"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/build_metrics-py> a aiprov:Source ;
+    aiprov:contentHash "sha256:b3d2394c8f59114d74ee9317aeac7a3456b88da3fbe6d0f1d0f330d8a9bacb86" ;
+    aiprov:filePath "scripts/build_metrics.py" ;
+    aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/build_review_list-py> a aiprov:Source ;
+    aiprov:contentHash "sha256:dd2947dfcbb718830c5ac6c242010b67f3dc18cf9f6d55539cbe47c1da49aaa7" ;
+    aiprov:filePath "scripts/build_review_list.py" ;
+    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/chatgpt-priorities2023> a aiprov:Source ;
     rdfs:label "ChatGPT: five priorities for research"@en ;
@@ -2044,9 +2119,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1109/escience65000.2025.00093"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/provenance-ttl> a aiprov:Source ;
-    aiprov:filePath "provenance.ttl" .
-
 <https://noheton.org/f-ai2-r/prov/source/publishing-strain2024> a aiprov:Source ;
     rdfs:label "The strain on scientific publishing"@en ;
     dcterms:date "2024" ;
@@ -2136,8 +2208,10 @@ aiprov:HumanAgent a owl:Class ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
-<https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> a aiprov:Source ;
-    aiprov:filePath "paper/sections/07-discussion.tex" .
+<https://noheton.org/f-ai2-r/prov/source/CHANGELOG-md> a aiprov:Source ;
+    aiprov:contentHash "sha256:1db1da7d36fc2177bd5969c097610e0558fcfd1aeca067ea59e86be5adddd2c9" ;
+    aiprov:filePath "CHANGELOG.md" ;
+    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> a aiprov:Source ;
     rdfs:label "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing"@en ;
@@ -2166,8 +2240,10 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:filePath "doc/sources/gpt-fabricated2024.pdf" ;
     aiprov:verificationState verif:source-vendored .
 
-<https://noheton.org/f-ai2-r/prov/source/references-bib> a aiprov:Source ;
-    aiprov:filePath "paper/references.bib" .
+<https://noheton.org/f-ai2-r/prov/source/provenance-ttl> a aiprov:Source ;
+    aiprov:contentHash "sha256:14259982e1ad3c6cc270cc4f79d2146257c61473b384b3c53310ceebd6541e07" ;
+    aiprov:filePath "provenance.ttl" ;
+    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/shepard> a aiprov:Source ;
     rdfs:label "shepard - storage for heterogeneous product and research data (v5.1.2, Zenodo archive)"@en,
@@ -2256,6 +2332,16 @@ aiprov:Contribution a owl:Class ;
         <https://noheton.org/f-ai2-r/prov/source/build_metrics-py> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> a aiprov:Source ;
+    aiprov:contentHash "sha256:4d532f3034457f2bc98e98028491d50eb6cf8fb86529ea1edbc6a089a78c6c84" ;
+    aiprov:filePath "paper/sections/07-discussion.tex" ;
+    aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/references-bib> a aiprov:Source ;
+    aiprov:contentHash "sha256:23bc630da48a4f5e78201d6f7e0895ecdb40fda43d538aa9992e7a7e5122c756" ;
+    aiprov:filePath "paper/references.bib" ;
+    aiprov:verificationState verif:source-vendored .
+
 <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.2: repo becomes canonical skill source; ORCID-first setup, base derivation/auto-detection, CI/CD scaffolding (validate + LaTeX-to-PDF artifacts); packaging script; verified by test-run in scratch repository"@en ;
     prov:endedAtTime "2026-07-24T18:28:43.529594+00:00"^^xsd:dateTime ;
@@ -2313,11 +2399,6 @@ aiprov:Contribution a owl:Class ;
     prov:endedAtTime "2026-07-27T07:50:06.740111+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
-
-verif:source-vendored a aiprov:VerificationState ;
-    rdfs:label "source vendored"@en ;
-    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
-    aiprov:ladderPosition 4 .
 
 aiprov:Repair a owl:Class ;
     rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
@@ -2492,6 +2573,11 @@ aiprov:VerificationState a owl:Class ;
 aiprov:Claim a owl:Class ;
     rdfs:comment "An assertion in any artefact that warrants attribution and verification."@en ;
     rdfs:subClassOf prov:Entity .
+
+verif:source-vendored a aiprov:VerificationState ;
+    rdfs:label "source vendored"@en ;
+    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
+    aiprov:ladderPosition 4 .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
     dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
