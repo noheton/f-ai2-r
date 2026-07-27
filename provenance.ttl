@@ -677,10 +677,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012>,
         <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage>,
         <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
-        <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
+        <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016> ;
     aiprov:contentHash "sha256:0f6b3e6665b218d527bbcd404b6c45f127596888482cdf7c20f95d48a971f28b",
         "sha256:348bff9c352d8100c2c308d2d6d557aeed976e529d4ac653cb15d9e412ac7b2d",
         "sha256:4c07f3bc89b11e02d73459a8ff27db5c6113bec464b9de67aca5bb9aea8bcf45",
+        "sha256:4f78a14ac6f9290f1ac55c2febe2b28f24b6315c8b7b883470e11b9b22c62923",
         "sha256:71f509608baa793c77e8bd9f05d5500cafd18943d3e7aa91c4964ce4c866bb11",
         "sha256:8b96ed326fe8afcd8cf7d1c7adf444855f2c7d47ecec4c2b270bd50827650465",
         "sha256:a36e7fbec05e566ca79c60b150a896a9cf5047989b24d40fb962f21c0e654463",
@@ -698,6 +700,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "540e2c2",
         "73a11cd",
         "82ffc86",
+        "9375ead",
         "dbed058" .
 
 <https://noheton.org/f-ai2-r/prov/entity/CITATION-cff> a aiprov:Artefact ;
@@ -750,11 +753,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s42-portability-v011>,
         <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012>,
         <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
-        <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
+        <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016> ;
     aiprov:contentHash "sha256:090a7be7d3bc8e3657cb69971334ffa70881d6c03b3d6092151040363d8defe7",
         "sha256:333e6cfb08385a0003b31e9acdb22e9f83f0bca42fc3b8799e30099d75f7d881",
         "sha256:503f6ea38419390c47520c894c918945d69bdb294f23c1a7e7855336fef02dec",
         "sha256:69443814ed35aede2eb15f12893eb55eb94369d8a5e75ec52f2c07ac3b5c4431",
+        "sha256:7e4a6cfa8401358ff1c7286f4fcd827d64f64cb1629f4f7aba2f56455b0f92e0",
         "sha256:8963ec5023e470b5984b3ec07d503820e874be50c10bc407214fefbff79c198c",
         "sha256:a9557f62a62b10f5d07acc0d11bc80a05232572e74ab8e979a0d0a12cc3d1faa",
         "sha256:bb4ee96784b4141c46e31f52a962d424e1f324f6ec01ead34d2aad3ead3e5384",
@@ -769,6 +774,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "43af99d",
         "540e2c2",
         "82ffc86",
+        "9375ead",
         "dbed058" .
 
 <https://noheton.org/f-ai2-r/prov/entity/aiprov-build-yml> a aiprov:Artefact ;
@@ -782,6 +788,14 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:filePath ".github/workflows/aiprov-build.yml",
         "assets/ci/aiprov-build.yml" ;
     aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b" .
+
+<https://noheton.org/f-ai2-r/prov/entity/aiprov-release-yml> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016> ;
+    aiprov:contentHash "sha256:5182cd6feed660cd94bffa7f0c9d0dfe1b1cda7b35d43db8c7187e2ee1b37776" ;
+    aiprov:filePath ".github/workflows/aiprov-release.yml",
+        "assets/ci/aiprov-release.yml" ;
+    aiprov:gitCommit "9375ead" .
 
 <https://noheton.org/f-ai2-r/prov/entity/aiprov-schema-ttl> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -944,12 +958,15 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/entity/package_skill-sh> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02>,
-        <https://noheton.org/f-ai2-r/prov/activity/s42-portability-v011> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s42-portability-v011>,
+        <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016> ;
     aiprov:contentHash "sha256:4c18e108e830777dcfd2e14f65e1a306ef442e4270707059d35484e682f8881e",
+        "sha256:c1574a3c48077b286ef2fdc805e8aef32319ff9383dbb5fc7769513cc20219e7",
         "sha256:d896197158fc12179d1ca5f8d6608b576c574701a275bca388feaf663e4ae79c" ;
     aiprov:filePath "scripts/package_skill.sh" ;
     aiprov:gitCommit "15a0d94",
-        "30839e87e71b86a51db47795a5fc442765934c4b" .
+        "30839e87e71b86a51db47795a5fc442765934c4b",
+        "9375ead" .
 
 <https://noheton.org/f-ai2-r/prov/entity/provenance-ttl> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -965,10 +982,12 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding>,
         <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate>,
         <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite>,
-        <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
+        <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016> ;
     aiprov:contentHash "sha256:050b861b00097199740a6912116bc116b6f5d443a2b311a31a25b1866cb50e93",
         "sha256:57e8cee93882744d06abf4871026725348f777895c7db1cafd85f101f1e91a7c",
         "sha256:6444b9130086817bc87c05c2a8bb3e8e017f53e5832af9e698aedd559eebbe4e",
+        "sha256:81f585aebc425c372a1975cc898f722441a34a92c162f90e0d3ef7ba8a64e4c7",
         "sha256:85bf422e7a66e7e1f9e823b672bb65d9813bb893fa782309c1059a458acfb6d0",
         "sha256:9fb00e85ac68c52c7a85916982a0cda62e990683d76e1fa4bdecceb233200b5a",
         "sha256:ad4c4e608429248b151d9fa97c045a798981abd550766fe3a8555749e3fc02dc",
@@ -976,6 +995,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:filePath "scripts/provlog.py" ;
     aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b",
         "43af99d",
+        "9375ead",
         "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
 
 <https://noheton.org/f-ai2-r/prov/entity/references-bib> a aiprov:Artefact ;
@@ -1768,6 +1788,12 @@ aiprov:Repair a owl:Class ;
 <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division> a aiprov:AuthoringPass ;
     rdfs:label "Copyright analysis and division-of-work overview. USCO Part 2 copyrightability report registered, content-checked at full-text depth, and vendored (doc/sources/usco-ai-copyrightability2025.pdf, sha256 in graph); discussion paragraph 'Copyright when the machine wrote most of it' cites its conclusions verbatim and argues the per-activity graph is the evidence a rights analysis needs; README license caveat added. Division-of-work table added to the meta-experiment from measured counts: 57 operator direction messages (10 stop-hook messages excluded), 35 AuthoringPass / 41 AuditPass / 1 Repair by the AI agent, 1 Build by CI, 0 human-granted rungs. Telemetry table refreshed."@en ;
     prov:endedAtTime "2026-07-25T18:42:01.038066+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
+<https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016> a aiprov:AuthoringPass ;
+    rdfs:label "Skill v0.16: PDF release pipeline. aiprov-release.yml (template + instantiated workflow): on v* tags, conformance-gated GitHub Release carrying paper PDF, the provenance graph the build was gated on, dashboard, metrics.json, packaged skill, and sha256 checksums; disclosure regenerated from the graph before compiling, so the released PDF's transparency statement cannot lag the record. init --ci now scaffolds build and release workflows (sandbox test-run verified both files written); package bundles the release template and build_metrics.py."@en ;
+    prov:endedAtTime "2026-07-27T06:09:08.598133+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
