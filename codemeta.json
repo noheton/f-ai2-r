@@ -6,7 +6,7 @@
   "codeRepository": "https://github.com/noheton/f-ai2-r",
   "issueTracker": "https://github.com/noheton/f-ai2-r/issues",
   "license": "https://spdx.org/licenses/Apache-2.0",
-  "version": "0.14.0",
+  "version": "0.16.0",
   "dateModified": "2026-07-26",
   "programmingLanguage": "Python",
   "operatingSystem": "OS Independent",

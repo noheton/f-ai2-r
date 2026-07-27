@@ -26,15 +26,19 @@ dashboard and PDF as build artifacts. The current version of the paper
 is always available, and a conformance violation blocks the build. The
 CI service itself is registered as a \texttt{ToolAgent}, and its green
 runs are logged \texttt{Build} activities carrying artifact digests.
+Version tags extend the same discipline to releases: a \texttt{v*}
+tag publishes a conformance-gated release whose assets are the PDF
+together with the graph it was built from, the metrics snapshot, the
+packaged skill, and their checksums, so a release is the artefact
+plus its record.
 
 \textbf{Live preview as oversight affordance.} On request, the agent
 republishes the current typeset build, together with the per-section
 planning skeletons, to a stable preview URL after every editing round
-(Figure~\ref{fig:environment}, right panel). Effective human oversight
-of a fast-moving AI collaborator requires a continuously current view
-of the deliverable, not a repository dig; the EU AI Act's
-human-oversight expectation~\cite{eu-ai-act2024} becomes a
-user-interface property of the workflow.
+(Figure~\ref{fig:environment}, right panel). Effective oversight of
+a fast-moving AI collaborator needs a continuously current view of
+the deliverable; the EU AI Act's human-oversight
+expectation~\cite{eu-ai-act2024} becomes a user-interface property.
 
 \textbf{Structure before prose.} The agent first lays down each
 section's principal structure, its argument flow, evidence, and figure
@@ -46,9 +50,8 @@ ladder were redesigned exactly this way during this experiment.
 
 \textbf{Regulatory fit by construction.} The EU AI Act transparency
 statement is derived from the graph on every build
-(Section~\ref{sec:discussion}); disclosure is a build product, not an
-authoring chore, and adopters inherit the mechanism with the
-scaffolded skeleton.
+(Section~\ref{sec:discussion}); disclosure is a build product, not
+an authoring chore, and adopters inherit the mechanism.
 
 \textbf{Worked example: analysing experimental data.} The workflow is
 not specific to writing papers; consider a study like the comparison
@@ -154,21 +157,20 @@ annotated.}
 \label{fig:cli}
 \end{figure}
 
-\textbf{Versioning the method.} The skill tree is the repository.
-Released snapshots are immutable, changes are logged in a changelog,
-and every activity binds the commit under which it ran, so the
-meta-experiment can cite the exact method version in force at any
-point. The same property makes the skill the transferable unit: the
-bundle that wrote this paper is the integration payload for the
-shepard fork of Section~\ref{sec:conclusion}. Conversations are part
-of the record too: a transcript exporter renders the agent session to
-a committed Markdown file after every turn, and activities link to it,
-so the dialogue that shaped an artefact is as retrievable as the
-artefact.
+\textbf{Versioning the method.} The skill tree is the repository:
+snapshots are immutable, changes are logged, and every activity binds
+its commit, so the meta-experiment can cite the exact method version
+in force at any point. The same property makes the skill the
+transferable unit; the bundle that wrote this paper is the
+integration payload for the shepard fork of
+Section~\ref{sec:conclusion}. Conversations are part of the record
+too: a transcript exporter renders the session to a committed file
+after every turn, and activities link to it, so the dialogue that
+shaped an artefact is as retrievable as the artefact.
 
 \begin{figure}[t]
 \centering
-\resizebox{0.84\columnwidth}{!}{%
+\resizebox{0.80\columnwidth}{!}{%
 \begin{tikzpicture}[
   font=\scriptsize, node distance=2.2mm,
   stp/.style={draw=blue!50!black, fill=blue!10, rounded corners=1.5pt,
