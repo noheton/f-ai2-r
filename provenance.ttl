@@ -1090,7 +1090,8 @@
         <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed>,
         <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
         <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation>,
-        <https://noheton.org/f-ai2-r/prov/activity/s70-worksheet-relevance-order> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s70-worksheet-relevance-order>,
+        <https://noheton.org/f-ai2-r/prov/activity/s73-source-pass-remaining> ;
     aiprov:contentHash "sha256:19db5ad5930b384cec80e36eb66cb6b96447d9d2a47683c8d544fa60e3ecff9b",
         "sha256:437de47907cd202eec3f4c3f459eafb36fbcebc544c31b76dcf5c7714ac4c221",
         "sha256:4589f7bfc5cda8d96c73a07560961887f8465e485bfd8f84514bb34080ec0868",
@@ -1098,10 +1099,12 @@
         "sha256:9bec8fc4bc0bf1ad0fc96c7dfb09be8cf074d0fa40c57591f9cbde747352415e",
         "sha256:d847d04bc3613e89b459f1bc61eeb0f6ed398c2a855b84368f875f12cea5c1ea",
         "sha256:f6723aa1cfd2301ceeed4fcb4b444eeef29ce838982876b39f2c6e6b7cc08544",
+        "sha256:f9058f2613431c3304ca19a7f9dbde308f86ab7da0990f3f2abb1b2c60900a1e",
         "sha256:fb8ca64d527a5ab8dd996c106ef6eca71aac31df370cb2ffe747e73f428fc370" ;
     aiprov:filePath "doc/sources/VERIFICATION.md" ;
     aiprov:gitCommit "4578a83",
         "48ae6b1c018beac3aed6d9ba9e62d3d2a4d2b60c",
+        "5badaf3c53805ddf41aabad11b9c0a1fd4f63910",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "9fba76d",
         "c1703b2",
@@ -1332,11 +1335,13 @@
         <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed>,
         <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
         <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation>,
-        <https://noheton.org/f-ai2-r/prov/activity/s72-skill-version-macro> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s72-skill-version-macro>,
+        <https://noheton.org/f-ai2-r/prov/activity/s73-source-pass-remaining> ;
     aiprov:contentHash "sha256:0ecac01dd6686d42494449da9932c34ddfe521a456f3c9b7396fc334e7cbb893",
         "sha256:10d28f1f212df1d22fe9c87daf1cdd317d7e633b5b230ed0965de50505baa6a0",
         "sha256:111b02d4bc097e1164f5c819d09a0255669c5b48eb304726d78b25cc680d58da",
         "sha256:402166d35efa68d25e296d063b8105d29150917eac55713c9677483a9b483dc6",
+        "sha256:4a200a4de4e3b9172550aac81ea9d795c10c47c1563185b434aec7f59294ccf1",
         "sha256:7287d05be915dc9176785fa10fb9e3f49d7808a95519e969774e7f2c2fdbccfb",
         "sha256:72ea727c498e0ba6d8c7290eb173b5bdb17db6467fd628e6293b0f136eb7a285",
         "sha256:a07a8f86ead8227a8200f1519bbdc1070f55c16107ef3279cf07f22f6d68d8cd",
@@ -1345,6 +1350,7 @@
     aiprov:gitCommit "1fcea34134276d7d10b47e462d14d52ab00f3122",
         "43af99d",
         "4578a83",
+        "5badaf3c53805ddf41aabad11b9c0a1fd4f63910",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "9fba76d",
         "a59c1de",
@@ -1360,19 +1366,22 @@
         <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed>,
         <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
         <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation>,
-        <https://noheton.org/f-ai2-r/prov/activity/s72-skill-version-macro> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s72-skill-version-macro>,
+        <https://noheton.org/f-ai2-r/prov/activity/s73-source-pass-remaining> ;
     aiprov:contentHash "sha256:1b3edb4234474b2f0fc93dfb1b0447feb1e13f049ede37f460c2f1e5b03c480d",
         "sha256:1d22e6fd2ac682c9531be9f5db5f02c23c41d29582529d96a34c1c5e0d3a828e",
         "sha256:244ea7e023117fe07d592c6360f53a0beda305e31b3b1dd28c19698a7065ef3c",
         "sha256:398f03d4d708b71e7c169a0aab509b3a18e17f8ea87c5740804ed0daa6af8438",
         "sha256:4b9cf6fe370d9c66f5723a6fea08c62e3241e15937caac75030af232dcf22de9",
         "sha256:5f5dc1afd6a0df8db05405ad880fde8ff464d48906c26a9bb23df28ede84efef",
+        "sha256:b1559c721a2dbf47180a1f8313d72c65e1babb2a28d957d61f45ec1e25ee34ba",
         "sha256:bb772a66512d5db692acd37ae7d2e31161051d3236cdc20ae149af0ef0eac72f",
         "sha256:d8f7df0c75ff4656919bb9eaa9048db7f935a5d59da02622b931406a8b6e60a8" ;
     aiprov:filePath "paper/metrics.tex" ;
     aiprov:gitCommit "1fcea34134276d7d10b47e462d14d52ab00f3122",
         "43af99d",
         "4578a83",
+        "5badaf3c53805ddf41aabad11b9c0a1fd4f63910",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "9fba76d",
         "a59c1de",
@@ -1416,13 +1425,16 @@
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s02-register-human>,
         <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed>,
         <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
-        <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s73-source-pass-remaining> ;
     aiprov:contentHash "sha256:1962e4cfb168cab3a02b7fc8f213de06f54ef1593cbe2ebf571954d85adb12e6",
         "sha256:90b1bd88ad320a22c98e2d0d23d94bb601a5abb7754c593d360d6a2f722e9fe1",
         "sha256:ac028bddf7b68aca69707016a556a3f8fc29f001d47605b50d5233e543eb17fe",
-        "sha256:ce9c9de5d625851abe745fba3fbdb665aecebe34577f6a20048c375602ebb361" ;
+        "sha256:ce9c9de5d625851abe745fba3fbdb665aecebe34577f6a20048c375602ebb361",
+        "sha256:f384cb31d5add6d750d3785ec681a0b66125cb520af69961532aae4888973a16" ;
     aiprov:filePath "provenance.ttl" ;
-    aiprov:gitCommit "60a4d3a70b4e24159c3555b651f051be69e3901e",
+    aiprov:gitCommit "5badaf3c53805ddf41aabad11b9c0a1fd4f63910",
+        "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
         "f4710311911c087b88722cfb96bbf2dfa9662b3a" .
 
@@ -1781,6 +1793,9 @@ aiprov:verificationState a owl:ObjectProperty ;
     prov:endedAtTime "2026-07-25T18:59:27.595894+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
+<https://noheton.org/f-ai2-r/prov/source/VERIFICATION-md> a aiprov:Source ;
+    aiprov:filePath "doc/sources/VERIFICATION.md" .
 
 <https://noheton.org/f-ai2-r/prov/source/agent-skills-spec> a aiprov:Source ;
     rdfs:label "Agent Skills: an open format for extending AI agent capabilities (specification and adopter list)"@en ;
@@ -2330,6 +2345,12 @@ aiprov:Contribution a owl:Class ;
     prov:endedAtTime "2026-07-27T19:55:25.748815+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/CHANGELOG-md>,
         <https://noheton.org/f-ai2-r/prov/source/build_metrics-py> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/s73-source-pass-remaining> a aiprov:AuditPass ;
+    rdfs:label "Source pass over the remaining not-yet-ready sources (operator request). Nine repository-internal artefacts promoted to source-vendored with the in-repo file as the vendored evidence (path + sha256 recorded): the two discussion/meta section files, README, SKILL.md, CHANGELOG, build_metrics.py, build_review_list.py, provenance.ttl, references.bib, and the archived v0 skill. The one external remainder, resistance-welding2024 (Endrass et al., ITHEC 2024), content-checked at record depth against elib.dlr.de/209478 and promoted to ai-confirmed with abstract quote; currently uncited in the paper and kept as recorded search-horizon evidence. The worksheet's not-yet-ready bucket is now empty."@en ;
+    prov:endedAtTime "2026-07-27T20:17:47.761807+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/VERIFICATION-md> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> a aiprov:Source ;
