@@ -566,16 +566,19 @@
         <https://noheton.org/f-ai2-r/prov/activity/s29-ethics-incentives>,
         <https://noheton.org/f-ai2-r/prov/activity/s30-prose-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s39-audit-repairs>,
-        <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass> ;
     aiprov:contentHash "sha256:1fdc7395fc56edf652a6c2bc0161a5ecb9b52eb3d9e8a1c875b67114d975374c",
         "sha256:40cf8adfa95da80a5b380c8101e1a022ed36b7878d39ded453a3d582b49e2222",
         "sha256:51446ed731fbcb1f923b50a2886c0030c891a1237f68e60e33418a98357756fb",
+        "sha256:5cf1de25a68a7441bdd383496b42b06c3441726b471c04b223229ae955578479",
         "sha256:78e0071f80a541f94bcf17a9070f15b84cfb2326df79c86462560c60f311c8e5",
         "sha256:8f02477e281afd92ced537d1f93211fd4602e422d7d89d789f63cc23fb6ac65e",
         "sha256:f229db9c262237ed1fd7a2254f9a80ca46986168abf6569cd5a62bfe473e1dcd" ;
     aiprov:filePath "paper/sections/03-dilution.tex" ;
     aiprov:gitCommit "1aaab86",
-        "63bde89" .
+        "63bde89",
+        "9fba76d" .
 
 <https://noheton.org/f-ai2-r/prov/entity/03-method-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -940,12 +943,15 @@
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet>,
         <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung>,
-        <https://noheton.org/f-ai2-r/prov/activity/s64-actionable-queue> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s64-actionable-queue>,
+        <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass> ;
     aiprov:contentHash "sha256:19db5ad5930b384cec80e36eb66cb6b96447d9d2a47683c8d544fa60e3ecff9b",
+        "sha256:437de47907cd202eec3f4c3f459eafb36fbcebc544c31b76dcf5c7714ac4c221",
         "sha256:4589f7bfc5cda8d96c73a07560961887f8465e485bfd8f84514bb34080ec0868",
         "sha256:d847d04bc3613e89b459f1bc61eeb0f6ed398c2a855b84368f875f12cea5c1ea" ;
     aiprov:filePath "doc/sources/VERIFICATION.md" ;
     aiprov:gitCommit "4578a83",
+        "9fba76d",
         "c1703b2",
         "fb091d5" .
 
@@ -1161,26 +1167,32 @@
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
         <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160>,
-        <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung> ;
-    aiprov:contentHash "sha256:7287d05be915dc9176785fa10fb9e3f49d7808a95519e969774e7f2c2fdbccfb",
+        <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung>,
+        <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass> ;
+    aiprov:contentHash "sha256:0ecac01dd6686d42494449da9932c34ddfe521a456f3c9b7396fc334e7cbb893",
+        "sha256:7287d05be915dc9176785fa10fb9e3f49d7808a95519e969774e7f2c2fdbccfb",
         "sha256:a07a8f86ead8227a8200f1519bbdc1070f55c16107ef3279cf07f22f6d68d8cd",
         "sha256:a8627d096b9424fc9265f5112b953c88d1d5ed4371d36554f76c74efaec7ed6b" ;
     aiprov:filePath "doc/metrics.json" ;
     aiprov:gitCommit "43af99d",
         "4578a83",
+        "9fba76d",
         "a59c1de" .
 
 <https://noheton.org/f-ai2-r/prov/entity/metrics-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
         <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160>,
-        <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung>,
+        <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass> ;
     aiprov:contentHash "sha256:1d22e6fd2ac682c9531be9f5db5f02c23c41d29582529d96a34c1c5e0d3a828e",
         "sha256:244ea7e023117fe07d592c6360f53a0beda305e31b3b1dd28c19698a7065ef3c",
+        "sha256:5f5dc1afd6a0df8db05405ad880fde8ff464d48906c26a9bb23df28ede84efef",
         "sha256:bb772a66512d5db692acd37ae7d2e31161051d3236cdc20ae149af0ef0eac72f" ;
     aiprov:filePath "paper/metrics.tex" ;
     aiprov:gitCommit "43af99d",
         "4578a83",
+        "9fba76d",
         "a59c1de" .
 
 <https://noheton.org/f-ai2-r/prov/entity/outline-md> a aiprov:Artefact ;
@@ -1231,8 +1243,10 @@
         <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite>,
         <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
         <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016>,
-        <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass> ;
     aiprov:contentHash "sha256:050b861b00097199740a6912116bc116b6f5d443a2b311a31a25b1866cb50e93",
+        "sha256:3acdb43dfb1171c8893bd1bf6bd4ede6b4b0ca65a4406e8b1a3a02d7a23f6caa",
         "sha256:57e8cee93882744d06abf4871026725348f777895c7db1cafd85f101f1e91a7c",
         "sha256:599927d7dcaaa2bd954932596d27c86b7507c91a61526d4ef83178f67309d465",
         "sha256:6444b9130086817bc87c05c2a8bb3e8e017f53e5832af9e698aedd559eebbe4e",
@@ -1246,6 +1260,7 @@
         "43af99d",
         "720c9bf",
         "9375ead",
+        "9fba76d",
         "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
 
 <https://noheton.org/f-ai2-r/prov/entity/references-bib> a aiprov:Artefact ;
@@ -2107,6 +2122,12 @@ verif:reference-resolved a aiprov:VerificationState ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass> a aiprov:AuditPass ;
+    rdfs:label "Content pass over all pending sources at operator direction: 16 promoted to ai-confirmed with evidence quotes and disclosed depths (OpenAlex/Semantic Scholar abstracts; NISO and IDTA registry resolutions; W3C PROV-O Recommendation page; HMC site; elib records with uncertainty-prov2026's Submitted status disclosed; paper-mills2021 finally checked via OpenAlex abstract after the earlier Wiley bot-wall). One repair: the dilution section's 'data swamps' metaphor is the paper's own, absent from the HMC book of abstracts (checked in full, 0 hits) - sentence re-scoped to cite the source only for metadata quality as the central lever. Skipped with reasons: obscurity-is-dead, fair2r-repo, shepard-fork (session repository scope; operator-authored, human rungs are the meaningful check) and resistance-welding2024 (superseded, not cited). Every cited source in the paper is now content-checked at ai-confirmed or above."@en ;
+    prov:endedAtTime "2026-07-27T07:50:06.740111+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 verif:source-vendored a aiprov:VerificationState ;
     rdfs:label "source vendored"@en ;
     rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
@@ -2250,7 +2271,8 @@ aiprov:Claim a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;
