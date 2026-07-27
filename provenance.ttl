@@ -686,9 +686,11 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage>,
         <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
         <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
-        <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016>,
+        <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017> ;
     aiprov:contentHash "sha256:0f6b3e6665b218d527bbcd404b6c45f127596888482cdf7c20f95d48a971f28b",
         "sha256:348bff9c352d8100c2c308d2d6d557aeed976e529d4ac653cb15d9e412ac7b2d",
+        "sha256:4724beffb8c7d95594c38bd4211871098be2f777a24bb628368add8eb3eb53e5",
         "sha256:4c07f3bc89b11e02d73459a8ff27db5c6113bec464b9de67aca5bb9aea8bcf45",
         "sha256:4f78a14ac6f9290f1ac55c2febe2b28f24b6315c8b7b883470e11b9b22c62923",
         "sha256:71f509608baa793c77e8bd9f05d5500cafd18943d3e7aa91c4964ce4c866bb11",
@@ -709,6 +711,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "73a11cd",
         "82ffc86",
         "9375ead",
+        "b387cb9",
         "dbed058" .
 
 <https://noheton.org/f-ai2-r/prov/entity/CITATION-cff> a aiprov:Artefact ;
@@ -765,9 +768,11 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012>,
         <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
         <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
-        <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016>,
+        <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017> ;
     aiprov:contentHash "sha256:090a7be7d3bc8e3657cb69971334ffa70881d6c03b3d6092151040363d8defe7",
         "sha256:333e6cfb08385a0003b31e9acdb22e9f83f0bca42fc3b8799e30099d75f7d881",
+        "sha256:39715e08fca65e1a38fff74a81880f5a6f1e48b5cd1fb93a5acbe78b62ffef0f",
         "sha256:503f6ea38419390c47520c894c918945d69bdb294f23c1a7e7855336fef02dec",
         "sha256:69443814ed35aede2eb15f12893eb55eb94369d8a5e75ec52f2c07ac3b5c4431",
         "sha256:7e4a6cfa8401358ff1c7286f4fcd827d64f64cb1629f4f7aba2f56455b0f92e0",
@@ -786,6 +791,7 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "540e2c2",
         "82ffc86",
         "9375ead",
+        "b387cb9",
         "dbed058" .
 
 <https://noheton.org/f-ai2-r/prov/entity/aiprov-build-yml> a aiprov:Artefact ;
@@ -832,6 +838,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:95a4e1e616f851c9cda13ebacbed940a424ea11594beaf44ee6f15ef993058bf" ;
     aiprov:filePath "references/attributes.md" ;
     aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
+
+<https://noheton.org/f-ai2-r/prov/entity/build_arxiv-py> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017> ;
+    aiprov:contentHash "sha256:14de2342c1aea21f60c296ea382e80269adcfb5a07b1f28d983776a22853f1dd" ;
+    aiprov:filePath "scripts/build_arxiv.py" ;
+    aiprov:gitCommit "b387cb9" .
 
 <https://noheton.org/f-ai2-r/prov/entity/build_dashboard-py> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -979,14 +992,17 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02>,
         <https://noheton.org/f-ai2-r/prov/activity/s42-portability-v011>,
-        <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016>,
+        <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017> ;
     aiprov:contentHash "sha256:4c18e108e830777dcfd2e14f65e1a306ef442e4270707059d35484e682f8881e",
+        "sha256:b5e516bf2313bcfda61fc592df8a58f7429c7778d8855b9a9840e4a7e9e4993e",
         "sha256:c1574a3c48077b286ef2fdc805e8aef32319ff9383dbb5fc7769513cc20219e7",
         "sha256:d896197158fc12179d1ca5f8d6608b576c574701a275bca388feaf663e4ae79c" ;
     aiprov:filePath "scripts/package_skill.sh" ;
     aiprov:gitCommit "15a0d94",
         "30839e87e71b86a51db47795a5fc442765934c4b",
-        "9375ead" .
+        "9375ead",
+        "b387cb9" .
 
 <https://noheton.org/f-ai2-r/prov/entity/provenance-ttl> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1771,6 +1787,12 @@ aiprov:Repair a owl:Class ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017> a aiprov:AuthoringPass ;
+    rdfs:label "arXiv alignment check against the community checklist (trevorcampbell.me/html/arxiv.html, fetched and read) and skill v0.17: build_arxiv.py derives a compliant flattened source tarball (comments stripped, .bbl shipped, references.bib and generated files excluded, pdfoutput forced, four-pass typeout marker), compile-verified standalone at 12 pages matching the repo build; dist/arxiv-0.16.0.tar.gz produced; LaTeX-stripped metadata printed for the submission form. Remaining manual items recorded: license selection on the arXiv form, subject classification, title-line separator when entering the two-line title as one string."@en ;
+    prov:endedAtTime "2026-07-27T06:47:15.452874+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.2: repo becomes canonical skill source; ORCID-first setup, base derivation/auto-detection, CI/CD scaffolding (validate + LaTeX-to-PDF artifacts); packaging script; verified by test-run in scratch repository"@en ;
     prov:endedAtTime "2026-07-24T18:28:43.529594+00:00"^^xsd:dateTime ;
@@ -1961,13 +1983,14 @@ verif:reference-resolved a aiprov:VerificationState ;
         "retrieved"@en ;
     aiprov:ladderPosition 2 .
 
-<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
-
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;
     rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
     aiprov:ladderPosition 3 .
+
+<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 aiprov:Source a owl:Class ;
     rdfs:subClassOf prov:Entity .
