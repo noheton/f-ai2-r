@@ -140,6 +140,12 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/urhg-para2> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-urhg-para2-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of urhg-para2: source-vendored -> human-confirmed (Granted by the human operator in the session ('urhg-para2 human confirmed'; see committed transcript). Operator spot-check of the vendored statute text: s2(2) UrhG reads 'Werke im Sinne dieses Gesetzes sind nur persoenliche geistige Schoepfungen', supporting the copyright paragraph's citing sentence that only personal intellectual creations are protected works in Germany. Command executed by the AI agent at the operator's explicit direction; the judgement and the grant are the human's.)"@en ;
+    prov:endedAtTime "2026-07-27T07:29:46.319760+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/urhg-para2> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-urhg-para2-source-vendored> a aiprov:AuditPass ;
     rdfs:label "Promotion of urhg-para2: ai-confirmed -> source-vendored (Vendored for the access gate. Amtliches Werk per s5 UrhG (official German statute text), public domain.)"@en ;
     prov:endedAtTime "2026-07-27T07:00:19.344337+00:00"^^xsd:dateTime ;
@@ -357,11 +363,6 @@
     prov:endedAtTime "2026-07-24T20:45:01.391020+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/ultrasonic-welding2025> ;
     prov:wasAssociatedWith agent:claude-code .
-
-agent:florian-krebs a aiprov:HumanAgent ;
-    foaf:name "Florian Krebs" ;
-    aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
-    aiprov:orcid "https://orcid.org/0000-0001-6033-801X"^^xsd:anyURI .
 
 <https://noheton.org/f-ai2-r/prov/claim/c1> a aiprov:Claim ;
     rdfs:label "provlog.py validate exits non-zero when the graph contains a parentless or unattributed aiprov:Claim (verified by test-run against a scratch copy of this graph)"@en ;
@@ -1236,11 +1237,6 @@ agent:florian-krebs a aiprov:HumanAgent ;
     dcterms:source <https://elib.dlr.de/224241/> ;
     aiprov:verificationState verif:reference-resolved .
 
-verif:human-confirmed a aiprov:VerificationState ;
-    rdfs:label "human-confirmed"@en ;
-    rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
-    aiprov:ladderPosition 5 .
-
 verif:human-read a aiprov:VerificationState ;
     rdfs:label "human-read"@en ;
     rdfs:comment "A HUMAN has read the source in full. Top of the ladder; consolidates the former lit-read rung. Human-only: an AI agent must never grant this rung."@en ;
@@ -1476,6 +1472,11 @@ aiprov:verificationState a owl:ObjectProperty ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+agent:florian-krebs a aiprov:HumanAgent ;
+    foaf:name "Florian Krebs" ;
+    aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
+    aiprov:orcid "https://orcid.org/0000-0001-6033-801X"^^xsd:anyURI .
+
 <https://noheton.org/f-ai2-r/prov/source/aas-part1-idta> a aiprov:Source ;
     rdfs:label "Specification of the Asset Administration Shell Part 1: Metamodel"@en ;
     aiprov:doi "https://doi.org/10.62628/idta.01001-3-1-1"^^xsd:anyURI ;
@@ -1586,6 +1587,11 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://elib.dlr.de/220058/> ;
     aiprov:doi "https://doi.org/10.1016/j.compositesa.2025.109194"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
+
+verif:human-confirmed a aiprov:VerificationState ;
+    rdfs:label "human-confirmed"@en ;
+    rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
+    aiprov:ladderPosition 5 .
 
 aiprov:ToolAgent a owl:Class ;
     rdfs:label "Deterministic tool"@en ;
@@ -1752,13 +1758,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:selfCitation true ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/urhg-para2> a aiprov:Source ;
-    rdfs:label "Gesetz über Urheberrecht und verwandte Schutzrechte (UrhG), § 2 Geschützte Werke"@en ;
-    dcterms:source <https://www.gesetze-im-internet.de/urhg/__2.html> ;
-    aiprov:contentHash "sha256:934c52dbc789f46a65d1ee8ab5f01c23389bb3a16674d5671d72cbe98336a513" ;
-    aiprov:filePath "doc/sources/urhg-para2.html" ;
-    aiprov:verificationState verif:source-vendored .
-
 <https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> a aiprov:Source ;
     rdfs:label "Copyright and Artificial Intelligence, Part 2: Copyrightability (Report of the Register of Copyrights)"@en ;
     dcterms:source <https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf> ;
@@ -1846,6 +1845,13 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:doi "https://doi.org/10.37016/mr-2020-156"^^xsd:anyURI ;
     aiprov:filePath "doc/sources/gpt-fabricated2024.pdf" ;
     aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/urhg-para2> a aiprov:Source ;
+    rdfs:label "Gesetz über Urheberrecht und verwandte Schutzrechte (UrhG), § 2 Geschützte Werke"@en ;
+    dcterms:source <https://www.gesetze-im-internet.de/urhg/__2.html> ;
+    aiprov:contentHash "sha256:934c52dbc789f46a65d1ee8ab5f01c23389bb3a16674d5671d72cbe98336a513" ;
+    aiprov:filePath "doc/sources/urhg-para2.html" ;
+    aiprov:verificationState verif:human-confirmed .
 
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .
@@ -1947,6 +1953,11 @@ aiprov:Repair a owl:Class ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+verif:source-vendored a aiprov:VerificationState ;
+    rdfs:label "source vendored"@en ;
+    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
+    aiprov:ladderPosition 4 .
+
 <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.8: automatic conversation logging — export_transcript.py renders the session record to doc/transcripts (images/oversized payloads omitted); repository Stop hook regenerates it every turn so the conversation rides into history with each commit; paper preview now also renders the per-section structure skeletons beneath the typeset pages (operator noticed the comment-based structure pass was invisible in the PDF)"@en ;
     prov:endedAtTime "2026-07-24T20:10:21.557937+00:00"^^xsd:dateTime ;
@@ -1980,11 +1991,6 @@ aiprov:Repair a owl:Class ;
     prov:endedAtTime "2026-07-26T05:50:17.172064+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
-
-verif:source-vendored a aiprov:VerificationState ;
-    rdfs:label "source vendored"@en ;
-    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
-    aiprov:ladderPosition 4 .
 
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
@@ -2102,8 +2108,7 @@ verif:ai-confirmed a aiprov:VerificationState ;
     aiprov:ladderPosition 3 .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 aiprov:Source a owl:Class ;
     rdfs:subClassOf prov:Entity .
