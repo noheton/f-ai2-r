@@ -1,7 +1,8 @@
 # F(AI)²R — domain-agnostic AI provenance tracking (`aiprov`)
 
 [![build](https://github.com/noheton/f-ai2-r/actions/workflows/aiprov-build.yml/badge.svg)](https://github.com/noheton/f-ai2-r/actions/workflows/aiprov-build.yml)
-[![license: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![code license: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE)
+[![paper license: CC BY-NC-SA 4.0](https://img.shields.io/badge/paper-CC--BY--NC--SA--4.0-lightgrey.svg)](paper/LICENSE)
 [![citation](https://img.shields.io/badge/cite-CITATION.cff-green.svg)](CITATION.cff)
 
 Records every AI-in-the-loop activity as a [PROV-O](https://www.w3.org/TR/prov-o/)
@@ -120,12 +121,18 @@ verification promotions.
 
 ## License
 
-[Apache-2.0](LICENSE), the patent-granting permissive license common in
-institutional research software; the tooling has no other
-licensing entanglements (pure Python + rdflib). The paper itself
-(`paper/`) is submitted to arXiv under CC BY-NC-SA 4.0
-(Attribution-NonCommercial-ShareAlike) — the operator's recorded
-licensing decision; code and method stay Apache-2.0.
+The repository is dual-licensed by artefact type:
+
+- **Code, skill, schema, tooling** — [Apache-2.0](LICENSE) (with
+  [NOTICE](NOTICE)), the patent-granting permissive license common in
+  institutional research software; the tooling has no other licensing
+  entanglements (pure Python + rdflib).
+- **Paper** (`paper/`, see [paper/LICENSE](paper/LICENSE)) —
+  [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+  (Attribution-NonCommercial-ShareAlike), the operator's recorded
+  licensing decision for the arXiv submission. The method itself stays
+  Apache-2.0: reusing the tooling commercially is fine, republishing
+  the paper commercially is not.
 
 Note: most of this repository was AI-generated under human direction. A
 license grants only what copyright protects — under current guidance

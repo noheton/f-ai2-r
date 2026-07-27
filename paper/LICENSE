@@ -1,0 +1,15 @@
+The paper in this directory (LaTeX sources, sections, figures, and the
+built PDF) is licensed under the Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International license
+(CC BY-NC-SA 4.0), the operator's recorded licensing decision for the
+arXiv submission.
+
+  https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+This license applies to the paper only. The code, skill, schema, and
+tooling in the rest of the repository are licensed under Apache-2.0;
+see the LICENSE and NOTICE files at the repository root.
+
+Generated numeric material in this directory (metrics.tex) is derived
+from the repository's provenance graph by scripts/build_metrics.py and
+carries its methodology in doc/metrics.json.
