@@ -101,7 +101,19 @@ F(AI)²R carry over unchanged:
    automatically by every `promote`, `--refuse`, and `source` call —
    never edit it by hand; hand it to the operator when they walk rungs
    5–6. The paper preview renders it as a collapsible section at the
-   bottom, so the operator's queue travels with the draft.
+   bottom, so the operator's queue travels with the draft. Within each
+   bucket the queue is ordered by computed relevance — the number of
+   `\cite` occurrences across the paper, shown per entry — so the
+   operator checks the most load-bearing sources first; the ordering
+   methodology is disclosed in the worksheet header. Two practices
+   that pay off early: ask the operator to confirm **self-cited
+   sources** first (for works they authored, their judgement is
+   uniquely authoritative and costs them least effort), and when a
+   source's canonical page refuses automated access (script-rendered,
+   bot-walled), record in the promotion note both the failed canonical
+   fetch and the access path actually used — refusing
+   `source-vendored` with that reason is the honest outcome when no
+   redistributable canonical text can be obtained.
 7. **Generate the AI-transparency disclosure** whenever an artefact is
    published or shared: `provlog.py disclosure [--format tex|md] [-o file]`
    derives a statement from the graph itself — which AI systems assisted,
@@ -173,7 +185,7 @@ terms).
 | `scripts/export_transcript.py` | Session → `doc/transcripts/<session>.md` + `--usage` token aggregation (Claude Code session format; see Portability) | Transcript-as-artifact, token backfill |
 | `scripts/build_metrics.py` | Single source of numbers: every quantity the paper cites → `doc/metrics.json` + `paper/metrics.tex` macros | Before every build; rerun = consistency pass |
 | `scripts/build_arxiv.py` | arXiv-ready flattened source tarball (comments stripped, `.bbl` shipped, compile-verified) + plain-text metadata | Preparing a submission |
-| `scripts/build_review_list.py` | `doc/sources/VERIFICATION.md`: per-source human-rung worksheet (rung, citing sections, check evidence, access material, grant/refuse commands) | Before the operator walks rungs 5–6 |
+| `scripts/build_review_list.py` | `doc/sources/VERIFICATION.md`: per-source human-rung worksheet (rung, cite count + citing sections, check evidence, access material, grant/refuse commands), relevance-ordered | Before the operator walks rungs 5–6 |
 | `scripts/build_paper_preview.py` | Compile paper + render self-contained HTML preview (pages + structure notes) | Live preview / "show paper" |
 | `scripts/package_skill.sh` | Zip this tree into a distributable `dist/ai-provenance.skill` | Releasing the skill |
 
@@ -233,3 +245,11 @@ or making the computation reproducible from the record. Counterfactuals ("what
 this would have cost without AI") are not measurable from the record and are
 not estimated — omit-don't-estimate applies to them in full. An unexplained
 number is treated the same as a fabricated one.
+
+**Demonstrations run on copies.** The live graph records only events that
+actually happened. To show the operator how the tooling behaves — a refusal,
+a human-only-rung gate error, a validator failure — copy `provenance.ttl`
+(and `scripts/`) to a scratch directory and run the real commands there,
+presenting the captured output. A staged refusal or demo promotion written
+into the live graph is a fabricated record, however illustrative; the
+honesty rule covers demonstration data in full.

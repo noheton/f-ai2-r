@@ -1,5 +1,36 @@
 # Changelog — ai-provenance skill
 
+## v0.19 (2026-07-27)
+
+- **Review worksheet ordered by computed relevance.**
+  `build_review_list.py` now sorts each bucket by the number of
+  `\cite` occurrences across the paper (section spread as tie-break)
+  and shows the count per entry, so the operator checks the most
+  load-bearing sources first. Relevance is computed, not judged, and
+  the methodology is disclosed in the worksheet header (per the
+  derived-numbers rule). Making the counts visible immediately
+  surfaced two defects, both fixed: the citation matcher treated
+  hyphens as word boundaries (id `hmc` also matched
+  `hmc-conference2025` citations; now exact-key comparison), and one
+  bib key had drifted from the key==source-id convention.
+- **Sandbox demonstrations, never staged records.** New guidance:
+  demonstrate tooling behaviour (refusals, gate errors, validator
+  failures) on a scratch copy of the graph, never by writing staged
+  entries into the live one — the honesty rule covers demo data too.
+  Exercised for the `--refuse` path: hard gate (AI granting a
+  human-only rung, exit 1, nothing written), human refusal, and
+  AI-side refusal, all shown from a copy.
+- **Blocked canonical sources.** When a source's canonical page
+  refuses automated access (script-rendered, bot-walled), record in
+  the promotion note both the failed canonical fetch and the access
+  path actually used; refusing `source-vendored` with that reason is
+  the honest outcome when no redistributable canonical text can be
+  obtained (exercised on OECD/LEGAL-0449).
+- **Self-citations are the operator's class.** Guidance in step 6:
+  ask the operator to confirm self-cited sources early — for works
+  they authored, their judgement is uniquely authoritative and the
+  grant costs them least effort.
+
 ## v0.18 (2026-07-27)
 
 - **Verification queue, self-maintaining and visible.** Every
