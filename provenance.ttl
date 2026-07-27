@@ -802,13 +802,15 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
         <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
         <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016>,
-        <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017>,
+        <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet> ;
     aiprov:contentHash "sha256:090a7be7d3bc8e3657cb69971334ffa70881d6c03b3d6092151040363d8defe7",
         "sha256:333e6cfb08385a0003b31e9acdb22e9f83f0bca42fc3b8799e30099d75f7d881",
         "sha256:39715e08fca65e1a38fff74a81880f5a6f1e48b5cd1fb93a5acbe78b62ffef0f",
         "sha256:503f6ea38419390c47520c894c918945d69bdb294f23c1a7e7855336fef02dec",
         "sha256:69443814ed35aede2eb15f12893eb55eb94369d8a5e75ec52f2c07ac3b5c4431",
         "sha256:7e4a6cfa8401358ff1c7286f4fcd827d64f64cb1629f4f7aba2f56455b0f92e0",
+        "sha256:8466bcfd82adde524e62f1788943865fae758938f1a9e31aaedba144adb3aa2b",
         "sha256:8963ec5023e470b5984b3ec07d503820e874be50c10bc407214fefbff79c198c",
         "sha256:a9557f62a62b10f5d07acc0d11bc80a05232572e74ab8e979a0d0a12cc3d1faa",
         "sha256:bb4ee96784b4141c46e31f52a962d424e1f324f6ec01ead34d2aad3ead3e5384",
@@ -825,7 +827,15 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "82ffc86",
         "9375ead",
         "b387cb9",
-        "dbed058" .
+        "dbed058",
+        "fb091d5" .
+
+<https://noheton.org/f-ai2-r/prov/entity/VERIFICATION-md> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet> ;
+    aiprov:contentHash "sha256:d847d04bc3613e89b459f1bc61eeb0f6ed398c2a855b84368f875f12cea5c1ea" ;
+    aiprov:filePath "doc/sources/VERIFICATION.md" ;
+    aiprov:gitCommit "fb091d5" .
 
 <https://noheton.org/f-ai2-r/prov/entity/ai-hallucination2023-pdf> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -915,6 +925,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:c1cb8cf35473b636c656ab56a4f0b566bb2fd9a7ac6c0bac7f9ae7143c70acac" ;
     aiprov:filePath "scripts/build_paper_preview.py" ;
     aiprov:gitCommit "73a11cd" .
+
+<https://noheton.org/f-ai2-r/prov/entity/build_review_list-py> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet> ;
+    aiprov:contentHash "sha256:bf7306a2b06e3fc5805acb158ad06178289866baa5677d878d37c44e8bc0b170" ;
+    aiprov:filePath "scripts/build_review_list.py" ;
+    aiprov:gitCommit "fb091d5" .
 
 <https://noheton.org/f-ai2-r/prov/entity/codemeta-json> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1057,8 +1074,10 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02>,
         <https://noheton.org/f-ai2-r/prov/activity/s42-portability-v011>,
         <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016>,
-        <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017> ;
-    aiprov:contentHash "sha256:4c18e108e830777dcfd2e14f65e1a306ef442e4270707059d35484e682f8881e",
+        <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017>,
+        <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet> ;
+    aiprov:contentHash "sha256:094d1f36cb0610029a652ef3cdd149d597e57ce165beba6c352e9a512b5be2be",
+        "sha256:4c18e108e830777dcfd2e14f65e1a306ef442e4270707059d35484e682f8881e",
         "sha256:b5e516bf2313bcfda61fc592df8a58f7429c7778d8855b9a9840e4a7e9e4993e",
         "sha256:c1574a3c48077b286ef2fdc805e8aef32319ff9383dbb5fc7769513cc20219e7",
         "sha256:d896197158fc12179d1ca5f8d6608b576c574701a275bca388feaf663e4ae79c" ;
@@ -1066,7 +1085,8 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:gitCommit "15a0d94",
         "30839e87e71b86a51db47795a5fc442765934c4b",
         "9375ead",
-        "b387cb9" .
+        "b387cb9",
+        "fb091d5" .
 
 <https://noheton.org/f-ai2-r/prov/entity/provenance-ttl> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1866,6 +1886,12 @@ aiprov:Repair a owl:Class ;
 <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017> a aiprov:AuthoringPass ;
     rdfs:label "arXiv alignment check against the community checklist (trevorcampbell.me/html/arxiv.html, fetched and read) and skill v0.17: build_arxiv.py derives a compliant flattened source tarball (comments stripped, .bbl shipped, references.bib and generated files excluded, pdfoutput forced, four-pass typeout marker), compile-verified standalone at 12 pages matching the repo build; dist/arxiv-0.16.0.tar.gz produced; LaTeX-stripped metadata printed for the submission form. Remaining manual items recorded: license selection on the arXiv form, subject classification, title-line separator when entering the two-line title as one string."@en ;
     prov:endedAtTime "2026-07-27T06:47:15.452874+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
+<https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet> a aiprov:AuthoringPass ;
+    rdfs:label "Human-rung review worksheet generated: scripts/build_review_list.py derives doc/sources/VERIFICATION.md from the graph - 40 sources sorted highest rung first, each with citing sections, recorded check evidence, access material (vendored copy + sha256 or DOI/URL), and the exact promote/refuse commands; refusal stated as first-class in the preamble. Regenerate after promotions; bundled into the skill package."@en ;
+    prov:endedAtTime "2026-07-27T07:05:13.975929+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
