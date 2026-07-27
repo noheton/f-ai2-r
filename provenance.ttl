@@ -775,12 +775,15 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap>,
         <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012>,
-        <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division>,
+        <https://noheton.org/f-ai2-r/prov/activity/s60-vendoring-license> ;
     aiprov:contentHash "sha256:11926fc41d2b8907c394b6a91cf2118962a545308f08ace90cd50652f38b1690",
+        "sha256:56a60461db27558d2382d3f49f5ed60918c5a9087d0563ef134ee93a99ef2d08",
         "sha256:6f81c25207743e7e34fdbbb1e7c84882f133c107d6269d8f9bdc0a5c0f27b03a",
         "sha256:e236a5c8c927b81935c7034a483dbaa4fa06c3226011f996f5d030cadfac26da" ;
     aiprov:filePath "README.md" ;
-    aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331",
+    aiprov:gitCommit "767b64f",
+        "a0fbb0c638448e9d220ef09da953a271ff3ee331",
         "dbed058",
         "fb1a484" .
 
@@ -823,6 +826,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "9375ead",
         "b387cb9",
         "dbed058" .
+
+<https://noheton.org/f-ai2-r/prov/entity/ai-hallucination2023-pdf> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s60-vendoring-license> ;
+    aiprov:contentHash "sha256:f17aff07c48774946a491a508a9c1be7d5e9298810e2dd4ca2e61afe02d26e15" ;
+    aiprov:filePath "doc/sources/ai-hallucination2023.pdf" ;
+    aiprov:gitCommit "767b64f" .
 
 <https://noheton.org/f-ai2-r/prov/entity/aiprov-build-yml> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -871,10 +881,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
 
 <https://noheton.org/f-ai2-r/prov/entity/build_arxiv-py> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017> ;
-    aiprov:contentHash "sha256:14de2342c1aea21f60c296ea382e80269adcfb5a07b1f28d983776a22853f1dd" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017>,
+        <https://noheton.org/f-ai2-r/prov/activity/s60-vendoring-license> ;
+    aiprov:contentHash "sha256:14de2342c1aea21f60c296ea382e80269adcfb5a07b1f28d983776a22853f1dd",
+        "sha256:a0405fde575428bf98401f3e68a53aeb892c4e98f16b515482e88165a78744ef" ;
     aiprov:filePath "scripts/build_arxiv.py" ;
-    aiprov:gitCommit "b387cb9" .
+    aiprov:gitCommit "767b64f",
+        "b387cb9" .
 
 <https://noheton.org/f-ai2-r/prov/entity/build_dashboard-py> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -948,6 +961,27 @@ agent:florian-krebs a aiprov:HumanAgent ;
         "sha256:e7d118f3194036073ca4c5ec580002687fe28df9ec0f054995a7821b58c797e3" ;
     aiprov:filePath "scripts/export_transcript.py" ;
     aiprov:gitCommit "73a11cd" .
+
+<https://noheton.org/f-ai2-r/prov/entity/fabricated-citations2023-pdf> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s60-vendoring-license> ;
+    aiprov:contentHash "sha256:2a911abde0ab94ad322871af9c259cefe25254324815507157071da1e5e66b83" ;
+    aiprov:filePath "doc/sources/fabricated-citations2023.pdf" ;
+    aiprov:gitCommit "767b64f" .
+
+<https://noheton.org/f-ai2-r/prov/entity/fair2016-pdf> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s60-vendoring-license> ;
+    aiprov:contentHash "sha256:cdddd9f4808f7e3e1f013139c3915ef4d7cdccb008fa947ef5f72b4c7b6ffde7" ;
+    aiprov:filePath "doc/sources/fair2016.pdf" ;
+    aiprov:gitCommit "767b64f" .
+
+<https://noheton.org/f-ai2-r/prov/entity/gpt-fabricated2024-pdf> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s60-vendoring-license> ;
+    aiprov:contentHash "sha256:405b9290833205c2b2673151f3af8be6dd6ecfc767306ca96952a985ccd6a4ec" ;
+    aiprov:filePath "doc/sources/gpt-fabricated2024.pdf" ;
+    aiprov:gitCommit "767b64f" .
 
 <https://noheton.org/f-ai2-r/prov/entity/main-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1124,6 +1158,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging> ;
     aiprov:contentHash "sha256:2396f31f30c335ee351fe5c5ace8a37ded685491f0d02b8388b9b2c458e9d224" ;
     aiprov:filePath ".claude/settings.json" .
+
+<https://noheton.org/f-ai2-r/prov/entity/urhg-para2-html> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s60-vendoring-license> ;
+    aiprov:contentHash "sha256:934c52dbc789f46a65d1ee8ab5f01c23389bb3a16674d5671d72cbe98336a513" ;
+    aiprov:filePath "doc/sources/urhg-para2.html" ;
+    aiprov:gitCommit "767b64f" .
 
 <https://noheton.org/f-ai2-r/prov/entity/usco-ai-copyrightability2025-pdf> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1956,6 +1997,12 @@ verif:source-vendored a aiprov:VerificationState ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s60-vendoring-license> a aiprov:AuditPass ;
+    rdfs:label "Access-gate vendoring pass at operator direction: five additional sources vendored to doc/sources/ with sha256 in the graph (fair2016, fabricated-citations2023, ai-hallucination2023, gpt-fabricated2024 - all CC BY open access; urhg-para2 - amtliches Werk s5 UrhG, public domain), joining the already-vendored USCO report. Vendoring restricted to redistributable licenses because the repository is public; paywalled or unclear-license sources keep DOI/URL as the gate-satisfying access path. EUR-Lex PDF endpoints refused automated download (recorded fallback: official ELI link stays the access path for eu-ai-act2024). Operator's arXiv licensing decision recorded: paper under CC BY-NC-SA 4.0, code and method Apache-2.0; build_arxiv.py prints the decision, README documents the split."@en ;
+    prov:endedAtTime "2026-07-27T07:01:00.885612+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
     rdfs:label "Bootstrap the f-ai2-r repository: vendor aiprov schema, provlog CLI, dashboard builder, attribute catalogue; write README; seed this provenance graph"@en ;
     prov:endedAtTime "2026-07-24T18:09:26.757162+00:00"^^xsd:dateTime ;
@@ -2029,18 +2076,19 @@ verif:ai-confirmed a aiprov:VerificationState ;
     aiprov:ladderPosition 3 .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 aiprov:Source a owl:Class ;
-    rdfs:subClassOf prov:Entity .
-
-aiprov:Artefact a owl:Class ;
-    rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
     rdfs:subClassOf prov:Entity .
 
 aiprov:AuthoringPass a owl:Class ;
     rdfs:comment "AI or human produces/edits an artefact."@en ;
     rdfs:subClassOf prov:Activity .
+
+aiprov:Artefact a owl:Class ;
+    rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
+    rdfs:subClassOf prov:Entity .
 
 aiprov:AuditPass a owl:Class ;
     rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
