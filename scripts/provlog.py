@@ -653,6 +653,21 @@ def cmd_source(a) -> None:
             g.add((act, PROV.wasAssociatedWith, ns(a.base, "agent")[a.agent]))
     save(g)
     print(f"src:{a.id} registered at rung '{state}'")
+    _regen_worksheet()
+
+
+def _regen_worksheet() -> None:
+    """Keep doc/sources/VERIFICATION.md current: best-effort regeneration
+    whenever a command changes the ladder. Never fails the command."""
+    import subprocess
+    script = pathlib.Path(__file__).resolve().parent / "build_review_list.py"
+    if script.exists():
+        r = subprocess.run([sys.executable, str(script)],
+                           capture_output=True, text=True)
+        if r.returncode == 0:
+            print(r.stdout.strip())
+        else:
+            print("worksheet regeneration skipped:", r.stderr.strip()[:200])
 
 
 def cmd_promote(a) -> None:
@@ -692,6 +707,7 @@ def cmd_promote(a) -> None:
         save(g)
         print(f"{a.id}: promotion to {a.to} REFUSED by agent:{a.agent} "
               f"(rung stays {cur}; refusal logged as AuditPass)")
+        _regen_worksheet()
         return
     if LADDER.index(a.to) <= LADDER.index(cur):
         sys.exit(f"'{a.to}' is not above current rung '{cur}' — "
@@ -739,6 +755,7 @@ def cmd_promote(a) -> None:
     g.add((act, PROV.wasAssociatedWith, agent))
     save(g)
     print(f"{a.id}: {cur} -> {a.to} (logged as AuditPass, agent:{a.agent})")
+    _regen_worksheet()
 
 
 def cmd_disclosure(a) -> None:

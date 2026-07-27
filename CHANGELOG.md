@@ -1,5 +1,15 @@
 # Changelog — ai-provenance skill
 
+## v0.18 (2026-07-27)
+
+- **Verification queue, self-maintaining and visible.** Every
+  ladder-changing command (`promote`, `promote --refuse`, `source`)
+  now regenerates `doc/sources/VERIFICATION.md` automatically
+  (best-effort, never fails the command), and the paper preview
+  renders the queue as a collapsible section at the bottom — the
+  operator's human-rung review queue travels with the draft. New
+  workflow guidance in step 6.
+
 ## v0.17 (2026-07-27)
 
 - **arXiv-ready source bundle.** `scripts/build_arxiv.py` derives a
