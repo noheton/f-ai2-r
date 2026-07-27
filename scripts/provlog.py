@@ -664,10 +664,13 @@ def _regen_worksheet() -> None:
     if script.exists():
         r = subprocess.run([sys.executable, str(script)],
                            capture_output=True, text=True)
-        if r.returncode == 0:
-            print(r.stdout.strip())
-        else:
-            print("worksheet regeneration skipped:", r.stderr.strip()[:200])
+        try:
+            if r.returncode == 0:
+                print(r.stdout.strip())
+            else:
+                print("worksheet regeneration skipped:", r.stderr.strip()[:200])
+        except BrokenPipeError:
+            pass  # caller closed stdout (e.g. piped through head) — harmless
 
 
 def cmd_promote(a) -> None:
