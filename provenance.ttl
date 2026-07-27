@@ -913,10 +913,14 @@
 
 <https://noheton.org/f-ai2-r/prov/entity/LICENSE> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012> ;
-    aiprov:contentHash "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30" ;
-    aiprov:filePath "LICENSE" ;
-    aiprov:gitCommit "dbed058" .
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012>,
+        <https://noheton.org/f-ai2-r/prov/activity/s68-readme-dual-license> ;
+    aiprov:contentHash "sha256:1920987a96efadf6b867f1fec31a8f02edfb42a30e1b36987aeb9c0bd338b4e1",
+        "sha256:cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30" ;
+    aiprov:filePath "LICENSE",
+        "paper/LICENSE" ;
+    aiprov:gitCommit "5fd7bf8ab838b3e0a481f21958c5b01f18d6b895",
+        "dbed058" .
 
 <https://noheton.org/f-ai2-r/prov/entity/NOTICE> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -930,13 +934,16 @@
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap>,
         <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012>,
         <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division>,
-        <https://noheton.org/f-ai2-r/prov/activity/s60-vendoring-license> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s60-vendoring-license>,
+        <https://noheton.org/f-ai2-r/prov/activity/s68-readme-dual-license> ;
     aiprov:contentHash "sha256:11926fc41d2b8907c394b6a91cf2118962a545308f08ace90cd50652f38b1690",
         "sha256:56a60461db27558d2382d3f49f5ed60918c5a9087d0563ef134ee93a99ef2d08",
         "sha256:6f81c25207743e7e34fdbbb1e7c84882f133c107d6269d8f9bdc0a5c0f27b03a",
-        "sha256:e236a5c8c927b81935c7034a483dbaa4fa06c3226011f996f5d030cadfac26da" ;
+        "sha256:e236a5c8c927b81935c7034a483dbaa4fa06c3226011f996f5d030cadfac26da",
+        "sha256:ed8488f5411c3c61d85829093c083cf0d647c8406b4d1b0700a54695d3c8628b" ;
     aiprov:filePath "README.md" ;
-    aiprov:gitCommit "767b64f",
+    aiprov:gitCommit "5fd7bf8ab838b3e0a481f21958c5b01f18d6b895",
+        "767b64f",
         "a0fbb0c638448e9d220ef09da953a271ff3ee331",
         "dbed058",
         "fb1a484" .
@@ -1656,6 +1663,9 @@ aiprov:verificationState a owl:ObjectProperty ;
 <https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex> a aiprov:Source ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" .
 
+<https://noheton.org/f-ai2-r/prov/source/README-md> a aiprov:Source ;
+    aiprov:filePath "README.md" .
+
 <https://noheton.org/f-ai2-r/prov/source/agent-skills-spec> a aiprov:Source ;
     rdfs:label "Agent Skills: an open format for extending AI agent capabilities (specification and adopter list)"@en ;
     dcterms:source <https://agentskills.io/> ;
@@ -1825,6 +1835,12 @@ aiprov:Transcript a owl:Class ;
     prov:endedAtTime "2026-07-26T05:30:02.382676+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
+<https://noheton.org/f-ai2-r/prov/activity/s68-readme-dual-license> a aiprov:AuthoringPass ;
+    rdfs:label "README licensing made explicit on operator request ('update readme - new license'): badge row split into code (Apache-2.0) and paper (CC BY-NC-SA 4.0), License section restructured around the two artefact types, and paper/LICENSE added so the operator's recorded arXiv licensing decision travels with the paper directory. No license terms changed; this documents the split already decided by the operator."@en ;
+    prov:endedAtTime "2026-07-27T11:13:18.667077+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/README-md> ;
+    prov:wasAssociatedWith agent:claude-code .
 
 agent:github-actions a aiprov:ToolAgent ;
     foaf:name "GitHub Actions (aiprov build workflow)" ;
@@ -2389,13 +2405,13 @@ verif:ai-confirmed a aiprov:VerificationState ;
 aiprov:Source a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
-aiprov:AuthoringPass a owl:Class ;
-    rdfs:comment "AI or human produces/edits an artefact."@en ;
-    rdfs:subClassOf prov:Activity .
-
 aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
     rdfs:subClassOf prov:Entity .
+
+aiprov:AuthoringPass a owl:Class ;
+    rdfs:comment "AI or human produces/edits an artefact."@en ;
+    rdfs:subClassOf prov:Activity .
 
 aiprov:AuditPass a owl:Class ;
     rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;
