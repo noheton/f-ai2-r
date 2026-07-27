@@ -20,14 +20,14 @@ and response, would eliminate exactly that class of misreporting, and
 would subsume this paper's other provider asks (reported cost and
 energy, unambiguous roles) as by-products. It would not, however, be
 tamper-\emph{proof}, on three grounds. Trust shifts rather than
-vanishes: a signature proves the provider asserted the record, so key
-custody, compromise, and compulsion move to the centre. Coverage
-stops at the API seam: the server can attest what passed through it,
-not which files were touched, what CI ran, or the semantic bindings
-between an attested inference and a repository artefact, so a
-dishonest client can still mis-bind. And judgements stay judgements:
-a signature proves a model emitted a verdict, not that the verdict is
-sound, and no server can attest that a human read a source. The
+vanishes: a signature proves the provider asserted the record, so
+key custody moves to the centre. Coverage stops at the API seam: the
+server can attest what passed through it, not which files were
+touched or how an attested inference binds to a repository artefact,
+so a dishonest client can still mis-bind. And judgements stay
+judgements: a signature proves a model emitted a verdict, not that
+the verdict is sound, and no server can attest that a human read a
+source. The
 realistic endpoint is a \emph{dual witness}: provider-signed
 inference logs and repository-side commit binding, each referencing
 the other's hashes, so that falsifying the record requires collusion
@@ -129,7 +129,14 @@ for disclosure and machine-readable marking of AI-generated
 content~\cite{eu-ai-act2024}. A provenance graph is exactly that
 marking, and because CI derives the disclosure statement from the
 graph on every build, the published statement cannot lag the record.
-Provenance-first authoring turns a compliance duty into a by-product.
+Beyond the EU, the OECD AI Principles, the first intergovernmental
+AI standard, ask AI actors to ``ensure traceability, including in
+relation to datasets, processes and decisions made during the AI
+system lifecycle''~\cite{oecd-ai-principles2024}: a per-activity
+provenance graph in all but name, and the OECD.AI observatory's
+incident monitoring aggregates exactly such per-project records.
+Provenance-first authoring turns a compliance duty into a
+by-product.
 
 \textbf{Generality.} Beyond papers, the same invariants and ladder
 apply to code, data pipelines, CAD models, and AAS
