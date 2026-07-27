@@ -506,18 +506,21 @@ agent:florian-krebs a aiprov:HumanAgent ;
         <https://noheton.org/f-ai2-r/prov/activity/s33-example-swap>,
         <https://noheton.org/f-ai2-r/prov/activity/s38-auditability-examples>,
         <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure>,
+        <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160> ;
     aiprov:contentHash "sha256:263f241a9b520e394b3fd1439163cad4f5285cfc9eeb4a8fcf8703b3eb7d5031",
         "sha256:359f3cdd6b2e1428bade3fa2e4ceabc1ca5f6fdccd83bb508278f0550699521e",
         "sha256:4ce056ab41dddb7f64d9ea6ae775f94a04a1e8458dca49a61eac33bccfc7bc47",
         "sha256:6bd2f83a93a0033e1224833566e5b566d3e0abc7111e5708e578014162734e41",
         "sha256:7cf24beebcbd7d28f24f35b3f4f7e756b1ba5f78eddac5e149ed25663547a8f5",
+        "sha256:9ee0f776fc05993ed490ce634d30046d8f37e8c7547b5eabe2e543b208711340",
         "sha256:a1885b28f19c8898eec42ef7dc28da66248a830fe690867b4457f7bd8cb3fb67",
         "sha256:e3e8528cf28abef84031f723e1ba7f3e9ae4d042d94bb6e0f12fbb6f4e4a1b24",
         "sha256:fbafa0a7ff24c77d55224cab12115e1984b8e18c5251ac24a75eb4ee106164b1" ;
     aiprov:filePath "paper/sections/05-skill.tex" ;
     aiprov:gitCommit "1aaab86",
         "42d3042",
+        "a59c1de",
         "cf16dd2" .
 
 <https://noheton.org/f-ai2-r/prov/entity/06-discussion-tex> a aiprov:Artefact ;
@@ -706,11 +709,14 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/entity/CITATION-cff> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012>,
-        <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass> ;
-    aiprov:contentHash "sha256:578727823e5f494d7c07acc3b871c5c582560de43f1b509988f8b90200fd7513",
+        <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160> ;
+    aiprov:contentHash "sha256:425e1445fd8c26066ef35d3204d67db8ba3efcedabcc78a07bd342630ab16258",
+        "sha256:578727823e5f494d7c07acc3b871c5c582560de43f1b509988f8b90200fd7513",
         "sha256:f1758cc6b965ff81c525d0256877aa07a25e6e2850187b092a63fe8537dcf181" ;
     aiprov:filePath "CITATION.cff" ;
     aiprov:gitCommit "8984dcb",
+        "a59c1de",
         "dbed058" .
 
 <https://noheton.org/f-ai2-r/prov/entity/LICENSE> a aiprov:Artefact ;
@@ -852,11 +858,14 @@ agent:florian-krebs a aiprov:HumanAgent ;
 <https://noheton.org/f-ai2-r/prov/entity/codemeta-json> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012>,
-        <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160> ;
     aiprov:contentHash "sha256:21f48c6fd645f3a9103314dd87d3569703a1ba81216c1f05fa4a4d89d8b35734",
-        "sha256:d217a2538acf9254d7378eba10e37087fea72d374b5975ff9e1c265f8104c11a" ;
+        "sha256:d217a2538acf9254d7378eba10e37087fea72d374b5975ff9e1c265f8104c11a",
+        "sha256:f53d4bc8fade2754cfb3c3201a6f43ca60cd22674dc51d8d29a2dbb00d625f90" ;
     aiprov:filePath "codemeta.json" ;
     aiprov:gitCommit "8984dcb",
+        "a59c1de",
         "dbed058" .
 
 <https://noheton.org/f-ai2-r/prov/entity/dashboard-png> a aiprov:Artefact ;
@@ -930,17 +939,23 @@ agent:florian-krebs a aiprov:HumanAgent ;
 
 <https://noheton.org/f-ai2-r/prov/entity/metrics-json> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015> ;
-    aiprov:contentHash "sha256:7287d05be915dc9176785fa10fb9e3f49d7808a95519e969774e7f2c2fdbccfb" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
+        <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160> ;
+    aiprov:contentHash "sha256:7287d05be915dc9176785fa10fb9e3f49d7808a95519e969774e7f2c2fdbccfb",
+        "sha256:a07a8f86ead8227a8200f1519bbdc1070f55c16107ef3279cf07f22f6d68d8cd" ;
     aiprov:filePath "doc/metrics.json" ;
-    aiprov:gitCommit "43af99d" .
+    aiprov:gitCommit "43af99d",
+        "a59c1de" .
 
 <https://noheton.org/f-ai2-r/prov/entity/metrics-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015> ;
-    aiprov:contentHash "sha256:1d22e6fd2ac682c9531be9f5db5f02c23c41d29582529d96a34c1c5e0d3a828e" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
+        <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160> ;
+    aiprov:contentHash "sha256:1d22e6fd2ac682c9531be9f5db5f02c23c41d29582529d96a34c1c5e0d3a828e",
+        "sha256:bb772a66512d5db692acd37ae7d2e31161051d3236cdc20ae149af0ef0eac72f" ;
     aiprov:filePath "paper/metrics.tex" ;
-    aiprov:gitCommit "43af99d" .
+    aiprov:gitCommit "43af99d",
+        "a59c1de" .
 
 <https://noheton.org/f-ai2-r/prov/entity/outline-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1794,6 +1809,12 @@ aiprov:Repair a owl:Class ;
 <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.16: PDF release pipeline. aiprov-release.yml (template + instantiated workflow): on v* tags, conformance-gated GitHub Release carrying paper PDF, the provenance graph the build was gated on, dashboard, metrics.json, packaged skill, and sha256 checksums; disclosure regenerated from the graph before compiling, so the released PDF's transparency statement cannot lag the record. init --ci now scaffolds build and release workflows (sandbox test-run verified both files written); package bundles the release template and build_metrics.py."@en ;
     prov:endedAtTime "2026-07-27T06:09:08.598133+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
+<https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160> a aiprov:AuthoringPass ;
+    rdfs:label "Release v0.16.0 prepared and tagged at operator direction: release discipline stated in the paper's CI paragraph, metrics regenerated as the release snapshot, CITATION.cff/codemeta synced to 0.16.0. The tag triggers aiprov-release.yml: conformance gate, disclosure regenerated from the graph, PDF compiled, GitHub Release published with paper PDF, provenance graph, dashboard, metrics.json, skill bundle, and sha256 checksums."@en ;
+    prov:endedAtTime "2026-07-27T06:21:54.332250+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
