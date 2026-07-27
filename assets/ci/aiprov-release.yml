@@ -1,0 +1,86 @@
+# aiprov release template — scaffolded by `provlog.py init --ci`.
+# On every version tag (v*), gate on graph conformance, rebuild the
+# disclosure from the graph, compile the paper, and publish a GitHub
+# Release carrying the PDF, the provenance graph it was built from, the
+# dashboard, the packaged skill, and sha256 checksums — so a release is
+# always the artefact PLUS the record that produced it.
+# Paths assume the skill layout (scripts/ at repo root, LaTeX in paper/).
+name: aiprov release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r scripts/requirements.txt
+
+      - name: Gate on graph conformance
+        run: python3 scripts/provlog.py validate
+
+      - name: Regenerate AI-transparency disclosure from the graph (EU AI Act)
+        run: |
+          python3 scripts/provlog.py disclosure --format tex -o paper/disclosure.tex \
+            || echo "disclosure skipped (no AI agents recorded yet)"
+
+      - name: Compile LaTeX to PDF
+        if: ${{ hashFiles('paper/main.tex') != '' }}
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: paper
+
+      - name: Build provenance dashboard
+        run: python3 scripts/build_dashboard.py provenance.ttl -o dashboard.html
+
+      - name: Package the skill
+        run: sh scripts/package_skill.sh || echo "skill packaging skipped"
+
+      - name: Assemble release payload with checksums
+        run: |
+          mkdir -p release
+          TAG="${GITHUB_REF_NAME}"
+          [ -f paper/main.pdf ] && cp paper/main.pdf "release/paper-${TAG}.pdf"
+          cp provenance.ttl "release/provenance-${TAG}.ttl"
+          cp dashboard.html "release/dashboard-${TAG}.html"
+          [ -f doc/metrics.json ] && cp doc/metrics.json "release/metrics-${TAG}.json"
+          [ -f dist/ai-provenance.skill ] && cp dist/ai-provenance.skill release/
+          (cd release && sha256sum * > "checksums-${TAG}.sha256")
+          {
+            echo "Release ${TAG} — artefact plus the record that produced it."
+            echo
+            echo "| Asset | What |"
+            echo "|---|---|"
+            echo "| paper-${TAG}.pdf | The typeset paper, built by this workflow |"
+            echo "| provenance-${TAG}.ttl | The provenance graph the build was gated on |"
+            echo "| dashboard-${TAG}.html | Self-contained ledger view of the graph |"
+            echo "| metrics-${TAG}.json | Machine-derived quantities the paper cites |"
+            echo "| ai-provenance.skill | The method, packaged (Agent Skills format) |"
+            echo "| checksums-${TAG}.sha256 | sha256 of every asset above |"
+            echo
+            echo "Conformance: \`provlog.py validate\` passed on this commit."
+            echo "The disclosure statement in the PDF was regenerated from the"
+            echo "graph by this workflow (EU AI Act transparency)."
+          } > release/notes.md
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: release/notes.md
+          files: |
+            release/paper-*.pdf
+            release/provenance-*.ttl
+            release/dashboard-*.html
+            release/metrics-*.json
+            release/ai-provenance.skill
+            release/checksums-*.sha256

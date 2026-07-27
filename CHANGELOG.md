@@ -1,5 +1,17 @@
 # Changelog — ai-provenance skill
 
+## v0.16 (2026-07-26)
+
+- **PDF release pipeline.** New CI template
+  `assets/ci/aiprov-release.yml`, scaffolded by `init --ci` alongside
+  the build workflow: on every `v*` tag it gates on graph conformance,
+  regenerates the disclosure from the graph, compiles the paper, and
+  publishes a GitHub Release carrying the PDF, the provenance graph it
+  was built from, the dashboard, `metrics.json`, the packaged skill,
+  and sha256 checksums — a release is the artefact *plus* the record
+  that produced it. The package now also bundles `build_metrics.py`
+  and the release template.
+
 ## v0.15 (2026-07-26)
 
 - **Single source of numbers.** New `scripts/build_metrics.py` computes

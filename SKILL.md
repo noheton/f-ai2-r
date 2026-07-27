@@ -50,7 +50,11 @@ F(AI)²R carry over unchanged:
      the dashboard, regenerates the AI-transparency disclosure, and compiles
      `paper/main.tex` to PDF via latexmk, uploading dashboard and PDF as
      workflow artifacts so the current version of the paper is always
-     available.
+     available. It also writes `aiprov-release.yml`: pushing a `v*` tag
+     publishes a conformance-gated GitHub Release carrying the PDF, the
+     provenance graph it was built from, the dashboard, `metrics.json`,
+     the packaged skill, and sha256 checksums — a release is the artefact
+     plus its record.
    - `--paper` scaffolds `paper/` from `assets/paper/`: a compilable
      chapter-per-file LaTeX skeleton (IEEEtran; `main.tex` is a thin shell
      over `sections/*.tex` — write prose only there), author block filled
@@ -156,6 +160,7 @@ terms).
 |---|---|---|
 | `assets/aiprov-schema.ttl` | Full vocabulary: agent/activity/entity classes + all attributes + verification ladder | Seeding, hand-editing, extending |
 | `assets/ci/aiprov-build.yml` | GitHub Actions template: validate graph, build dashboard, compile LaTeX paper to PDF, upload artifacts | Scaffolded by `init --ci` |
+| `assets/ci/aiprov-release.yml` | GitHub Actions template: on `v*` tags, conformance-gated GitHub Release with PDF + graph + dashboard + metrics + skill bundle + sha256 checksums | Scaffolded by `init --ci` |
 | `scripts/provlog.py` | CLI: init / agent / log / claim / validate / report / search / source / promote / disclosure / extract | Always — prefer it over hand-writing Turtle |
 | `references/attributes.md` | Attribute catalogue with provider-API field mappings | Filling telemetry correctly |
 | `scripts/build_dashboard.py` | Self-contained HTML dashboard from provenance.ttl | Presenting results |

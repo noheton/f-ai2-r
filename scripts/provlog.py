@@ -78,6 +78,7 @@ def now() -> Literal:
 
 
 CI_TEMPLATE = pathlib.Path(__file__).resolve().parent.parent / "assets" / "ci" / "aiprov-build.yml"
+RELEASE_TEMPLATE = CI_TEMPLATE.parent / "aiprov-release.yml"
 PAPER_TEMPLATE = pathlib.Path(__file__).resolve().parent.parent / "assets" / "paper"
 
 
@@ -140,14 +141,20 @@ def cmd_init(a) -> None:
                           if a.orcid else "0000-0000-0000-0000"),
         }, a.force)
     if a.ci:
-        dst = pathlib.Path(".github/workflows/aiprov-build.yml")
-        if dst.exists() and not a.force:
-            print(f"{dst} exists; skipped (use --force to overwrite)")
-        else:
-            dst.parent.mkdir(parents=True, exist_ok=True)
-            dst.write_text(CI_TEMPLATE.read_text(encoding="utf-8"), encoding="utf-8")
-            print(f"CI workflow scaffolded -> {dst} "
-                  f"(validates the graph, builds paper/ LaTeX to PDF, uploads artifacts)")
+        for tmpl, name, what in (
+            (CI_TEMPLATE, "aiprov-build.yml",
+             "validates the graph, builds paper/ LaTeX to PDF, uploads artifacts"),
+            (RELEASE_TEMPLATE, "aiprov-release.yml",
+             "on v* tags: conformance-gated GitHub Release with PDF, graph, "
+             "dashboard, skill bundle, and checksums"),
+        ):
+            dst = pathlib.Path(".github/workflows") / name
+            if dst.exists() and not a.force:
+                print(f"{dst} exists; skipped (use --force to overwrite)")
+            else:
+                dst.parent.mkdir(parents=True, exist_ok=True)
+                dst.write_text(tmpl.read_text(encoding="utf-8"), encoding="utf-8")
+                print(f"CI workflow scaffolded -> {dst} ({what})")
     print("next steps:")
     print("  provlog.py agent --id <model-id> --type ai --model <model-id> --provider <provider>")
     print("  provlog.py log --activity s01-<slug> --agent <id> --label \"...\" --generated <path>")
@@ -845,7 +852,10 @@ def main() -> None:
                    "with name/affiliation resolved from the public registry")
     s.add_argument("--human-id", dest="human_id", help="agent id for the owner (default: name slug)")
     s.add_argument("--ci", action="store_true",
-                   help="scaffold .github/workflows/aiprov-build.yml (validate graph, build LaTeX paper to PDF)")
+                   help="scaffold .github/workflows/aiprov-build.yml (validate "
+                   "graph, build LaTeX paper to PDF on every push) and "
+                   "aiprov-release.yml (conformance-gated GitHub Release with "
+                   "PDF, graph, dashboard, skill bundle + checksums on v* tags)")
     s.add_argument("--paper", action="store_true",
                    help="scaffold paper/ (chapter-per-file LaTeX skeleton with "
                         "AI-transparency acknowledgement wired to provlog disclosure)")
