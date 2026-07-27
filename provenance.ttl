@@ -713,7 +713,8 @@
         <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure>,
         <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
-        <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung>,
+        <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed> ;
     aiprov:contentHash "sha256:1990ebaa3dffa13626c417064c24e8dc4c1eb64681be4e09373abe328b6e842e",
         "sha256:1e6886e01eb1a921111e3aa4bdcd33fa82caa63089c14600bff9610ad8982abb",
         "sha256:3c8f52250d24db413e33d7c3c71432f1a3f8e1366b10fde8c9060167722c7e64",
@@ -726,6 +727,7 @@
         "sha256:9d0461aba72aaaf3ed800249cea37733665ed152dd1c9566bb45895f53f71ecb",
         "sha256:b1db9415997e92b7647bee623bf214ed2e01548d09e7ce0c7acdd29ccbac1d40",
         "sha256:b7fd4b09d8f7bcfd2b0395d56df5dc5b4dc028afd3e9144ecdbe0dac04785cf1",
+        "sha256:be480c648fbedb68fd4dd11e1e27910ba8090488d0ca113a40dfe47a858b9842",
         "sha256:c0304e48cc0c4957b25b82c2bcc58cc0a875e120575dda4f97569d800a45985f",
         "sha256:c6e2d6abf48db6d9180b423ddb7aaa6fe557a91dcff7d8d0ef053d4c54b96adf",
         "sha256:f245b62d59e26d0b7d0dab6ec6a099d631dde182f2c067170f22948705286520",
@@ -743,6 +745,7 @@
         "8984dcb",
         "b9d1293",
         "cf16dd2",
+        "f4710311911c087b88722cfb96bbf2dfa9662b3a",
         "fb1a484" .
 
 <https://noheton.org/f-ai2-r/prov/entity/07-conclusion-tex> a aiprov:Artefact ;
@@ -774,7 +777,8 @@
         <https://noheton.org/f-ai2-r/prov/activity/s52-shepard-zenodo-industry>,
         <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure>,
         <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
+        <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed> ;
     aiprov:contentHash "sha256:0ae502fea46692d008b14632d42884f5e64adfa7b4cda32ff4fb0a96ac6f1860",
         "sha256:12d5dd72efdf48971de13781d1fada4d0387bd37160ecd4387c0be54ca81f402",
         "sha256:15a12cee502951add09328fc131772fe7655d80a61a6e83b7d4b3055b4965649",
@@ -792,6 +796,7 @@
         "sha256:b49516b4dd9d146ac0a75c765085b478fa897713950184d495ee9d568ef15763",
         "sha256:b600eebd1cc748d22001591a480735f2593dde0e3468a1aabf7202639d69b338",
         "sha256:bf6cf0ab48d380c311988c7ad6ed06ae16615bab326d7dfa4cbfcb74522ae56b",
+        "sha256:d4c8b406513d24c4050d755ac2267883cd0fceb27a183219e320e6f53a471eb5",
         "sha256:e0d31c329699c1e2f468063a79a86c452a67be98e11c200c22710bca0c250e20",
         "sha256:e9ed6006dbdaf5586dfcab386f5c35f4a7665263ceafeb8fae055e89cc2b66a1",
         "sha256:ef93fac17f8294ef6def9eee48bf447394bac69c0609d6289d28d45631c598b2",
@@ -808,6 +813,7 @@
         "73a11cd",
         "82ffc86",
         "8984dcb",
+        "f4710311911c087b88722cfb96bbf2dfa9662b3a",
         "fb1a484" .
 
 <https://noheton.org/f-ai2-r/prov/entity/08-conclusion-tex> a aiprov:Artefact ;
@@ -974,15 +980,18 @@
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet>,
         <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung>,
         <https://noheton.org/f-ai2-r/prov/activity/s64-actionable-queue>,
-        <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed> ;
     aiprov:contentHash "sha256:19db5ad5930b384cec80e36eb66cb6b96447d9d2a47683c8d544fa60e3ecff9b",
         "sha256:437de47907cd202eec3f4c3f459eafb36fbcebc544c31b76dcf5c7714ac4c221",
         "sha256:4589f7bfc5cda8d96c73a07560961887f8465e485bfd8f84514bb34080ec0868",
-        "sha256:d847d04bc3613e89b459f1bc61eeb0f6ed398c2a855b84368f875f12cea5c1ea" ;
+        "sha256:d847d04bc3613e89b459f1bc61eeb0f6ed398c2a855b84368f875f12cea5c1ea",
+        "sha256:f6723aa1cfd2301ceeed4fcb4b444eeef29ce838982876b39f2c6e6b7cc08544" ;
     aiprov:filePath "doc/sources/VERIFICATION.md" ;
     aiprov:gitCommit "4578a83",
         "9fba76d",
         "c1703b2",
+        "f4710311911c087b88722cfb96bbf2dfa9662b3a",
         "fb091d5" .
 
 <https://noheton.org/f-ai2-r/prov/entity/ai-hallucination2023-pdf> a aiprov:Artefact ;
@@ -1198,8 +1207,10 @@
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
         <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160>,
         <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung>,
-        <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed> ;
     aiprov:contentHash "sha256:0ecac01dd6686d42494449da9932c34ddfe521a456f3c9b7396fc334e7cbb893",
+        "sha256:402166d35efa68d25e296d063b8105d29150917eac55713c9677483a9b483dc6",
         "sha256:7287d05be915dc9176785fa10fb9e3f49d7808a95519e969774e7f2c2fdbccfb",
         "sha256:a07a8f86ead8227a8200f1519bbdc1070f55c16107ef3279cf07f22f6d68d8cd",
         "sha256:a8627d096b9424fc9265f5112b953c88d1d5ed4371d36554f76c74efaec7ed6b" ;
@@ -1207,23 +1218,27 @@
     aiprov:gitCommit "43af99d",
         "4578a83",
         "9fba76d",
-        "a59c1de" .
+        "a59c1de",
+        "f4710311911c087b88722cfb96bbf2dfa9662b3a" .
 
 <https://noheton.org/f-ai2-r/prov/entity/metrics-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
         <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160>,
         <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung>,
-        <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed> ;
     aiprov:contentHash "sha256:1d22e6fd2ac682c9531be9f5db5f02c23c41d29582529d96a34c1c5e0d3a828e",
         "sha256:244ea7e023117fe07d592c6360f53a0beda305e31b3b1dd28c19698a7065ef3c",
+        "sha256:398f03d4d708b71e7c169a0aab509b3a18e17f8ea87c5740804ed0daa6af8438",
         "sha256:5f5dc1afd6a0df8db05405ad880fde8ff464d48906c26a9bb23df28ede84efef",
         "sha256:bb772a66512d5db692acd37ae7d2e31161051d3236cdc20ae149af0ef0eac72f" ;
     aiprov:filePath "paper/metrics.tex" ;
     aiprov:gitCommit "43af99d",
         "4578a83",
         "9fba76d",
-        "a59c1de" .
+        "a59c1de",
+        "f4710311911c087b88722cfb96bbf2dfa9662b3a" .
 
 <https://noheton.org/f-ai2-r/prov/entity/outline-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1259,9 +1274,12 @@
 
 <https://noheton.org/f-ai2-r/prov/entity/provenance-ttl> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s02-register-human> ;
-    aiprov:contentHash "sha256:ce9c9de5d625851abe745fba3fbdb665aecebe34577f6a20048c375602ebb361" ;
-    aiprov:filePath "provenance.ttl" .
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s02-register-human>,
+        <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed> ;
+    aiprov:contentHash "sha256:90b1bd88ad320a22c98e2d0d23d94bb601a5abb7754c593d360d6a2f722e9fe1",
+        "sha256:ce9c9de5d625851abe745fba3fbdb665aecebe34577f6a20048c375602ebb361" ;
+    aiprov:filePath "provenance.ttl" ;
+    aiprov:gitCommit "f4710311911c087b88722cfb96bbf2dfa9662b3a" .
 
 <https://noheton.org/f-ai2-r/prov/entity/provlog-py> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1608,6 +1626,12 @@ aiprov:verificationState a owl:ObjectProperty ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex> a aiprov:Source ;
+    aiprov:filePath "paper/sections/06-meta-experiment.tex" .
+
+<https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> a aiprov:Source ;
+    aiprov:filePath "paper/sections/07-discussion.tex" .
+
 <https://noheton.org/f-ai2-r/prov/source/agent-skills-spec> a aiprov:Source ;
     rdfs:label "Agent Skills: an open format for extending AI agent capabilities (specification and adopter list)"@en ;
     dcterms:source <https://agentskills.io/> ;
@@ -1657,6 +1681,9 @@ aiprov:verificationState a owl:ObjectProperty ;
     rdfs:label "An overview of Provenance and its use cases (Carina Haupt, RDA Deutschland Tagung 2022)"@en ;
     dcterms:source <https://elib.dlr.de/185438/> ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/provenance-ttl> a aiprov:Source ;
+    aiprov:filePath "provenance.ttl" .
 
 <https://noheton.org/f-ai2-r/prov/source/shepard-fork> a aiprov:Source ;
     rdfs:label "Experimental fork of shepard (development/research workspace, /v2 experimental endpoints)"@en ;
@@ -2186,6 +2213,14 @@ verif:source-vendored a aiprov:VerificationState ;
     prov:endedAtTime "2026-07-26T05:50:17.172064+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
+<https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Records the operator's instruction 'confirm my selfcitations': five self-cited, operator-authored sources promoted to human-confirmed by florian-krebs (the judgement and grants are the human's; this activity only documents them and updates the narrative). Also compresses the outdated section 6 content-pass passage to hold the 12-page cap. Human-confirmed rungs now total 6."@en ;
+    prov:endedAtTime "2026-07-27T08:14:06.914025+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex>,
+        <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex>,
+        <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> ;
+    prov:wasAssociatedWith agent:claude-code .
 
 agent:florian-krebs a aiprov:HumanAgent ;
     foaf:name "Florian Krebs" ;
