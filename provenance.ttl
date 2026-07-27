@@ -721,9 +721,11 @@
         <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
         <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
         <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016>,
-        <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017>,
+        <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation> ;
     aiprov:contentHash "sha256:0f6b3e6665b218d527bbcd404b6c45f127596888482cdf7c20f95d48a971f28b",
         "sha256:348bff9c352d8100c2c308d2d6d557aeed976e529d4ac653cb15d9e412ac7b2d",
+        "sha256:3dac8df2d5a93e669c1558ddeb4d111093bc942f2e9f512250e5cd3bc9fe7af3",
         "sha256:4724beffb8c7d95594c38bd4211871098be2f777a24bb628368add8eb3eb53e5",
         "sha256:4c07f3bc89b11e02d73459a8ff27db5c6113bec464b9de67aca5bb9aea8bcf45",
         "sha256:4f78a14ac6f9290f1ac55c2febe2b28f24b6315c8b7b883470e11b9b22c62923",
@@ -742,6 +744,7 @@
         "30839e87e71b86a51db47795a5fc442765934c4b",
         "43af99d",
         "540e2c2",
+        "720c9bf",
         "73a11cd",
         "82ffc86",
         "9375ead",
@@ -807,7 +810,8 @@
         <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
         <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016>,
         <https://noheton.org/f-ai2-r/prov/activity/s59-arxiv-alignment-v017>,
-        <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet>,
+        <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation> ;
     aiprov:contentHash "sha256:090a7be7d3bc8e3657cb69971334ffa70881d6c03b3d6092151040363d8defe7",
         "sha256:333e6cfb08385a0003b31e9acdb22e9f83f0bca42fc3b8799e30099d75f7d881",
         "sha256:39715e08fca65e1a38fff74a81880f5a6f1e48b5cd1fb93a5acbe78b62ffef0f",
@@ -820,6 +824,7 @@
         "sha256:bb4ee96784b4141c46e31f52a962d424e1f324f6ec01ead34d2aad3ead3e5384",
         "sha256:c2cd1ecc506150e41e88ce98f6586efcf1fbe6cb0f824e678a244b4c668700db",
         "sha256:d4751e2ade136ee8df862c689a2f7fcf886c75b422805e537feac71ab15d0fbe",
+        "sha256:d493af7ced9774d350d4049f15312eb0dbdd104b5ecbaf5b1e3eda558ffe100a",
         "sha256:da85aab26d7d560f8b33edd1da0cca5fc80fb6c624116b7ac7ca81179f83e91d",
         "sha256:ec884110a56562478ce0f62f83014988a87799ffb4b743e9cf3ce4dcbec16f84",
         "sha256:f175a00c042d16bb7074bdc5a11ff7ea64ab56e16091a05c2408ca5ddcce525b" ;
@@ -828,6 +833,7 @@
         "30839e87e71b86a51db47795a5fc442765934c4b",
         "43af99d",
         "540e2c2",
+        "720c9bf",
         "82ffc86",
         "9375ead",
         "b387cb9",
@@ -925,13 +931,16 @@
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s10-show-paper>,
         <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging>,
         <https://noheton.org/f-ai2-r/prov/activity/s29-ethics-incentives>,
-        <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage>,
+        <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation> ;
     aiprov:contentHash "sha256:03ae2fc848ffea2d468a69d5c9ad5ce015f8b2fed2dcd5765ef463e5819abfbc",
         "sha256:4e13ed79bea23cb89f32e99b9896daa02ed66323f84b7f8a9216dd80463bcdcd",
         "sha256:b45713f43001d699f308fb520bc56d5af6abdee6204f6d21ca0003128a05b36f",
+        "sha256:b52a6115d2ec62810b3f38d29498e68f291c2e33a80e8c50ea4515d757d33b5d",
         "sha256:c1cb8cf35473b636c656ab56a4f0b566bb2fd9a7ac6c0bac7f9ae7143c70acac" ;
     aiprov:filePath "scripts/build_paper_preview.py" ;
-    aiprov:gitCommit "73a11cd" .
+    aiprov:gitCommit "720c9bf",
+        "73a11cd" .
 
 <https://noheton.org/f-ai2-r/prov/entity/build_review_list-py> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1116,9 +1125,11 @@
         <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate>,
         <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite>,
         <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
-        <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016>,
+        <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation> ;
     aiprov:contentHash "sha256:050b861b00097199740a6912116bc116b6f5d443a2b311a31a25b1866cb50e93",
         "sha256:57e8cee93882744d06abf4871026725348f777895c7db1cafd85f101f1e91a7c",
+        "sha256:599927d7dcaaa2bd954932596d27c86b7507c91a61526d4ef83178f67309d465",
         "sha256:6444b9130086817bc87c05c2a8bb3e8e017f53e5832af9e698aedd559eebbe4e",
         "sha256:81f585aebc425c372a1975cc898f722441a34a92c162f90e0d3ef7ba8a64e4c7",
         "sha256:85bf422e7a66e7e1f9e823b672bb65d9813bb893fa782309c1059a458acfb6d0",
@@ -1128,6 +1139,7 @@
     aiprov:filePath "scripts/provlog.py" ;
     aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b",
         "43af99d",
+        "720c9bf",
         "9375ead",
         "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
 
@@ -1916,6 +1928,12 @@ aiprov:Repair a owl:Class ;
 <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung> a aiprov:AuditPass ;
     rdfs:label "Records the first human-rung grant of the experiment: urhg-para2 promoted to human-confirmed by agent:florian-krebs at the operator's session direction (gate handed over the vendored copy; judgement and grant are the human's, command execution by the AI at explicit direction). Paper narrative, metrics macros (MHumanRungs=1), and verification worksheet updated."@en ;
     prov:endedAtTime "2026-07-27T07:30:49.851444+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
+<https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation> a aiprov:AuthoringPass ;
+    rdfs:label "Skill v0.18: verification queue made self-maintaining and visible. provlog promote (grant and refuse) and source now regenerate doc/sources/VERIFICATION.md best-effort after every ladder change (sandbox test-run: a refusal regenerated the worksheet); build_paper_preview.py renders the queue as a collapsible section at the bottom of the live preview (40 sources, 1 human-verified at generation), so the operator's human-rung review queue travels with the draft. SKILL.md step 6 documents the practice; package refreshed."@en ;
+    prov:endedAtTime "2026-07-27T07:34:52.712288+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
