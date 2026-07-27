@@ -795,7 +795,8 @@
         <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
         <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed>,
         <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
-        <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s70-worksheet-relevance-order> ;
     aiprov:contentHash "sha256:03ad1f33420e1cbfb1e1c22753540234ca23bed2a6aef65d8df3f108f642c06a",
         "sha256:0ae502fea46692d008b14632d42884f5e64adfa7b4cda32ff4fb0a96ac6f1860",
         "sha256:12d5dd72efdf48971de13781d1fada4d0387bd37160ecd4387c0be54ca81f402",
@@ -806,6 +807,7 @@
         "sha256:4aeab1f9b1e2bb0d48fbe4801c55ad046a81317ce3b60a5ff668f6a64524bfba",
         "sha256:57f5afcede656867022086e3befc3bcdb93da291e2da209e6acb9e5ae22714b8",
         "sha256:83a75492643a4a602c3831f08aec47cebfa6c61171591485b0f0f7582a16fee9",
+        "sha256:8954a41a83115dac8b0b0d9ee33286357b99d2e30836c95ec5fddad4d4cc43d8",
         "sha256:93e3cdb0848ed5b5d6f402aeb4dd81839f9b514bbc2a2423e7bb09326c92ea6d",
         "sha256:95df2962d33775a71cb8dd4f8c5ae0f4aca6cf19702d37d1197faf7b5481baf9",
         "sha256:9f3a6f335fb0901d201700b7505fa5f837e048d7b06be9f499f0f9965af2432f",
@@ -828,6 +830,7 @@
         "42d3042",
         "43af99d",
         "4465d74",
+        "48ae6b1c018beac3aed6d9ba9e62d3d2a4d2b60c",
         "540e2c2",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "73a11cd",
@@ -1011,16 +1014,19 @@
         <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed>,
         <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
-        <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s70-worksheet-relevance-order> ;
     aiprov:contentHash "sha256:19db5ad5930b384cec80e36eb66cb6b96447d9d2a47683c8d544fa60e3ecff9b",
         "sha256:437de47907cd202eec3f4c3f459eafb36fbcebc544c31b76dcf5c7714ac4c221",
         "sha256:4589f7bfc5cda8d96c73a07560961887f8465e485bfd8f84514bb34080ec0868",
+        "sha256:8456d220982113b8d215050092de7b664fc7516e9715c58af5dc92e32295cfaf",
         "sha256:9bec8fc4bc0bf1ad0fc96c7dfb09be8cf074d0fa40c57591f9cbde747352415e",
         "sha256:d847d04bc3613e89b459f1bc61eeb0f6ed398c2a855b84368f875f12cea5c1ea",
         "sha256:f6723aa1cfd2301ceeed4fcb4b444eeef29ce838982876b39f2c6e6b7cc08544",
         "sha256:fb8ca64d527a5ab8dd996c106ef6eca71aac31df370cb2ffe747e73f428fc370" ;
     aiprov:filePath "doc/sources/VERIFICATION.md" ;
     aiprov:gitCommit "4578a83",
+        "48ae6b1c018beac3aed6d9ba9e62d3d2a4d2b60c",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "9fba76d",
         "c1703b2",
@@ -1126,11 +1132,14 @@
 <https://noheton.org/f-ai2-r/prov/entity/build_review_list-py> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet>,
-        <https://noheton.org/f-ai2-r/prov/activity/s64-actionable-queue> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s64-actionable-queue>,
+        <https://noheton.org/f-ai2-r/prov/activity/s70-worksheet-relevance-order> ;
     aiprov:contentHash "sha256:71d001eecd127b51796ae1aad20ce6f5a39e4bc8b59f8ead708d5a3eaef09044",
-        "sha256:bf7306a2b06e3fc5805acb158ad06178289866baa5677d878d37c44e8bc0b170" ;
+        "sha256:bf7306a2b06e3fc5805acb158ad06178289866baa5677d878d37c44e8bc0b170",
+        "sha256:dd2947dfcbb718830c5ac6c242010b67f3dc18cf9f6d55539cbe47c1da49aaa7" ;
     aiprov:filePath "scripts/build_review_list.py" ;
-    aiprov:gitCommit "c1703b2",
+    aiprov:gitCommit "48ae6b1c018beac3aed6d9ba9e62d3d2a4d2b60c",
+        "c1703b2",
         "fb091d5" .
 
 <https://noheton.org/f-ai2-r/prov/entity/codemeta-json> a aiprov:Artefact ;
@@ -1387,10 +1396,12 @@
         <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure>,
         <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
-        <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s70-worksheet-relevance-order> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
         "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
         "sha256:23324f3765caa803c29fb8eee66146db6773a4e0b6f002c800bba9788e068e14",
+        "sha256:23bc630da48a4f5e78201d6f7e0895ecdb40fda43d538aa9992e7a7e5122c756",
         "sha256:2c9083a5cbae565f108062cd367f9fd5f7f14e725c53f6ef49e8deffb7c4da06",
         "sha256:2e60f501be4fc0abdb527db479644c2821171a5f2f4b6fff11093799991d8092",
         "sha256:30bb9669f6f41204045a99bff098153de8a53deac899ff456853e416d59a5681",
@@ -1416,6 +1427,7 @@
         "32dd409",
         "42d3042",
         "4465d74",
+        "48ae6b1c018beac3aed6d9ba9e62d3d2a4d2b60c",
         "4c17c02faf15034458e93ddecd1d8da829020f3e",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "73a11cd",
@@ -1697,6 +1709,9 @@ aiprov:verificationState a owl:ObjectProperty ;
 
 <https://noheton.org/f-ai2-r/prov/source/aiprovenance-v0-skill> a aiprov:Source ;
     aiprov:filePath "archive/aiprovenance-v0.skill" .
+
+<https://noheton.org/f-ai2-r/prov/source/build_review_list-py> a aiprov:Source ;
+    aiprov:filePath "scripts/build_review_list.py" .
 
 <https://noheton.org/f-ai2-r/prov/source/easa-ai-concept2024> a aiprov:Source ;
     rdfs:label "EASA Artificial Intelligence Concept Paper Issue 2: Guidance for Level 1 and 2 machine-learning applications"@en ;
@@ -2005,9 +2020,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1162/qss_a_00327"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/references-bib> a aiprov:Source ;
-    aiprov:filePath "paper/references.bib" .
-
 <https://noheton.org/f-ai2-r/prov/source/rocrate2022> a aiprov:Source ;
     rdfs:label "Packaging research artefacts with RO-Crate"@en ;
     dcterms:date "2022" ;
@@ -2120,6 +2132,9 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:filePath "doc/sources/gpt-fabricated2024.pdf" ;
     aiprov:verificationState verif:source-vendored .
 
+<https://noheton.org/f-ai2-r/prov/source/references-bib> a aiprov:Source ;
+    aiprov:filePath "paper/references.bib" .
+
 <https://noheton.org/f-ai2-r/prov/source/shepard> a aiprov:Source ;
     rdfs:label "shepard - storage for heterogeneous product and research data (v5.1.2, Zenodo archive)"@en,
         "shepard: a storage for heterogeneous product and research data (DLR, jointly developed)"@en ;
@@ -2139,10 +2154,6 @@ aiprov:HumanAgent a owl:Class ;
 
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .
-
-aiprov:Repair a owl:Class ;
-    rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
-    rdfs:subClassOf prov:Activity .
 
 <https://noheton.org/f-ai2-r/prov/activity/s10-show-paper> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.5: show-paper preview — build_paper_preview.py renders compiled paper as self-contained HTML (typeset pages as embedded images + status strip with commit/build time/graph stats); published as Claude Artifact with stable URL, re-published after each editing round; discussion section gains worked incident 6.2 (overwrite caught and reverted by git, activity s09-incident)"@en ;
@@ -2196,6 +2207,17 @@ aiprov:Repair a owl:Class ;
     prov:endedAtTime "2026-07-27T07:34:52.712288+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
+<https://noheton.org/f-ai2-r/prov/activity/s70-worksheet-relevance-order> a aiprov:Repair ;
+    rdfs:label "Operator request: order the review worksheet by expected relevance to the paper's message. Relevance is computed rather than judged, per the derivation-transparency rule: number of cite occurrences across the paper sources, section spread as tie-break, count shown per entry, methodology disclosed in the worksheet header. The visible counts surfaced two defects, both repaired: the citation matcher treated hyphens as word boundaries (id 'hmc' also matched 'hmc-conference2025' citations; now exact-key comparison), and the oecd-ai-principles bib key carried a 2024 suffix violating the key==source-id convention."@en ;
+    prov:endedAtTime "2026-07-27T19:52:15.719423+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/build_review_list-py>,
+        <https://noheton.org/f-ai2-r/prov/source/references-bib> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+aiprov:Repair a owl:Class ;
+    rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
+    rdfs:subClassOf prov:Activity .
 
 <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.2: repo becomes canonical skill source; ORCID-first setup, base derivation/auto-detection, CI/CD scaffolding (validate + LaTeX-to-PDF artifacts); packaging script; verified by test-run in scratch repository"@en ;
