@@ -11,6 +11,11 @@ on:
   push:
     tags: ["v*"]
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to release (created at the current commit if absent)"
+        required: true
+        default: "v0.0.0"
 
 permissions:
   contents: write
@@ -49,7 +54,7 @@ jobs:
       - name: Assemble release payload with checksums
         run: |
           mkdir -p release
-          TAG="${GITHUB_REF_NAME}"
+          TAG="${{ github.event.inputs.tag || github.ref_name }}"
           [ -f paper/main.pdf ] && cp paper/main.pdf "release/paper-${TAG}.pdf"
           cp provenance.ttl "release/provenance-${TAG}.ttl"
           cp dashboard.html "release/dashboard-${TAG}.html"
@@ -76,6 +81,7 @@ jobs:
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ github.event.inputs.tag || github.ref_name }}
           body_path: release/notes.md
           files: |
             release/paper-*.pdf
