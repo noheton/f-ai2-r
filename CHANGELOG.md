@@ -1,5 +1,18 @@
 # Changelog — ai-provenance skill
 
+## v0.17 (2026-07-27)
+
+- **arXiv-ready source bundle.** `scripts/build_arxiv.py` derives a
+  submission-compliant tarball from `paper/` without touching the repo
+  layout: flattens `sections/` and `figures/` with rewritten paths,
+  strips full-line comments (the structure-pass skeletons stay out of
+  the public source), ships the compiled `.bbl` and excludes
+  `references.bib` and all generated files, forces pdflatex via
+  `\pdfoutput=1`, adds the four-pass `\typeout` marker,
+  compile-verifies the flattened bundle standalone (page count checked),
+  and prints LaTeX-stripped title/author/abstract for the metadata form.
+  Follows the community checklist (trevorcampbell.me/html/arxiv.html).
+
 ## v0.16 (2026-07-26)
 
 - **PDF release pipeline.** New CI template
