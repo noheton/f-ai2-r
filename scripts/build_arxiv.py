@@ -131,9 +131,10 @@ def main():
     print(f"Title: {title}")
     print("Authors: Florian Krebs")
     print(f"Abstract: {abstract}")
-    print("\nReminders: pick the license on the arXiv form deliberately; "
-          "choose the subject class (likely cs.DL or cs.CY, cross-list "
-          "cs.SE); everything in the tarball becomes public.")
+    print("\nLicense (operator decision, logged): CC BY-NC-SA 4.0 -- select "
+          "'Attribution-NonCommercial-ShareAlike' on the arXiv form. "
+          "Subject class: likely cs.DL or cs.CY, cross-list cs.SE; "
+          "everything in the tarball becomes public.")
     shutil.rmtree(stage)
 
 

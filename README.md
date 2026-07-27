@@ -122,7 +122,10 @@ verification promotions.
 
 [Apache-2.0](LICENSE), the patent-granting permissive license common in
 institutional research software; the tooling has no other
-licensing entanglements (pure Python + rdflib).
+licensing entanglements (pure Python + rdflib). The paper itself
+(`paper/`) is submitted to arXiv under CC BY-NC-SA 4.0
+(Attribution-NonCommercial-ShareAlike) — the operator's recorded
+licensing decision; code and method stay Apache-2.0.
 
 Note: most of this repository was AI-generated under human direction. A
 license grants only what copyright protects — under current guidance
