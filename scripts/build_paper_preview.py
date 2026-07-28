@@ -73,13 +73,14 @@ def verification_html() -> str:
         return ""
     import html as _h
     parts, cur, buf, incode = [], None, [], False
-    counts = {"\u26a0": 0, "\u2713": 0, "\u23f3": 0}
+    counts = {"\u26a0": 0, "\u2713": 0, "\u23f3": 0, "\U0001f5c2": 0}
 
     def flush():
         nonlocal cur, buf
         if cur is not None:
             klass = ("act" if cur.startswith("\u26a0")
-                     else "done" if cur.startswith("\u2713") else "wait")
+                     else "done" if cur.startswith("\u2713")
+                     else "int" if cur.startswith("\U0001f5c2") else "wait")
             parts.append(
                 f'<details class="v-{klass}"><summary>'
                 f'{_h.escape(re.sub(r"[`*]", "", cur))}</summary>'
@@ -111,14 +112,16 @@ def verification_html() -> str:
     flush()
     total = sum(counts.values())
     warn, done, wait = counts["\u26a0"], counts["\u2713"], counts["\u23f3"]
+    internal = counts["\U0001f5c2"]
     return (
         '<details class="notes verif"><summary><span class="pages-head">'
         f'Source verification queue \u2014 {warn} awaiting the '
-        f'operator, {done} human-verified, {wait} not '
-        f'yet ready ({total} total)</span></summary>'
+        f'operator, {done} human-verified, {internal} internal, '
+        f'{wait} not yet ready ({total} total)</span></summary>'
         '<p>Grouped by required action. \u26a0 needs the human operator now '
         '(evidence handed over by the rung-4 gate); \u23f3 needs AI-side '
-        'work first; \u2713 is done. Generated from provenance.ttl; the '
+        'work first; \U0001f5c2 is an in-repo artefact needing no literature '
+        'check; \u2713 is done. Generated from provenance.ttl; the '
         'human rungs are the operator\'s alone.</p>'
         + "\n".join(parts) + '</details>')
 
@@ -238,6 +241,7 @@ header .sub {{ color: var(--muted); font-size: .82rem; margin: 0 0 12px; }}
 .notes .v-act summary {{ border-left: 3px solid #c77700; }}
 .notes .v-done summary {{ border-left: 3px solid #2e8540; }}
 .notes .v-wait summary {{ border-left: 3px solid var(--chip-line); color: var(--muted); }}
+.notes .v-int summary {{ border-left: 3px solid #6b7f94; color: var(--muted); }}
 .notes pre {{ margin: 0; padding: 8px 12px 12px; overflow-x: auto;
   font-size: .74rem; line-height: 1.45; color: var(--ink);
   border-top: 1px solid var(--chip-line); white-space: pre; }}

@@ -86,10 +86,18 @@ def main():
         if rung in HUMAN:
             return "done"
         if rung in READY:
+            # Vendored literature lives in doc/sources/ (except the generated
+            # worksheet itself); everything else vendored is an in-repo
+            # artefact with no literature check to perform.
+            lit = [f for f in files if f.startswith("doc/sources/")
+                   and not f.endswith("VERIFICATION.md")]
+            if files and not lit:
+                return "internal"
             return "ready-vendored" if files else "ready-link"
         return "pending"
 
-    order = {"ready-vendored": 0, "ready-link": 1, "pending": 2, "done": 3}
+    order = {"ready-vendored": 0, "ready-link": 1, "pending": 2,
+             "internal": 3, "done": 4}
     # Within each bucket: most-cited first (relevance to the paper's
     # argument), spread across sections as tie-break, then id.
     rows.sort(key=lambda r: (order[bucket(r)], -r[9], -len(r[8]), r[0]))
@@ -108,6 +116,7 @@ def main():
          f"| ⚠ Ready for your check, evidence vendored | {n['ready-vendored']} | Open the vendored copy, check the citing sentence, grant or refuse |",
          f"| ⚠ Ready for your check, via DOI/URL | {n['ready-link']} | Follow the access link, check, grant or refuse |",
          f"| ⏳ Not yet ready | {n['pending']} | None yet — ask the agent to content-check or vendor first |",
+         f"| 🗂 Internal artefacts | {n['internal']} | None required — in-repo files, inspectable in git history |",
          f"| ✓ Human-verified | {n['done']} | Done (optionally deepen to `human-read`) |",
          "",
          "The human rungs are yours alone: `human-confirmed` means you "
@@ -128,9 +137,11 @@ def main():
         ("ready-vendored", "# ⚠ Awaiting your check — evidence in hand"),
         ("ready-link", "# ⚠ Awaiting your check — obtain via link"),
         ("pending", "# ⏳ Not yet ready — AI-side work pending, no human action yet"),
+        ("internal", "# 🗂 Internal artefacts — in-repo evidence, no literature check"),
         ("done", "# ✓ Human-verified — no action required"),
     ]
-    ICON = {"ready-vendored": "⚠", "ready-link": "⚠", "pending": "⏳", "done": "✓"}
+    ICON = {"ready-vendored": "⚠", "ready-link": "⚠", "pending": "⏳",
+            "internal": "🗂", "done": "✓"}
     ACTION = {
         "ready-vendored": "**Your action:** open the vendored copy, check it "
                           "against the citing sentence(s), then grant or refuse:",
@@ -139,6 +150,9 @@ def main():
         "pending": "**No human action yet.** The AI has not content-checked "
                    "this source; ask for a content check (and vendoring where "
                    "the license allows) before spending your time on it.",
+        "internal": "**None required.** The vendored evidence is the in-repo "
+                    "file itself (path + sha256 recorded); inspect via git "
+                    "history. Optionally grant a human rung after review:",
         "done": "**Done.** Optionally deepen to `human-read` after a full read:",
     }
     for key, heading in GROUPS:
@@ -179,7 +193,8 @@ def main():
     out.write_text("\n".join(L) + "\n", encoding="utf-8")
     print(f"{out}: {len(rows)} sources | awaiting human check: "
           f"{n['ready-vendored'] + n['ready-link']} "
-          f"({n['ready-vendored']} with vendored evidence) | done: {n['done']} "
+          f"({n['ready-vendored']} with vendored evidence) | internal: "
+          f"{n['internal']} | done: {n['done']} "
           f"| not yet ready: {n['pending']}")
 
 
