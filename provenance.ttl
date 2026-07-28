@@ -2361,6 +2361,7 @@ aiprov:verificationState a owl:ObjectProperty ;
 
 <https://noheton.org/f-ai2-r/prov/source/fair2r-repo> a aiprov:Source ;
     rdfs:label "F(AI)²R: FAIR research with AI in the loop, twice (research repository)"@en ;
+    dcterms:creator agent:florian-krebs ;
     dcterms:source <https://github.com/noheton/f-ai-r> ;
     aiprov:selfCitation true ;
     aiprov:verificationState verif:human-confirmed .
@@ -2372,6 +2373,7 @@ aiprov:verificationState a owl:ObjectProperty ;
 
 <https://noheton.org/f-ai2-r/prov/source/obscurity-is-dead> a aiprov:Source ;
     rdfs:label "Obscurity Is Dead — Proprietary by Design, Open by AI (research repository)"@en ;
+    dcterms:creator agent:florian-krebs ;
     dcterms:source <https://github.com/noheton/Obscurity-Is-Dead> ;
     aiprov:selfCitation true ;
     aiprov:verificationState verif:human-confirmed .
@@ -2388,6 +2390,7 @@ aiprov:verificationState a owl:ObjectProperty ;
 
 <https://noheton.org/f-ai2-r/prov/source/shepard-fork> a aiprov:Source ;
     rdfs:label "Experimental fork of shepard (development/research workspace, /v2 experimental endpoints)"@en ;
+    dcterms:creator agent:florian-krebs ;
     dcterms:source <https://github.com/noheton/shepard> ;
     aiprov:selfCitation true ;
     aiprov:verificationState verif:human-confirmed .
@@ -3313,11 +3316,6 @@ verif:source-vendored a aiprov:VerificationState ;
     rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
     aiprov:ladderPosition 4 .
 
-agent:florian-krebs a aiprov:HumanAgent ;
-    foaf:name "Florian Krebs" ;
-    aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
-    aiprov:orcid "https://orcid.org/0000-0001-6033-801X"^^xsd:anyURI .
-
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
     dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
@@ -3325,6 +3323,11 @@ verif:human-confirmed a aiprov:VerificationState ;
     rdfs:label "human-confirmed"@en ;
     rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
     aiprov:ladderPosition 5 .
+
+agent:florian-krebs a aiprov:HumanAgent ;
+    foaf:name "Florian Krebs" ;
+    aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
+    aiprov:orcid "https://orcid.org/0000-0001-6033-801X"^^xsd:anyURI .
 
 aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
