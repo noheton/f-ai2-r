@@ -1031,6 +1031,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:filePath ".gitignore" ;
     aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
 
+<https://noheton.org/f-ai2-r/prov/entity/-htaccess> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s99-w3id-package> ;
+    aiprov:contentHash "sha256:99170037d05cbe484916e4d16072695d8ca27114faea5bd5be3eed5075af89d5" ;
+    aiprov:filePath "doc/w3id/aiprov/.htaccess" ;
+    aiprov:gitCommit "b273a3696c1aac624ed367db945a4f60b33969f5" .
+
 <https://noheton.org/f-ai2-r/prov/entity/01-introduction-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure>,
@@ -1527,17 +1534,21 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division>,
         <https://noheton.org/f-ai2-r/prov/activity/s60-vendoring-license>,
         <https://noheton.org/f-ai2-r/prov/activity/s68-readme-dual-license>,
-        <https://noheton.org/f-ai2-r/prov/activity/s93-skill-v021> ;
-    aiprov:contentHash "sha256:11926fc41d2b8907c394b6a91cf2118962a545308f08ace90cd50652f38b1690",
+        <https://noheton.org/f-ai2-r/prov/activity/s93-skill-v021>,
+        <https://noheton.org/f-ai2-r/prov/activity/s99-w3id-package> ;
+    aiprov:contentHash "sha256:0539a215cd239e9632a6686ad6f82b52a60243f85846bd004da3354f709dbcc8",
+        "sha256:11926fc41d2b8907c394b6a91cf2118962a545308f08ace90cd50652f38b1690",
         "sha256:56a60461db27558d2382d3f49f5ed60918c5a9087d0563ef134ee93a99ef2d08",
         "sha256:6f81c25207743e7e34fdbbb1e7c84882f133c107d6269d8f9bdc0a5c0f27b03a",
         "sha256:e236a5c8c927b81935c7034a483dbaa4fa06c3226011f996f5d030cadfac26da",
         "sha256:ed8488f5411c3c61d85829093c083cf0d647c8406b4d1b0700a54695d3c8628b" ;
-    aiprov:filePath "README.md" ;
+    aiprov:filePath "README.md",
+        "doc/w3id/aiprov/README.md" ;
     aiprov:gitCommit "5fd7bf8ab838b3e0a481f21958c5b01f18d6b895",
         "767b64f",
         "7d7f04dcb26cc626eb2ad3a87282d8890c8f4e03",
         "a0fbb0c638448e9d220ef09da953a271ff3ee331",
+        "b273a3696c1aac624ed367db945a4f60b33969f5",
         "dbed058",
         "fb1a484" .
 
@@ -1598,6 +1609,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "e278191b54d84a301fd37cd7490445bdab34236e",
         "f7752e5475afbe6996ccb31ea109aac1c28b20f1",
         "fb091d5" .
+
+<https://noheton.org/f-ai2-r/prov/entity/SUBMISSION-md> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s99-w3id-package> ;
+    aiprov:contentHash "sha256:dcb657eca769fbb57df0824a80d6544b90fd1c1f447c125e626ff7f003aa75e3" ;
+    aiprov:filePath "doc/w3id/SUBMISSION.md" ;
+    aiprov:gitCommit "b273a3696c1aac624ed367db945a4f60b33969f5" .
 
 <https://noheton.org/f-ai2-r/prov/entity/VERIFICATION-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -2681,9 +2699,6 @@ aiprov:verificationState a owl:ObjectProperty ;
         <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> ;
     prov:wasAssociatedWith agent:claude-code .
 
-<https://noheton.org/f-ai2-r/prov/source/aiprov-schema-ttl> a aiprov:Source ;
-    aiprov:filePath "assets/aiprov-schema.ttl" .
-
 <https://noheton.org/f-ai2-r/prov/source/c2pa-spec> a aiprov:Source ;
     rdfs:label "Coalition for Content Provenance and Authenticity (C2PA): Content Credentials technical specification"@en ;
     dcterms:source <https://c2pa.org/specifications/> ;
@@ -2717,9 +2732,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     rdfs:label "AI Incidents and Hazards Monitor (AIM), OECD.AI Policy Observatory: overview and methodology"@en ;
     dcterms:source <https://oecd.ai/en/incidents-methodology> ;
     aiprov:verificationState verif:ai-confirmed .
-
-<https://noheton.org/f-ai2-r/prov/source/panel-2026-07-28-json> a aiprov:Source ;
-    aiprov:filePath "doc/reviews/panel-2026-07-28.json" .
 
 <https://noheton.org/f-ai2-r/prov/source/resistance-welding2024> a aiprov:Source ;
     rdfs:label "On the capabilities of static resistance welding of carbon fiber-reinforced thermoplastic composites (Endraß et al., ITHEC 2024)"@en ;
@@ -2894,6 +2906,9 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:filePath "assets/ci/aiprov-promote.yml" ;
     aiprov:verificationState verif:source-vendored .
 
+<https://noheton.org/f-ai2-r/prov/source/aiprov-schema-ttl> a aiprov:Source ;
+    aiprov:filePath "assets/aiprov-schema.ttl" .
+
 <https://noheton.org/f-ai2-r/prov/source/aiprovenance-v0-skill> a aiprov:Source ;
     aiprov:contentHash "sha256:51eef304e609d762af729fa2f6dcb7fa8ef8872a90186915b831179798cc07cd" ;
     aiprov:filePath "archive/aiprovenance-v0.skill" ;
@@ -2989,6 +3004,9 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:contentHash "sha256:383279053b9006e3427c54e5d46c3db796b99c6b0b7b06f680c2ba56bb1c1a3f" ;
     aiprov:filePath "doc/operators.json" ;
     aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/panel-2026-07-28-json> a aiprov:Source ;
+    aiprov:filePath "doc/reviews/panel-2026-07-28.json" .
 
 <https://noheton.org/f-ai2-r/prov/source/paper-mills2021> a aiprov:Source ;
     rdfs:label "Fake data, paper mills, and their authors: The <i>International Journal of Cancer</i> reacts to this threat to scientific integrity"@en ;
@@ -3094,6 +3112,13 @@ aiprov:HumanAgent a owl:Class ;
 <https://noheton.org/f-ai2-r/prov/activity/s75-worksheet-claims-and-render> a aiprov:Repair ;
     rdfs:label "Operator feedback round on the review worksheet: entries now include the explicit claim to check (the citing sentence extracted mechanically from the LaTeX source, de-TeXed, up to three per source) and the access link renders as a clickable anchor. The operator's pasted entry surfaced three preview-renderer defects, all repaired: bold/italic regex replacements emitted a literal escaped backreference, code blocks lost line breaks so the grant and refuse commands ran together, and URLs rendered as plain text."@en ;
     prov:endedAtTime "2026-07-28T05:13:23.105832+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/s99-w3id-package> a aiprov:AuthoringPass ;
+    rdfs:label "Prepares the w3id.org registration for the aiprov namespace, the review finding that cannot be completed from this session (the PR to perma-id/w3id.org must come from the maintainer's account, outside this session's repository scope). Package: doc/w3id/aiprov/.htaccess with content negotiation (RDF accept headers 303 to the Turtle schema at the repository HEAD, browsers to the rendered schema; HEAD refs so a default-branch rename cannot break the permanent identifier), README with the maintainer contact w3id reviewers require, and a SUBMISSION.md runbook with post-merge verification commands. Redirect target verified live (raw HEAD returns 200); htaccess linted. The operator action remains open until the w3id PR merges and the verification commands pass."@en ;
+    prov:endedAtTime "2026-07-28T11:51:21.024090+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/aiprov-schema-ttl>,
+        <https://noheton.org/f-ai2-r/prov/source/panel-2026-07-28-json> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/source/05-skill-tex> a aiprov:Source ;
