@@ -410,6 +410,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/provenance-overview2022> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-provenance-overview2022-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of provenance-overview2022: ai-confirmed -> human-confirmed (aiprov another use-case for provenance.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #9 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T08:01:23.291162+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/provenance-overview2022> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-provenance-ttl-source-vendored> a aiprov:AuditPass ;
     rdfs:label "Promotion of provenance-ttl: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time. Content is directly inspectable in git history; no external access path needed.)"@en ;
     prov:endedAtTime "2026-07-27T20:06:00.545541+00:00"^^xsd:dateTime ;
@@ -2200,11 +2208,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://oecd.ai/en/incidents-methodology> ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/provenance-overview2022> a aiprov:Source ;
-    rdfs:label "An overview of Provenance and its use cases (Carina Haupt, RDA Deutschland Tagung 2022)"@en ;
-    dcterms:source <https://elib.dlr.de/185438/> ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/resistance-welding2024> a aiprov:Source ;
     rdfs:label "On the capabilities of static resistance welding of carbon fiber-reinforced thermoplastic composites (Endraß et al., ITHEC 2024)"@en ;
     dcterms:source <https://elib.dlr.de/209478/> ;
@@ -2531,6 +2534,11 @@ agent:github-actions a aiprov:ToolAgent ;
 <https://noheton.org/f-ai2-r/prov/source/prov-o2013> a aiprov:Source ;
     rdfs:label "PROV-O: The PROV Ontology (W3C Recommendation, 30 April 2013)"@en ;
     dcterms:source <https://www.w3.org/TR/prov-o/> ;
+    aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/provenance-overview2022> a aiprov:Source ;
+    rdfs:label "An overview of Provenance and its use cases (Carina Haupt, RDA Deutschland Tagung 2022)"@en ;
+    dcterms:source <https://elib.dlr.de/185438/> ;
     aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/ultrasonic-welding2025> a aiprov:Source ;
