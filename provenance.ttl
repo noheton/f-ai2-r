@@ -98,6 +98,14 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/agent-skills-spec> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-agent-skills-spec-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of agent-skills-spec: ai-confirmed -> human-confirmed (skill follows spec.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #6 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T07:59:02.743672+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/agent-skills-spec> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-ai-hallucination2023-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of ai-hallucination2023: reference-resolved -> ai-confirmed (Content checked against the gold-OA full text (assets.cureus.com PDF): 'None of the provided paper titles existed, and all provided PubMed IDs (PMIDs) were of different unrelated papers.' Supports 'LLMs fabricate plausible citations' (Sec. 2) and 'machine judgement with known failure modes' (Sec. 7). Full-text depth.)"@en ;
     prov:endedAtTime "2026-07-24T21:32:58.093686+00:00"^^xsd:dateTime ;
@@ -2149,11 +2157,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/build_paper_preview-py> ;
     prov:wasAssociatedWith agent:claude-code .
 
-<https://noheton.org/f-ai2-r/prov/source/agent-skills-spec> a aiprov:Source ;
-    rdfs:label "Agent Skills: an open format for extending AI agent capabilities (specification and adopter list)"@en ;
-    dcterms:source <https://agentskills.io/> ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/anthropic-pricing> a aiprov:Source ;
     rdfs:label "Anthropic: Claude API pricing (developer documentation)"@en ;
     dcterms:source <https://platform.claude.com/docs/en/about-claude/pricing> ;
@@ -2353,6 +2356,11 @@ agent:github-actions a aiprov:ToolAgent ;
     rdfs:label "Details of the Asset Administration Shell. Part 1 — The exchange of information between partners in the value chain of Industrie 4.0 (Version 3.0RC02)"@en ;
     dcterms:source <https://www.plattform-i40.de/IP/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html> ;
     aiprov:selfCitation true ;
+    aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/agent-skills-spec> a aiprov:Source ;
+    rdfs:label "Agent Skills: an open format for extending AI agent capabilities (specification and adopter list)"@en ;
+    dcterms:source <https://agentskills.io/> ;
     aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/aiprov-promote-yml> a aiprov:Source ;
