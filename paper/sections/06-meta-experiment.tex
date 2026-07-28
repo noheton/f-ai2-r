@@ -33,7 +33,8 @@ only its transcription is automated.}
 reports the state of the graph at the time of writing, and
 Figure~\ref{fig:dashboard} shows the ledger view rendered from the
 same file. Token counts
-were initially absent: the harness exposes no live usage to the agent,
+were initially absent: the harness (the agent's execution
+environment) exposes no live usage to the agent,
 and under omit-don't-estimate nothing was recorded. The operator's
 challenge (``why is this not reported?'') prompted a check of the
 session record, which turned out to carry the provider's per-request
@@ -95,9 +96,9 @@ models tokenize and behave differently.\par}
 \caption{The dashboard rendered from \texttt{provenance.ttl}
 (screenshot, 2026-07-28). Top: header, graph totals, agents, and the
 start of the activity ledger; the token and cost tiles sum
-per-activity records, so they differ from the session-record
-aggregates of Table~\ref{tab:telemetry}, drawn from the record
-directly. Bottom: the literature rung distribution, most sources
+per-activity records (two aggregate backfills, roughly half the
+computed cost), so the session-record aggregates of
+Table~\ref{tab:telemetry} are the authoritative figures. Bottom: the literature rung distribution, most sources
 operator-verified, the top rung populated. The full page is one
 self-contained HTML file with an interactive graph view.}
 \label{fig:dashboard}
@@ -219,9 +220,17 @@ against a vendored statute text the gate handed over, confirmed
 the five self-cited sources they authored, the class where the
 human's judgement is uniquely authoritative, and then walked the
 queue through the issue path of Section~\ref{sec:skill},
-\MHumanRungs{} human rungs granted at the time of writing. The
+\MHumanRungs{} human rungs granted at the time of writing.
+Authentication splits those grants honestly: \MGrantsIssue{}
+promotions carry GitHub-authenticated authorship through the issue
+path, itself derived mid-experiment, while \MGrantsSession{} were
+transcribed in session from the operator's instruction, checkable
+only against the committed transcript; \MLinkOnly{} of the
+human-verified sources remain link-only audit targets, the
+validator's warning kept visible. The
 remaining sources are deliberately kept at their machine rungs so
-the demonstration shows every rung in use; the
+every rung was exercised over the record's history
+(the final distribution occupies the upper four); the
 operator reports having checked all sources and claims, and the
 ladder records which of those checks they chose to formalize as
 grants. The hypothesis that AI absorbs tedium while humans
@@ -240,7 +249,7 @@ multiplication bought, without estimating any counterfactual. The
 operator typed \MDirWords{} words of direction in total, median
 \MDirMedian{} words per message; active session time, clustering
 request timestamps and counting gaps under thirty minutes, is about
-\MActiveH{} hours inside a \MSpanH-hour wall-clock span. Against
+\MActiveH{} hours inside a wall-clock span of \MSpanH{} hours. Against
 that input stand roughly \MProseWordsK{} words of typeset prose,
 about \MToolLinesK{} lines of tooling, \MSources{} ladder-backed
 sources, and the graph itself. What a solo baseline would have cost
@@ -263,7 +272,7 @@ provenance graph and the session record at the time of writing
 \centering
 \begin{tabular}{p{5.2cm}lr}
 \toprule
-Contribution & Agent & Count \\
+Contribution & Agent & Value \\
 \midrule
 Direction messages: scope, lineage, people, contested semantics (two
 ladder redesigns, cost policy, license, page budget) & human & \MDirMsgs \\

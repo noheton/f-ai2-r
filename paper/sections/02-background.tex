@@ -39,6 +39,29 @@ machine-checkable, support for a claim is a judgement, and the two
 must not be conflated. The ladder of Section~\ref{sec:method} keeps
 them apart and names the grantor of every judgement.
 
+\textbf{Neighboring lines beyond provenance vocabularies.} Claims
+as first-class citizens predate this work: nanopublications make a
+single assertion with its provenance a citable
+object~\cite{nanopub2010}, and micropublications model claims,
+evidence, and arguments formally~\cite{micropub2014}. aiprov
+inherits that stance and adds what the AI era demands: the agent
+class behind every activity, and a verification ladder whose grantor
+is explicit and whose top rungs are human-only. On the artefact
+side, C2PA Content Credentials sign machine-readable provenance
+manifests for media, including AI-generated
+content~\cite{c2pa-spec}, and in-toto binds software artefacts to
+their supply-chain steps with signed
+attestations~\cite{in-toto2019}. Both certify what a pipeline did
+to bytes; aiprov records how humans and AI divided the research work
+and who vouched for which claim, the layer the dual-witness ask of
+Section~\ref{sec:discussion} would connect to this signing
+infrastructure. Manubot demonstrated CI-built manuscripts with
+citation-by-identifier years earlier~\cite{manubot2019}. These four
+lines entered the record through the review that requested them:
+the original novelty sweep, two registry queries, missed all of
+them, the bounded-novelty mechanism working as designed, a narrow
+recorded horizon visibly widened.
+
 \textbf{Lineage and neighbors.} This work has three roots. The first
 is AI-assisted research practice: \emph{Obscurity-Is-Dead}
 \cite{obscurity-is-dead} introduced transcript-as-artifact and the
@@ -57,7 +80,7 @@ makes better software makes better
 research~\cite{better-architecture2025}; aiprov extends that chain
 from the software to the record of its making. The third root is industrial semantic
 modeling: the author co-authored the Asset Administration Shell
-Part~1 specification~\cite{aas-part1-v30rc02}, continued as
+(AAS) Part~1 specification~\cite{aas-part1-v30rc02}, continued as
 IDTA-01001~\cite{aas-part1-idta}. Where partners exchange information
 across a value chain, semantics must be formal and machine-readable or
 interoperability fails. aiprov applies that discipline to a new

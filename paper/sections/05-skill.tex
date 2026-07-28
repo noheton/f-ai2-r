@@ -25,7 +25,7 @@ AI-transparency disclosure, and compiles the paper to PDF, uploading
 dashboard and PDF as build artefacts. The current version of the paper
 is always available, and a conformance violation blocks the build. The
 CI service itself is registered as a \texttt{ToolAgent}, and its green
-runs are logged \texttt{Build} activities carrying artifact digests.
+runs are logged \texttt{Build} activities carrying artefact digests.
 Version tags extend the same discipline to releases: a \texttt{v*}
 tag publishes a conformance-gated release whose assets are the PDF
 together with the graph it was built from, the metrics snapshot, the
@@ -59,10 +59,12 @@ statement is derived from the graph on every build
 (Section~\ref{sec:discussion}); disclosure is a build product, not
 an authoring chore, and adopters inherit the mechanism.
 
-\textbf{Worked example: analysing experimental data.} The workflow is
-not specific to writing papers; consider a study like the comparison
+\textbf{Worked example: analysing experimental data.} This example
+is a prospective design, not yet an implemented deployment. The
+workflow is not specific to writing papers; consider a study like the comparison
 of power and amplitude control in continuous ultrasonic welding of
-unidirectional CFRPs~\cite{ultrasonic-welding2025}, where welding
+unidirectional carbon-fibre-reinforced polymers
+(CFRPs)~\cite{ultrasonic-welding2025}, where welding
 trials produce in-situ process data, scans, mechanical test results,
 and micrographs, and the outcome is comparative claims about two
 control strategies. Setup is identical: one ORCID question seeds the

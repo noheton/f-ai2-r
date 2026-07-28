@@ -298,13 +298,17 @@ def cmd_validate(a) -> None:
     print(f"[{'FAIL' if unattr else ' OK '}] unattributed claims: {len(unattr)}")
     fail += len(unattr)
     # Human-only rungs: the offence is WHO GRANTED the rung, not who authored
-    # the claim. Promotions are AuditPass activities labelled "... -> <rung>";
-    # an AI agent associated with such a promotion is a hard failure.
-    q3 = """SELECT ?act ?ag WHERE {
-              ?act a aiprov:AuditPass ; rdfs:label ?l ;
-                   prov:wasAssociatedWith ?ag .
+    # the claim. Primary check: the structured aiprov:grantedRung on the
+    # promotion AuditPass; label-regex retained for graphs written before
+    # the structured property existed.
+    q3 = """SELECT DISTINCT ?act ?ag WHERE {
+              ?act a aiprov:AuditPass ; prov:wasAssociatedWith ?ag .
               ?ag a aiprov:AIAgent .
-              FILTER(REGEX(STR(?l), "-> (human-confirmed|human-read|lit-read)")) }"""
+              { ?act aiprov:grantedRung ?r .
+                FILTER(REGEX(STR(?r), "(human-confirmed|human-read|lit-read)$")) }
+              UNION
+              { ?act rdfs:label ?l .
+                FILTER(REGEX(STR(?l), "-> (human-confirmed|human-read|lit-read)")) } }"""
     bad = list(g.query(q3))
     print(f"[{'FAIL' if bad else ' OK '}] human-only rungs granted by AI agents: {len(bad)}")
     fail += len(bad)
@@ -808,6 +812,7 @@ def cmd_promote(a) -> None:
     g.add((act, RDFS.label, Literal(
         f"Promotion of {a.id}: {cur} -> {a.to}" +
         (f" ({a.note})" if a.note else ""), lang="en")))
+    g.add((act, AIPROV.grantedRung, ns(a.base, "verification")[a.to]))
     g.add((act, PROV.endedAtTime, now()))
     g.add((act, PROV.used, node))
     g.add((act, PROV.wasAssociatedWith, agent))

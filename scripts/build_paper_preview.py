@@ -250,8 +250,10 @@ def main() -> None:
         build_pdf()
     main_tex = (PAPER / "main.tex").read_text(encoding="utf-8")
     m = re.search(r"\\title\{(.+?)\}\s*$", main_tex, re.S | re.M)
-    title = " ".join(re.sub(r"\\[a-zA-Z]+|[{}~]|\d\^", " ",
-                            m.group(1) if m else "Paper preview").split())
+    raw = m.group(1) if m else "Paper preview"
+    raw = raw.replace("\\\\", " \u2014 ")
+    raw = raw.replace("\\textsuperscript{2}", "\u00b2")
+    title = " ".join(re.sub(r"\\[a-zA-Z]+|[{}~]", " ", raw).split())
     commit = sh(["git", "rev-parse", "--short", "HEAD"]).stdout.strip() or "uncommitted"
     dirty = bool(sh(["git", "status", "--porcelain"]).stdout.strip())
     stamp = datetime.datetime.now().astimezone().strftime("%Y-%m-%d %H:%M %Z")

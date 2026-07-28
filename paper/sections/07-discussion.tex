@@ -82,10 +82,11 @@ activity is the price of making the other nine tenths auditable
 \foreach \t in {0,25,50,75,100}
   \draw (\t,-4.55) -- (\t,-4.75) node[below] {\t};
 \end{tikzpicture}
-\caption{Method overhead as shares of the record (metrics single
-source; classification as in the text). Commits counts
-bookkeeping-only commits: every logging round commits, however
-small, hence the larger share.}
+\caption{Method overhead as shares of the recorded session and
+repository, computed by the request classification described in the
+text and drawn from the metrics single source. The commits bar
+counts bookkeeping-only commits; every logging round commits,
+however small, hence its larger share.}
 \label{fig:overhead}
 \end{figure}
 Token telemetry illustrates the omit-don't-estimate rule in motion:
@@ -123,7 +124,9 @@ run attributable to the exact method version in force, so evolution
 does not blur attribution.
 
 \textbf{Practices that emerged.} Four, each small enough to adopt
-tomorrow. Registry-fetched citation metadata: every BibTeX entry
+tomorrow; the first two are known from Manubot's continuous
+manuscripts~\cite{manubot2019}, rediscovered here in an
+agent-operated setting. Registry-fetched citation metadata: every BibTeX entry
 comes from doi.org content negotiation, never typed from memory, a
 concrete discipline against fabricated
 references~\cite{fabricated-citations2023}; the one failure was a
@@ -199,8 +202,8 @@ take decisions under human oversight and demands traceability of
 data from origin to final operation through the whole pipeline,
 naming record-keeping of AI-related data among the required
 methodologies~\cite{easa-ai-concept2024}. The human-only rungs map
-directly onto release decisions that must stay with people. shepard
-does not yet support aiprov; the integration planned in
+directly onto release decisions that must stay with people. The shepard
+platform does not yet support aiprov; the integration planned in
 Section~\ref{sec:conclusion} would carry the record into the same
 backbone that already holds the production data.
 
@@ -217,13 +220,13 @@ and that combination, within the recorded horizon, is this paper's
 originality claim, refutable by widening the sweep. The effort behind
 it divides tellingly. The fast side, the AI's \MActiveH{} active hours,
 supplied execution and recombination, and recombination is exactly
-what the empirical evidence says models supply: in preregistered
-comparisons, each additional human-written text contributes more new
-ideas to the collective pool than each additional model-written
-one~\cite{llm-homogenization2024}. The slow side is where the
+what the empirical evidence says models supply: human-written texts
+contribute more new ideas to the collective pool than model-written
+ones~\cite{llm-homogenization2024}. The slow side is where the
 originality entered: years of experiments, specification
 co-authoring, committee work, and conversations, the lineage of
-Section~\ref{sec:background}, compressed into \MDirWords{} words of direction.
+Section~\ref{sec:background}, compressed into \MDirWords{} words
+of direction.
 Neither side alone would have produced the work: without the slow
 ideas the fast hours had nothing original to execute; without the
 fast execution the slow ideas would still be scattered across
@@ -267,11 +270,11 @@ paper-bound than its demonstration: the invariants and ladder attach
 to claims, sources, activities, and agents, never to a manuscript,
 and here the graph is the primary record, the PDF one derived view
 CI rebuilds from it. Read that
-way, F(AI)\textsuperscript{2}R is a migration path, moving the
-substance of a publication into exactly the claim-level form a
-post-paper science would need while still emitting the legacy format.
-The objection stays open: if the paper form dissolves, judge this
-method by whether its graphs remain useful without the PDFs.
+way, F(AI)\textsuperscript{2}R is a migration path, moving a
+publication's substance into the claim-level form a post-paper
+science would need while still emitting the legacy format. If the
+paper form dissolves, judge this method by whether its graphs remain
+useful without the PDFs.
 
 \textbf{The force multiplier, both ways, and the optimistic reading.}
 One operator ran method, paper, and integration fork in parallel
@@ -289,6 +292,5 @@ activity log shows that division of labour. No guarantee, only a
 chance; a provenance graph is how one would check, later, whether the
 chance was taken. For this experiment the leverage measurement of
 Section~\ref{sec:meta} is that check, taken early: \MDirWords{}
-typed words steering \MActiveH{} active hours, and nearly every one
-of them spent on
-scope, semantics, lineage, or people. Here, the chance was taken.
+typed words steering \MActiveH{} active hours, nearly all of them
+spent on scope, semantics, lineage, or people.

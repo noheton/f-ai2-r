@@ -134,6 +134,9 @@ aiprov:doi              a owl:DatatypeProperty ; rdfs:range xsd:anyURI .
 aiprov:selfCitation     a owl:DatatypeProperty ; rdfs:domain aiprov:Source ;
     rdfs:range xsd:boolean ;
     rdfs:comment "Marks a source authored (wholly or partly) by a contributor of the present work. Provenance-driven self-citation — declaring intellectual ancestry — is legitimate and MUST be visible: this flag makes the self-citation ratio machine-queryable instead of hidden."@en .
+aiprov:grantedRung      a owl:ObjectProperty ; rdfs:domain aiprov:AuditPass ;
+    rdfs:range aiprov:VerificationState ;
+    rdfs:comment "The rung granted by this promotion activity. Structured mirror of the promotion label, so conformance checks need not parse prose."@en .
 aiprov:refusedRung      a owl:ObjectProperty ; rdfs:domain aiprov:AuditPass ;
     rdfs:comment "The rung an agent examined and declined to grant. Disagreement is first-class: a refusal changes no verification state, but it is a logged audit activity, so 'checked and not convinced' is distinguishable from 'never checked'."@en .
 
@@ -145,7 +148,7 @@ aiprov:refusedRung      a owl:ObjectProperty ; rdfs:domain aiprov:AuditPass ;
 # canonical IRI on read and write.
 
 aiprov:verificationState a owl:ObjectProperty ;
-    rdfs:domain aiprov:Claim ; rdfs:range aiprov:VerificationState ;
+    rdfs:domain prov:Entity ; rdfs:range aiprov:VerificationState ;
     rdfs:comment "Current rung of a claim or source on the verification ladder. Exactly one value; transitions are recorded as AuditPass activities so the history stays in the graph."@en .
 aiprov:VerificationState a owl:Class ;
     rdfs:comment "A rung on the verification ladder. Higher position = stronger check. Rungs at position 5+ are human-only: an AI agent must never grant them."@en .

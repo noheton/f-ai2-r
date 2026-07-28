@@ -206,6 +206,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/build_review_list-py> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-c2pa-spec-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of c2pa-spec: reference-resolved -> ai-confirmed (Content checked at page depth (c2pa.org specifications index, redirecting to spec.c2pa.org v2.4): the C2PA Content Credentials specification defines signed, machine-readable provenance manifests for media content including AI-generated content. Supports the related-work sentence that signed AI-content marking is an existing industry standard; aiprov records the research work behind artefacts (activities, judgements, verification), a complementary layer to content credentials on the artefact itself.)"@en ;
+    prov:endedAtTime "2026-07-28T11:44:21.223797+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/c2pa-spec> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:grantedRung verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-chatgpt-priorities2023-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of chatgpt-priorities2023: reference-resolved -> ai-confirmed (Checked via Semantic Scholar record of the Nature comment: title 'ChatGPT: five priorities for research', standfirst 'Conversational AI is a game-changer for science. Here's how to respond.' Supports 'the debate is loud and well documented'. Title/standfirst depth.)"@en ;
     prov:endedAtTime "2026-07-27T07:48:58.901901+00:00"^^xsd:dateTime ;
@@ -372,17 +379,38 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/hmc-conference2025> ;
     prov:wasAssociatedWith agent:florian-krebs .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-in-toto2019-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of in-toto2019: reference-resolved -> ai-confirmed (Content checked at page depth (USENIX Security 2019 presentation page, Torres-Arias et al.): in-toto 'cryptographically ensures the integrity of the software supply chain', letting the end user 'verify the software's supply chain from the project's inception to its deployment'. Supports the dual-witness related-work sentence: signed artefact-to-process binding exists in supply-chain security; aiprov's seam for signed provider records is the analogous ask for AI inference.)"@en ;
+    prov:endedAtTime "2026-07-28T11:44:20.476413+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/in-toto2019> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:grantedRung verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-llm-homogenization2024-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of llm-homogenization2024: reference-resolved -> ai-confirmed (Abstract checked (preprint, not peer-reviewed - cited as such): across three preregistered studies on 2,200 essays, 'each additional human-written essay contributed more new ideas than each additional GPT-4 essay', homogenization persisting under prompt/parameter enhancements. Supports the originality paragraph's claim that collective novelty enters through the human side. Abstract depth.)"@en ;
     prov:endedAtTime "2026-07-25T18:53:42.755402+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/llm-homogenization2024> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-main-pdf-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of main-pdf: unverified -> source-vendored (Repository-internal generated artefact (the compiled paper PDF, rebuilt by CI on every push); the in-repo file is the evidence, path and sha256 recorded at promotion time.)"@en ;
+    prov:endedAtTime "2026-07-28T11:47:14.439597+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/main-pdf> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:grantedRung verif:source-vendored .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-main-tex-source-vendored> a aiprov:AuditPass ;
     rdfs:label "Promotion of main-tex: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time.)"@en ;
     prov:endedAtTime "2026-07-28T06:25:56.738026+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/main-tex> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-manubot2019-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of manubot2019: reference-resolved -> ai-confirmed (Content checked at abstract depth (PLOS Computational Biology, Himmelstein et al. 2019): Manubot manuscripts are 'written in Markdown and stored in a Git repository to precisely track changes over time', publication is continuous with rebuilt outputs on source change, and citation-by-identifier retrieves metadata from persistent identifiers. Supports the related-work concession that CI-built manuscripts and registry-fetched citation metadata predate this work as practices; aiprov adds the provenance graph, the ladder, and AI-agent accounting on top.)"@en ;
+    prov:endedAtTime "2026-07-28T11:44:19.804042+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/manubot2019> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:grantedRung verif:ai-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-memas2024-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of memas2024: reference-resolved -> ai-confirmed (Abstract checked (OpenAlex/Zenodo): MEMAS covers integrated data management across pre-production, production and post-production for additive manufacturing of aerospace composites enabling high-fidelity modeling; earlier session check additionally found the explicit statement that MEMAS uses the shepard integrated data management system. Supports the MEMAS citing sentences. Abstract depth.)"@en ;
@@ -403,6 +431,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:endedAtTime "2026-07-28T11:21:03.805817+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/metrics-json> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-micropub2014-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of micropub2014: reference-resolved -> ai-confirmed (Content checked at abstract depth (Journal of Biomedical Semantics, Clark, Ciccarese, Goble 2014): 'The micropublications semantic model of scientific argument and evidence' supports 'natural language statements; data; methods and materials specifications' with support for 'evidence examination, challenge, verification'. Supports the related-work positioning: claim-evidence-argument modelling predates aiprov; aiprov adds agent-class-aware provenance and human-only verification rungs.)"@en ;
+    prov:endedAtTime "2026-07-28T11:44:19.120968+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/micropub2014> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:grantedRung verif:ai-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-model-collapse2024-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of model-collapse2024: reference-resolved -> ai-confirmed (Content checked against the Nature abstract: 'indiscriminate use of model-generated content in training causes irreversible defects in the resulting models ... we refer to this effect as model collapse'. Supports 'models trained on the polluted pool degrade further'. Abstract depth; full text paywalled.)"@en ;
@@ -431,6 +466,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:endedAtTime "2026-07-28T08:02:59.635260+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/modelcards2019> ;
     prov:wasAssociatedWith agent:florian-krebs .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-nanopub2010-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of nanopub2010: reference-resolved -> ai-confirmed (Content checked at page depth (IOS Press article page; Groth, Gibson, Velterop 2010, Information Services and Use): the nanopublication model makes a single scientific assertion with its provenance and context a first-class, citable data object. Supports the related-work sentence that claims-as-first-class-citizens with attached provenance predates aiprov; aiprov differs in recording the AI-vs-human division of the work behind the claim and a graded, grantor-explicit verification ladder.)"@en ;
+    prov:endedAtTime "2026-07-28T11:44:18.418586+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/nanopub2010> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:grantedRung verif:ai-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-obscurity-is-dead-human-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of obscurity-is-dead: reference-resolved -> human-confirmed (Granted by the human operator in the session ('confirm my selfcitations'). The operator authored this repository and confirms the citing sentences: it established transcript-as-artifact and per-claim verification labels (repo-vendored, lit-read, unverified-external) while measuring how LLMs compress reverse-engineering effort. Command executed by the AI agent at explicit direction; judgement and grant are the human's.)"@en ;
@@ -838,10 +880,22 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/llm-homogenization2024> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-manubot2019> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:manubot2019 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-28T11:43:33.539508+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/manubot2019> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-memas2024> a aiprov:AuditPass ;
     rdfs:label "DOI verification of src:memas2024 via openalex -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T20:04:39.251768+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/memas2024> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-micropub2014> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:micropub2014 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-28T11:43:32.919135+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/micropub2014> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-model-collapse2024> a aiprov:AuditPass ;
@@ -854,6 +908,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     rdfs:label "DOI verification of src:modelcards2019 via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T18:25:45.731630+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/modelcards2019> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-nanopub2010> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:nanopub2010 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-28T11:43:32.352360+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/nanopub2010> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-opm2010> a aiprov:AuditPass ;
@@ -2584,6 +2644,11 @@ aiprov:verificationState a owl:ObjectProperty ;
         <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/source/c2pa-spec> a aiprov:Source ;
+    rdfs:label "Coalition for Content Provenance and Authenticity (C2PA): Content Credentials technical specification"@en ;
+    dcterms:source <https://c2pa.org/specifications/> ;
+    aiprov:verificationState verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/fair2r-repo> a aiprov:Source ;
     rdfs:label "F(AI)²R: FAIR research with AI in the loop, twice (research repository)"@en ;
     dcterms:creator agent:florian-krebs ;
@@ -2596,8 +2661,10 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://helmholtz-metadaten.de/> ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/main-pdf> a aiprov:Source ;
-    aiprov:filePath "paper/main.pdf" .
+<https://noheton.org/f-ai2-r/prov/source/in-toto2019> a aiprov:Source ;
+    rdfs:label "in-toto: Providing farm-to-table guarantees for bits and bytes (Torres-Arias et al., USENIX Security 2019)"@en ;
+    dcterms:source <https://www.usenix.org/conference/usenixsecurity19/presentation/torres-arias> ;
+    aiprov:verificationState verif:ai-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/obscurity-is-dead> a aiprov:Source ;
     rdfs:label "Obscurity Is Dead — Proprietary by Design, Open by AI (research repository)"@en ;
@@ -2842,6 +2909,32 @@ agent:github-actions a aiprov:ToolAgent ;
     rdfs:label "Homogenizing Effect of a Large Language Model (LLM) on Creative Diversity: An Empirical Comparison of Human and ChatGPT Writing"@en ;
     dcterms:date "2024" ;
     aiprov:doi "https://doi.org/10.31234/osf.io/8p9wu"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/main-pdf> a aiprov:Source ;
+    aiprov:contentHash "sha256:7c571890bb193d260816df8aeeb5ec67ab41fbbe577e1a26d1c95a677c873aef" ;
+    aiprov:filePath "paper/main.pdf" ;
+    aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/manubot2019> a aiprov:Source ;
+    rdfs:label "Open collaborative writing with Manubot"@en ;
+    dcterms:date "2019" ;
+    dcterms:isPartOf "PLOS Computational Biology" ;
+    aiprov:doi "https://doi.org/10.1371/journal.pcbi.1007128"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/micropub2014> a aiprov:Source ;
+    rdfs:label "Micropublications: a semantic model for claims, evidence, arguments and annotations in biomedical communications"@en ;
+    dcterms:date "2014" ;
+    dcterms:isPartOf "Journal of Biomedical Semantics" ;
+    aiprov:doi "https://doi.org/10.1186/2041-1480-5-28"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/nanopub2010> a aiprov:Source ;
+    rdfs:label "The anatomy of a nanopublication"@en ;
+    dcterms:date "2010" ;
+    dcterms:isPartOf "Information Services and Use" ;
+    aiprov:doi "https://doi.org/10.3233/ISU-2010-0613"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/oecd-ai-principles> a aiprov:Source ;
@@ -3617,15 +3710,15 @@ aiprov:Repair a owl:Class ;
         <https://noheton.org/f-ai2-r/prov/source/references-bib> ;
     prov:wasAssociatedWith agent:claude-code .
 
-verif:ai-confirmed a aiprov:VerificationState ;
-    rdfs:label "AI-confirmed"@en ;
-    rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
-    aiprov:ladderPosition 3 .
-
 verif:source-vendored a aiprov:VerificationState ;
     rdfs:label "source vendored"@en ;
     rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
     aiprov:ladderPosition 4 .
+
+verif:ai-confirmed a aiprov:VerificationState ;
+    rdfs:label "AI-confirmed"@en ;
+    rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
+    aiprov:ladderPosition 3 .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
     dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .

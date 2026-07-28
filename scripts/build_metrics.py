@@ -55,7 +55,7 @@ def find_session_file():
 
 
 def graph_metrics(m):
-    from rdflib import Graph, Namespace, RDF
+    from rdflib import Graph, Namespace, RDF, RDFS
     g = Graph()
     g.parse(ROOT / "provenance.ttl", format="turtle")
     AIPROV = Namespace("https://w3id.org/aiprov/ns#")
@@ -87,6 +87,27 @@ def graph_metrics(m):
             if rung in ("human-confirmed", "human-read"):
                 checked += 1
                 human_rungs += 1
+    # authenticated vs transcribed human grants, and link-only audit targets
+    gi = gs = link_only = 0
+    for act in g.subjects(RDF.type, AIPROV.AuditPass):
+        ag = g.value(act, PROV.wasAssociatedWith)
+        if ag is None or "florian-krebs" not in str(ag):
+            continue
+        lbl = str(g.value(act, RDFS.label) or "")
+        if "-> human-" not in lbl and "-> lit-read" not in lbl:
+            continue
+        if "via GitHub issue #" in lbl:
+            gi += 1
+        else:
+            gs += 1
+    for s in sources:
+        st = g.value(s, AIPROV.verificationState)
+        if st is not None and str(st).rsplit("/", 1)[-1] in ("human-confirmed", "human-read"):
+            if not list(g.objects(s, AIPROV.filePath)):
+                link_only += 1
+    m["human_grants_issue"] = gi
+    m["human_grants_session"] = gs
+    m["human_link_only"] = link_only
     m["sources_self"] = self_cited
     m["sources_checked"] = checked
     m["human_rungs_granted"] = human_rungs
@@ -179,6 +200,25 @@ def session_metrics(m):
     m["active_hours"] = round(active.total_seconds() / 3600, 1)
     m["span_hours"] = round((stamps[-1] - stamps[0]).total_seconds() / 3600) if stamps else 0
     m["session_id"] = src.stem
+    # Publish the usage-bearing skeleton of the session record so the
+    # session-derived numbers are recomputable from the repository alone:
+    # timestamps, usage blocks, and tool names - no message content.
+    tel = ROOT / "doc" / "telemetry"
+    tel.mkdir(exist_ok=True)
+    with open(tel / f"usage-{src.stem}.jsonl", "w") as out_f:
+        for line in src.read_text(encoding="utf-8", errors="replace").splitlines():
+            try:
+                d = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            msg = d.get("message") or {}
+            u = msg.get("usage")
+            if not (isinstance(u, dict) and "output_tokens" in u):
+                continue
+            tools = [b.get("name") for b in (msg.get("content") or [])
+                     if isinstance(b, dict) and b.get("type") == "tool_use"]
+            out_f.write(json.dumps({"ts": d.get("timestamp"), "usage": u,
+                                    "tools": tools}) + "\n")
 
 
 def repo_metrics(m):
@@ -195,6 +235,9 @@ def repo_metrics(m):
             ln = ln.strip()
             if ln.startswith("%") or not ln:
                 continue
+            # Keep the arguments of formatting commands (their content is
+            # prose); drop only the command name and optional [] argument.
+            ln = re.sub(r"\\(?:emph|texttt|textbf|textit|textsuperscript)\{([^}]*)\}", r"\1", ln)
             ln = re.sub(r"\\[a-zA-Z]+\*?(\[[^\]]*\])?(\{[^}]*\})?", "", ln)
             words += len(ln.split())
     m["prose_words"] = words
@@ -203,7 +246,12 @@ def repo_metrics(m):
     tr = ROOT / "doc" / "transcripts"
     turns = 0
     for p in tr.glob("*.md"):
-        turns = max(turns, p.read_text(encoding="utf-8", errors="replace").count("\n## "))
+        # Count only real turn headers (Human/Assistant/Tool result/Hook);
+        # a bare "\n## " count also matches markdown headings pasted inside
+        # message bodies and inflated the metric ~14%.
+        txt = p.read_text(encoding="utf-8", errors="replace")
+        turns = max(turns, len(re.findall(
+            r"^## (?:Human|Assistant|Tool result|Hook)\b", txt, re.M)))
     m["transcript_turns"] = turns
 
 
@@ -278,6 +326,9 @@ def write_outputs(m):
     mac("\\MProseWordsK", f"{round(m['prose_words'], -2):,}".replace(",", "\\,"))
     mac("\\MToolLinesK", f"{round(m['tool_lines'], -2):,}".replace(",", "\\,"))
     mac("\\MSkillVersion", m["skill_version"])
+    mac("\\MGrantsIssue", m["human_grants_issue"])
+    mac("\\MGrantsSession", m["human_grants_session"])
+    mac("\\MLinkOnly", m["human_link_only"])
     mac("\\MPriceBasis",
         f"input \\${PRICE['input']:.0f}, output \\${PRICE['output']:.0f}, "
         f"cache read \\${PRICE['cache_read']:.0f}, 1\\,h cache write "
