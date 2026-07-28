@@ -64,6 +64,47 @@ def structure_notes() -> list[tuple[str, str]]:
 
 
 
+# Copy-to-clipboard buttons for the grant/refuse commands: the page is
+# static, so a click cannot (and must not) write the graph — the
+# human-only rung is granted in the repository. The button stages the
+# exact command instead.
+COPY_SCRIPT = """
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.verif details pre').forEach(function (pre) {
+    var code = pre.querySelector('code'); if (!code) return;
+    var lines = code.textContent.split('\\n').filter(function (l) {
+      return l.indexOf('provlog.py promote') !== -1; });
+    if (!lines.length) return;
+    var bar = document.createElement('div');
+    bar.style.cssText = 'padding:6px 12px 10px;display:flex;gap:8px;flex-wrap:wrap';
+    lines.forEach(function (cmd) {
+      var b = document.createElement('button');
+      var refuse = cmd.indexOf('--refuse') !== -1;
+      b.textContent = refuse ? 'Copy refuse command' : 'Copy confirm command';
+      b.style.cssText = 'font:inherit;font-size:.74rem;padding:3px 10px;' +
+        'border:1px solid ' + (refuse ? '#a33' : '#2e8540') + ';border-radius:3px;' +
+        'background:transparent;color:inherit;cursor:pointer';
+      b.addEventListener('click', function () {
+        var done = function () { b.textContent = 'Copied — run it in the repo'; };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(cmd).then(done, function () { fallback(); });
+        } else { fallback(); }
+        function fallback() {
+          var ta = document.createElement('textarea'); ta.value = cmd;
+          document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); done(); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+      });
+      bar.appendChild(b);
+    });
+    pre.after(bar);
+  });
+});
+</script>"""
+
+
 def verification_html() -> str:
     """Collapsible rendering of doc/sources/VERIFICATION.md (the human-rung
     review queue) for the bottom of the preview, grouped by whether human
@@ -124,7 +165,7 @@ def verification_html() -> str:
         'work first; \U0001f5c2 is an in-repo artefact needing no literature '
         'check; \u2713 is done. Generated from provenance.ttl; the '
         'human rungs are the operator\'s alone.</p>'
-        + "\n".join(parts) + '</details>')
+        + "\n".join(parts) + COPY_SCRIPT + '</details>')
 
 
 def graph_stats() -> dict | None:
