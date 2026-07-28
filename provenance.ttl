@@ -318,6 +318,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/oecd-ai-principles> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-oecd-ai-principles-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of oecd-ai-principles: ai-confirmed -> human-confirmed (Transparency as major principle.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #5 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T07:56:25.424586+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/oecd-ai-principles> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-oecd-aim-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of oecd-aim: reference-resolved -> ai-confirmed (Content checked at page depth against oecd.ai/en/incidents-methodology and oecd.ai/en/site/incidents: 'The goal of the AIM is to track actual AI incidents and hazards, as defined by the OECD, in real time and provide the evidence-base to inform related AI policy discussions' (developed by the OECD.AI expert group on AI incidents); the incidents overview adds 'Incident reporting and monitoring must be consistent and interoperable globally'. Supports the discussion sentence that OECD.AI incident monitoring aggregates per-project records. Page depth; the AIM dashboard itself is script-rendered, the methodology page is the recorded access path.)"@en ;
     prov:endedAtTime "2026-07-27T19:46:22.884105+00:00"^^xsd:dateTime ;
@@ -2173,11 +2181,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:selfCitation true ;
     aiprov:verificationState verif:human-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/oecd-ai-principles> a aiprov:Source ;
-    rdfs:label "Recommendation of the Council on Artificial Intelligence (OECD/LEGAL-0449), adopted May 2019, amended May 2024; OECD AI Principles"@en ;
-    dcterms:source <https://oecd.ai/en/ai-principles> ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/oecd-aim> a aiprov:Source ;
     rdfs:label "AI Incidents and Hazards Monitor (AIM), OECD.AI Policy Observatory: overview and methodology"@en ;
     dcterms:source <https://oecd.ai/en/incidents-methodology> ;
@@ -2455,6 +2458,11 @@ agent:github-actions a aiprov:ToolAgent ;
     dcterms:isPartOf "Proceedings of the Conference on Fairness, Accountability, and Transparency" ;
     aiprov:doi "https://doi.org/10.1145/3287560.3287596"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/oecd-ai-principles> a aiprov:Source ;
+    rdfs:label "Recommendation of the Council on Artificial Intelligence (OECD/LEGAL-0449), adopted May 2019, amended May 2024; OECD AI Principles"@en ;
+    dcterms:source <https://oecd.ai/en/ai-principles> ;
+    aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/operators-json> a aiprov:Source ;
     aiprov:contentHash "sha256:383279053b9006e3427c54e5d46c3db796b99c6b0b7b06f680c2ba56bb1c1a3f" ;
