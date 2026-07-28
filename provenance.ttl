@@ -162,6 +162,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/better-architecture2025> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-better-architecture2025-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of better-architecture2025: ai-confirmed -> human-confirmed (correct extension.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #14 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T08:05:06.959462+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/better-architecture2025> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-build_metrics-py-source-vendored> a aiprov:AuditPass ;
     rdfs:label "Promotion of build_metrics-py: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time. Content is directly inspectable in git history; no external access path needed.)"@en ;
     prov:endedAtTime "2026-07-27T20:17:18.423090+00:00"^^xsd:dateTime ;
@@ -2424,13 +2432,6 @@ agent:github-actions a aiprov:ToolAgent ;
     dcterms:source <https://platform.claude.com/docs/en/about-claude/pricing> ;
     aiprov:verificationState verif:human-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/better-architecture2025> a aiprov:Source ;
-    rdfs:label "Better Architecture, Better Software, Better Research"@en ;
-    dcterms:date "2025" ;
-    dcterms:isPartOf "Computing in Science &amp; Engineering" ;
-    aiprov:doi "https://doi.org/10.1109/MCSE.2025.3573887"^^xsd:anyURI ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/build_metrics-py> a aiprov:Source ;
     aiprov:contentHash "sha256:b3d2394c8f59114d74ee9317aeac7a3456b88da3fbe6d0f1d0f330d8a9bacb86" ;
     aiprov:filePath "scripts/build_metrics.py" ;
@@ -2657,6 +2658,13 @@ aiprov:HumanAgent a owl:Class ;
 <https://noheton.org/f-ai2-r/prov/source/attention2017> a aiprov:Source ;
     aiprov:doi "https://doi.org/10.48550/arXiv.1706.03762"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/better-architecture2025> a aiprov:Source ;
+    rdfs:label "Better Architecture, Better Software, Better Research"@en ;
+    dcterms:date "2025" ;
+    dcterms:isPartOf "Computing in Science &amp; Engineering" ;
+    aiprov:doi "https://doi.org/10.1109/MCSE.2025.3573887"^^xsd:anyURI ;
+    aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/build_paper_preview-py> a aiprov:Source ;
     aiprov:contentHash "sha256:dd61a051ee9f9305078d9183a1462d87891977884768faec1b5a130a328f759c" ;
@@ -3143,15 +3151,15 @@ verif:human-confirmed a aiprov:VerificationState ;
     rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
     aiprov:ladderPosition 5 .
 
-verif:source-vendored a aiprov:VerificationState ;
-    rdfs:label "source vendored"@en ;
-    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
-    aiprov:ladderPosition 4 .
-
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;
     rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
     aiprov:ladderPosition 3 .
+
+verif:source-vendored a aiprov:VerificationState ;
+    rdfs:label "source vendored"@en ;
+    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
+    aiprov:ladderPosition 4 .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
     dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
