@@ -1,0 +1,20 @@
+# w3id.org/aiprov — AI provenance vocabulary (aiprov), F(AI)2R project
+# Canonical source: https://github.com/noheton/f-ai2-r (assets/aiprov-schema.ttl)
+# Maintainer: Florian Krebs, ORCID 0000-0001-6033-801X
+Options +FollowSymLinks
+RewriteEngine on
+
+# Vocabulary namespace and term requests (fragments never reach the
+# server, so every #term request arrives as /aiprov/ns).
+# Machine formats: 303 to the Turtle schema at the repository HEAD.
+RewriteCond %{HTTP_ACCEPT} text/turtle [OR]
+RewriteCond %{HTTP_ACCEPT} application/x-turtle [OR]
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml [OR]
+RewriteCond %{HTTP_ACCEPT} application/ld\+json
+RewriteRule ^ns.*$ https://raw.githubusercontent.com/noheton/f-ai2-r/HEAD/assets/aiprov-schema.ttl [R=303,L]
+
+# Humans: 303 to the rendered schema in the repository.
+RewriteRule ^ns.*$ https://github.com/noheton/f-ai2-r/blob/HEAD/assets/aiprov-schema.ttl [R=303,L]
+
+# Project root: the repository (method, skill, paper, provenance graph).
+RewriteRule ^$ https://github.com/noheton/f-ai2-r [R=303,L]
