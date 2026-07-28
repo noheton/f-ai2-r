@@ -1152,8 +1152,10 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper>,
         <https://noheton.org/f-ai2-r/prov/activity/s86-source-pass-issue-grants>,
         <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing>,
-        <https://noheton.org/f-ai2-r/prov/activity/s91-demonstration-rungs-note> ;
-    aiprov:contentHash "sha256:1990ebaa3dffa13626c417064c24e8dc4c1eb64681be4e09373abe328b6e842e",
+        <https://noheton.org/f-ai2-r/prov/activity/s91-demonstration-rungs-note>,
+        <https://noheton.org/f-ai2-r/prov/activity/s95-writing-style-pass> ;
+    aiprov:contentHash "sha256:087b53a09b31690610516a52305138b04fbbebab7a5b1fa1a45f1deb0d59b300",
+        "sha256:1990ebaa3dffa13626c417064c24e8dc4c1eb64681be4e09373abe328b6e842e",
         "sha256:1e6886e01eb1a921111e3aa4bdcd33fa82caa63089c14600bff9610ad8982abb",
         "sha256:2b20b3b01e144b8a7c7b7266005d0691803a94ae063e2f74d58e795f8ce832cf",
         "sha256:2ba14c2dcb3edd46698edfc9bb5e9ff4bda21165fb0672eba127b59fa3f1b665",
@@ -1178,7 +1180,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:fb17bd85e1269861fae391fe4354ab127bff7b1d4d2be06ec439c1211555e7e8",
         "sha256:fd265a536fb8a32e3dfa64d5eb01f28f6270b07d30e8bdfd0f53634abc4b7e63" ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
-    aiprov:gitCommit "390d3af",
+    aiprov:gitCommit "1887d50ad44000a1af53ecd581fa8a238ac7edc1",
+        "390d3af",
         "42d3042",
         "43af99d",
         "4578a83",
@@ -1237,7 +1240,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s79-operator-grants-shepard-scope>,
         <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
         <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing>,
-        <https://noheton.org/f-ai2-r/prov/activity/s94-overhead-chart> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s94-overhead-chart>,
+        <https://noheton.org/f-ai2-r/prov/activity/s95-writing-style-pass> ;
     aiprov:contentHash "sha256:03ad1f33420e1cbfb1e1c22753540234ca23bed2a6aef65d8df3f108f642c06a",
         "sha256:0ae502fea46692d008b14632d42884f5e64adfa7b4cda32ff4fb0a96ac6f1860",
         "sha256:12d5dd72efdf48971de13781d1fada4d0387bd37160ecd4387c0be54ca81f402",
@@ -1268,10 +1272,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:e0d31c329699c1e2f468063a79a86c452a67be98e11c200c22710bca0c250e20",
         "sha256:e9ed6006dbdaf5586dfcab386f5c35f4a7665263ceafeb8fae055e89cc2b66a1",
         "sha256:ef93fac17f8294ef6def9eee48bf447394bac69c0609d6289d28d45631c598b2",
-        "sha256:f0b41bd559abf2febc296356d04a4657234a2bebc2767aa154cd4e0cd41caa63" ;
+        "sha256:f0b41bd559abf2febc296356d04a4657234a2bebc2767aa154cd4e0cd41caa63",
+        "sha256:fa075e12d1209c8beed2043f239b67eaab517f59d44e28242b24567ddb9832f7" ;
     aiprov:filePath "paper/sections/07-discussion.tex" ;
     aiprov:gitCommit "0a0414f",
         "15a0d94",
+        "1887d50ad44000a1af53ecd581fa8a238ac7edc1",
         "1aaab86",
         "1fcea34134276d7d10b47e462d14d52ab00f3122",
         "2b22a73",
@@ -2671,6 +2677,13 @@ aiprov:Transcript a owl:Class ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/s95-writing-style-pass> a aiprov:Repair ;
+    rdfs:label "Operator invoked their writing-style profile on the paper. Sweep results: no em- or en-dashes in typeset prose (double hyphens are TikZ paths, CLI flags, numeric ranges); one blacklist hit repaired (digital-twin ecosystems -> infrastructures); AI-tell scan clean for filler transitions, meta-phrases, and puffery; the signature antithesis runs about one per subsection, and four in-paragraph clusters were thinned to a single contrast each (self-report mitigations, checked-depth, first-omitted cost, freedom-gained). Sentence-rhythm variation left to the parallel style agents of the final-pass workflow, to be merged when they report."@en ;
+    prov:endedAtTime "2026-07-28T11:11:17.416970+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex>,
+        <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 agent:github-actions a aiprov:ToolAgent ;
     foaf:name "GitHub Actions (aiprov build workflow)" ;
     aiprov:provider "GitHub"^^xsd:string .
@@ -3224,11 +3237,6 @@ aiprov:Contribution a owl:Class ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
-<https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex> a aiprov:Source ;
-    aiprov:contentHash "sha256:be480c648fbedb68fd4dd11e1e27910ba8090488d0ca113a40dfe47a858b9842" ;
-    aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
-    aiprov:verificationState verif:source-vendored .
-
 <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> a aiprov:Source ;
     rdfs:label "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing"@en ;
     dcterms:date "2023" ;
@@ -3350,6 +3358,11 @@ aiprov:Contribution a owl:Class ;
         <https://noheton.org/f-ai2-r/prov/source/build_review_list-py> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex> a aiprov:Source ;
+    aiprov:contentHash "sha256:be480c648fbedb68fd4dd11e1e27910ba8090488d0ca113a40dfe47a858b9842" ;
+    aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
+    aiprov:verificationState verif:source-vendored .
+
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
     prov:endedAtTime "2026-07-24T18:43:45.977114+00:00"^^xsd:dateTime ;
@@ -3441,11 +3454,6 @@ aiprov:Contribution a owl:Class ;
         "edit",
         "write" .
 
-<https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> a aiprov:Source ;
-    aiprov:contentHash "sha256:4d532f3034457f2bc98e98028491d50eb6cf8fb86529ea1edbc6a089a78c6c84" ;
-    aiprov:filePath "paper/sections/07-discussion.tex" ;
-    aiprov:verificationState verif:source-vendored .
-
 <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> a aiprov:Source ;
     aiprov:contentHash "sha256:14259982e1ad3c6cc270cc4f79d2146257c61473b384b3c53310ceebd6541e07" ;
     aiprov:filePath "provenance.ttl" ;
@@ -3483,9 +3491,10 @@ aiprov:Contribution a owl:Class ;
         <https://noheton.org/f-ai2-r/prov/source/references-bib> ;
     prov:wasAssociatedWith agent:claude-code .
 
-aiprov:Repair a owl:Class ;
-    rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
-    rdfs:subClassOf prov:Activity .
+<https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> a aiprov:Source ;
+    aiprov:contentHash "sha256:4d532f3034457f2bc98e98028491d50eb6cf8fb86529ea1edbc6a089a78c6c84" ;
+    aiprov:filePath "paper/sections/07-discussion.tex" ;
+    aiprov:verificationState verif:source-vendored .
 
 aiprov:VerificationState a owl:Class ;
     rdfs:comment "A rung on the verification ladder. Higher position = stronger check. Rungs at position 5+ are human-only: an AI agent must never grant them."@en .
@@ -3504,6 +3513,10 @@ aiprov:VerificationState a owl:Class ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex>,
         <https://noheton.org/f-ai2-r/prov/source/dashboard-html> ;
     prov:wasAssociatedWith agent:claude-code .
+
+aiprov:Repair a owl:Class ;
+    rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
+    rdfs:subClassOf prov:Activity .
 
 <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015> a aiprov:AuthoringPass ;
     rdfs:label "Review-response round, operator-directed. Skill v0.15: build_metrics.py as single source of numbers (all paper quantities computed from primary records into doc/metrics.json + paper/metrics.tex macros; methodology block embedded; counterfactuals never computed) - fixes the fragile-numbers weakness structurally; promote --refuse makes disagreement first-class (AuditPass with aiprov:refusedRung, no state change, note required; sandbox-tested). Paper: meta-experiment scoped as demonstration-not-study (one operator, one domain, one session); future work gains the two owed audits from the self-review (independent re-verification of ai-confirmed judgements to measure self-confirmation bias; second operator in second domain for the portability claims); refusal sentence added to Invariant II; nostalgia and copyright paragraphs compressed to hold the 12-page cap."@en ;
