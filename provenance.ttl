@@ -290,6 +290,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/fabricated-citations2023> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-fair2016-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of fair2016: source-vendored -> human-confirmed (correct. 
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #20 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T08:48:34.688078+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/fair2016> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-fair2016-source-vendored> a aiprov:AuditPass ;
     rdfs:label "Promotion of fair2016: reference-resolved -> source-vendored (Vendored for the human-verification access gate. Redistribution lawful: Scientific Data article published open access under CC BY 4.0.)"@en ;
     prov:endedAtTime "2026-07-27T07:00:17.967287+00:00"^^xsd:dateTime ;
@@ -325,6 +333,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:endedAtTime "2026-07-27T07:49:04.633671+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/hmc-conference2025> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-hmc-conference2025-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of hmc-conference2025: ai-confirmed -> human-confirmed (all three confirmed.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #22 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T08:50:06.237314+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/hmc-conference2025> ;
+    prov:wasAssociatedWith agent:florian-krebs .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-llm-homogenization2024-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of llm-homogenization2024: reference-resolved -> ai-confirmed (Abstract checked (preprint, not peer-reviewed - cited as such): across three preregistered studies on 2,200 essays, 'each additional human-written essay contributed more new ideas than each additional GPT-4 essay', homogenization persisting under prompt/parameter enhancements. Supports the originality paragraph's claim that collective novelty enters through the human side. Abstract depth.)"@en ;
@@ -455,6 +471,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:endedAtTime "2026-07-24T21:32:58.304319+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/perverse-incentives2017> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-perverse-incentives2017-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of perverse-incentives2017: ai-confirmed -> human-confirmed (confirms the misaligned incentives.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #23 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T08:52:07.837203+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/perverse-incentives2017> ;
+    prov:wasAssociatedWith agent:florian-krebs .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-prov-agent2025-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of prov-agent2025: reference-resolved -> ai-confirmed (Abstract checked (doi.org resolution): PROV-AGENT 'extends W3C PROV and leverages the Model Context Protocol' to 'integrate agent interactions into end-to-end workflow provenance' with near-real-time capture. Confirms it as nearest neighbor to aiprov - shared PROV substrate and agent-centric metadata (prompts, responses) - and confirms absence of human-only verification rungs, skill packaging, and self-application in its stated contributions. Abstract depth.)"@en ;
@@ -617,6 +641,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:endedAtTime "2026-07-25T18:39:29.772529+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-usco-ai-copyrightability2025-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of usco-ai-copyrightability2025: source-vendored -> human-confirmed (confirmed.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #21 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T08:49:12.752027+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> ;
+    prov:wasAssociatedWith agent:florian-krebs .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-usco-ai-copyrightability2025-source-vendored> a aiprov:AuditPass ;
     rdfs:label "Promotion of usco-ai-copyrightability2025: ai-confirmed -> source-vendored"@en ;
@@ -2338,11 +2370,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://helmholtz-metadaten.de/> ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/hmc-conference2025> a aiprov:Source ;
-    rdfs:label "HMC Conference 2025 — Book of Abstracts (Helmholtz Metadata Collaboration)"@en ;
-    dcterms:source <https://helmholtz-metadaten.de/storage/2298/HMC-Conference_2025_Book-of-Abstracts.pdf> ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/obscurity-is-dead> a aiprov:Source ;
     rdfs:label "Obscurity Is Dead — Proprietary by Design, Open by AI (research repository)"@en ;
     dcterms:source <https://github.com/noheton/Obscurity-Is-Dead> ;
@@ -2567,14 +2594,10 @@ agent:github-actions a aiprov:ToolAgent ;
     dcterms:source <https://eur-lex.europa.eu/eli/reg/2024/1689/oj> ;
     aiprov:verificationState verif:human-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/fair2016> a aiprov:Source ;
-    rdfs:label "The FAIR Guiding Principles for scientific data management and stewardship"@en ;
-    dcterms:date "2016" ;
-    dcterms:isPartOf "Scientific Data" ;
-    aiprov:contentHash "sha256:cdddd9f4808f7e3e1f013139c3915ef4d7cdccb008fa947ef5f72b4c7b6ffde7" ;
-    aiprov:doi "https://doi.org/10.1038/sdata.2016.18"^^xsd:anyURI ;
-    aiprov:filePath "doc/sources/fair2016.pdf" ;
-    aiprov:verificationState verif:source-vendored .
+<https://noheton.org/f-ai2-r/prov/source/hmc-conference2025> a aiprov:Source ;
+    rdfs:label "HMC Conference 2025 — Book of Abstracts (Helmholtz Metadata Collaboration)"@en ;
+    dcterms:source <https://helmholtz-metadaten.de/storage/2298/HMC-Conference_2025_Book-of-Abstracts.pdf> ;
+    aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/llm-homogenization2024> a aiprov:Source ;
     rdfs:label "Homogenizing Effect of a Large Language Model (LLM) on Creative Diversity: An Empirical Comparison of Human and ChatGPT Writing"@en ;
@@ -2599,13 +2622,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1002/ijc.33604"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/perverse-incentives2017> a aiprov:Source ;
-    rdfs:label "Academic Research in the 21st Century: Maintaining Scientific Integrity in a Climate of Perverse Incentives and Hypercompetition"@en ;
-    dcterms:date "2017" ;
-    dcterms:isPartOf "Environmental Engineering Science" ;
-    aiprov:doi "https://doi.org/10.1089/ees.2016.0223"^^xsd:anyURI ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/prov-o2013> a aiprov:Source ;
     rdfs:label "PROV-O: The PROV Ontology (W3C Recommendation, 30 April 2013)"@en ;
     dcterms:source <https://www.w3.org/TR/prov-o/> ;
@@ -2628,13 +2644,6 @@ agent:github-actions a aiprov:ToolAgent ;
     rdfs:label "An Uncertainty-Aware Provenance Framework for Enhanced Traceability in Engineering Systems"@en ;
     dcterms:source <https://elib.dlr.de/224241/> ;
     aiprov:verificationState verif:human-confirmed .
-
-<https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> a aiprov:Source ;
-    rdfs:label "Copyright and Artificial Intelligence, Part 2: Copyrightability (Report of the Register of Copyrights)"@en ;
-    dcterms:source <https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf> ;
-    aiprov:contentHash "sha256:30889d027cb7ec5b1e29919f26b1603ae691db6e77472acb270a2f8b8e540947" ;
-    aiprov:filePath "doc/sources/usco-ai-copyrightability2025.pdf" ;
-    aiprov:verificationState verif:source-vendored .
 
 aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;
@@ -2779,6 +2788,15 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:filePath "doc/sources/fabricated-citations2023.pdf" ;
     aiprov:verificationState verif:source-vendored .
 
+<https://noheton.org/f-ai2-r/prov/source/fair2016> a aiprov:Source ;
+    rdfs:label "The FAIR Guiding Principles for scientific data management and stewardship"@en ;
+    dcterms:date "2016" ;
+    dcterms:isPartOf "Scientific Data" ;
+    aiprov:contentHash "sha256:cdddd9f4808f7e3e1f013139c3915ef4d7cdccb008fa947ef5f72b4c7b6ffde7" ;
+    aiprov:doi "https://doi.org/10.1038/sdata.2016.18"^^xsd:anyURI ;
+    aiprov:filePath "doc/sources/fair2016.pdf" ;
+    aiprov:verificationState verif:human-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/gpt-fabricated2024> a aiprov:Source ;
     rdfs:label "GPT-fabricated scientific papers on Google Scholar: Key features, spread, and implications for preempting evidence manipulation"@en ;
     dcterms:date "2024" ;
@@ -2834,6 +2852,13 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:doi "https://doi.org/10.1186/2041-1480-4-37"^^xsd:anyURI ;
     aiprov:verificationState verif:human-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/perverse-incentives2017> a aiprov:Source ;
+    rdfs:label "Academic Research in the 21st Century: Maintaining Scientific Integrity in a Climate of Perverse Incentives and Hypercompetition"@en ;
+    dcterms:date "2017" ;
+    dcterms:isPartOf "Environmental Engineering Science" ;
+    aiprov:doi "https://doi.org/10.1089/ees.2016.0223"^^xsd:anyURI ;
+    aiprov:verificationState verif:human-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/prov-agent2025> a aiprov:Source ;
     rdfs:label "PROV-AGENT: Unified Provenance for Tracking AI Agent Interactions in Agentic Workflows"@en ;
     dcterms:date "2025" ;
@@ -2877,6 +2902,13 @@ aiprov:HumanAgent a owl:Class ;
     dcterms:source <https://www.gesetze-im-internet.de/urhg/__2.html> ;
     aiprov:contentHash "sha256:934c52dbc789f46a65d1ee8ab5f01c23389bb3a16674d5671d72cbe98336a513" ;
     aiprov:filePath "doc/sources/urhg-para2.html" ;
+    aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> a aiprov:Source ;
+    rdfs:label "Copyright and Artificial Intelligence, Part 2: Copyrightability (Report of the Register of Copyrights)"@en ;
+    dcterms:source <https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf> ;
+    aiprov:contentHash "sha256:30889d027cb7ec5b1e29919f26b1603ae691db6e77472acb270a2f8b8e540947" ;
+    aiprov:filePath "doc/sources/usco-ai-copyrightability2025.pdf" ;
     aiprov:verificationState verif:human-confirmed .
 
 aiprov:Contribution a owl:Class ;
@@ -3286,13 +3318,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
     aiprov:orcid "https://orcid.org/0000-0001-6033-801X"^^xsd:anyURI .
 
+<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
+    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+
 verif:human-confirmed a aiprov:VerificationState ;
     rdfs:label "human-confirmed"@en ;
     rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
     aiprov:ladderPosition 5 .
-
-<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
