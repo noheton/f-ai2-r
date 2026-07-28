@@ -2,6 +2,11 @@
 
 ## v0.20 (2026-07-28)
 
+- **Forge-neutral issue buttons.** The queue buttons read "Confirm/
+  Refuse via git issue" and the URL builder emits the GitLab
+  new-issue pattern (`/-/issues/new?issue[title]=...`) when the
+  remote is a GitLab host, GitHub otherwise; a clipboard fallback
+  stages the issue link when a sandboxed viewer swallows navigation.
 - **Click-to-confirm without touching the repository.** The preview's
   worksheet buttons now include "Confirm/Refuse via GitHub issue":
   they open a prefilled issue, and a new issues-triggered workflow

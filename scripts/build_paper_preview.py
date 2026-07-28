@@ -101,16 +101,31 @@ document.addEventListener('DOMContentLoaded', function () {
       var pm = cmd.match(/--id (\\S+) --to (\\S+)/);
       if (pm) {
         var a = document.createElement('a');
-        a.textContent = refuse ? 'Refuse via GitHub issue' : 'Confirm via GitHub issue';
+        a.textContent = refuse ? 'Refuse via git issue' : 'Confirm via git issue';
         a.style.cssText = b.style.cssText + ';text-decoration:none;display:inline-block';
         var body = 'Action: ' + (refuse ? 'refuse' : 'grant') +
           '\\nNote: <replace with your reasoning - required>\\n\\n' +
           'Opened from the paper preview; the aiprov-promote workflow executes ' +
           'this after verifying the issue author is a registered operator.';
-        a.href = 'https://github.com/__REPO_SLUG__/issues/new?title=' +
-          encodeURIComponent('aiprov-promote: ' + pm[1] + ' -> ' + pm[2]) +
-          '&body=' + encodeURIComponent(body);
-        a.target = '_blank';
+        a.href = '__ISSUE_NEW__'
+          .replace('{title}', encodeURIComponent('aiprov-promote: ' + pm[1] + ' -> ' + pm[2]))
+          .replace('{body}', encodeURIComponent(body));
+        a.rel = 'noopener';
+        a.addEventListener('click', function () {
+          // Fallback for viewers that swallow the navigation (sandboxed
+          // frames without popup permission): after a beat, stage the URL
+          // on the clipboard so the operator can open it anywhere.
+          var url = a.href;
+          setTimeout(function () {
+            if (!document.hidden) {
+              var done = function () {
+                a.textContent = 'Issue link copied - open it in your browser'; };
+              if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(done, function () {});
+              }
+            }
+          }, 600);
+        });
         bar.appendChild(a);
       }
     });
@@ -120,13 +135,23 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>"""
 
 
-def _repo_slug() -> str:
+def _issue_new_url() -> str:
+    """Prefilled new-issue URL pattern for the repo's forge. GitHub and
+    GitLab use different paths and parameter names; default to GitHub
+    when the remote does not identify the forge (e.g. a local proxy)."""
+    slug, remote = "noheton/f-ai2-r", ""
     try:
-        url = sh(["git", "remote", "get-url", "origin"]).stdout.strip()
-        m = re.search(r"([\w.-]+/[\w.-]+?)(?:\.git)?/?$", url)
-        return m.group(1) if m else "noheton/f-ai2-r"
+        remote = sh(["git", "remote", "get-url", "origin"]).stdout.strip()
+        m = re.search(r"([\w.-]+/[\w.-]+?)(?:\.git)?/?$", remote)
+        if m:
+            slug = m.group(1)
     except Exception:
-        return "noheton/f-ai2-r"
+        pass
+    if "gitlab" in remote:
+        host = re.search(r"https?://([^/]+)/", remote)
+        return (f"https://{host.group(1) if host else 'gitlab.com'}/{slug}"
+                "/-/issues/new?issue[title]={title}&issue[description]={body}")
+    return f"https://github.com/{slug}/issues/new?title={{title}}&body={{body}}"
 
 
 COPY_SCRIPT = None  # resolved lazily in verification_html
@@ -193,7 +218,7 @@ def verification_html() -> str:
         'check; \u2713 is done. Generated from provenance.ttl; the '
         'human rungs are the operator\'s alone.</p>'
         + "\n".join(parts)
-        + COPY_SCRIPT_TEMPLATE.replace('__REPO_SLUG__', _repo_slug())
+        + COPY_SCRIPT_TEMPLATE.replace('__ISSUE_NEW__', _issue_new_url())
         + '</details>')
 
 
