@@ -2492,6 +2492,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:filePath "doc/sources/usco-ai-copyrightability2025.pdf" ;
     aiprov:gitCommit "fb1a484" .
 
+<https://noheton.org/f-ai2-r/prov/entity/venues-md> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s101-venue-analysis> ;
+    aiprov:contentHash "sha256:059bad1293b66ccaeafa409a6ab60e411cfa5539473aacaefc27b8adba8fcb45" ;
+    aiprov:filePath "doc/venues.md" ;
+    aiprov:gitCommit "54a62a330c7f4c431fe9f358f5a380aac34aa25d" .
+
 verif:needs-research a aiprov:VerificationState ;
     rdfs:label "needs research"@en ;
     rdfs:comment "A check was attempted or demanded and did not succeed (e.g. DOI did not resolve). Must not be cited or relied upon until re-verified."@en ;
@@ -2666,6 +2673,11 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
     aiprov:usedTool "bash",
         "web_fetch" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s101-venue-analysis> a aiprov:AuditPass ;
+    rdfs:label "Venue scouting after the arXiv upload, deadlines web-checked on 2026-07-28 and recorded in doc/venues.md. Findings: the 2026 conference season just closed (JCDL papers Jun 30; IDCC27 papers Jul 24; ISWC posters Jul 24; e-Science papers ~Jun 8), so the near-term path is rolling journals (Quantitative Science Studies recommended primary; PeerJ CS, Data Science, Learned Publishing, IJDC as alternatives; JOSS as a tooling companion) plus the 2027 cycle: ESWC 2027 Resources (~Dec 2026 deadline) and a deRSE27 talk (~Oct 2026 CfC) as the community-feedback venues the operator wants before the w3id namespace freezes, with IPAW/ProvenanceWeek 2027 as the flagship provenance-community target. Two possibly-still-open 2026 late tracks flagged for direct verification (IDCC27 posters/demos; e-Science 2026 posters)."@en ;
+    prov:endedAtTime "2026-07-28T14:52:22.573774+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/s16-ladder-table> a aiprov:AuthoringPass ;
     rdfs:label "Method section gains Table 1: full verification-ladder semantics (position, rung, what it asserts, who may grant), with prose note explaining why source-vendored sits above ai-confirmed: vendoring changes the evidence's durability class — the audit target becomes immutable content-hashed local bytes instead of a mutable remote"@en ;
