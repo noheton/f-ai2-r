@@ -200,6 +200,14 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/eu-ai-act2024> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-eu-ai-act2024-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of eu-ai-act2024: ai-confirmed -> human-confirmed (claims are supported by source.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #1 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T06:30:22.848815+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/eu-ai-act2024> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-fabricated-citations2023-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of fabricated-citations2023: reference-resolved -> ai-confirmed (Content checked against the open-access abstract: 55% of GPT-3.5 and 18% of GPT-4 citations fabricated; 43%/24% of real citations carry substantive errors. Supports 'documented rates' (Sec. 3) and the fabricated-references discipline (Sec. 7).)"@en ;
     prov:endedAtTime "2026-07-24T21:32:57.880339+00:00"^^xsd:dateTime ;
@@ -2095,11 +2103,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://platform.claude.com/docs/en/about-claude/pricing> ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/eu-ai-act2024> a aiprov:Source ;
-    rdfs:label "Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)"@en ;
-    dcterms:source <https://eur-lex.europa.eu/eli/reg/2024/1689/oj> ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/fair2r-repo> a aiprov:Source ;
     rdfs:label "F(AI)²R: FAIR research with AI in the loop, twice (research repository)"@en ;
     dcterms:source <https://github.com/noheton/f-ai-r> ;
@@ -2358,6 +2361,11 @@ agent:github-actions a aiprov:ToolAgent ;
 <https://noheton.org/f-ai2-r/prov/source/easa-ai-concept2024> a aiprov:Source ;
     rdfs:label "EASA Artificial Intelligence Concept Paper Issue 2: Guidance for Level 1 and 2 machine-learning applications"@en ;
     dcterms:source <https://www.easa.europa.eu/en/document-library/general-publications/easa-artificial-intelligence-concept-paper-issue-2> ;
+    aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/eu-ai-act2024> a aiprov:Source ;
+    rdfs:label "Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)"@en ;
+    dcterms:source <https://eur-lex.europa.eu/eli/reg/2024/1689/oj> ;
     aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/fair2016> a aiprov:Source ;
@@ -2961,16 +2969,6 @@ aiprov:Repair a owl:Class ;
         "edit",
         "write" .
 
-agent:florian-krebs a aiprov:HumanAgent ;
-    foaf:name "Florian Krebs" ;
-    aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
-    aiprov:orcid "https://orcid.org/0000-0001-6033-801X"^^xsd:anyURI .
-
-verif:human-confirmed a aiprov:VerificationState ;
-    rdfs:label "human-confirmed"@en ;
-    rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
-    aiprov:ladderPosition 5 .
-
 aiprov:VerificationState a owl:Class ;
     rdfs:comment "A rung on the verification ladder. Higher position = stronger check. Rungs at position 5+ are human-only: an AI agent must never grant them."@en .
 
@@ -2981,6 +2979,16 @@ aiprov:VerificationState a owl:Class ;
     aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
     aiprov:usedTool "bash",
         "edit" .
+
+agent:florian-krebs a aiprov:HumanAgent ;
+    foaf:name "Florian Krebs" ;
+    aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
+    aiprov:orcid "https://orcid.org/0000-0001-6033-801X"^^xsd:anyURI .
+
+verif:human-confirmed a aiprov:VerificationState ;
+    rdfs:label "human-confirmed"@en ;
+    rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
+    aiprov:ladderPosition 5 .
 
 <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015> a aiprov:AuthoringPass ;
     rdfs:label "Review-response round, operator-directed. Skill v0.15: build_metrics.py as single source of numbers (all paper quantities computed from primary records into doc/metrics.json + paper/metrics.tex macros; methodology block embedded; counterfactuals never computed) - fixes the fragile-numbers weakness structurally; promote --refuse makes disagreement first-class (AuditPass with aiprov:refusedRung, no state change, note required; sandbox-tested). Paper: meta-experiment scoped as demonstration-not-study (one operator, one domain, one session); future work gains the two owed audits from the self-review (independent re-verification of ai-confirmed judgements to measure self-confirmation bias; second operator in second domain for the portability claims); refusal sentence added to Invariant II; nostalgia and copyright paragraphs compressed to hold the 12-page cap."@en ;
