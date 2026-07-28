@@ -14,6 +14,12 @@
     prov:endedAtTime "2026-07-24T18:48:20.669490+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:github-actions .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-02-background-tex-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of 02-background-tex: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time.)"@en ;
+    prov:endedAtTime "2026-07-28T06:34:06.316767+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/02-background-tex> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-03-dilution-tex-source-vendored> a aiprov:AuditPass ;
     rdfs:label "Promotion of 03-dilution-tex: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time.)"@en ;
     prov:endedAtTime "2026-07-28T06:10:01.883232+00:00"^^xsd:dateTime ;
@@ -2090,9 +2096,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
-<https://noheton.org/f-ai2-r/prov/source/02-background-tex> a aiprov:Source ;
-    aiprov:filePath "paper/sections/02-background.tex" .
-
 <https://noheton.org/f-ai2-r/prov/source/agent-skills-spec> a aiprov:Source ;
     rdfs:label "Agent Skills: an open format for extending AI agent capabilities (specification and adopter list)"@en ;
     dcterms:source <https://agentskills.io/> ;
@@ -2271,6 +2274,11 @@ aiprov:Transcript a owl:Class ;
 agent:github-actions a aiprov:ToolAgent ;
     foaf:name "GitHub Actions (aiprov build workflow)" ;
     aiprov:provider "GitHub"^^xsd:string .
+
+<https://noheton.org/f-ai2-r/prov/source/02-background-tex> a aiprov:Source ;
+    aiprov:contentHash "sha256:a770badee2f669b45366e68f1c9758c31d1b14ab13052dc621d515cdd5eaf1ef" ;
+    aiprov:filePath "paper/sections/02-background.tex" ;
+    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/03-dilution-tex> a aiprov:Source ;
     aiprov:contentHash "sha256:9b8092ffba483a816a1eab482a30a17874cd7b4d34b95751775e24e3ab232d55" ;
