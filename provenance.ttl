@@ -1377,7 +1377,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s75-worksheet-claims-and-render>,
         <https://noheton.org/f-ai2-r/prov/activity/s78-figure5-and-copy-buttons>,
         <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm>,
-        <https://noheton.org/f-ai2-r/prov/activity/s84-forge-neutral-buttons> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s84-forge-neutral-buttons>,
+        <https://noheton.org/f-ai2-r/prov/activity/s85-repeat-safe-button> ;
     aiprov:contentHash "sha256:01a2005992850b7802082444113d0df8700382736bd03a8b217e726ffd6e7b4e",
         "sha256:03ae2fc848ffea2d468a69d5c9ad5ce015f8b2fed2dcd5765ef463e5819abfbc",
         "sha256:33f9795a25e0b1d0c152b53b514c9e567ecf20f0e406cf39e5635a667738d517",
@@ -1387,6 +1388,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:b45713f43001d699f308fb520bc56d5af6abdee6204f6d21ca0003128a05b36f",
         "sha256:b52a6115d2ec62810b3f38d29498e68f291c2e33a80e8c50ea4515d757d33b5d",
         "sha256:c1cb8cf35473b636c656ab56a4f0b566bb2fd9a7ac6c0bac7f9ae7143c70acac",
+        "sha256:dd61a051ee9f9305078d9183a1462d87891977884768faec1b5a130a328f759c",
         "sha256:dec89bb132dcd23bd21f1316e72872c92bf30d7fe5099e993024f44d12a68393",
         "sha256:e326555c8107899ca355004d930865d0561dfc7b3174844b4432f4efaaf43681" ;
     aiprov:filePath "scripts/build_paper_preview.py" ;
@@ -1394,6 +1396,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "73a11cd",
         "80e96c580a482fc7777268d957236c353f8dc083",
         "8a1fec40853cc73078522d14a3ae354e742a29a5",
+        "948cb9b9d28ecbf0712b1c380b28105e3b0ba39e",
         "95fb4ff5a7375ec7920159422cae3c1f9e312802",
         "c1703b2",
         "da4301b2c455a663664eef2cab3a91dd2039a79c",
@@ -2102,6 +2105,12 @@ aiprov:verificationState a owl:ObjectProperty ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s85-repeat-safe-button> a aiprov:Repair ;
+    rdfs:label "Operator reported the confirm-via-issue button working only once. Cause attributed to viewer shells honoring only the first external navigation from a sandboxed frame; the page-side handler also mutated the label without restoring it. Fix: every click immediately copies the issue link to the clipboard alongside the navigation attempt and the label self-resets after three seconds, making repeated use reliable regardless of shell behaviour. Verified with a scripted double-click test (both clicks copy, label resets)."@en ;
+    prov:endedAtTime "2026-07-28T07:51:51.727249+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/build_paper_preview-py> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/source/agent-skills-spec> a aiprov:Source ;
     rdfs:label "Agent Skills: an open format for extending AI agent capabilities (specification and adopter list)"@en ;
     dcterms:source <https://agentskills.io/> ;
@@ -2111,9 +2120,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     rdfs:label "Anthropic: Claude API pricing (developer documentation)"@en ;
     dcterms:source <https://platform.claude.com/docs/en/about-claude/pricing> ;
     aiprov:verificationState verif:ai-confirmed .
-
-<https://noheton.org/f-ai2-r/prov/source/build_paper_preview-py> a aiprov:Source ;
-    aiprov:filePath "scripts/build_paper_preview.py" .
 
 <https://noheton.org/f-ai2-r/prov/source/fair2r-repo> a aiprov:Source ;
     rdfs:label "F(AI)²R: FAIR research with AI in the loop, twice (research repository)"@en ;
@@ -2342,6 +2348,9 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:contentHash "sha256:b3d2394c8f59114d74ee9317aeac7a3456b88da3fbe6d0f1d0f330d8a9bacb86" ;
     aiprov:filePath "scripts/build_metrics.py" ;
     aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/build_paper_preview-py> a aiprov:Source ;
+    aiprov:filePath "scripts/build_paper_preview.py" .
 
 <https://noheton.org/f-ai2-r/prov/source/build_review_list-py> a aiprov:Source ;
     aiprov:contentHash "sha256:dd2947dfcbb718830c5ac6c242010b67f3dc18cf9f6d55539cbe47c1da49aaa7" ;
@@ -2949,10 +2958,6 @@ aiprov:Contribution a owl:Class ;
         <https://noheton.org/f-ai2-r/prov/source/references-bib> ;
     prov:wasAssociatedWith agent:claude-code .
 
-aiprov:Repair a owl:Class ;
-    rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
-    rdfs:subClassOf prov:Activity .
-
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
     rdfs:label "Bootstrap the f-ai2-r repository: vendor aiprov schema, provlog CLI, dashboard builder, attribute catalogue; write README; seed this provenance graph"@en ;
     prov:endedAtTime "2026-07-24T18:09:26.757162+00:00"^^xsd:dateTime ;
@@ -2972,6 +2977,10 @@ aiprov:Repair a owl:Class ;
     aiprov:usedTool "bash",
         "edit",
         "write" .
+
+aiprov:Repair a owl:Class ;
+    rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
+    rdfs:subClassOf prov:Activity .
 
 <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> a aiprov:AuthoringPass ;
     rdfs:label "Meta-paper principal structure: IEEEtran chapter-per-file skeleton (main.tex + sections/01-07), page budget and figure plan (outline.md), F1 ladder figure in TikZ; grounded in the F(AI)2R method (authoring+audit passes, no-parentless-claim, repository-is-the-paper)"@en ;
