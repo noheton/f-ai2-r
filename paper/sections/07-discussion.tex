@@ -1,7 +1,7 @@
 \section{Discussion and Limitations}\label{sec:discussion}
 
 \textbf{Self-report honesty.} The graph is only as truthful as its
-writer. Mitigations are structural rather than rhetorical: content
+writer. The mitigations are structural: content
 hashes and commit bindings tie records to bytes, validation runs
 server-side in CI, the omit-don't-estimate rule removes the temptation
 of invented precision, and the human-only rungs cap what an AI may
@@ -135,7 +135,7 @@ node, making the bibliography a view of the graph. And
 content-checked before load-bearing, born from this paper's own
 audit (Section~\ref{sec:meta}): any citation an argument leans on
 should reach \texttt{ai-confirmed} at minimum, with the checked
-depth disclosed in the promotion note rather than implied.
+depth disclosed in the promotion note.
 
 \textbf{Transparent self-citation.} No-parentless-claim forces citing
 one's own priors; the lineage of Section~\ref{sec:background} is the
@@ -179,7 +179,7 @@ system, hosted or local, registers as an \texttt{AIAgent} with model
 and provider as data. Only three capture shims are client-specific
 (turn-end hook, transcript export, usage-field mapping); graph,
 ladder, and validator are plain Python and git. The AAS case bridges
-to the outlook: digital-twin ecosystems already assume
+to the outlook: digital-twin infrastructures already assume
 machine-readable semantics, so AI-work provenance slots in as one more
 submodel concern rather than a foreign add-on.
 
