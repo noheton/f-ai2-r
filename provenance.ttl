@@ -56,6 +56,12 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/aas-part1-idta> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-aas-part1-idta-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of aas-part1-idta: ai-confirmed -> human-confirmed (Granted by the human operator in the session ('confirm aas idta'): operator confirms the source supports the background passage on the AAS Part 1 specification lineage. The judgement and grant are the human's; the AI only records them.)"@en ;
+    prov:endedAtTime "2026-07-28T06:08:31.551358+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/aas-part1-idta> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-aas-part1-v30rc02-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of aas-part1-v30rc02: reference-resolved -> ai-confirmed (Content checked against the canonical Plattform Industrie 4.0 publication page: Part 1 'describes the information content of an AAS', specifies a technology-neutral UML model and serializations incl. RDF. Supports the machine-readable-semantics and AAS-submodel citing sentences. Page depth; co-authorship is operator-attested lineage, not a content claim.)"@en ;
     prov:endedAtTime "2026-07-24T21:32:59.202644+00:00"^^xsd:dateTime ;
@@ -145,6 +151,12 @@
     prov:endedAtTime "2026-07-26T05:32:05.220184+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/easa-ai-concept2024> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-easa-ai-concept2024-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of easa-ai-concept2024: ai-confirmed -> human-confirmed (Granted by the human operator in the session ('confirm easa'): operator confirms the source supports the industry-relevance passage. The judgement and grant are the human's; the AI only records them.)"@en ;
+    prov:endedAtTime "2026-07-28T06:08:31.266156+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/easa-ai-concept2024> ;
+    prov:wasAssociatedWith agent:florian-krebs .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-eu-ai-act2024-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of eu-ai-act2024: reference-resolved -> ai-confirmed (Article-level check via the AI Act explorer rendering of the canonical text (EUR-Lex ELI recorded on this source): Art. 50 requires outputs 'marked in a machine-readable format and detectable as artificially generated or manipulated' and disclosure of AI interaction; Art. 14 requires high-risk systems be 'effectively overseen by natural persons', incl. override/intervention. Supports the transparency-marking and human-oversight citing sentences.)"@en ;
@@ -349,6 +361,12 @@
     prov:endedAtTime "2026-07-28T05:57:04.134676+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/unhide-helmholtz-kg> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-unhide-helmholtz-kg-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of unhide-helmholtz-kg: ai-confirmed -> human-confirmed (Granted by the human operator in the session ('confirm unhide'): operator confirms the source supports the dilution-section sentence on metadata quality as the infrastructures' lever and the graph-shaped remedy. The judgement and grant are the human's; the AI only records them.)"@en ;
+    prov:endedAtTime "2026-07-28T06:08:30.974153+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/unhide-helmholtz-kg> ;
+    prov:wasAssociatedWith agent:florian-krebs .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-urhg-para2-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of urhg-para2: reference-resolved -> ai-confirmed (Content checked against the official gesetze-im-internet.de text: § 2 Abs. 2 UrhG reads verbatim 'Werke im Sinne dieses Gesetzes sind nur persoenliche geistige Schoepfungen' - only personal intellectual creations are works, which excludes output lacking a personal (human) creation from protection. Supports the German-law sentence in the copyright paragraph. Statute-text depth.)"@en ;
@@ -1895,11 +1913,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://agentskills.io/> ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/easa-ai-concept2024> a aiprov:Source ;
-    rdfs:label "EASA Artificial Intelligence Concept Paper Issue 2: Guidance for Level 1 and 2 machine-learning applications"@en ;
-    dcterms:source <https://www.easa.europa.eu/en/document-library/general-publications/easa-artificial-intelligence-concept-paper-issue-2> ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/eu-ai-act2024> a aiprov:Source ;
     rdfs:label "Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)"@en ;
     dcterms:source <https://eur-lex.europa.eu/eli/reg/2024/1689/oj> ;
@@ -2092,11 +2105,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:filePath "doc/sources/VERIFICATION.md" ;
     aiprov:verificationState verif:source-vendored .
 
-<https://noheton.org/f-ai2-r/prov/source/aas-part1-idta> a aiprov:Source ;
-    rdfs:label "Specification of the Asset Administration Shell Part 1: Metamodel"@en ;
-    aiprov:doi "https://doi.org/10.62628/idta.01001-3-1-1"^^xsd:anyURI ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/aas-part1-v30rc02> a aiprov:Source ;
     rdfs:label "Details of the Asset Administration Shell. Part 1 — The exchange of information between partners in the value chain of Industrie 4.0 (Version 3.0RC02)"@en ;
     dcterms:source <https://www.plattform-i40.de/IP/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html> ;
@@ -2157,6 +2165,11 @@ agent:github-actions a aiprov:ToolAgent ;
     dcterms:isPartOf "Communications of the ACM" ;
     aiprov:doi "https://doi.org/10.1145/3458723"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/easa-ai-concept2024> a aiprov:Source ;
+    rdfs:label "EASA Artificial Intelligence Concept Paper Issue 2: Guidance for Level 1 and 2 machine-learning applications"@en ;
+    dcterms:source <https://www.easa.europa.eu/en/document-library/general-publications/easa-artificial-intelligence-concept-paper-issue-2> ;
+    aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/fair2016> a aiprov:Source ;
     rdfs:label "The FAIR Guiding Principles for scientific data management and stewardship"@en ;
@@ -2252,13 +2265,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1016/j.compositesa.2025.109194"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/unhide-helmholtz-kg> a aiprov:Source ;
-    rdfs:label "The Helmholtz Knowledge Graph: Driving the Transition Towards a FAIR Data Ecosystem in the Helmholtz Association"@en ;
-    dcterms:date "2025" ;
-    dcterms:isPartOf "Lecture Notes in Computer Science The Semantic Web: ESWC 2024 Satellite Events" ;
-    aiprov:doi "https://doi.org/10.1007/978-3-031-78952-6_23"^^xsd:anyURI ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> a aiprov:Source ;
     rdfs:label "Copyright and Artificial Intelligence, Part 2: Copyrightability (Report of the Register of Copyrights)"@en ;
     dcterms:source <https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf> ;
@@ -2341,6 +2347,11 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:filePath "CHANGELOG.md" ;
     aiprov:verificationState verif:source-vendored .
 
+<https://noheton.org/f-ai2-r/prov/source/aas-part1-idta> a aiprov:Source ;
+    rdfs:label "Specification of the Asset Administration Shell Part 1: Metamodel"@en ;
+    aiprov:doi "https://doi.org/10.62628/idta.01001-3-1-1"^^xsd:anyURI ;
+    aiprov:verificationState verif:human-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> a aiprov:Source ;
     rdfs:label "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing"@en ;
     dcterms:date "2023" ;
@@ -2381,6 +2392,13 @@ aiprov:HumanAgent a owl:Class ;
     dcterms:source <https://gitlab.com/dlr-shepard> ;
     aiprov:doi "https://doi.org/10.5281/zenodo.17897485"^^xsd:anyURI ;
     aiprov:selfCitation true ;
+    aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/unhide-helmholtz-kg> a aiprov:Source ;
+    rdfs:label "The Helmholtz Knowledge Graph: Driving the Transition Towards a FAIR Data Ecosystem in the Helmholtz Association"@en ;
+    dcterms:date "2025" ;
+    dcterms:isPartOf "Lecture Notes in Computer Science The Semantic Web: ESWC 2024 Satellite Events" ;
+    aiprov:doi "https://doi.org/10.1007/978-3-031-78952-6_23"^^xsd:anyURI ;
     aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/urhg-para2> a aiprov:Source ;
@@ -2608,16 +2626,6 @@ aiprov:Contribution a owl:Class ;
         <https://noheton.org/f-ai2-r/prov/source/paper-preview-html> ;
     prov:wasAssociatedWith agent:claude-code .
 
-agent:florian-krebs a aiprov:HumanAgent ;
-    foaf:name "Florian Krebs" ;
-    aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
-    aiprov:orcid "https://orcid.org/0000-0001-6033-801X"^^xsd:anyURI .
-
-verif:human-confirmed a aiprov:VerificationState ;
-    rdfs:label "human-confirmed"@en ;
-    rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
-    aiprov:ladderPosition 5 .
-
 aiprov:Repair a owl:Class ;
     rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
     rdfs:subClassOf prov:Activity .
@@ -2711,6 +2719,16 @@ aiprov:Repair a owl:Class ;
     aiprov:usedTool "bash",
         "edit",
         "write" .
+
+agent:florian-krebs a aiprov:HumanAgent ;
+    foaf:name "Florian Krebs" ;
+    aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
+    aiprov:orcid "https://orcid.org/0000-0001-6033-801X"^^xsd:anyURI .
+
+verif:human-confirmed a aiprov:VerificationState ;
+    rdfs:label "human-confirmed"@en ;
+    rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
+    aiprov:ladderPosition 5 .
 
 aiprov:VerificationState a owl:Class ;
     rdfs:comment "A rung on the verification ladder. Higher position = stronger check. Rungs at position 5+ are human-only: an AI agent must never grant them."@en .
