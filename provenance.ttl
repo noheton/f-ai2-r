@@ -854,7 +854,8 @@
         <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure>,
         <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160>,
         <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
-        <https://noheton.org/f-ai2-r/prov/activity/s79-operator-grants-shepard-scope> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s79-operator-grants-shepard-scope>,
+        <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper> ;
     aiprov:contentHash "sha256:263f241a9b520e394b3fd1439163cad4f5285cfc9eeb4a8fcf8703b3eb7d5031",
         "sha256:359f3cdd6b2e1428bade3fa2e4ceabc1ca5f6fdccd83bb508278f0550699521e",
         "sha256:3e7a615bb541bad3c8f7847b995d10b969b456e1113019974c3dcbb143ccbd5d",
@@ -863,6 +864,7 @@
         "sha256:7cf24beebcbd7d28f24f35b3f4f7e756b1ba5f78eddac5e149ed25663547a8f5",
         "sha256:9ee0f776fc05993ed490ce634d30046d8f37e8c7547b5eabe2e543b208711340",
         "sha256:a1885b28f19c8898eec42ef7dc28da66248a830fe690867b4457f7bd8cb3fb67",
+        "sha256:cc53e3598d95b86b98008989b714e0ad11d1528ae531dc5a3f059a40692f51d7",
         "sha256:e3e8528cf28abef84031f723e1ba7f3e9ae4d042d94bb6e0f12fbb6f4e4a1b24",
         "sha256:f4c7ee07926b820957fb2b45962b5079e2cf885573c88d933f176a8a19e0c9dd",
         "sha256:fbafa0a7ff24c77d55224cab12115e1984b8e18c5251ac24a75eb4ee106164b1" ;
@@ -871,6 +873,7 @@
         "42d3042",
         "8e9da5a340bd523bb56269fdd6bf705855a2cf24",
         "a59c1de",
+        "b8d3fe235b20f862a40e0ef45b5e8f3ddd7837cb",
         "cf16dd2",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d" .
 
@@ -902,10 +905,12 @@
         <https://noheton.org/f-ai2-r/prov/activity/s62-first-human-rung>,
         <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed>,
         <https://noheton.org/f-ai2-r/prov/activity/s78-figure5-and-copy-buttons>,
-        <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm>,
+        <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper> ;
     aiprov:contentHash "sha256:1990ebaa3dffa13626c417064c24e8dc4c1eb64681be4e09373abe328b6e842e",
         "sha256:1e6886e01eb1a921111e3aa4bdcd33fa82caa63089c14600bff9610ad8982abb",
         "sha256:2b20b3b01e144b8a7c7b7266005d0691803a94ae063e2f74d58e795f8ce832cf",
+        "sha256:2ba14c2dcb3edd46698edfc9bb5e9ff4bda21165fb0672eba127b59fa3f1b665",
         "sha256:3028f832762222bc867ef2c0e1103bf3189fd28366409d92ba236e4d8dfcb4d5",
         "sha256:3c8f52250d24db413e33d7c3c71432f1a3f8e1366b10fde8c9060167722c7e64",
         "sha256:4214500eceeb106449ec03789aaacc4501453495ccd9dca2ce9a8fa311c1a20d",
@@ -934,6 +939,7 @@
         "82ffc86",
         "8984dcb",
         "8a1fec40853cc73078522d14a3ae354e742a29a5",
+        "b8d3fe235b20f862a40e0ef45b5e8f3ddd7837cb",
         "b9d1293",
         "cf16dd2",
         "f4710311911c087b88722cfb96bbf2dfa9662b3a",
@@ -1429,11 +1435,14 @@
 <https://noheton.org/f-ai2-r/prov/entity/environment-png> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s21-environment-figure>,
-        <https://noheton.org/f-ai2-r/prov/activity/s78-figure5-and-copy-buttons> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s78-figure5-and-copy-buttons>,
+        <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper> ;
     aiprov:contentHash "sha256:323def5ed050c23c2476ec9fed30b4fa23f9391a18bd2e69157aea73fe402eaf",
+        "sha256:43e00d6852bd8f148d567d7fc72b928879ea967c8ffe3cc2854a752678d0621d",
         "sha256:ff85ef36d787f1f5e760cd300ee220fb3e4c4a3cb41e54b9c6df30d18c512b47" ;
     aiprov:filePath "paper/figures/environment.png" ;
-    aiprov:gitCommit "8a1fec40853cc73078522d14a3ae354e742a29a5" .
+    aiprov:gitCommit "8a1fec40853cc73078522d14a3ae354e742a29a5",
+        "b8d3fe235b20f862a40e0ef45b5e8f3ddd7837cb" .
 
 <https://noheton.org/f-ai2-r/prov/entity/export_transcript-py> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1521,11 +1530,13 @@
         <https://noheton.org/f-ai2-r/prov/activity/s78-figure5-and-copy-buttons>,
         <https://noheton.org/f-ai2-r/prov/activity/s79-operator-grants-shepard-scope>,
         <https://noheton.org/f-ai2-r/prov/activity/s81-retitle>,
-        <https://noheton.org/f-ai2-r/prov/activity/s82-attention-citation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s82-attention-citation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper> ;
     aiprov:contentHash "sha256:0ecac01dd6686d42494449da9932c34ddfe521a456f3c9b7396fc334e7cbb893",
         "sha256:10d28f1f212df1d22fe9c87daf1cdd317d7e633b5b230ed0965de50505baa6a0",
         "sha256:111b02d4bc097e1164f5c819d09a0255669c5b48eb304726d78b25cc680d58da",
         "sha256:118f88ce61516b9db13011af100da2a6c7d51f39343bb0a3a843ce2f2d882f84",
+        "sha256:1dbbc873e4685551ccf892fabdcc21ba3325a7416847eedf7e795417d9360673",
         "sha256:3264db9a2aa61bcec373dc6cd48f27649aa83ad153522567b1f3bafa8bf49f9e",
         "sha256:402166d35efa68d25e296d063b8105d29150917eac55713c9677483a9b483dc6",
         "sha256:4a200a4de4e3b9172550aac81ea9d795c10c47c1563185b434aec7f59294ccf1",
@@ -1551,6 +1562,7 @@
         "989debe6507fc22672536a30c4912eac62120c2b",
         "9fba76d",
         "a59c1de",
+        "b8d3fe235b20f862a40e0ef45b5e8f3ddd7837cb",
         "da4301b2c455a663664eef2cab3a91dd2039a79c",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
         "e97d357930e7d6be792a93c9787475b6901d7bc3",
@@ -1573,7 +1585,8 @@
         <https://noheton.org/f-ai2-r/prov/activity/s78-figure5-and-copy-buttons>,
         <https://noheton.org/f-ai2-r/prov/activity/s79-operator-grants-shepard-scope>,
         <https://noheton.org/f-ai2-r/prov/activity/s81-retitle>,
-        <https://noheton.org/f-ai2-r/prov/activity/s82-attention-citation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s82-attention-citation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper> ;
     aiprov:contentHash "sha256:0f9259f939d9575550b674e2bcc252d388f372c42a26ad7138deba6fa67b28d3",
         "sha256:1b3edb4234474b2f0fc93dfb1b0447feb1e13f049ede37f460c2f1e5b03c480d",
         "sha256:1d22e6fd2ac682c9531be9f5db5f02c23c41d29582529d96a34c1c5e0d3a828e",
@@ -1589,7 +1602,8 @@
         "sha256:b1559c721a2dbf47180a1f8313d72c65e1babb2a28d957d61f45ec1e25ee34ba",
         "sha256:b1e4443423c007c0e7a394a6f250ad53c03f41eff9aeddce8291dd6fabc9a417",
         "sha256:bb772a66512d5db692acd37ae7d2e31161051d3236cdc20ae149af0ef0eac72f",
-        "sha256:d8f7df0c75ff4656919bb9eaa9048db7f935a5d59da02622b931406a8b6e60a8" ;
+        "sha256:d8f7df0c75ff4656919bb9eaa9048db7f935a5d59da02622b931406a8b6e60a8",
+        "sha256:fcf36f4422bd30bc1e0164b4afdb3fea7c77cfa8d59088b4d3f61d8cb4ffd0b8" ;
     aiprov:filePath "paper/metrics.tex" ;
     aiprov:gitCommit "1fcea34134276d7d10b47e462d14d52ab00f3122",
         "43af99d",
@@ -1603,6 +1617,7 @@
         "989debe6507fc22672536a30c4912eac62120c2b",
         "9fba76d",
         "a59c1de",
+        "b8d3fe235b20f862a40e0ef45b5e8f3ddd7837cb",
         "da4301b2c455a663664eef2cab3a91dd2039a79c",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
         "e97d357930e7d6be792a93c9787475b6901d7bc3",
@@ -1755,8 +1770,10 @@
         <https://noheton.org/f-ai2-r/prov/activity/s76-unhide-citation>,
         <https://noheton.org/f-ai2-r/prov/activity/s78-figure5-and-copy-buttons>,
         <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm>,
-        <https://noheton.org/f-ai2-r/prov/activity/s82-attention-citation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s82-attention-citation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
+        "sha256:09fce59b36763b24f4771f477b8e5e00d0731c954a56bc65cd8c14048c09c920",
         "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
         "sha256:23324f3765caa803c29fb8eee66146db6773a4e0b6f002c800bba9788e068e14",
         "sha256:23bc630da48a4f5e78201d6f7e0895ecdb40fda43d538aa9992e7a7e5122c756",
@@ -1798,6 +1815,7 @@
         "8984dcb",
         "8a1fec40853cc73078522d14a3ae354e742a29a5",
         "989debe6507fc22672536a30c4912eac62120c2b",
+        "b8d3fe235b20f862a40e0ef45b5e8f3ddd7837cb",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
         "f7752e5475afbe6996ccb31ea109aac1c28b20f1",
         "fb1a484" .
@@ -2256,11 +2274,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:filePath "paper/sections/03-dilution.tex" ;
     aiprov:verificationState verif:source-vendored .
 
-<https://noheton.org/f-ai2-r/prov/source/05-skill-tex> a aiprov:Source ;
-    aiprov:contentHash "sha256:3e7a615bb541bad3c8f7847b995d10b969b456e1113019974c3dcbb143ccbd5d" ;
-    aiprov:filePath "paper/sections/05-skill.tex" ;
-    aiprov:verificationState verif:source-vendored .
-
 <https://noheton.org/f-ai2-r/prov/source/README-md> a aiprov:Source ;
     aiprov:contentHash "sha256:ed8488f5411c3c61d85829093c083cf0d647c8406b4d1b0700a54695d3c8628b" ;
     aiprov:filePath "README.md" ;
@@ -2408,11 +2421,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1002/ijc.33604"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/paper-preview-html> a aiprov:Source ;
-    aiprov:contentHash "sha256:17697a107e1696454a5851cf128848adee0bf0ebcc97b4fdb3101d38b2149602" ;
-    aiprov:filePath "paper-preview.html" ;
-    aiprov:verificationState verif:source-vendored .
-
 <https://noheton.org/f-ai2-r/prov/source/pav2013> a aiprov:Source ;
     rdfs:label "PAV ontology: provenance, authoring and versioning"@en ;
     dcterms:date "2013" ;
@@ -2528,6 +2536,11 @@ aiprov:HumanAgent a owl:Class ;
     prov:endedAtTime "2026-07-28T05:13:23.105832+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/source/05-skill-tex> a aiprov:Source ;
+    aiprov:contentHash "sha256:3e7a615bb541bad3c8f7847b995d10b969b456e1113019974c3dcbb143ccbd5d" ;
+    aiprov:filePath "paper/sections/05-skill.tex" ;
+    aiprov:verificationState verif:source-vendored .
+
 <https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex> a aiprov:Source ;
     aiprov:contentHash "sha256:be480c648fbedb68fd4dd11e1e27910ba8090488d0ca113a40dfe47a858b9842" ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
@@ -2572,6 +2585,11 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:contentHash "sha256:405b9290833205c2b2673151f3af8be6dd6ecfc767306ca96952a985ccd6a4ec" ;
     aiprov:doi "https://doi.org/10.37016/mr-2020-156"^^xsd:anyURI ;
     aiprov:filePath "doc/sources/gpt-fabricated2024.pdf" ;
+    aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/paper-preview-html> a aiprov:Source ;
+    aiprov:contentHash "sha256:17697a107e1696454a5851cf128848adee0bf0ebcc97b4fdb3101d38b2149602" ;
+    aiprov:filePath "paper-preview.html" ;
     aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/shepard> a aiprov:Source ;
@@ -2830,6 +2848,13 @@ aiprov:Contribution a owl:Class ;
     prov:endedAtTime "2026-07-28T06:26:21.232124+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/02-background-tex>,
         <https://noheton.org/f-ai2-r/prov/source/references-bib> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper> a aiprov:AuthoringPass ;
+    rdfs:label "Operator request: document issue-based confirmation in the paper and update the source-queue screenshot with the buttons visible. The live-preview paragraph in section 5 now describes the click-to-confirm path (prefilled issues, operator-mapping verification, transcribed grant or refusal, judgement stays human); figure 5 rescreenshotted from the live preview with the open entry showing all four buttons and the caption updated. Cap held at 12 by truncating the opm2010 author list."@en ;
+    prov:endedAtTime "2026-07-28T06:33:08.716791+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/05-skill-tex>,
+        <https://noheton.org/f-ai2-r/prov/source/paper-preview-html> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> a aiprov:Source ;
