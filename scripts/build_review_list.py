@@ -159,6 +159,12 @@ def main():
          "rung 5). Refusing is first-class: a refusal is logged, changes no "
          "state, and beats silence.",
          "",
+         "Note: for demonstration purposes some sources are deliberately "
+         "kept at their current rung so the ladder shows every state in "
+         "use. The operator reports having checked all sources and claims; "
+         "the ladder records which of those checks were formalized as "
+         "grants.",
+         "",
          "Within each bucket, sources are ordered by expected relevance to "
          "the paper's argument. Relevance is computed, not judged: the number "
          "of `\\cite` occurrences across the paper sources (shown per entry), "

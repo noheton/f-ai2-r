@@ -107,16 +107,14 @@ self-contained HTML file with an interactive graph view.}
 \textbf{Worked examples.} Invariant enforcement was verified by
 test-run before any claim entered the graph: an injected parentless
 claim failed validation, and a promotion of a claim to
-\texttt{human-confirmed} attempted by the AI agent was refused; the
-captured outputs of exactly these checks are shown in
-Figure~\ref{fig:cli}. The
+\texttt{human-confirmed} attempted by the AI agent was refused, both
+captured in Figure~\ref{fig:cli}. The
 bibliography was built through the method: sources found by registry
 sweeps, DOI-verified at registration, fetched as BibTeX from doi.org
 content negotiation, and cited only once ladder-backed. The paper's
-intellectual ancestors are themselves registered sources, each fetched
-or URL-verified first, including a recorded fallback when a publisher
-blocked automated access and the canonical specification page was used
-instead. Registration, however, only proves a reference
+intellectual ancestors are themselves registered sources, each
+fetched or URL-verified first. Registration, however, only proves a
+reference
 \emph{exists}; an audit pass flagged exactly this as the record's
 weakest point, and content passes closed it: for every cited source
 the AI fetched the actual content (full text or slides where openly
@@ -213,18 +211,21 @@ work between operator, AI agent, and infrastructure countable
 machine-readable queries over the graph; attributing \emph{triggers},
 what prompted each activity, still requires reading the session log,
 and that reading is consistent: the operator's direction messages
-carry scope, lineage, people, and every contested semantic decision,
-including both ladder redesigns, the cost-computation policy, the
-license choice, and the page budget, while the AI executed all
-authoring, audit, and repair activities and CI contributed the
-deterministic builds. Rungs above the AI ceiling remain scarce by
+carry scope, lineage, people, and every contested semantic decision
+(both ladder redesigns, the cost policy, the license choice, the
+page budget), while the AI executed all authoring, audit, and repair
+activities and CI contributed the deterministic builds. Rungs above the AI ceiling remain scarce by
 design: the operator granted the first \texttt{human-confirmed}
 against a vendored statute text the gate handed over, confirmed
 the five self-cited sources they authored, the class where the
 human's judgement is uniquely authoritative, and then walked the
 queue through the issue path of Section~\ref{sec:skill},
-\MHumanRungs{} human rungs granted at the time of writing, with the
-remainder visibly awaiting. The hypothesis that AI absorbs tedium while humans
+\MHumanRungs{} human rungs granted at the time of writing. The
+remaining sources are deliberately kept at their machine rungs so
+the demonstration retains every ladder state in the wild; the
+operator reports having checked all sources and claims, and the
+ladder records which of those checks they chose to formalize as
+grants. The hypothesis that AI absorbs tedium while humans
 connect ideas and people (Section~\ref{sec:discussion}) is thereby
 testable from the committed log and transcript, for this one
 experiment. One measurement pitfall became a method fix: the session
