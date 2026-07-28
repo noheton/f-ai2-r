@@ -398,6 +398,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/memas2024> ;
     prov:wasAssociatedWith agent:florian-krebs .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-metrics-json-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of metrics-json: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time.)"@en ;
+    prov:endedAtTime "2026-07-28T11:21:03.805817+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/metrics-json> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-model-collapse2024-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of model-collapse2024: reference-resolved -> ai-confirmed (Content checked against the Nature abstract: 'indiscriminate use of model-generated content in training causes irreversible defects in the resulting models ... we refer to this effect as model collapse'. Supports 'models trained on the polluted pool degrade further'. Abstract depth; full text paywalled.)"@en ;
     prov:endedAtTime "2026-07-24T21:32:57.570669+00:00"^^xsd:dateTime ;
@@ -556,6 +562,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     rdfs:label "Promotion of provenance-ttl: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time. Content is directly inspectable in git history; no external access path needed.)"@en ;
     prov:endedAtTime "2026-07-27T20:06:00.545541+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-provlog-py-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of provlog-py: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time.)"@en ;
+    prov:endedAtTime "2026-07-28T11:21:04.433931+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/provlog-py> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-publishing-strain2024-ai-confirmed> a aiprov:AuditPass ;
@@ -2528,9 +2540,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://helmholtz-metadaten.de/> ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/metrics-json> a aiprov:Source ;
-    aiprov:filePath "doc/metrics.json" .
-
 <https://noheton.org/f-ai2-r/prov/source/obscurity-is-dead> a aiprov:Source ;
     rdfs:label "Obscurity Is Dead — Proprietary by Design, Open by AI (research repository)"@en ;
     dcterms:creator agent:florian-krebs ;
@@ -2542,9 +2551,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     rdfs:label "AI Incidents and Hazards Monitor (AIM), OECD.AI Policy Observatory: overview and methodology"@en ;
     dcterms:source <https://oecd.ai/en/incidents-methodology> ;
     aiprov:verificationState verif:ai-confirmed .
-
-<https://noheton.org/f-ai2-r/prov/source/provlog-py> a aiprov:Source ;
-    aiprov:filePath "scripts/provlog.py" .
 
 <https://noheton.org/f-ai2-r/prov/source/resistance-welding2024> a aiprov:Source ;
     rdfs:label "On the capabilities of static resistance welding of carbon fiber-reinforced thermoplastic composites (Endraß et al., ITHEC 2024)"@en ;
@@ -2779,6 +2785,11 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.31234/osf.io/8p9wu"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/metrics-json> a aiprov:Source ;
+    aiprov:contentHash "sha256:6090d822b64dc669decc62a96d01d8018b1ba095aa00c54d879f68d80d63bf3b" ;
+    aiprov:filePath "doc/metrics.json" ;
+    aiprov:verificationState verif:source-vendored .
+
 <https://noheton.org/f-ai2-r/prov/source/oecd-ai-principles> a aiprov:Source ;
     rdfs:label "Recommendation of the Council on Artificial Intelligence (OECD/LEGAL-0449), adopted May 2019, amended May 2024; OECD AI Principles"@en ;
     dcterms:source <https://oecd.ai/en/ai-principles> ;
@@ -2805,6 +2816,11 @@ agent:github-actions a aiprov:ToolAgent ;
     rdfs:label "An overview of Provenance and its use cases (Carina Haupt, RDA Deutschland Tagung 2022)"@en ;
     dcterms:source <https://elib.dlr.de/185438/> ;
     aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/provlog-py> a aiprov:Source ;
+    aiprov:contentHash "sha256:9556af82a76b32d6faa7dac6226ff6e6bc76d32da40eec5d0c1ee8b8ed809299" ;
+    aiprov:filePath "scripts/provlog.py" ;
+    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/ultrasonic-welding2025> a aiprov:Source ;
     rdfs:label "Investigation of power and amplitude control in continuous ultrasonic welding of unidirectional CFRPs: A comparative study"@en ;
