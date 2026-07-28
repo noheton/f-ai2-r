@@ -1,6 +1,6 @@
 # Meta-paper outline — target: 10 pages incl. references and figures (IEEE two-column)
 
-Working title: *F(AI)²R — FAIR Research with AI in the Loop, Twice:
+Working title: *F(AI)²R: Who Did What, and Who Checked?
 Verifiable AI Provenance as an Executable Skill*
 (F(AI)²R is not an established term — deliberately: the title intrigues,
 the abstract's first sentence and §1 P0 unpack it immediately.)
