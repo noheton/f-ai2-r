@@ -111,7 +111,16 @@ F(AI)²R carry over unchanged:
    `aiprov-promote` workflow (scaffolded by `init --ci`) verifies the
    author against `doc/operators.json`, executes with the mapped
    human agent id, and replies on the issue — the authenticated click
-   and required note are the judgement; the workflow transcribes. Two practices
+   and required note are the judgement; the workflow transcribes.
+   When incorporating issue-driven promotions (merging the workflow's
+   commits), always read the issue threads too: fetch the issues AND
+   their comments — operator remarks beyond the executed note are
+   direction, not noise. Sweep for promotion issues left open with no
+   reply (parallel grants race on the push and some runs lose):
+   execute the recorded judgement from the issue body identically,
+   note the failed run in the promotion note, then reply and close.
+   An operator's granted judgement must never be silently dropped by
+   an infrastructure race. Two practices
    that pay off early: ask the operator to confirm **self-cited
    sources** first (for works they authored, their judgement is
    uniquely authoritative and costs them least effort), and when a

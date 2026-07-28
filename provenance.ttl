@@ -150,6 +150,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/attention2017> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-attention2017-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of attention2017: ai-confirmed -> human-confirmed (correct. (granted via GitHub issue #15 by @noheton; the click and the judgement are the operator's. The aiprov-promote workflow run for this issue did not complete, likely a push race with the parallel promotions; the session executed the identical transcription from the issue body.))"@en ;
+    prov:endedAtTime "2026-07-28T08:39:49.242745+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/attention2017> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-attention2017-reference-resolved> a aiprov:AuditPass ;
     rdfs:label "Promotion of attention2017: needs-research -> reference-resolved (DOI 10.48550/arXiv.1706.03762 is DataCite-registered (arXiv's DOI namespace), outside the Crossref/OpenAlex sweep of --verify; it resolves via doi.org content negotiation, which returned full BibTeX (Vaswani et al., Attention Is All You Need, arXiv, 2017). Registered from that negotiation, not typed from memory.)"@en ;
     prov:endedAtTime "2026-07-28T06:24:43.736982+00:00"^^xsd:dateTime ;
@@ -399,6 +405,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:endedAtTime "2026-07-27T07:49:01.302004+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/opm2010> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-opm2010-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of opm2010: ai-confirmed -> human-confirmed (correct development lineage. (granted via GitHub issue #17 by @noheton; the click and the judgement are the operator's. The aiprov-promote workflow run for this issue did not complete, likely a push race with the parallel promotions; the session executed the identical transcription from the issue body.))"@en ;
+    prov:endedAtTime "2026-07-28T08:39:50.103721+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/opm2010> ;
+    prov:wasAssociatedWith agent:florian-krebs .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-paper-mills2021-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of paper-mills2021: reference-resolved -> ai-confirmed (Abstract now checked via OpenAlex after the earlier publisher bot-wall (recorded fallback): the IJC editorial describes the journal's data-integrity measures and its reaction 'to this threat to scientific integrity' from fake data and paper mills, 2021, pre-LLM. Supports 'paper mills industrialized fabrication well before language models'. Abstract depth.)"@en ;
@@ -2520,13 +2532,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:filePath "doc/operators.json" ;
     aiprov:verificationState verif:source-vendored .
 
-<https://noheton.org/f-ai2-r/prov/source/opm2010> a aiprov:Source ;
-    rdfs:label "The Open Provenance Model core specification (v1.1)"@en ;
-    dcterms:date "2011" ;
-    dcterms:isPartOf "Future Generation Computer Systems" ;
-    aiprov:doi "https://doi.org/10.1016/j.future.2010.07.005"^^xsd:anyURI ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/paper-mills2021> a aiprov:Source ;
     rdfs:label "Fake data, paper mills, and their authors: The <i>International Journal of Cancer</i> reacts to this threat to scientific integrity"@en ;
     dcterms:date "2021" ;
@@ -2665,10 +2670,6 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:filePath "doc/sources/ai-hallucination2023.pdf" ;
     aiprov:verificationState verif:source-vendored .
 
-<https://noheton.org/f-ai2-r/prov/source/attention2017> a aiprov:Source ;
-    aiprov:doi "https://doi.org/10.48550/arXiv.1706.03762"^^xsd:anyURI ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/better-architecture2025> a aiprov:Source ;
     rdfs:label "Better Architecture, Better Software, Better Research"@en ;
     dcterms:date "2025" ;
@@ -2733,6 +2734,13 @@ aiprov:HumanAgent a owl:Class ;
     dcterms:date "2019" ;
     dcterms:isPartOf "Proceedings of the Conference on Fairness, Accountability, and Transparency" ;
     aiprov:doi "https://doi.org/10.1145/3287560.3287596"^^xsd:anyURI ;
+    aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/opm2010> a aiprov:Source ;
+    rdfs:label "The Open Provenance Model core specification (v1.1)"@en ;
+    dcterms:date "2011" ;
+    dcterms:isPartOf "Future Generation Computer Systems" ;
+    aiprov:doi "https://doi.org/10.1016/j.future.2010.07.005"^^xsd:anyURI ;
     aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/paper-preview-html> a aiprov:Source ;
@@ -2873,6 +2881,10 @@ aiprov:Contribution a owl:Class ;
     prov:endedAtTime "2026-07-28T05:59:16.105810+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/source/attention2017> a aiprov:Source ;
+    aiprov:doi "https://doi.org/10.48550/arXiv.1706.03762"^^xsd:anyURI ;
+    aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> a aiprov:Source ;
     aiprov:contentHash "sha256:14259982e1ad3c6cc270cc4f79d2146257c61473b384b3c53310ceebd6541e07" ;

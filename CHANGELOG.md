@@ -2,6 +2,12 @@
 
 ## v0.20 (2026-07-28)
 
+- **Incorporation reads the whole thread.** When absorbing
+  issue-driven promotions, the agent reads the issues and their
+  comments (operator remarks are direction) and sweeps for promotion
+  issues left open by workflow push races, executing the recorded
+  judgement identically and replying — a granted judgement is never
+  silently dropped by infrastructure.
 - **Forge-neutral issue buttons.** The queue buttons read "Confirm/
   Refuse via git issue" and the URL builder emits the GitLab
   new-issue pattern (`/-/issues/new?issue[title]=...`) when the
