@@ -1783,12 +1783,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s82-attention-citation>,
         <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper>,
         <https://noheton.org/f-ai2-r/prov/activity/s86-source-pass-issue-grants>,
-        <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
+        <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix> ;
     aiprov:contentHash "sha256:0ecac01dd6686d42494449da9932c34ddfe521a456f3c9b7396fc334e7cbb893",
         "sha256:10d28f1f212df1d22fe9c87daf1cdd317d7e633b5b230ed0965de50505baa6a0",
         "sha256:111b02d4bc097e1164f5c819d09a0255669c5b48eb304726d78b25cc680d58da",
         "sha256:118f88ce61516b9db13011af100da2a6c7d51f39343bb0a3a843ce2f2d882f84",
         "sha256:1dbbc873e4685551ccf892fabdcc21ba3325a7416847eedf7e795417d9360673",
+        "sha256:2429fc24552d4d0218f33a19fa03c2d2a598f68ac4f8c32ad9f22045ff2eb091",
         "sha256:3264db9a2aa61bcec373dc6cd48f27649aa83ad153522567b1f3bafa8bf49f9e",
         "sha256:402166d35efa68d25e296d063b8105d29150917eac55713c9677483a9b483dc6",
         "sha256:4a200a4de4e3b9172550aac81ea9d795c10c47c1563185b434aec7f59294ccf1",
@@ -1807,6 +1809,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:gitCommit "1fcea34134276d7d10b47e462d14d52ab00f3122",
         "43af99d",
         "4578a83",
+        "4d32cbc2ded644ffd99060c744aee92e60bed11d",
         "5badaf3c53805ddf41aabad11b9c0a1fd4f63910",
         "5ed968a16900d7a554f163408f31040425fe0c35",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
@@ -1844,7 +1847,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s82-attention-citation>,
         <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper>,
         <https://noheton.org/f-ai2-r/prov/activity/s86-source-pass-issue-grants>,
-        <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
+        <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix> ;
     aiprov:contentHash "sha256:0f9259f939d9575550b674e2bcc252d388f372c42a26ad7138deba6fa67b28d3",
         "sha256:1b3edb4234474b2f0fc93dfb1b0447feb1e13f049ede37f460c2f1e5b03c480d",
         "sha256:1d22e6fd2ac682c9531be9f5db5f02c23c41d29582529d96a34c1c5e0d3a828e",
@@ -1861,6 +1865,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:a7d5ce71fd3e566e0e295cac39a1218c4e77b3d67b90c4883814027317b70060",
         "sha256:b1559c721a2dbf47180a1f8313d72c65e1babb2a28d957d61f45ec1e25ee34ba",
         "sha256:b1e4443423c007c0e7a394a6f250ad53c03f41eff9aeddce8291dd6fabc9a417",
+        "sha256:b2292186c8cd87b02d90891012f7c797e9eae10b2cfa1dd02e1af58ee7ba80a7",
         "sha256:bb772a66512d5db692acd37ae7d2e31161051d3236cdc20ae149af0ef0eac72f",
         "sha256:d8f7df0c75ff4656919bb9eaa9048db7f935a5d59da02622b931406a8b6e60a8",
         "sha256:fcf36f4422bd30bc1e0164b4afdb3fea7c77cfa8d59088b4d3f61d8cb4ffd0b8" ;
@@ -1868,6 +1873,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:gitCommit "1fcea34134276d7d10b47e462d14d52ab00f3122",
         "43af99d",
         "4578a83",
+        "4d32cbc2ded644ffd99060c744aee92e60bed11d",
         "5badaf3c53805ddf41aabad11b9c0a1fd4f63910",
         "5ed968a16900d7a554f163408f31040425fe0c35",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
@@ -1948,7 +1954,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm>,
         <https://noheton.org/f-ai2-r/prov/activity/s82-attention-citation>,
         <https://noheton.org/f-ai2-r/prov/activity/s86-source-pass-issue-grants>,
-        <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
+        <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix> ;
     aiprov:contentHash "sha256:1962e4cfb168cab3a02b7fc8f213de06f54ef1593cbe2ebf571954d85adb12e6",
         "sha256:263573bea1a8f430ad31760633aa3931532ca1c6065d928f3be1c6aa792aabb1",
         "sha256:3feb82810dc02a489738eb6ad65d3ebb1b43463b37475ff8362b03dd1ab8b311",
@@ -1956,6 +1963,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:545bbd47f20fddee56dce8d21f957bf5b143ab55726ced58393f4606a269fba4",
         "sha256:73a1c560e1dba50cfc16167bd4af792e9f48ff6dc303e997c0207be4e11004b1",
         "sha256:7f9ef911d139f9b7a6a425358a826f72b47ce18477c05cfa4367def675c11e23",
+        "sha256:8dcd81a2b9fa847d0c4942f5ab5e92acb03610e4a697782c09edf02ab79b539e",
         "sha256:90b1bd88ad320a22c98e2d0d23d94bb601a5abb7754c593d360d6a2f722e9fe1",
         "sha256:a70ea19999d9be8da8834c8d6dcdee9d0f93343db0eb5ba4b164e23de126b5fd",
         "sha256:ac028bddf7b68aca69707016a556a3f8fc29f001d47605b50d5233e543eb17fe",
@@ -1963,7 +1971,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:f384cb31d5add6d750d3785ec681a0b66125cb520af69961532aae4888973a16",
         "sha256:f95e21af73b3c7ce8ed5ba2fb3f2df45ef7295710544a35ac8048939ecc5f9d9" ;
     aiprov:filePath "provenance.ttl" ;
-    aiprov:gitCommit "5badaf3c53805ddf41aabad11b9c0a1fd4f63910",
+    aiprov:gitCommit "4d32cbc2ded644ffd99060c744aee92e60bed11d",
+        "5badaf3c53805ddf41aabad11b9c0a1fd4f63910",
         "5ed968a16900d7a554f163408f31040425fe0c35",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "8e9da5a340bd523bb56269fdd6bf705855a2cf24",
@@ -2040,7 +2049,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm>,
         <https://noheton.org/f-ai2-r/prov/activity/s82-attention-citation>,
         <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper>,
-        <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
+        <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
         "sha256:09fce59b36763b24f4771f477b8e5e00d0731c954a56bc65cd8c14048c09c920",
         "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
@@ -2049,6 +2059,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:23bc630da48a4f5e78201d6f7e0895ecdb40fda43d538aa9992e7a7e5122c756",
         "sha256:2c9083a5cbae565f108062cd367f9fd5f7f14e725c53f6ef49e8deffb7c4da06",
         "sha256:2e60f501be4fc0abdb527db479644c2821171a5f2f4b6fff11093799991d8092",
+        "sha256:2f4b7ec929c9b760b783bcd96f6237ef0fa8b92c2086e21e160d471c1a0abf5c",
         "sha256:30bb9669f6f41204045a99bff098153de8a53deac899ff456853e416d59a5681",
         "sha256:31163fcbbc31806309a2f36fbc2604888e67aa2d591e6fbb4a68750b2b09ad92",
         "sha256:32c9a2409627258d4cf221aab0c6056b41c17d3ac7530be8663c7e59782238b3",
@@ -2078,6 +2089,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "4465d74",
         "48ae6b1c018beac3aed6d9ba9e62d3d2a4d2b60c",
         "4c17c02faf15034458e93ddecd1d8da829020f3e",
+        "4d32cbc2ded644ffd99060c744aee92e60bed11d",
         "5ed968a16900d7a554f163408f31040425fe0c35",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "73a11cd",
@@ -2996,6 +3008,13 @@ aiprov:Contribution a owl:Class ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix> a aiprov:Repair ;
+    rdfs:label "Two operator observations. (1) Cite the operator as author of the fork-of-shepard and initial F(AI)2R sources: both bib entries already carry Krebs, Florian; the rendered dash is IEEEtran's repeated-author convention (same author as preceding entry). Made the authorship machine-readable instead: dct:creator -> agent:florian-krebs added on the three self-authored lineage sources. (2) Reference for paper-mills2021 rendered literal <i> tags leaked from doi.org BibTeX negotiation; converted to LaTeX emphasis, rendered bibliography verified tag-free."@en ;
+    prov:endedAtTime "2026-07-28T08:54:29.326876+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/provenance-ttl>,
+        <https://noheton.org/f-ai2-r/prov/source/references-bib> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/source/attention2017> a aiprov:Source ;
     aiprov:doi "https://doi.org/10.48550/arXiv.1706.03762"^^xsd:anyURI ;
     aiprov:verificationState verif:human-confirmed .
@@ -3057,11 +3076,6 @@ aiprov:Contribution a owl:Class ;
     prov:endedAtTime "2026-07-27T07:50:06.740111+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
-
-<https://noheton.org/f-ai2-r/prov/source/provenance-ttl> a aiprov:Source ;
-    aiprov:contentHash "sha256:14259982e1ad3c6cc270cc4f79d2146257c61473b384b3c53310ceebd6541e07" ;
-    aiprov:filePath "provenance.ttl" ;
-    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.8: automatic conversation logging — export_transcript.py renders the session record to doc/transcripts (images/oversized payloads omitted); repository Stop hook regenerates it every turn so the conversation rides into history with each commit; paper preview now also renders the per-section structure skeletons beneath the typeset pages (operator noticed the comment-based structure pass was invisible in the PDF)"@en ;
@@ -3159,6 +3173,11 @@ aiprov:Contribution a owl:Class ;
         <https://noheton.org/f-ai2-r/prov/source/paper-preview-html> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/source/provenance-ttl> a aiprov:Source ;
+    aiprov:contentHash "sha256:14259982e1ad3c6cc270cc4f79d2146257c61473b384b3c53310ceebd6541e07" ;
+    aiprov:filePath "provenance.ttl" ;
+    aiprov:verificationState verif:source-vendored .
+
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
     prov:endedAtTime "2026-07-24T18:43:45.977114+00:00"^^xsd:dateTime ;
@@ -3222,11 +3241,6 @@ aiprov:Contribution a owl:Class ;
     aiprov:filePath "paper/sections/07-discussion.tex" ;
     aiprov:verificationState verif:source-vendored .
 
-<https://noheton.org/f-ai2-r/prov/source/references-bib> a aiprov:Source ;
-    aiprov:contentHash "sha256:23bc630da48a4f5e78201d6f7e0895ecdb40fda43d538aa9992e7a7e5122c756" ;
-    aiprov:filePath "paper/references.bib" ;
-    aiprov:verificationState verif:source-vendored .
-
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
     rdfs:label "Bootstrap the f-ai2-r repository: vendor aiprov schema, provlog CLI, dashboard builder, attribute catalogue; write README; seed this provenance graph"@en ;
     prov:endedAtTime "2026-07-24T18:09:26.757162+00:00"^^xsd:dateTime ;
@@ -3247,9 +3261,10 @@ aiprov:Contribution a owl:Class ;
         "edit",
         "write" .
 
-aiprov:Repair a owl:Class ;
-    rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
-    rdfs:subClassOf prov:Activity .
+<https://noheton.org/f-ai2-r/prov/source/references-bib> a aiprov:Source ;
+    aiprov:contentHash "sha256:23bc630da48a4f5e78201d6f7e0895ecdb40fda43d538aa9992e7a7e5122c756" ;
+    aiprov:filePath "paper/references.bib" ;
+    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> a aiprov:AuthoringPass ;
     rdfs:label "Meta-paper principal structure: IEEEtran chapter-per-file skeleton (main.tex + sections/01-07), page budget and figure plan (outline.md), F1 ladder figure in TikZ; grounded in the F(AI)2R method (authoring+audit passes, no-parentless-claim, repository-is-the-paper)"@en ;
@@ -3277,6 +3292,10 @@ aiprov:Repair a owl:Class ;
         <https://noheton.org/f-ai2-r/prov/source/main-tex>,
         <https://noheton.org/f-ai2-r/prov/source/references-bib> ;
     prov:wasAssociatedWith agent:claude-code .
+
+aiprov:Repair a owl:Class ;
+    rdfs:comment "Fixes a structural defect in the graph itself (e.g. backfilled parent)."@en ;
+    rdfs:subClassOf prov:Activity .
 
 aiprov:VerificationState a owl:Class ;
     rdfs:comment "A rung on the verification ladder. Higher position = stronger check. Rungs at position 5+ are human-only: an AI agent must never grant them."@en .
