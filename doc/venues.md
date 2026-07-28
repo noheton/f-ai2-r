@@ -46,3 +46,32 @@ around early December 2026) and a deRSE27 talk — both deliver exactly
 the community feedback the operator wants before the w3id namespace
 freezes, and neither collides with a journal submission of the
 meta-paper since the resource paper is a different article.
+
+## QSS detail check (2026-07-28)
+
+- Publisher/owner: MIT Press with ISSI; diamond-era OA since 2020,
+  now APC up to USD 1,200 on acceptance (waiver policy exists; no
+  submission fee). License CC BY, author retains copyright — no
+  conflict with the arXiv preprint (CC BY-NC-SA), and the journal
+  explicitly welcomes preprinted manuscripts.
+- Review: editor triage, then typically 2–3 external reviewers;
+  journal targets review within ~5 weeks; DOAJ reports ~22 weeks
+  average submission-to-publication. Anonymous peer review;
+  reviewers of preprinted manuscripts are encouraged to publish
+  their reviews openly.
+- Submission: brief cover letter (<= 300 words) on significance and
+  scope fit; manuscript via the QSS submission site
+  (direct.mit.edu/qss).
+- Scope: theoretical and empirical research on the system of
+  science: scholarly communication, science indicators, science
+  policy, workforce. Fit: dilution argument, measured
+  overhead/cost/division-of-work, transparency infrastructure, EU AI
+  Act angle. Risk: the PROV-O/ontology machinery may read as
+  out-of-core-scope; reviewers may press the n=1 demonstration
+  framing. Mitigation: frame as scholarly-communication
+  infrastructure with a measured self-demonstration; the paper
+  already cites QSS (publishing-strain2024).
+- Adaptation needed: reformat from IEEE two-column to journal
+  manuscript (single column); the 12.5-page cap no longer binds, so
+  the review-driven compressions may partially unwind where clarity
+  gains.
