@@ -2120,6 +2120,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "b387cb9",
         "fb091d5" .
 
+<https://noheton.org/f-ai2-r/prov/entity/panel-2026-07-28-json> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s97-review-panel> ;
+    aiprov:contentHash "sha256:e92fcb9f7ed595e6002d5821869f5d5d8e44914b71b4fd945563665a58af908c" ;
+    aiprov:filePath "doc/reviews/panel-2026-07-28.json" ;
+    aiprov:gitCommit "f4bba957b92845011330eafe87ce90d3aae8f19f" .
+
 <https://noheton.org/f-ai2-r/prov/entity/promote_from_issue-py> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm> ;
@@ -2570,6 +2577,13 @@ aiprov:verificationState a owl:ObjectProperty ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/build_paper_preview-py> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/s97-review-panel> a aiprov:AuditPass ;
+    rdfs:label "Three-reviewer panel on the finished paper (method/novelty, evidence/honesty, clarity/presentation), each an independent agent with repository access; verdicts recorded verbatim in doc/reviews/panel-2026-07-28.json. Recommendations: major-revision (method/novelty), minor-revision (evidence/honesty), minor-revision (clarity), all high confidence. Both technical reviewers independently reproduced the validator behaviour, graph counts, and cost arithmetic from the repository before judging. Headline findings the panel verified in the artefact: related-work gaps (nanopublications, micropublications, C2PA, in-toto/SLSA, Manubot uncited); aiprov:verificationState rdfs:domain declared as Claim while asserted on Sources; invariant II enforced by label regex rather than a structured grantedRung property; the w3id.org/aiprov namespace does not resolve; the transcript-turn metric inflated ~14 percent by counting markdown headings; the session record behind the quantitative results is not a published asset; per-activity telemetry sparse (two backfill aggregates); the authenticated-vs-transcribed split of human grants unreported. The verdicts are review evidence, not yet repairs; repairs await operator direction."@en ;
+    prov:endedAtTime "2026-07-28T11:35:34.596287+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/main-pdf>,
+        <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/source/fair2r-repo> a aiprov:Source ;
     rdfs:label "F(AI)²R: FAIR research with AI in the loop, twice (research repository)"@en ;
     dcterms:creator agent:florian-krebs ;
@@ -2581,6 +2595,9 @@ aiprov:verificationState a owl:ObjectProperty ;
     rdfs:label "Helmholtz Metadata Collaboration (HMC)"@en ;
     dcterms:source <https://helmholtz-metadaten.de/> ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/main-pdf> a aiprov:Source ;
+    aiprov:filePath "paper/main.pdf" .
 
 <https://noheton.org/f-ai2-r/prov/source/obscurity-is-dead> a aiprov:Source ;
     rdfs:label "Obscurity Is Dead — Proprietary by Design, Open by AI (research repository)"@en ;
@@ -3512,11 +3529,6 @@ aiprov:Contribution a owl:Class ;
         "edit",
         "write" .
 
-<https://noheton.org/f-ai2-r/prov/source/provenance-ttl> a aiprov:Source ;
-    aiprov:contentHash "sha256:14259982e1ad3c6cc270cc4f79d2146257c61473b384b3c53310ceebd6541e07" ;
-    aiprov:filePath "provenance.ttl" ;
-    aiprov:verificationState verif:source-vendored .
-
 <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> a aiprov:AuthoringPass ;
     rdfs:label "Meta-paper principal structure: IEEEtran chapter-per-file skeleton (main.tex + sections/01-07), page budget and figure plan (outline.md), F1 ladder figure in TikZ; grounded in the F(AI)2R method (authoring+audit passes, no-parentless-claim, repository-is-the-paper)"@en ;
     prov:endedAtTime "2026-07-24T18:28:43.680326+00:00"^^xsd:dateTime ;
@@ -3547,6 +3559,11 @@ aiprov:Contribution a owl:Class ;
 <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> a aiprov:Source ;
     aiprov:contentHash "sha256:4d532f3034457f2bc98e98028491d50eb6cf8fb86529ea1edbc6a089a78c6c84" ;
     aiprov:filePath "paper/sections/07-discussion.tex" ;
+    aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/provenance-ttl> a aiprov:Source ;
+    aiprov:contentHash "sha256:14259982e1ad3c6cc270cc4f79d2146257c61473b384b3c53310ceebd6541e07" ;
+    aiprov:filePath "provenance.ttl" ;
     aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/references-bib> a aiprov:Source ;
