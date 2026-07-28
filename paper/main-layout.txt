@@ -1,0 +1,795 @@
+      F(AI)2R: Who Did What, and Who Checked?
+     Verifiable AI Provenance as an Executable Skill
+                                                            Florian Krebs
+                                        Deutsches Zentrum für Luft- und Raumfahrt (DLR)
+                                                 ORCID: 0000-0001-6033-801X
+
+
+   Abstract—F(AI)2 R is FAIR research with AI in the loop, twice:     urgent rather than optional: publish-or-perish pays for counted
+an AI-assisted authoring pass and a machine-readable audit pass       output, and hypercompetition selects for whatever maximizes
+over every artefact. AI systems now draft, refactor, and verify       the count [5]. Generative AI collapses the marginal cost of
+research artefacts, yet their contributions are rarely recorded
+in a form a later human or machine can audit. Building on             exactly the thing the metric counts, onto a review system
+the original F(AI)2 R experiment, we generalize its provenance        already strained by output growth [6]. Section III describes
+model beyond scholarly writing into aiprov, a PROV-O extension        the predictable result. Appeals to ethics alone do not bend
+covering any AI-in-the-loop artefact, and we package the method       that curve. Infrastructure that makes verifiable work cheaper
+as an executable skill that an AI agent operates itself: setup asks   than unverifiable work can. The most expensive mistake would
+the human operator for their ORCID iD, resolves their identity
+from the public registry, and scaffolds continuous integration        be to scale speed without traceability.
+that gates every push on graph conformance and publishes the             This is a fast paper standing on slow work. The ideas
+current build of this very paper. The paper is its own case study.    were sharpened across earlier experiments: Obscurity-Is-Dead
+Every activity, claim, and source in its production is recorded       [7] established transcript-as-artifact and per-claim verification
+in the repository’s provenance graph under two invariants: no         labels while measuring how large language models com-
+parentless claim, and verification rungs that only humans may
+grant.                                                                press reverse-engineering effort, and the original F(AI)2 R
+                                                                      experiment [8] formalized the two-pass model and the no-
+                       I. I NTRODUCTION                               parentless-claim rule on a single scholarly paper, bound to
+        2                                                             paper writing. Several strands of that programme advance
+   F(AI) R is not an established term, and that is deliberate.
+It reads as FAIR [1] with the AI factor squared, because AI           in parallel under one operator: this method, this paper, and
+enters research twice: once authoring an artefact, and once           a system-integration fork of the shepard data-management
+auditing it into a machine-readable record of who did what,           platform [9]. That is precisely why per-activity accounting
+when, and from which sources. This paper defines that double          matters: parallelism without provenance is how contributions
+role precisely, generalizes it beyond scholarly writing, and          and errors alike become untraceable.
+demonstrates it on its own production.                                   The paper makes three contributions. First, aiprov, a
+   AI agents now draft manuscripts, refactor code, sweep              domain-agnostic generalization of the F(AI)2 R vocabulary
+literature, and verify results. The debate about whether they         over PROV-O [10]: agents, passes, claims, full inference
+should is loud and well documented [2], [3]; the record-              telemetry, and a verification ladder with human-only rungs
+keeping has not kept pace. A git commit stores what changed           (Section IV). Second, the method packaged as an executable
+and a free-text author name; it does not record whether that          skill that an AI agent operates itself, from an ORCID-first
+author was a human or a model, at what cost the change was            setup through continuous integration that gates every push on
+made, under which instructions, or from which sources. The            graph conformance and publishes the current build of this very
+work is real, but its context evaporates at commit boundaries.        paper (Section V). Third, a meta-experiment: the paper is its
+Existing responses are either policy (disclosure statements,          own case study, and its provenance graph, including mishaps
+authorship bans) or documentation artefacts written after the         and mid-experiment method changes, is the evaluation object
+fact, such as model cards [4]; neither is machine-checkable at        (Section VI). Sections II and III position the work and motivate
+the granularity of a single claim.                                    it; Sections VII and VIII discuss limits and close the loop.
+   We treat this as a question of scientific ethics, and we
+state our position plainly. When AI co-writes, the ethical                      II. BACKGROUND AND R ELATED W ORK
+question is not “is that allowed?” It is: where does this come           Provenance models. W3C PROV-O [10] is the standard
+from, and can anyone check it? Integrity then becomes a               vocabulary for expressing who generated what, through which
+property of the record, not of the author’s assurances. Our           activity; it consolidated the lineage begun by the Open Prove-
+stance is a measured one: not banning AI from research,               nance Model [11], and PAV refined it for authoring and ver-
+and not trusting it blindly, but building the layer on which          sioning [12]. Carina Haupt’s overview of provenance use cases
+trust can be grounded. Provenance is that layer. A verification       documents the practice inside DLR, including monitoring
+ladder says who may vouch for what, and its top rungs                 software development processes with provenance data [13].
+are reserved for humans. The incentive system makes this              aiprov extends this stack rather than forking it: every class
+subclasses a prov: term, so generic PROV tooling keeps                             III. T HE D ILUTION C RISIS
+working.
+                                                                     Scientific output has been growing faster than the commu-
+  Contributor attribution. CRediT names who contributed           nity’s capacity to review it [6], and paper mills industrialized
+what kind of work [14] and is now a NISO standard [15],           fabrication well before language models [27]. What changed
+but it operates at manuscript granularity and admits only         is the cost curve. Obscurity-Is-Dead measured how large lan-
+humans. aiprov records attribution per activity and per claim,    guage models compress the effort gap for reverse-engineering
+and its agent model includes AI systems and deterministic         proprietary devices [7]; the same compression applies to pro-
+tools alongside people.                                           ducing a plausible paper. The flood is an effort-gap collapse,
+   AI transparency artefacts. Model cards [4] and                 observed early in another domain. GPT-fabricated papers are
+datasheets [16] document the model or the dataset. What they      already indexed and ranked by scholarly search engines [28].
+do not capture is the collaboration that produced a specific         The demand side is the incentive system. Publish-or-perish
+artefact: which prompts, which sessions, which verification       pays for counted output, and hypercompetition selects for
+steps. RO-Crate [17] is complementary packaging; an aiprov        whatever maximizes the count [5]. Language models did not
+graph can travel inside a crate. Closest to this work, PROV-      create that pressure; they gave it a zero-cost supply channel.
+AGENT extends W3C PROV to capture agent interactions,             Dilution is misaligned incentives meeting free volume.
+prompts, responses, and decisions, in agentic workflows in           The consequence is that finding good sources is now the
+near real time [18]; it shares the substrate and the agent-       bottleneck of research. Retrieval trusts proxies: indexed, cited,
+centric telemetry, and differs in what this paper adds on         fluent. Generation has learned to imitate all three. Language
+top: verification rungs reserved for humans, packaging as an      models fabricate plausible references and make citation errors
+executable skill, and the method applied to its own production.   at documented rates [29], [20]; once such a reference is
+                                                                  indexed, nothing in today’s retrieval chain stops it from being
+   The trust gap. The large language models that now write        cited onward, and models trained on the polluted pool degrade
+research prose descend from the transformer architecture [19],    further [30], so dilution compounds. The parallelism that lets
+and they fabricate plausible citations [20]: existence of a       one operator advance several strands equally industrializes
+reference is machine-checkable, support for a claim is a          pollution (Section VII); per-activity accounting is what tells
+judgement, and the two must not be conflated. The ladder of       the two apart. Research infrastructures already treat metadata
+Section IV keeps them apart and names the grantor of every        quality as their central lever [26], and the deployed remedy
+judgement.                                                        is graph-shaped: the Helmholtz Knowledge Graph harvests
+   Lineage and neighbors. This work has three roots.              metadata from siloed infrastructures precisely to drive better
+The first is AI-assisted research practice: Obscurity-            metadata practice [31]. The diluted literature is, in our words,
+Is-Dead [7] introduced transcript-as-artifact and the             a data swamp one level up, and it admits the same remedy.
+verification    labels    (repo-vendored,         lit-read,          When text is cheap, the scarce good is an original idea
+unverified-external) that the present ladder                      whose support is checkable. We treat originality as a prove-
+canonicalizes, and F(AI)2 R [8] formalized the two-pass           nance property: a novelty claim carries its recorded search
+model and no-parentless-claim. The second is engineering          horizon, that is, what was searched, where, and when. Con-
+provenance: adjacent DLR work extends PROV-O with                 cretely, the tooling’s registry sweeps (Crossref, OpenAlex,
+uncertainty quantification for traceability in engineering        arXiv, DataCite) are logged activities with their query terms,
+systems [21]; the axes are complementary, since aiprov            so “no prior work found” stops being an unfalsifiable assertion
+records who and how, while uncertainty-aware provenance           and becomes a bounded one: no prior work found within this
+records how confident, and a combined profile is future           recorded horizon, which a sceptical reader can re-run, widen,
+work (Section VIII). The argument shape itself is established     and possibly refute. The literature sweeps behind this paper
+in research software engineering: better architecture makes       are logged exactly so. Every claim must then be supported, or
+better software makes better research [22]; aiprov extends that   refuted, by facts, and both outcomes leave a record.
+chain from the software to the record of its making. The third       aiprov’s answer makes claims first-class. Each
+root is industrial semantic modeling: the author co-authored      assertion          carries         prov:wasGeneratedBy,
+the Asset Administration Shell Part 1 specification [23],         prov:wasAttributedTo, and a ladder rung that
+continued as IDTA-01001 [24]. Where partners exchange             separates “the reference exists” (machine-checkable) from
+information across a value chain, semantics must be formal        “the content supports the claim” (machine-judged at most)
+and machine-readable or interoperability fails. aiprov applies    from “a human checked” (human-only). Refutation is explicit:
+that discipline to a new exchange relationship: the one           aiprov:contradicts records a claim refuted by facts
+between humans, AI agents, and the future auditors of their       as refuted, instead of silently deleting it. This is supply-side
+joint work. The Helmholtz Metadata Collaboration [25],            transparency. Artefacts carry a pedigree that fabrication
+[26] provides the community context: a provenance graph is        cannot cheaply forge: DOIs that resolve, content hashes,
+metadata about work, extending FAIR metadata practice from        commits, and registry-resolved identities. Filtering the pool
+data description to collaboration description.                    can then shift from fluency heuristics to verifiable metadata.
+                  IV. T HE AIPROV M ETHOD                             without rewriting history; the aliases are in place, though the
+                                                                      consolidation has not yet been exercised against the ancestor
+   Model. aiprov extends PROV-O with three agent classes              repositories’ graphs.
+(HumanAgent, AIAgent, ToolAgent), four activity                          Commit binding. An activity can only bind a commit
+classes (AuthoringPass, AuditPass, Build, Repair),                    that already exists, and a commit cannot contain the graph
+and entity classes for artefacts, claims, sources, transcripts, and   entry describing itself. The working discipline that follows:
+prompts, where prompts are treated as source code and bound           commit the artefacts, log the activity with that commit’s hash,
+to activities as plans (Figure 1). Humans carry ORCID and             then commit the graph update separately. The graph never
+affiliation; AI agents carry model, version, provider, endpoint,      claims a hash it could not have known; the cost is one extra
+context window, and knowledge cutoff; tool agents cover               commit per logged round. What the two commits buy is
+deterministic actors such as CI jobs. Treating prompts as plans       tamper evidence in both directions. The graph entry names a
+deserves a word: a prompt is to an AI activity what a script          commit whose tree contains the artefacts it describes, content-
+is to a batch job, the executable specification of intent, so         hashed; the graph itself lives in later commits of the same
+it is hashed and bound with prov:hadPlan rather than                  history. Backdating a record would require rewriting published
+paraphrased into a comment. An auditor who wants to know              git history, and quietly swapping an artefact would break its
+why an artefact came out as it did reads the plan and the             recorded hash: either falsification is possible, but neither is
+transcript; neither is recoverable after the fact if not captured     silent; that asymmetry (honest work is cheap, dishonest work
+when the activity runs.                                               is loud) is the design goal throughout.
+   Telemetry. Activities carry session and request identifiers,          The validator, exhaustively. Conformance is seven con-
+token counts by class (input, output, cache, reasoning), sam-         crete checks, each a SPARQL query over the graph, and
+pling parameters, cost, energy, and the tools invoked. One rule       naming them makes the invariants operational rather than
+governs all of it: omit, don’t estimate. Absent telemetry is          aspirational. Three enforce Invariant I: no claim without a
+recorded as absent; invented precision is worse than a visible        generating activity, no claim without an attributed agent, and,
+gap. Generated artefacts receive sha256 content hashes at             as a warning, no agentless activity. Two enforce Invariant II: no
+logging time, and prompt files receive prompt hashes.                 human-only rung granted by an AI agent, and no human-only
+   Invariant I: no parentless claim. Every aiprov:Claim               rung without a recorded promotion activity naming a human
+needs a generating activity, an attributed agent, and a verifica-     grantor, a warning that flags a rung edited directly into the
+tion state. The conformance validator treats violations as hard       graph without an audit trail. Two enforce the access gate: no
+failures and is suitable as a pre-commit hook or CI gate.             source above needs-research without a resolvable DOI,
+   Invariant II: the verification ladder. Rungs answer who            URL, or vendored copy, and a warning, rather than a failure,
+checked what (Figure 2, Table I). Promotions must strictly            for human-verified sources whose audit target is link-only and
+climb and are themselves logged as audit activities, so every         therefore mutable. Four checks fail hard with a nonzero exit
+rung a claim or source holds has a recorded grantor. Dis-             code; that exit code is the entire integration contract, which
+agreement is first-class: an agent may refuse a promotion,            is why the same command serves unchanged as a pre-commit
+which changes no state but is logged as an audit activity             hook, a CI gate, and an auditor’s first step.
+carrying the refused rung, so “checked and not convinced” is             Auditability operations. report aggregates tokens, cost,
+distinguishable from “never checked”. Rungs 5–6 are human-            and rung distributions; extract computes the backward
+only; an AI-granted promotion to them is a validator hard             closure of everything that contributed to chosen entities;
+failure. Two rungs deserve comment. Vendoring (rung 4)                dashboard renders the graph as a self-contained offline
+is not a verification statement: an unread vendored copy              ledger. Sources enter through open registries (Crossref, Ope-
+proves nothing beyond reference-resolved. Its role is                 nAlex, arXiv, DataCite): a search command sweeps them,
+instrumental, the access gate that makes human verification           and registration with DOI verification promotes a source to
+feasible and durable. Operationally, the agent must hand the          reference-resolved only if the registry actually re-
+human the evidence: promote refuses the human-only rungs              solves it.
+unless the source is vendored (path and hash recorded) or
+carries a clear access link, and prints the review material                           V. T HE E XECUTABLE S KILL
+with every request; a human confirmation against link-only               A method that lives in a PDF of guidelines depends on
+material is flagged, since the audit target remains mutable.          humans remembering to follow it. We package aiprov instead
+At the top, human-read subsumes human-confirmed:                      as a skill: a versioned bundle of instructions and tools that an
+it asserts full-text familiarity and confirmation, because a          AI agent loads and operates. The method’s rules become the
+name alone would mislead, as reading does not entail check-           agent’s operating rules: log your own activities, record claims
+ing. Both refinements were operator-contested mid-experiment          at ai-confirmed at most, never fabricate telemetry, and
+(Section VI). The ladder itself has provenance: it canonicalizes      never grant a human-only rung.
+labels field-tested in Obscurity-Is-Dead [7] and hardened                ORCID-first setup. Setup asks the human operator exactly
+in F(AI)2 R [8], and legacy names remain machine-readable             one question: their ORCID iD. A single command then seeds
+aliases, so that ancestor graphs can consolidate onto this ladder     the graph, resolves the operator’s name and current affiliation
+                                                                  TABLE I
+  T HE VERIFICATION LADDER . P OSITIONS ARE MACHINE - READABLE ( A I P R O V : L A D D E R P O S I T I O N ); PROMOTIONS MUST STRICTLY INCREASE THEM
+          AND ARE THEMSELVES LOGGED AS AUDIT ACTIVITIES , SO EVERY RUNG A CLAIM OR SOURCE HOLDS HAS A RECORDED GRANTOR .
+
+
+                       Pos                                Rung                                                    What it asserts                                                             Who may grant
+                         0                                unverified                                              Recorded; nothing checked yet by anyone. Default state at                   (default)
+                                                                                                                  creation.
+                         1                                needs-research                                          A check was attempted or demanded and did not succeed (e.g.                 any agent
+                                                                                                                  a DOI failed to resolve). Must not be cited or relied upon until
+                                                                                                                  re-verified.
+                         2                                reference-resolved                                      The reference exists: its DOI/URL resolved in a bibliographic               any agent (tool-checkable)
+                                                                                                                  registry and metadata was captured. Says nothing about content.
+                         3                                ai-confirmed                                            An AI checked that the source content supports the associated               AI or human
+                                                                                                                  claim. A machine judgement, the highest rung an AI may grant.
+                         4                                source-vendored                                         A copy of the source is preserved inside the repository (content-           any agent (hash-checkable)
+                                                                                                                  hashed), immune to link rot and silent revision. Of no evidential
+                                                                                                                  value by itself: this rung is the access gate to human verification;
+                                                                                                                  the agent hands the human the evidence, and tooling refuses
+                                                                                                                  rungs 5–6 unless the source is vendored or carries a clear access
+                                                                                                                  link (DOI/URL).
+                         5                                human-confirmed                                         A human spot-checked that the source supports the claim.                    human only
+                         6                                human-read                                              A human has read the source in full and, with that full context,            human only
+                                                                                                                  confirms the claim is supported, subsuming rung 5’s confirma-
+                                                                                                                  tion with deeper familiarity. Reading without confirming is not
+                                                                                                                  a rung. Top of the ladder.
+
+
+                     Entities ⊑ prov:Entity                                                                                                                  compilable chapter-per-file paper skeleton whose author block
+                            Claim
+                      verificationState
+                                                                              Artefact
+                                                                           sha256, commit
+                                                                                                           Source
+                                                                                                      doi, rung, self          Transcript         Prompt
+                                                                                                                                                promptHash
+                                                                                                                                                             is already filled from the resolved identity. Later commands
+                                                                                                                                                             auto-detect the base from the graph, so configuration never
+                                                                        wasGeneratedBy                              used, hadPlan, transcript                needs repeating (Figure 4).
+                                                         Activities ⊑ prov:Activity
+                                                                                                                                                                CI as the deterministic build agent. Every push validates
+   wasAttributedTo
+
+
+
+
+                                                                                                                              session, tokens,
+                                                         AuthoringPass          AuditPass         Build          Repair      cost, energy, tools             the graph server-side, renders the dashboard, regenerates the
+                                                                                                                                                             AI-transparency disclosure, and compiles the paper to PDF,
+                                                                                             wasAssociatedWith
+                                                                Agents ⊑ prov:Agent
+                                                                                                                                                             uploading dashboard and PDF as build artefacts. The current
+                                                                                                  AIAgent
+                                                                                                                                                             version of the paper is always available, and a conformance
+                                                                   HumanAgent                                             ToolAgent
+                                                               orcid, affiliation             model, provider              e.g. CI
+                                                                                                                                                             violation blocks the build. The CI service itself is registered
+                                                                                                                                                             as a ToolAgent, and its green runs are logged Build
+Fig. 1. Core aiprov vocabulary as an extension of PROV-O. Every class sub-                                                                                   activities carrying artifact digests. Version tags extend the
+classes a prov: term; tiny annotations name characteristic attributes. Claims
+point to their generating activity, their attributed agent, and a verification state;                                                                        same discipline to releases: a v* tag publishes a conformance-
+activities carry inference telemetry and link prompts (as plans) and transcripts.                                                                            gated release whose assets are the PDF together with the graph
+                                                                                                                                                             it was built from, the metrics snapshot, the packaged skill, and
+                                                                                      6 human-read                             human-only
+                                                                                                                                                             their checksums, so a release is the artefact plus its record.
+                                                                               5 human-confirmed                               human-only
+                                                                                                                                                                Live preview as oversight affordance. On request, the
+                                                                                                                                                             agent republishes the current typeset build, together with the
+                             promotions strictly climb
+
+
+
+
+                                                                                4 source-vendored                              access gate for 5–6
+                                                                                                                                                             per-section planning skeletons, to a stable preview URL after
+                                                                                      3 ai-confirmed                           highest AI-grantable          every editing round (Figure 5, right panel). Effective oversight
+                                                                               2 reference-resolved
+                                                                                                                                                             of a fast-moving AI collaborator needs a continuously current
+                                                                                                                                                             view of the deliverable; the EU AI Act’s human-oversight
+                                                                                 1 needs-research
+                                                                                                                                                             expectation [32] becomes a user-interface property. The pre-
+                                                                                       0 unverified                                                          view also renders the source-verification queue, whose buttons
+                                                                                                                                                             open prefilled repository issues; a workflow verifies the issue
+Fig. 2. The verification ladder. Every promotion is logged as an audit activity;                                                                             author against a registered-operator mapping and transcribes
+rungs 5–6 may never be granted by an AI agent, and the validator treats such
+grants as hard failures.                                                                                                                                     the authenticated grant or refusal into the graph, so the
+                                                                                                                                                             operator walks the human rungs without touching a checkout:
+                                                                                                                                                             the judgement stays the human’s, only its transcription is
+from the public registry (never guessed; if resolution fails, only                                                                                           automated.
+the bare iD is recorded), derives the instance IRI base from the                                                                                                Structure before prose. The agent first lays down each
+git remote, scaffolds continuous integration, and lays down a                                                                                                section’s principal structure, its argument flow, evidence, and
+                                                                   $ provlog.py validate
+figure and citation plan, as a reviewable skeleton; prose is a     [ OK ] parentless claims: 0
+separate later pass. The operator can contest structure cheaply    [ OK ] unattributed claims: 0
+                                                                   [ OK ] human-only rungs granted by AI agents: 0
+before any prose exists to defend it, and both passes are              (...four further checks OK...)        exit 0
+logged, so the audit trail shows which structural decisions
+                                                                   # an AI agent tries to grant a human-only rung
+preceded which text. Two rungs of the ladder were redesigned       $ provlog.py promote --id demo-claim \
+exactly this way during this experiment.                               --to human-confirmed --agent claude-code
+                                                                   REFUSED: rung ’human-confirmed’ is human-only;
+   Regulatory fit by construction. The EU AI Act trans-              agent:claude-code is not a registered
+                                                                     HumanAgent. An AI must never grant this rung.
+parency statement is derived from the graph on every build                                                   exit 1
+(Section VII); disclosure is a build product, not an authoring     # a parentless claim spliced into the graph
+                                                                   [FAIL] parentless claims: 1
+chore, and adopters inherit the mechanism.                             -> .../prov/claim/rogue               exit 1
+   Worked example: analysing experimental data. The                # access gate: human rung, source not in hand
+                                                                   $ provlog.py promote --id demo-src \
+workflow is not specific to writing papers; consider a study           --to human-confirmed --agent florian-krebs
+                                                                   REFUSED: ’human-confirmed’ requires the source
+like the comparison of power and amplitude control in contin-        in hand -- vendor a copy first (promote
+uous ultrasonic welding of unidirectional CFRPs [33], where          --to source-vendored --file <path>) or
+                                                                     record a DOI/URL for it                 exit 1
+welding trials produce in-situ process data, scans, mechanical     # vendor the copy, then the gate hands it over
+test results, and micrographs, and the outcome is comparative      $ provlog.py promote --id demo-src \
+                                                                       --to source-vendored --file protocol.pdf
+claims about two control strategies. Setup is identical: one       demo-src: reference-resolved -> source-vendored
+ORCID question seeds the graph and registers the experi-           $ provlog.py promote --id demo-src \
+                                                                       --to human-confirmed --agent florian-krebs
+menters; the rig’s data acquisition and the analysis scripts       review material: vendored copy at protocol.pdf
+                                                                   demo-src: source-vendored -> human-confirmed
+join as ToolAgents, the AI assistant as an AIAgent. Each             (logged as AuditPass, agent:florian-krebs)
+raw record (a weld’s power trace, a scan, a test protocol) is                                                exit 0
+registered as a Source and vendored with its content hash,
+so the access gate of rung 4 holds the evidence for every          Fig. 3. Success and failure, captured from the tooling running against a
+downstream claim as immutable bytes. Each analysis run is          sandbox copy of this paper’s graph: a clean validation, the two invariant
+                                                                   refusals (human-only rung attempted by an AI; parentless claim), and the
+a logged Build activity that used the raw sources and              rung-4 access gate first blocking a human promotion and then, once a copy is
+generated the derived tables and figures, hashes included;         vendored, handing the review material to the human. Output verbatim; long
+CI reruns the analysis, so a figure that cannot be regen-          lines re-wrapped and exit codes annotated.
+erated from the recorded inputs fails the build. AI-assisted
+interpretation is an AuthoringPass with telemetry, and
+                                                                   node and exits nonzero; a refused operation says why it was
+every finding (say, that the two control modes yield equivalent
+                                                                   refused and what would make it legitimate. The last property
+weld quality on a given layup) is a claim generated by the
+                                                                   matters most for the human rungs: when the operator asks
+analysis activity and attributed to its agent. The ladder then
+                                                                   for human-confirmed, the gate either blocks for lack of
+works exactly as in Section IV: the AI may cross-check a
+                                                                   access material or prints exactly where the review copy sits,
+claim against the derived data and grant ai-confirmed;
+                                                                   so the human step starts with the evidence in hand rather than
+the experimenter spot-checks the mechanical-test table for
+                                                                   a search for it.
+human-confirmed, with the tooling handing over the ven-
+                                                                      Versioning the method. The skill tree is the repository:
+dored data on request; the comparative conclusions that carry
+                                                                   snapshots are immutable, changes are logged, and every ac-
+the paper deserve human-read. The disclosure statement
+                                                                   tivity binds its commit, so the meta-experiment can cite the
+and the report come for free, and once the shepard integration
+                                                                   exact method version in force at any point. The same property
+planned in Section VIII lands, raw data and provenance will
+                                                                   makes the skill the transferable unit; the bundle that wrote this
+share one backbone.
+                                                                   paper is the intended integration payload for the shepard fork
+   Auditability at the command line. Auditability here is
+                                                                   of Section VIII. Conversations are part of the record too: a
+not an abstract property but a concrete session: an auditor
+                                                                   transcript exporter renders the session to a committed file after
+clones the repository and runs the same tooling the authors ran.
+                                                                   every turn, and activities link to it, so the dialogue that shaped
+Three checks need no trust in anyone’s honesty. Re-running
+                                                                   an artefact is as retrievable as the artefact.
+the validator replays every invariant against the graph as it
+stands; re-hashing a vendored file or a committed artefact and
+                                                                     VI. M ETA -E XPERIMENT: T HIS PAPER AS C ASE S TUDY
+comparing against the recorded digest detects any silent swap;
+re-resolving a recorded DOI confirms the citation metadata            Setup. The repository was bootstrapped by an AI agent
+still matches the registry. Two further checks read rather than    operating the skill, in one working session directed by the
+execute: the activity log tells the auditor who granted each       human operator. Three agents are registered: one human
+rung and under which commit, and the transcript shows the          (identity resolved from ORCID), one AI system, and the CI
+dialogue in which a contested decision was made. The tooling       service as a tool agent. Every round of work follows the
+is built so that success is quiet and failure is loud, Figure 3:   two-commit pattern of Section IV, so each logged activity
+a clean graph prints one OK line per invariant and exits           binds a real commit. Figure 5 shows the oversight surface: the
+zero, suitable as a CI gate; a violation names the offending       continuously rebuilt draft beside its source-verification queue,
+                       the one setup question: ORCID iD                                                                   TABLE II
+                                                                                         P ROVENANCE - GRAPH STATE OF THIS PAPER ’ S PRODUCTION AT THE TIME
+            init: seed graph · resolve identity · scaffold CI + paper                       OF WRITING ( FROM P R O V L O G . P Y R E P O R T AND THE REPOSITORY;
+                                                                                         REGENERATED BEFORE SUBMISSION ). T OKEN TOTALS ARE AGGREGATED
+                agent: register the AI system (model, provider)                              FROM THE PROVIDER - REPORTED USAGE BLOCKS IN THE SESSION
+                                                                                             RECORD ; THE COST IS COMPUTED FROM THOSE TOKENS AND THE
+                  work round: author or edit artefacts · commit                          PUBLISHED PRICE LIST AT TIME OF WRITING ( ALL CACHE WRITES IN THE
+                                                                                          RECORD ARE 1- HOUR -TTL), NOT REPORTED BY THE PROVIDER , AND IS
+         log activity binding that commit · claim · source -verify                                      RECORDED IN THE GRAPH AS COMPUTED .
+
+                       commit graph · validate · push
+
+
+
+
+                                                                            next round
+                                                                                             Metric                                                           Value
+         CI (ToolAgent): validate · dashboard · disclosure · PDF artefact                    Triples                                                          3 100
+                                                                                             Logged activities                                                  229
+                      republish live preview at stable URL                                   Claims (all ai-confirmed)                                            8
+                                                                                             Sources on the ladder                                               67
+         human audit: promote to rungs 5–6 (gate hands over evidence)                          thereof at ai-confirmed or above                                  65
+                                                                                               thereof marked self-citation                                       5
+                                                                                             Registered agents (human / AI / tool)                         1/1/1
+Fig. 4. The skill’s operating loop from the single setup question to the                     Commits                                                            212
+continuously published build. Orange steps involve the human operator; the                   Transcript                                      1 session, 3 634 turns
+grey step runs deterministically in CI; everything else is the AI agent operating            Output tokens                                                2 461 454
+the method, two commits per logged round (Section IV).                                       Input tokens (uncached)                                         16 932
+                                                                                             Cache tokens (read / write)                         804.1 M / 32.5 M
+                                                                                             Cost (computed, not reported)†                          ≈ USD 1577
+the loop of Section V in operation. Scope, before any number:                                  same tokens at Opus 5 / Sonnet 5 rates†          ≈ USD 789 / 315
+this is a demonstration, not a study; one operator, one domain,                          † Basis: the provider’s published API list prices [34], per million tokens:
+
+one session. The quantities below characterize this instance of                          input $10, output $50, cache read $1, 1 h cache write $20; all cache writes
+                                                                                         1 h-TTL. The repricing holds the recorded token volume fixed and only
+an idea in use (Section VIII lists the trials it owes).                                  swaps the price list (Sonnet 5 at introductory rates); it compares price bases,
+   The graph as evaluation object. Table II reports the state                            not runs, since models tokenize and behave differently.
+of the graph at the time of writing, and Figure 6 shows the
+ledger view rendered from the same file. Token counts were
+initially absent: the harness exposes no live usage to the agent,                        supporting quotation and the checked depth in the promotion
+and under omit-don’t-estimate nothing was recorded. The                                  note; every cited source was checked at the time of writing.
+operator’s challenge (“why is this not reported?”) prompted                              Negative outcomes stayed recorded rather than smoothed over:
+a check of the session record, which turned out to carry                                 one publisher’s bot-wall deferred a check until an open index
+the provider’s per-request usage blocks; the totals in the                               carried the abstract, the operator-owned repositories were left
+table are aggregated from them, reported not estimated. Cost                             to the operator’s own rungs, and three citation overreaches
+followed one step behind: the record carries no priced entries,                          surfaced by the checks were repaired in the text before any
+so cost was first omitted; the operator then directed pricing                            promotion.
+the recorded tokens against the provider’s published price                                  Incidents as first-class records. The experiment produced
+list at time of writing. The resulting figure is computed, not                           four incident types, and none needed special vocabulary; each
+provider-reported, and the graph records it exactly so, price                            is an ordinary activity whose class carries its nature (Figure 7).
+basis in the activity’s label. All eight recorded claims sit at                          (i) An agent mishap: while creating template stubs, a stale
+ai-confirmed, the ceiling an AI may grant; promotion                                     working directory led the agent to overwrite two committed
+beyond waits for the human operator, with the evidence handed                            manuscript sections. Version control surfaced the unintended
+over on request.                                                                         diff immediately, restoration was a one-command revert, and
+   Worked examples. Invariant enforcement was verified by                                the self-report is an AuditPass naming what happened, the
+test-run before any claim entered the graph: an injected                                 tools involved, and the restoring commit. (ii) An infrastructure
+parentless claim failed validation, and a promotion of a claim                           failure: a registry served malformed BibTeX, which broke
+to human-confirmed attempted by the AI agent was re-                                     the CI build; the diagnosis and fix live in commits, and the
+fused, both captured in Figure 3. The bibliography was built                             first green run is a logged Build activity by the CI tool
+through the method: sources found by registry sweeps, DOI-                               agent carrying artefact digests. (iii) Blocked access: a publisher
+verified at registration, fetched as BibTeX from doi.org content                         returned 403 to automated requests, and the fallback to the
+negotiation, and cited only once ladder-backed. The paper’s                              canonical page is recorded in the registering activity’s label
+intellectual ancestors are themselves registered sources, each                           rather than silently swallowed. (iv) Method contestation: the
+fetched or URL-verified first. Registration, however, only                               operator challenged the semantics of two ladder rungs; the
+proves a reference exists; an audit pass flagged exactly this                            redesigns are ordinary authoring activities whose generated
+as the record’s weakest point, and content passes closed it:                             artefacts are the new tool and schema versions, with the en-
+for every cited source the AI fetched the actual content (full                           forcement claim verified by test-run. The pattern generalizes:
+text or slides where openly accessible, abstracts otherwise) and                         erasing an incident would require rewriting git history and
+checked it against the specific citing sentence, recording the                           the graph, both visible acts, so honesty is the cheap path.
+Fig. 5. The continuously rebuilt preview of this paper (screenshot, 2026-07-28), republished to a stable URL after every editing round. Left: commit, build
+time, and live graph statistics above the typeset pages. Right: the source-verification queue at the bottom of the same page; each entry shows the citing
+sentence to check, the recorded evidence, the access link, and buttons that stage the exact grant or refuse command or open a prefilled repository issue, which
+a workflow transcribes into the graph after verifying the issue author against the registered-operator mapping. The judgement stays the operator’s; only its
+transcription is automated.
+
+
+
+                                                                                   against a vendored statute text the gate handed over, confirmed
+                                                                                   the five self-cited sources they authored, the class where the
+                                                                                   human’s judgement is uniquely authoritative, and then walked
+                                                                                   the queue through the issue path of Section V, 34 human
+                                                                                   rungs granted at the time of writing. The remaining sources are
+                                                                                   deliberately kept at their machine rungs so the demonstration
+                                                                                   shows every rung in use; the operator reports having checked
+                                                                                   all sources and claims, and the ladder records which of those
+                                                                                   checks they chose to formalize as grants. The hypothesis that
+                                                                                   AI absorbs tedium while humans connect ideas and people
+                                                                                   (Section VII) is thereby testable from the committed log
+                                                                                   and transcript, for this one experiment. One measurement
+                                                                                   pitfall became a method fix: the session format returns tool
+                                                                                   results under the user role, so a naive role count inflates
+                                                                                   the human by an order of magnitude (595 of 663 user-role
+                                                                                   messages were tool results). The transcript exporter now labels
+                                                                                   Human, Assistant, Tool result, and Hook distinctly; the same
+Fig. 6. The dashboard rendered from provenance.ttl (screenshot, 2026-              unambiguous role labeling is worth asking of provider session
+07-28). Top: header, graph totals, agents, and the start of the activity ledger;   formats generally, in the same breath as provider-reported cost.
+the token and cost tiles sum per-activity records, so they differ from the            Leverage as data. The same record measures what the
+session-record aggregates of Table II, drawn from the record directly. Bottom:
+the literature rung distribution, most sources operator-verified, the top rung     multiplication bought, without estimating any counterfactual.
+populated. The full page is one self-contained HTML file with an interactive       The operator typed 2 036 words of direction in total, median
+graph view.                                                                        7 words per message; active session time, clustering request
+                                                                                   timestamps and counting gaps under thirty minutes, is about
+                                                                                   12.1 hours inside a 89-hour wall-clock span. Against that input
+The same property that makes contributions attributable makes                      stand roughly 8 800 words of typeset prose, about 2 800 lines
+errors reversible.                                                                 of tooling, 67 ladder-backed sources, and the graph itself.
+   Division of labour as data. The record makes the divi-                          What a solo baseline would have cost is deliberately not
+sion of work between operator, AI agent, and infrastructure                        estimated, omit-don’t-estimate applies to counterfactuals too;
+countable (Table III). The class-by-agent counts are exact,                        what the record does show is where the freed attention went:
+machine-readable queries over the graph; attributing triggers,                     nearly every typed word carries scope, semantics, lineage, or
+what prompted each activity, still requires reading the session                    people, not prose. The gain is less the saved time than this:
+log, and that reading is consistent: the operator’s direction                      the human’s whole contribution could be judgement. Every
+messages carry scope, lineage, people, and every contested                         derived figure above follows the skill’s derivation rule: its
+semantic decision (both ladder redesigns, the cost policy, the                     methodology is stated with the number, word counts strip
+license choice, the page budget), while the AI executed all                        LaTeX markup, direction counts exclude tool results, hook
+authoring, audit, and repair activities and CI contributed the                     messages, skill loads, and pasted documents over five hundred
+deterministic builds. Rungs above the AI ceiling remain human                      words, and the thresholds ride in the measuring activity’s label,
+by design: the operator granted the first human-confirmed                          so a sceptic can recompute or contest any of them.
+                                                                                                                                                       verif:ai-confirmed
+                                                                                                      claim:c7                   verificationState
+
+                                                                                             “promote refuses human rungs
+                                                                                             without vendored copy or link”
+
+                                                                                       wasAttributedTo
+                                                                                                                         wasGeneratedBy
+
+
+                                                                                   agent:
+                          act:s09-incident                                                                                            act:s22-vendored-gate
+                                                           wasAssociatedWith    claude-code              wasAssociatedWith
+                            aiprov:AuditPass                                                                                             aiprov:AuthoringPass
+                                                                                   AIAgent
+
+
+                                                                                                                              wasGeneratedBy
+
+
+                   endedAtTime 2026-07-24T18:45Z
+                                                                                                                                                                            SKILL.md
+                   sessionId session_01VKC. . .                                                                     provlog.py                                              Artefact + hash
+                   usedTool bash, git                                                                               Artefact + hash           aiprov-schema.ttl
+                   label: “. . . overwrote two committed
+                   sections . . . restored from 75d21bd”                                                                                             Artefact + hash
+
+
+
+Fig. 7. Two incidents from this experiment, exactly as the graph represents them (node contents abridged from real triples). Left, a mishap: the agent
+overwrote two committed manuscript sections; the self-report is an AuditPass carrying timestamp, session, tools, and the restoring commit in its label.
+Right, a contested design: the operator challenged the source-vendored rung’s semantics; the redesign activity generated new tool and schema versions
+(content-hashed artefacts), and its enforcement claim sits at ai-confirmed after test-run. The incident vocabulary is just the ordinary vocabulary.
+
+
+
+                            TABLE III                                                                signed inference records carrying model, timestamps, usage,
+  D IVISION OF WORK IN THE META - EXPERIMENT, COUNTED FROM THE                                       roles, and prompt/response hashes, would eliminate that class
+    PROVENANCE GRAPH AND THE SESSION RECORD AT THE TIME OF
+          WRITING ( REGENERATED BEFORE SUBMISSION ).                                                 of misreporting and subsume this paper’s other provider asks
+                                                                                                     (cost, energy, unambiguous roles). It would not, however,
+    Contribution                                                        Agent    Count               be tamper-proof, on three grounds. Trust shifts rather than
+    Direction messages: scope, lineage, people,                         human       138              vanishes: a signature proves the provider asserted the record,
+    contested semantics (two ladder redesigns,                                                       so key custody moves to the centre. Coverage stops at the
+    cost policy, license, page budget)                                                               API seam: the server can attest what passed through it, not
+    Typed direction volume (median 7                                    human   2 036 w
+    words/message)                                                                                   which files were touched or how an attested inference binds
+    Active session time (request-gap clustering)                        both     12.1 h              to a repository artefact, so a dishonest client can still mis-
+    Authoring passes: prose, code, figures,                             AI           66              bind. And judgements stay judgements: a signature proves a
+    method releases
+    Audit passes: validation, promotions, content                       AI          151              model emitted a verdict, not that the verdict is sound, and
+    checks, incident reports, measurements                                                           no server can attest that a human read a source. The realistic
+    Repair passes                                                       AI           10              endpoint is a dual witness: provider-signed inference logs and
+    Deterministic builds logged                                         CI            2
+    Rungs granted above the AI ceiling                                  human        34              repository-side commit binding, each referencing the other’s
+                                                                                                     hashes, so that falsifying the record requires collusion between
+                                                                                                     independent parties with separately published histories, the
+   What the auditor can and cannot verify. Hashes, com-                                              same trust structure as certificate transparency or double-entry
+mits, resolving DOIs, rung grants, and the validator’s verdicts                                      bookkeeping. A third witness is nearly free: anchoring each
+are checkable by anyone with the repository. The honesty of                                          release’s checksums in an append-only public log (certificate-
+self-reported telemetry is not; that limit is where the discussion                                   transparency style, or a distributed ledger) makes retroactive
+begins.                                                                                              rewriting of the repository history detectable without trusting
+                                                                                                     its host, though anchoring, like signing, certifies existence,
+             VII. D ISCUSSION AND L IMITATIONS                                                       never truth. aiprov supplies one witness and the seam for the
+   Self-report honesty. The graph is only as truthful as its                                         others; signed provenance is the strongest standing ask this
+writer. The mitigations are structural: content hashes and                                           paper directs at providers.
+commit bindings tie records to bytes, validation runs server-                                           Why human-only rungs stay human. ai-confirmed
+side in CI, the omit-don’t-estimate rule removes the temptation                                      is a machine judgement with known failure modes [20]. The
+of invented precision, and the human-only rungs cap what an                                          ladder does not pretend otherwise; it makes the judgement’s
+AI may assert about its own work. The overwrite incident of                                          author explicit instead of laundering machine confidence into
+Section VI shows the mitigation working: with the repository                                         apparent human endorsement. The human rung is no formality
+as the process substrate, an AI mistake was a recoverable,                                           either: even domain experts struggle to override erroneous
+recorded event rather than silent corruption.                                                        AI judgements against contradicting evidence [35]; hence the
+   From honesty to evidence: the dual-witness ask. The                                               rung-4 gate hands the operator source and citing sentence,
+remaining weakness is that the record has one witness.                                               evidence before judgement.
+Telemetry is provider-generated but agent-relayed: nothing                                              Cost, and a gap that half closed. The method’s overhead
+stops a dishonest agent from underreporting usage, omitting                                          in this experiment was one logging command and one extra
+sessions, or inventing activities. Provider-side provenance,                                         commit per working round, plus the audit activities the tooling
+      provider requests         12.4 %                                     tomorrow. Registry-fetched citation metadata: every BibTeX
+          output tokens         11.7 %
+         computed cost
+                                                                           entry comes from doi.org content negotiation, never typed
+                              8.6 %
+               commits                   39.2 %                            from memory, a concrete discipline against fabricated refer-
+                          0        25      50       75        100
+                                                                           ences [29]; the one failure was a registry serving malformed
+                                                                           BibTeX, and CI caught it, not a reader. Registry-resolved
+Fig. 8. Method overhead as shares of the record (metrics single source;    identities: people enter the record via ORCID lookups, ex-
+classification as in the text). Commits counts bookkeeping-only commits:   tending never-fabricate to social metadata. Verified-before-
+every logging round commits, however small, hence the larger share.        cited: no reference without a ladder-backed source node,
+                                                                           making the bibliography a view of the graph. And content-
+                                                                           checked before load-bearing, born from this paper’s own
+writes itself. Because the session record carries per-request              audit (Section VI): any citation an argument leans on should
+usage and tool calls, that overhead is measurable rather than              reach ai-confirmed at minimum, with the checked depth
+anecdotal: a mechanical classification of every provider re-               disclosed in the promotion note.
+quest by its tool invocations, bookkeeping commands (logging,                 Transparent self-citation. No-parentless-claim forces cit-
+validation, promotion, graph and transcript commits) versus                ing one’s own priors; the lineage of Section II is the author’s
+everything else, attributes 12.4% of requests, 11.7% of output             own repositories and specifications. Self-citation is frowned
+tokens, and 8.6% of the computed session cost to the method                upon as metric gaming, yet unavoidable as provenance. The
+itself; on the repository side, 83 of 212 commits carried only             resolution is transparency instead of omission: sources carry
+graph or transcript updates. No request mixed bookkeeping                  aiprov:selfCitation, the report prints the ratio (here
+with substantive work, so upper and lower bounds coincide:                 5 of 67), and a reviewer can judge necessity per source; all
+roughly a tenth of the activity is the price of making the other           five are operator-confirmed, the validator’s link-only warning
+nine tenths auditable (Figure 8).                                          kept visible. The test that separates influence from inflation:
+   Token telemetry illustrates the omit-don’t-estimate rule in             a transparent self-citation is load-bearing, removing it would
+motion: the harness exposes no live usage to the agent, so                 orphan a lineage or method claim, and it points at reposito-
+nothing was recorded at first; when the operator challenged                ries and specifications rather than metric-bearing venues. It
+the gap, the session record turned out to carry the provider’s             declares descent; it does not farm citations.
+per-request usage blocks, and the totals in Table II were                     Regulatory alignment. The EU AI Act’s transparency
+backfilled from them, reported rather than estimated. Cost                 rules ask for disclosure and machine-readable marking of AI-
+closed the same way, one step later and one grade weaker:                  generated content [32]. A provenance graph is exactly that
+the record is unpriced, so under omit-don’t-estimate no cost               marking, and because CI derives the disclosure statement from
+was recorded until the operator directed pricing the recorded              the graph on every build, the published statement cannot lag
+tokens against the provider’s published price list, first roughly          the record. Beyond the EU, the OECD AI Principles, the
+USD 415, since refreshed in Table II. The graph preserves                  first intergovernmental AI standard, ask AI actors to “ensure
+the distinction between reported telemetry (token counts from              traceability, including in relation to datasets, processes and
+the provider’s usage blocks) and computed telemetry (cost,                 decisions made during the AI system lifecycle” [36]: a per-
+derived from them at a disclosed price list). Computed values              activity provenance graph in all but name, and the OECD.AI
+are honest only while their basis is recorded; provider-reported           observatory’s incident monitoring [37] aggregates exactly such
+cost would still be the stronger record. A larger question                 per-project records. Provenance-first authoring turns a compli-
+stays open behind the numbers: this one session consumed                   ance duty into a by-product.
+804 million cache-read tokens, USD 1577 in all at list prices,                Generality. Beyond papers, the same invariants and ladder
+for one draft paper and one method release, and whether                    apply to code, data pipelines, CAD models, and AAS sub-
+that justifies its environmental and other costs is a debate               models [23]; what remains domain work is the choice of entity
+this paper does not settle and does not hide. The schema                   subclasses. Generality also holds across clients and models: the
+reserves aiprov:energyWh for exactly this reason; it sits                  skill bundle follows the open Agent Skills format [38], which
+empty because no provider reported energy. Our position is                 independent agent clients implement, so the same bundle loads
+only that the debate belongs over recorded consumption, not                beyond the environment that produced this paper, and the
+guesses, in either direction: neither dismissing AI assistance             graph is provider-agnostic, since any AI system, hosted or
+as obviously wasteful nor excusing it as obviously worthwhile.             local, registers as an AIAgent with model and provider as
+The graph makes the bill legible; whether it is worth paying               data. Only three capture shims are client-specific (turn-end
+is a judgement the record enables but cannot make.                         hook, transcript export, usage-field mapping); graph, ladder,
+   Skill drift. The method evolved mid-experiment, v0 to                   and validator are plain Python and git. The AAS case bridges
+v0.21, including two operator-contested ladder redesigns. Im-              to the outlook: digital-twin infrastructures already assume
+mutable archived snapshots, a changelog, and per-activity                  machine-readable semantics, so AI-work provenance slots in
+commit binding keep every run attributable to the exact                    as one more submodel concern rather than a foreign add-on.
+method version in force, so evolution does not blur attribution.              Industry relevance: when the AI’s output is a decision.
+   Practices that emerged. Four, each small enough to adopt                The stakes sharpen outside publishing. In manufacturing, AI
+increasingly prepares or makes operational decisions, releasing     geistige Schöpfungen [42], so current LLM output as such
+a weld, classifying a part, adjusting a process window, and the     is not copyrightable in Germany. Read against this paper’s
+worked example of Section V is one step from that setting.          own record, the conclusion is uncomfortable and clarifying
+The same graph then answers what certification, liability, and      at once: line by line, much of the artefact may be uncopy-
+the EU AI Act ask of high-risk systems, whose events must           rightable, and the license’s effective scope narrows to the
+be automatically logged over the system’s lifetime and which        human contributions and the curated whole. What the method
+must remain under effective human oversight [32]: which             adds is the evidence a legal answer needs: which expression a
+agent decided, on which evidence, under which model version,        human conceived, selected, arranged, or modified, and which
+and who signed off. Aviation’s certification guidance already       the machine produced under how much control, is exactly
+anticipates exactly this setting: EASA’s AI concept paper           what the per-activity graph records (Table III) and what a
+covers systems that automatically take decisions under human        blanket “AI-assisted” disclaimer erases. Rights analysis of AI-
+oversight and demands traceability of data from origin to final     era works founders on evidence before doctrine; provenance-
+operation through the whole pipeline, naming record-keeping         first authoring is how the evidence survives.
+of AI-related data among the required methodologies [39].              Nostalgia for the paper, or the wrong artefact instru-
+The human-only rungs map directly onto release decisions that       mented? The sharpest objection to this work is not about
+must stay with people. shepard does not yet support aiprov;         any rung but about its target: perhaps F(AI)2 R merely patches
+the integration planned in Section VIII would carry the record      provenance onto a form we are nostalgic for, while AI-driven
+into the same backbone that already holds the production data.      science becomes something structurally different: living claim
+   Originality of this work, on both sides of the division.         graphs, continuously re-executed analyses, agents exchanging
+Section III demands that novelty claims be bounded and              machine-readable evidence, narrative generated on demand.
+checkable; the demand applies to this paper first. So the           If so, instrumenting PDF production is polishing the wrong
+claim is made by the method’s own mechanism: a logged               artefact. But the method is less paper-bound than its demon-
+novelty sweep refreshed the search horizon, its nearest find is     stration: the invariants and ladder attach to claims, sources,
+named and cited, and the recorded claim is deliberately narrow.     activities, and agents, never to a manuscript, and here the graph
+Per-activity AI provenance on a PROV substrate is not new,          is the primary record, the PDF one derived view CI rebuilds
+PROV-AGENT does that [18]; what no found work combines              from it. Read that way, F(AI)2 R is a migration path, moving
+is human-only verification rungs, executable-skill packaging,       the substance of a publication into exactly the claim-level form
+and self-application, and that combination, within the recorded     a post-paper science would need while still emitting the legacy
+horizon, is this paper’s originality claim, refutable by widening   format. The objection stays open: if the paper form dissolves,
+the sweep. The effort behind it divides tellingly. The fast         judge this method by whether its graphs remain useful without
+side, the AI’s 12.1 active hours, supplied execution and re-        the PDFs.
+combination, and recombination is exactly what the empirical           The force multiplier, both ways, and the optimistic
+evidence says models supply: in preregistered comparisons,          reading. One operator ran method, paper, and integration
+each additional human-written text contributes more new ideas       fork in parallel during this experiment; unaccounted, the same
+to the collective pool than each additional model-written           multiplication is the dilution engine of Section III. The dif-
+one [40]. The slow side is where the originality entered:           ferentiator is not speed but auditability: fast work that carries
+years of experiments, specification co-authoring, committee         its record is distinguishable from fast noise. Fast paper, slow
+work, and conversations, the lineage of Section II, compressed      ideas is the honest reading of this project, and only the graph
+into 2 036 words of direction. Neither side alone would have        makes that reading checkable. There is also a hopeful version
+produced the work: without the slow ideas the fast hours            of the same observation. What the multiplication buys is not
+had nothing original to execute; without the fast execution         mainly volume: AI absorbing the tedium (registry lookups,
+the slow ideas would still be scattered across repositories and     hash binding, conformance checks, build plumbing) can free
+conversations. The record keeps both sides visible, which is        human attention for the two things machines do not supply,
+precisely what an originality dispute would need.                   connecting ideas and connecting people. This experiment’s
+   Copyright when the machine wrote most of it. The                 own activity log shows that division of labour. No guarantee,
+repository’s code is Apache-2.0-licensed, but a license can         only a chance; a provenance graph is how one would check,
+only grant what copyright first protects, and most of the           later, whether the chance was taken. For this experiment the
+repository’s code and prose was AI-generated under human            leverage measurement of Section VI is that check, taken early:
+direction. The U.S. Copyright Office holds that copyright           2 036 typed words steering 12.1 active hours, and nearly every
+“does not extend to purely AI-generated material, or material       one of them spent on scope, semantics, lineage, or people.
+where there is insufficient human control over the expressive       Here, the chance was taken.
+elements”, that prompts alone do not provide that control,
+and that protection attaches to human-authored expression and                            VIII. C ONCLUSION
+to “the creative selection, coordination, or arrangement” or          We generalized the F(AI)2 R method into aiprov, a domain-
+modification of outputs [41]. German law agrees from its            agnostic PROV-O extension for AI-in-the-loop work; we pack-
+definition of the work: § 2(2) UrhG protects only persönliche       aged the method as an executable skill an AI agent operates
+itself; and we applied it to its own production, mishaps,                provenance for engineering systems [21]; through deep dis-
+mid-experiment redesigns, and all. The stance of the original            cussions with Sirko Schindler and Carsten Hoyer-Klick on
+experiment carries over and extends: the repository is the               ontologies; through the research-data-management evangelism
+paper, is the process, and now also is the method, versioned,            of Christian Langenbach at DLR; and through the inspiration
+validated, and shipped alongside what it produced.                       of Carina Haupt’s work on provenance use cases [13] and of
+   Three roots converge here: AI-assisted research practice,             the MEMAS project’s integrated data management [44].
+which contributed transcript-as-artifact; engineering prove-                This paper and its repository were produced with an AI
+nance, which insists on traceability; and industrial seman-              agent operating the ai-provenance skill; every activity, gen-
+tic modeling, which taught that where exchange matters,                  erated artefact, claim, and source is recorded in the version-
+semantics must be formal. Where semantics are important,                 controlled provenance graph, including the production of this
+provenance is the semantics of work.                                     statement. The following disclosure is generated from that
+   The path forward is infrastructure. shepard [43], a jointly           graph by provlog.py disclosure and is made in view
+developed DLR system for heterogeneous product and re-                   of the transparency rules of the EU Artificial Intelligence
+search data, already serves as the data backbone of engineer-            Act [32]:
+ing deployments such as the MEMAS additive-manufacturing                    Parts of this work were generated or edited with the assis-
+pipeline [44]; an experimental fork [9] is the staging ground            tance of artificial-intelligence systems: Claude Code (Claude
+for integrating aiprov into it as planned work. Where shepard            Fable 5, Anthropic), associated with 191 recorded activities. In
+instances capture what was produced and measured, aiprov                 line with the transparency obligations for AI-generated content
+adds who, human or AI, shaped it and how it was verified.                under Regulation (EU) 2024/1689 (AI Act), this assistance is
+Further work includes multi-agent attribution, energy account-           disclosed here and is additionally marked in machine-readable
+ing, registry integration beyond ORCID and DOI, vendor-                  form: the version-controlled provenance graph (provenance.ttl,
+ing sources at the access gate by default, and a combined                W3C PROV-O) records the 229 activities behind this work,
+profile with uncertainty-aware provenance [21]. Two further              the 57 generated artefacts with content hashes, and the 8
+items come straight from reviewing this work against its own             recorded claims with their verification states. Human oversight
+standard. The ai-confirmed judgements here were granted                  is structural: verification rungs above ai-confirmed are re-
+by the agent that wrote the citing sentences; measuring that             served to human agents, and the conformance validator rejects
+self-confirmation bias, by having an independent model or                AI-granted promotions.
+sampled humans re-verify the same sources, is the next audit                Availability: skill bundle, provenance graph, transcripts, and
+the method owes itself. And the meta-experiment is a single              paper sources are public at https://github.com/noheton/f-ai2-r;
+self-applied case; the portability claims of Section VII earn            the skill loads in any Agent Skills client, and conformance-
+their keep only when a second operator applies the skill in a            gated releases carry bundle, PDF, graph, and checksums.
+second domain and the records are compared.
+   One thing must be said with urgency, and plainly. Nothing                                           R EFERENCES
+in this paper settles what science with AI in the loop should
+become. That understanding is being negotiated now, by                    [1] M. D. Wilkinson, M. Dumontier et al., “The FAIR guiding principles
+                                                                              for scientific data management and stewardship,” Scientific Data, vol. 3,
+editors rewriting authorship policies, regulators phasing in                  no. 1, Mar. 2016. [Online]. Available: http://dx.doi.org/10.1038/sdata.
+transparency duties, funders and communities arguing over                     2016.18
+credit, originality, cost, and trust, and it will be settled socially,    [2] Y. K. Dwivedi et al., “Opinion paper: “so what if ChatGPT wrote
+                                                                              it?” multidisciplinary perspectives on opportunities, challenges and
+not technically. This initiative is not the solution; it is technical         implications of generative conversational AI for research, practice and
+support for whichever understanding society arrives at, a way                 policy,” International Journal of Information Management, vol. 71,
+to keep the record straight while the norms are still moving.                 p. 102642, Aug. 2023. [Online]. Available: http://dx.doi.org/10.1016/j.
+                                                                              ijinfomgt.2023.102642
+But the discussion itself cannot wait, because infrastructure             [3] E. A. M. van Dis, J. Bollen et al., “ChatGPT: five priorities for
+that ships first tends to settle norms by default, and the most               research,” Nature, vol. 614, no. 7947, pp. 224–226, Feb. 2023. [Online].
+expensive mistake would be to let tools decide what the                       Available: http://dx.doi.org/10.1038/d41586-023-00288-7
+                                                                          [4] M. Mitchell, S. Wu et al., “Model cards for model reporting,”
+community has not yet debated. We ask for that debate, and                    in Proceedings of the Conference on Fairness, Accountability, and
+we offer this repository’s record, its graph, its transcript, its             Transparency, ser. FAT* ’19. ACM, Jan. 2019, pp. 220–229. [Online].
+incidents, its bill, as material evidence to hold it over.                    Available: http://dx.doi.org/10.1145/3287560.3287596
+                                                                          [5] M. A. Edwards and S. Roy, “Academic research in the 21st
+ACKNOWLEDGMENT AND AI T RANSPARENCY S TATEMENT                                century: Maintaining scientific integrity in a climate of perverse
+                                                                              incentives and hypercompetition,” Environmental Engineering Science,
+   The ideas in this paper were sharpened through earlier                     vol. 34, no. 1, pp. 51–61, Jan. 2017. [Online]. Available: http:
+experiments [7], [8]; through discussions in the context of                   //dx.doi.org/10.1089/ees.2016.0223
+                                                                          [6] M. A. Hanson, P. G. Barreiro, P. Crosetto, and D. Brockington,
+the Helmholtz Metadata Collaboration (HMC) [25]: with                         “The strain on scientific publishing,” Quantitative Science Studies,
+Witold Arndt in the HMC hub for aeronautics, space and                        vol. 5, no. 4, pp. 823–843, 2024. [Online]. Available: http:
+transport, and through the broad view of AI in research                       //dx.doi.org/10.1162/qss_a_00327
+                                                                          [7] F. Krebs, “Obscurity is dead — proprietary by design, open by
+afforded by chairing the HMC Conference 2025 programme                        AI,” Research repository with evidentiary artifacts. [Online]. Available:
+committee [26]; through exchanges with Frank Dressel on                       https://github.com/noheton/Obscurity-Is-Dead
+ [8] ——, “F(AI)2 R: FAIR research with AI in the loop, twice,”                        integrity,” International Journal of Cancer, vol. 149, no. 3, pp. 492–493,
+     Research repository: manuscript, provenance graph, transcripts.                  Apr. 2021. [Online]. Available: http://dx.doi.org/10.1002/ijc.33604
+     [Online]. Available: https://github.com/noheton/f-ai-r                      [28] J. Haider, K. R. Söderström, B. Ekström, and M. Rödl, “GPT-fabricated
+ [9] ——, “Experimental fork of shepard,” Development/research workspace               scientific papers on Google Scholar: Key features, spread, and
+     with experimental v2 endpoints. [Online]. Available: https://github.com/         implications for preempting evidence manipulation,” Harvard Kennedy
+     noheton/shepard                                                                  School Misinformation Review, Sep. 2024. [Online]. Available:
+[10] T. Lebo, S. Sahoo, and D. McGuinness, “PROV-O: The PROV                          http://dx.doi.org/10.37016/mr-2020-156
+     ontology,” W3C Recommendation, Apr. 2013, accessed 2026-07-24.              [29] W. H. Walters and E. I. Wilder, “Fabrication and errors in the
+     [Online]. Available: https://www.w3.org/TR/prov-o/                               bibliographic citations generated by ChatGPT,” Scientific Reports,
+[11] L. Moreau, B. Clifford et al., “The open provenance model                        vol. 13, no. 1, Sep. 2023. [Online]. Available: http://dx.doi.org/10.1038/
+     core specification (v1.1),” Future Generation Computer Systems,                  s41598-023-41032-5
+     vol. 27, no. 6, pp. 743–756, Jun. 2011. [Online]. Available:                [30] I. Shumailov, Z. Shumaylov et al., “AI models collapse when
+     http://dx.doi.org/10.1016/j.future.2010.07.005                                   trained on recursively generated data,” Nature, vol. 631, no. 8022,
+[12] P. Ciccarese, S. Soiland-Reyes, K. Belhajjame, A. J. Gray, C. Goble,             pp. 755–759, Jul. 2024. [Online]. Available: http://dx.doi.org/10.1038/
+     and T. Clark, “PAV ontology: provenance, authoring and versioning,”              s41586-024-07566-y
+     Journal of Biomedical Semantics, vol. 4, no. 1, p. 37, 2013. [Online].      [31] J. Bröder, G. Preuß, F. D’Mello, S. Fathalla, V. Hofmann, and
+     Available: http://dx.doi.org/10.1186/2041-1480-4-37                              S. Sandfeld, The Helmholtz Knowledge Graph: Driving the Transition
+[13] C. Haupt, “An overview of provenance and its use cases,” RDA                     Towards a FAIR Data Ecosystem in the Helmholtz Association.
+     Deutschland Tagung 2022; DLR elib 185438, 2022. [Online]. Available:             Springer Nature Switzerland, 2025, pp. 183–187. [Online]. Available:
+     https://elib.dlr.de/185438/                                                      http://dx.doi.org/10.1007/978-3-031-78952-6_23
+[14] L. Allen, A. O’Connell, and V. Kiermer, “How can we ensure                  [32] European Parliament and Council of the European Union, “Regulation
+     visibility and diversity in research contributions? how the contributor          (EU) 2024/1689 of the European Parliament and of the Council laying
+     role taxonomy (CRediT) is helping the shift from authorship to                   down harmonised rules on artificial intelligence (Artificial Intelligence
+     contributorship,” Learned Publishing, vol. 32, no. 1, pp. 71–74, Jan.            Act),” Official Journal of the European Union, L series, 2024, accessed
+     2019. [Online]. Available: http://dx.doi.org/10.1002/leap.1210                   2026-07-24. [Online]. Available: https://eur-lex.europa.eu/eli/reg/2024/
+[15] “ANSI/NISO Z39.104-2022, CRediT, Contributor Roles Taxonomy,”                    1689/oj
+     2022. [Online]. Available: http://dx.doi.org/10.3789/ansi.niso.z39.         [33] M. Janek, D. Görick, L. Larsen, S. Jarka, and M. Kupke, “Investigation
+     104-2022                                                                         of power and amplitude control in continuous ultrasonic welding
+[16] T. Gebru, J. Morgenstern et al., “Datasheets for datasets,”                      of unidirectional CFRPs: A comparative study,” Composites Part
+     Communications of the ACM, vol. 64, no. 12, pp. 86–92, Nov.                      A: Applied Science and Manufacturing, vol. 199, p. 109194, Dec.
+     2021. [Online]. Available: http://dx.doi.org/10.1145/3458723                     2025. [Online]. Available: http://dx.doi.org/10.1016/j.compositesa.2025.
+[17] S. Soiland-Reyes, P. Sefton et al., “Packaging research artefacts with           109194
+     RO-Crate,” Data Science, vol. 5, no. 2, pp. 97–138, Jan. 2022. [Online].    [34] Anthropic, “Claude API pricing,” Developer documentation, 2026,
+     Available: http://dx.doi.org/10.3233/ds-210053                                   accessed 2026-07-28. [Online]. Available: https://platform.claude.com/
+[18] R. Souza, A. Gueroudji, S. DeWitt, D. Rosendo, T. Ghosal,                        docs/en/about-claude/pricing
+     R. Ross, P. Balaprakash, and R. F. Da Silva, “PROV-AGENT:                   [35] A. Vinas, F. Blanco, and H. Matute, “Doctors vs. algorithms: Physicians,
+     Unified provenance for tracking AI agent interactions in agentic                 too, struggle to learn from evidence that contradicts AI suggestions,”
+     workflows,” in 2025 IEEE International Conference on eScience                    PLOS Digital Health, vol. 5, no. 7, p. e0001490, Jul. 2026. [Online].
+     (eScience). IEEE, Sep. 2025, pp. 467–473. [Online]. Available:                   Available: http://dx.doi.org/10.1371/journal.pdig.0001490
+     http://dx.doi.org/10.1109/escience65000.2025.00093                          [36] OECD, “Recommendation of the Council on Artificial Intelligence
+[19] A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones,                       (OECD/LEGAL-0449),” Adopted May 2019, amended May 2024,
+     A. N. Gomez, L. Kaiser, and I. Polosukhin, “Attention is all you                 2024, accessed 2026-07-27. [Online]. Available: https://oecd.ai/en/
+     need,” arXiv preprint arXiv:1706.03762, 2017. [Online]. Available:               ai-principles
+     https://arxiv.org/abs/1706.03762                                            [37] OECD.AI Policy Observatory, “AI incidents and hazards monitor
+[20] H. Alkaissi and S. I. McFarlane, “Artificial hallucinations in ChatGPT:          (AIM),” 2024, accessed 2026-07-27. [Online]. Available: https:
+     Implications in scientific writing,” Cureus, Feb. 2023. [Online].                //oecd.ai/en/incidents-methodology
+     Available: http://dx.doi.org/10.7759/cureus.35179                           [38] “Agent skills: An open format for extending AI agent capabilities,” https:
+[21] D. Valente, A. Schäfer, E. Tasdemir, R. Hoppe, O. Bertram, and                   //agentskills.io/, 2025, specification and adopter list; originally developed
+     F. Dressel, “An uncertainty-aware provenance framework for enhanced              by Anthropic and released as an open standard.
+     traceability in engineering systems,” DLR elib 224241; submitted to         [39] European Union Aviation Safety Agency, “EASA artificial intelligence
+     IEEE Aerospace and Electronic Systems Magazine, 2026. [Online].                  concept paper issue 2: Guidance for level 1 & 2 machine-learning
+     Available: https://elib.dlr.de/224241/                                           applications,”            https://www.easa.europa.eu/en/document-library/
+[22] S. Druskat, N. U. Eisty, R. Chisholm, N. P. Chue Hong, R. C.                     general-publications/easa-artificial-intelligence-concept-paper-issue-2,
+     Cocking, M. B. Cohen, M. Felderer, L. Grunske, S. A. Harris,                     Mar. 2024.
+     W. Hasselbring, T. Krause, J. Linxweiler, and C. C. Venters, “Better        [40] K. Moon, A. Green, and K. Kushlev, “Homogenizing effect of a large
+     architecture, better software, better research,” Computing in Science &          language model (LLM) on creative diversity: An empirical comparison
+     Engineering, vol. 27, no. 2, pp. 45–57, Apr. 2025. [Online]. Available:          of human and ChatGPT writing, preprint,” Aug. 2024. [Online].
+     http://dx.doi.org/10.1109/MCSE.2025.3573887                                      Available: http://dx.doi.org/10.31234/osf.io/8p9wu
+[23] Plattform Industrie 4.0, “Details of the asset administration shell. Part   [41] U.S. Copyright Office, “Copyright and artificial intelligence, part 2:
+     1 — the exchange of information between partners in the value chain              Copyrightability,” Report of the Register of Copyrights, https://www.
+     of Industrie 4.0 (Version 3.0RC02),” Federal Ministry for Economic               copyright.gov/ai/, Jan. 2025.
+     Affairs and Climate Action (BMWK), specification, 2022. [Online].           [42] Bundesrepublik Deutschland, “Gesetz über Urheberrecht und ver-
+     Available: https://www.plattform-i40.de/IP/Redaktion/EN/Downloads/               wandte Schutzrechte (UrhG), § 2 Geschützte Werke,” https://www.
+     Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html              gesetze-im-internet.de/urhg/__2.html.
+[24] Industrial Digital Twin Association (IDTA), “Specification of the           [43] T. Haase, R. Glück, P. Kaufmann, and M. Willmeroth, “shepard:
+     asset administration shell. Part 1: Metamodel,” IDTA-01001. [Online].            storage for heterogeneous product and research data,” Zenodo, v5.1.2,
+     Available: https://doi.org/10.62628/idta.01001-3-1-1                             DLR, Dec. 2025. [Online]. Available: https://doi.org/10.5281/zenodo.
+[25] Helmholtz Association, “Helmholtz metadata collaboration (HMC).”                 17897485
+     [Online]. Available: https://helmholtz-metadaten.de/                        [44] N. Unger, P. Kamble, M. Vinot, and R. Glück, “Project MEMAS:
+[26] Helmholtz Metadata Collaboration, “HMC conference 2025 — book                    Integrated data management for additive manufacturing enabling high-
+     of abstracts,” 2025. [Online]. Available: https://helmholtz-metadaten.de/        fidelity modeling,” HMC Conference 2024, 2024. [Online]. Available:
+     storage/2298/HMC-Conference_2025_Book-of-Abstracts.pdf                           https://elib.dlr.de/208404/
+[27] S. Heck, F. Bianchini et al., “Fake data, paper mills, and their authors:
+     The International Journal of Cancer reacts to this threat to scientific
+
