@@ -322,6 +322,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/hmc-conference2025> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-hmc-conference2025-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of hmc-conference2025: ai-confirmed -> human-confirmed (all three confirmed.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #22 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T08:50:06.237314+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/hmc-conference2025> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-llm-homogenization2024-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of llm-homogenization2024: reference-resolved -> ai-confirmed (Abstract checked (preprint, not peer-reviewed - cited as such): across three preregistered studies on 2,200 essays, 'each additional human-written essay contributed more new ideas than each additional GPT-4 essay', homogenization persisting under prompt/parameter enhancements. Supports the originality paragraph's claim that collective novelty enters through the human side. Abstract depth.)"@en ;
     prov:endedAtTime "2026-07-25T18:53:42.755402+00:00"^^xsd:dateTime ;
@@ -2305,11 +2313,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://helmholtz-metadaten.de/> ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/hmc-conference2025> a aiprov:Source ;
-    rdfs:label "HMC Conference 2025 — Book of Abstracts (Helmholtz Metadata Collaboration)"@en ;
-    dcterms:source <https://helmholtz-metadaten.de/storage/2298/HMC-Conference_2025_Book-of-Abstracts.pdf> ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/obscurity-is-dead> a aiprov:Source ;
     rdfs:label "Obscurity Is Dead — Proprietary by Design, Open by AI (research repository)"@en ;
     dcterms:source <https://github.com/noheton/Obscurity-Is-Dead> ;
@@ -2532,6 +2535,11 @@ agent:github-actions a aiprov:ToolAgent ;
 <https://noheton.org/f-ai2-r/prov/source/eu-ai-act2024> a aiprov:Source ;
     rdfs:label "Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)"@en ;
     dcterms:source <https://eur-lex.europa.eu/eli/reg/2024/1689/oj> ;
+    aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/hmc-conference2025> a aiprov:Source ;
+    rdfs:label "HMC Conference 2025 — Book of Abstracts (Helmholtz Metadata Collaboration)"@en ;
+    dcterms:source <https://helmholtz-metadaten.de/storage/2298/HMC-Conference_2025_Book-of-Abstracts.pdf> ;
     aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/llm-homogenization2024> a aiprov:Source ;
