@@ -1064,9 +1064,11 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s48-originality-call-derivation>,
         <https://noheton.org/f-ai2-r/prov/activity/s50-rse-lineage>,
-        <https://noheton.org/f-ai2-r/prov/activity/s82-attention-citation> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s82-attention-citation>,
+        <https://noheton.org/f-ai2-r/prov/activity/s98-review-quickfixes> ;
     aiprov:contentHash "sha256:25824f8b11f6a188c0f6382ccbda4791e6e7d9c9993d3041878fb6fd9c0d9b3a",
         "sha256:65e2d4a7848de93fd39e2b8dcd722dfe8023971944789d508b91a695f7af7141",
+        "sha256:7e872cd0fa8b10ad0556cc11539e7eb98655ff248181975c98ea719c056fe140",
         "sha256:8920fe38639a9406df5a865983817ce8c291932611fe185e768d112eb3cc3a90",
         "sha256:9b96b3b3c47c115af143321687b39368552d5196539b99a9b3483529089e2f50",
         "sha256:a770badee2f669b45366e68f1c9758c31d1b14ab13052dc621d515cdd5eaf1ef",
@@ -1079,7 +1081,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "32dd409",
         "4c17c02faf15034458e93ddecd1d8da829020f3e",
         "5ed968a16900d7a554f163408f31040425fe0c35",
-        "82ffc86" .
+        "82ffc86",
+        "f7094c24b7ccad9fa89509c7828d94217ebab631" .
 
 <https://noheton.org/f-ai2-r/prov/entity/03-dilution-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1238,7 +1241,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing>,
         <https://noheton.org/f-ai2-r/prov/activity/s91-demonstration-rungs-note>,
         <https://noheton.org/f-ai2-r/prov/activity/s95-writing-style-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s96-final-pass-applied> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s96-final-pass-applied>,
+        <https://noheton.org/f-ai2-r/prov/activity/s98-review-quickfixes> ;
     aiprov:contentHash "sha256:087b53a09b31690610516a52305138b04fbbebab7a5b1fa1a45f1deb0d59b300",
         "sha256:1990ebaa3dffa13626c417064c24e8dc4c1eb64681be4e09373abe328b6e842e",
         "sha256:1e6886e01eb1a921111e3aa4bdcd33fa82caa63089c14600bff9610ad8982abb",
@@ -1249,6 +1253,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:4214500eceeb106449ec03789aaacc4501453495ccd9dca2ce9a8fa311c1a20d",
         "sha256:4e746283a1817bae0900a3c1b504319f84e2fc3558c7d2bfa06b1dc78ec0570e",
         "sha256:4ebc3629b1c0925e1de72d9a89bb739862907714bbf73246cabdc9e1c5520ffb",
+        "sha256:530ea645381de670ea96af7108cd36fad5a1bec3325830304c426d4f82062732",
         "sha256:60d7b60b4303d1e397568da3d493fefe87a68d9b73d3828c46ba4d55f73d947a",
         "sha256:68c2ed67d3856ec2be1a25282bb23a0bc1d34104d85216745d1e76a63b63b975",
         "sha256:78f36d518e27867f77b19821922270a290ff40662f86bb183497f4bd549566b3",
@@ -1284,6 +1289,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "e278191b54d84a301fd37cd7490445bdab34236e",
         "e84d041d11fe8bf7a58b0b1651eed9af09c5f7f9",
         "f4710311911c087b88722cfb96bbf2dfa9662b3a",
+        "f7094c24b7ccad9fa89509c7828d94217ebab631",
         "f7752e5475afbe6996ccb31ea109aac1c28b20f1",
         "f9bf1b55f1d20fc1b08741e96c7bb1d90ef3aa28",
         "fb1a484" .
@@ -1329,7 +1335,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing>,
         <https://noheton.org/f-ai2-r/prov/activity/s94-overhead-chart>,
         <https://noheton.org/f-ai2-r/prov/activity/s95-writing-style-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s96-final-pass-applied> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s96-final-pass-applied>,
+        <https://noheton.org/f-ai2-r/prov/activity/s98-review-quickfixes> ;
     aiprov:contentHash "sha256:03ad1f33420e1cbfb1e1c22753540234ca23bed2a6aef65d8df3f108f642c06a",
         "sha256:0ae502fea46692d008b14632d42884f5e64adfa7b4cda32ff4fb0a96ac6f1860",
         "sha256:12d5dd72efdf48971de13781d1fada4d0387bd37160ecd4387c0be54ca81f402",
@@ -1352,6 +1359,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:a8ec2433110bcb0346dc43fcff4b83e0d28bbbfeba35e453acdf30cfc69c9db1",
         "sha256:a906fffe7b944e4e98c6e99de4b9371f69e873e5a952093d6dee5e751025a76c",
         "sha256:ab02f58905c5066dfda3a157446b798ea2ca2285e7c54079e9fef2ca70eefd07",
+        "sha256:ae9c8408a43aeefe1822d5484c001c4f7eb5d60cdb14e90042250994ca01476f",
         "sha256:b49516b4dd9d146ac0a75c765085b478fa897713950184d495ee9d568ef15763",
         "sha256:b600eebd1cc748d22001591a480735f2593dde0e3468a1aabf7202639d69b338",
         "sha256:ba55c2fe816fe604e18a26262c676e279e3fe7e68efee922aa68e56cf882d019",
@@ -1387,6 +1395,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "e84d041d11fe8bf7a58b0b1651eed9af09c5f7f9",
         "e97d357930e7d6be792a93c9787475b6901d7bc3",
         "f4710311911c087b88722cfb96bbf2dfa9662b3a",
+        "f7094c24b7ccad9fa89509c7828d94217ebab631",
         "fb1a484" .
 
 <https://noheton.org/f-ai2-r/prov/entity/08-conclusion-tex> a aiprov:Artefact ;
@@ -1690,14 +1699,17 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap>,
         <https://noheton.org/f-ai2-r/prov/activity/s22-vendored-gate>,
         <https://noheton.org/f-ai2-r/prov/activity/s25-rung6-selfcite>,
-        <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015> ;
-    aiprov:contentHash "sha256:4557ec953daac2059d00384c27c476d8e0d54512ac646f0a960535632dbef1e9",
+        <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
+        <https://noheton.org/f-ai2-r/prov/activity/s98-review-quickfixes> ;
+    aiprov:contentHash "sha256:3b63f197525d57cf60faa675f553aac35f7b1a571bca8baca932d5cca222db3a",
+        "sha256:4557ec953daac2059d00384c27c476d8e0d54512ac646f0a960535632dbef1e9",
         "sha256:4eb359db3671e05cf0e8fbb0fcc09ba1ce84371e6eedf565cd854c8fe76670cc",
         "sha256:63f18d82a0cb424e04dda08c9d0c292c4f672f9f6239c0d9def9a5a45bda55b5",
         "sha256:a7e57012ea603cb3e3304e97025d6857bf2254f0c549738851c62ce6215197cb" ;
     aiprov:filePath "assets/aiprov-schema.ttl" ;
     aiprov:gitCommit "43af99d",
-        "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
+        "a0fbb0c638448e9d220ef09da953a271ff3ee331",
+        "f7094c24b7ccad9fa89509c7828d94217ebab631" .
 
 <https://noheton.org/f-ai2-r/prov/entity/attributes-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1736,9 +1748,11 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s72-skill-version-macro>,
         <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm>,
         <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing>,
-        <https://noheton.org/f-ai2-r/prov/activity/s94-overhead-chart> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s94-overhead-chart>,
+        <https://noheton.org/f-ai2-r/prov/activity/s98-review-quickfixes> ;
     aiprov:contentHash "sha256:0ff3161fe7852c0c8f741e04e7192d4be1c2f7d9f160c68125704ad304b32fd0",
         "sha256:17ec3a45b655665d85d9ee32691249f18e858e5c67f441f033f21dbd622d18f9",
+        "sha256:9e8454ca31a6e895c7aeb46909afee26109b081be770c169e50bcf8353f2592f",
         "sha256:ab0d50c37733281c6fc03f098a1cf0ad103d6c5057a4d14c908f3fea717a6bbb",
         "sha256:b3d2394c8f59114d74ee9317aeac7a3456b88da3fbe6d0f1d0f330d8a9bacb86",
         "sha256:ce97cd54bcf4ee6fc635870a306ebd9cf42ffa95e9e736b7b456491b21bc7eae" ;
@@ -1747,6 +1761,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "43af99d",
         "51ed6e6d5a23d7173421d02701bbc88cbc6af37d",
         "b94a9b5d0c350358ab5dd35b77aa6f14efdffb28",
+        "f7094c24b7ccad9fa89509c7828d94217ebab631",
         "f7752e5475afbe6996ccb31ea109aac1c28b20f1" .
 
 <https://noheton.org/f-ai2-r/prov/entity/build_paper_preview-py> a aiprov:Artefact ;
@@ -1762,11 +1777,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s78-figure5-and-copy-buttons>,
         <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm>,
         <https://noheton.org/f-ai2-r/prov/activity/s84-forge-neutral-buttons>,
-        <https://noheton.org/f-ai2-r/prov/activity/s85-repeat-safe-button> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s85-repeat-safe-button>,
+        <https://noheton.org/f-ai2-r/prov/activity/s98-review-quickfixes> ;
     aiprov:contentHash "sha256:01a2005992850b7802082444113d0df8700382736bd03a8b217e726ffd6e7b4e",
         "sha256:03ae2fc848ffea2d468a69d5c9ad5ce015f8b2fed2dcd5765ef463e5819abfbc",
         "sha256:33f9795a25e0b1d0c152b53b514c9e567ecf20f0e406cf39e5635a667738d517",
         "sha256:4e13ed79bea23cb89f32e99b9896daa02ed66323f84b7f8a9216dd80463bcdcd",
+        "sha256:551f8063e08e1865c29213b1986bc4db772f475b9463ce9646dda158b110f4b7",
         "sha256:7e0546adc20419b9a3984f42cbff39da785097a4ef269c1fe5c6de5ccb176cb8",
         "sha256:a6edf7f6aa67bc804d0b50d28ac85ee6e433938eb73d5b728e07f1d952c3cf64",
         "sha256:b45713f43001d699f308fb520bc56d5af6abdee6204f6d21ca0003128a05b36f",
@@ -1784,6 +1801,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "95fb4ff5a7375ec7920159422cae3c1f9e312802",
         "c1703b2",
         "da4301b2c455a663664eef2cab3a91dd2039a79c",
+        "f7094c24b7ccad9fa89509c7828d94217ebab631",
         "f7752e5475afbe6996ccb31ea109aac1c28b20f1" .
 
 <https://noheton.org/f-ai2-r/prov/entity/build_review_list-py> a aiprov:Artefact ;
@@ -1957,7 +1975,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s81-retitle>,
         <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
         <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing>,
-        <https://noheton.org/f-ai2-r/prov/activity/s96-final-pass-applied> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s96-final-pass-applied>,
+        <https://noheton.org/f-ai2-r/prov/activity/s98-review-quickfixes> ;
     aiprov:contentHash "sha256:292ee450094d64465800f568cc319a3a5839d697137d2d8497eedb2cbb9587e8",
         "sha256:2bf4f82e8c20375dd1f6a64b9213d60e71822d3592fb9facb54c6ed3ca1fa160",
         "sha256:31a7ad8196528484eb264b1d7cf0b737b49554499f3d14a83e7fd3713fb24a76",
@@ -1969,6 +1988,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:b2a4c3be0e2de6b9808f1dff794cf9f4f06d71dcb1da4bb6ea6838361e9af019",
         "sha256:bb3577f785bcdd3a56265f5c96af83b5b1d455f3b64f8574a95251a87b77300e",
         "sha256:c1f73aca74f5645d10385d70c662474ab94214785f60aab02abe638eae29d3f9",
+        "sha256:c2f7edb925f3b72b738e4f463df701b7b209d0859ee7b9a9e2aba40a4f4e3af2",
         "sha256:c8a88d99a491d9629cc05d30fa8ba2706aed425673c59a17129d1ffd2f2f57de",
         "sha256:e879c1511e6994e719097fd8097e64e4d060708415793727d6c4e195b757e7ba",
         "sha256:ed3ee8055c452cb909440a828c10d2f14c610e756e5826a78b9c5933279bd351",
@@ -1984,7 +2004,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "51ed6e6d5a23d7173421d02701bbc88cbc6af37d",
         "932815f187bfcfe585e84442be12d5041e2be116",
         "c4ff2e2ed4f0788a5c0cd9d500ab40e518b3286c",
-        "e84d041d11fe8bf7a58b0b1651eed9af09c5f7f9" .
+        "e84d041d11fe8bf7a58b0b1651eed9af09c5f7f9",
+        "f7094c24b7ccad9fa89509c7828d94217ebab631" .
 
 <https://noheton.org/f-ai2-r/prov/entity/metrics-json> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -2212,7 +2233,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix>,
         <https://noheton.org/f-ai2-r/prov/activity/s90-vendored-integrity-audit>,
         <https://noheton.org/f-ai2-r/prov/activity/s92-first-human-read>,
-        <https://noheton.org/f-ai2-r/prov/activity/s96-final-pass-applied> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s96-final-pass-applied>,
+        <https://noheton.org/f-ai2-r/prov/activity/s98-review-quickfixes> ;
     aiprov:contentHash "sha256:1962e4cfb168cab3a02b7fc8f213de06f54ef1593cbe2ebf571954d85adb12e6",
         "sha256:263573bea1a8f430ad31760633aa3931532ca1c6065d928f3be1c6aa792aabb1",
         "sha256:3baf66f2666e144090fad0d7f4a643ea235c4c4400943c918223db07695bd93c",
@@ -2228,6 +2250,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:ac028bddf7b68aca69707016a556a3f8fc29f001d47605b50d5233e543eb17fe",
         "sha256:af808d62b586b9f47e653ef7766bd72dd39eca66de5d193c677f95a7094c466b",
         "sha256:ce9c9de5d625851abe745fba3fbdb665aecebe34577f6a20048c375602ebb361",
+        "sha256:e85d7ef22981207c0b2e4c3b9a1bc82e97519ec3ea7acc4c4fd7fd6700048beb",
         "sha256:f384cb31d5add6d750d3785ec681a0b66125cb520af69961532aae4888973a16",
         "sha256:f95e21af73b3c7ce8ed5ba2fb3f2df45ef7295710544a35ac8048939ecc5f9d9" ;
     aiprov:filePath "provenance.ttl" ;
@@ -2246,6 +2269,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "e84d041d11fe8bf7a58b0b1651eed9af09c5f7f9",
         "e97d357930e7d6be792a93c9787475b6901d7bc3",
         "f4710311911c087b88722cfb96bbf2dfa9662b3a",
+        "f7094c24b7ccad9fa89509c7828d94217ebab631",
         "f7752e5475afbe6996ccb31ea109aac1c28b20f1" .
 
 <https://noheton.org/f-ai2-r/prov/entity/provlog-py> a aiprov:Artefact ;
@@ -2261,8 +2285,10 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation>,
         <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm>,
-        <https://noheton.org/f-ai2-r/prov/activity/s93-skill-v021> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s93-skill-v021>,
+        <https://noheton.org/f-ai2-r/prov/activity/s98-review-quickfixes> ;
     aiprov:contentHash "sha256:050b861b00097199740a6912116bc116b6f5d443a2b311a31a25b1866cb50e93",
+        "sha256:13d8efa6958f6f6f5835b24c84874f991f70f2fa6dda44f89839a729e419b642",
         "sha256:3acdb43dfb1171c8893bd1bf6bd4ede6b4b0ca65a4406e8b1a3a02d7a23f6caa",
         "sha256:4fcf76d42d5ff092249936e72824ab85fd65526f65343af9329732469007a034",
         "sha256:57e8cee93882744d06abf4871026725348f777895c7db1cafd85f101f1e91a7c",
@@ -2282,6 +2308,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "9375ead",
         "9fba76d",
         "a0fbb0c638448e9d220ef09da953a271ff3ee331",
+        "f7094c24b7ccad9fa89509c7828d94217ebab631",
         "f7752e5475afbe6996ccb31ea109aac1c28b20f1" .
 
 <https://noheton.org/f-ai2-r/prov/entity/references-bib> a aiprov:Artefact ;
@@ -2318,7 +2345,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
         <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix>,
         <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing>,
-        <https://noheton.org/f-ai2-r/prov/activity/s96-final-pass-applied> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s96-final-pass-applied>,
+        <https://noheton.org/f-ai2-r/prov/activity/s98-review-quickfixes> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
         "sha256:09fce59b36763b24f4771f477b8e5e00d0731c954a56bc65cd8c14048c09c920",
         "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
@@ -2332,6 +2360,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:30bb9669f6f41204045a99bff098153de8a53deac899ff456853e416d59a5681",
         "sha256:31163fcbbc31806309a2f36fbc2604888e67aa2d591e6fbb4a68750b2b09ad92",
         "sha256:32c9a2409627258d4cf221aab0c6056b41c17d3ac7530be8663c7e59782238b3",
+        "sha256:42c2288c948b26f1f1049a55ba3fa66d2713a99d770baba29ddc6a2d4a9aafdb",
         "sha256:4374a3098b37b2edf2b377f2b857bd6f2e53a52d76e21a377470671637a15577",
         "sha256:4eb0b3318f1d54e2ac5ef2a974dcb79a2b426e96d610c886154b5fc12f54dfda",
         "sha256:5d082ed5e49f97ceb00af346ff9835f06feb91c207d5f11c664046e6707f124e",
@@ -2372,6 +2401,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "c4ff2e2ed4f0788a5c0cd9d500ab40e518b3286c",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
         "e84d041d11fe8bf7a58b0b1651eed9af09c5f7f9",
+        "f7094c24b7ccad9fa89509c7828d94217ebab631",
         "f7752e5475afbe6996ccb31ea109aac1c28b20f1",
         "fb1a484" .
 
@@ -2387,6 +2417,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:contentHash "sha256:934c52dbc789f46a65d1ee8ab5f01c23389bb3a16674d5671d72cbe98336a513" ;
     aiprov:filePath "doc/sources/urhg-para2.html" ;
     aiprov:gitCommit "767b64f" .
+
+<https://noheton.org/f-ai2-r/prov/entity/usage-106c4110-ee50-5c00-84da-a0b29f4102d9-jsonl> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s98-review-quickfixes> ;
+    aiprov:contentHash "sha256:fd33cbd90f581a1d4a29941026c1c93ef2464c69f9f66d6dee63a3850c82651c" ;
+    aiprov:filePath "doc/telemetry/usage-106c4110-ee50-5c00-84da-a0b29f4102d9.jsonl" ;
+    aiprov:gitCommit "f7094c24b7ccad9fa89509c7828d94217ebab631" .
 
 <https://noheton.org/f-ai2-r/prov/entity/usco-ai-copyrightability2025-pdf> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -2644,6 +2681,9 @@ aiprov:verificationState a owl:ObjectProperty ;
         <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/source/aiprov-schema-ttl> a aiprov:Source ;
+    aiprov:filePath "assets/aiprov-schema.ttl" .
+
 <https://noheton.org/f-ai2-r/prov/source/c2pa-spec> a aiprov:Source ;
     rdfs:label "Coalition for Content Provenance and Authenticity (C2PA): Content Credentials technical specification"@en ;
     dcterms:source <https://c2pa.org/specifications/> ;
@@ -2677,6 +2717,9 @@ aiprov:verificationState a owl:ObjectProperty ;
     rdfs:label "AI Incidents and Hazards Monitor (AIM), OECD.AI Policy Observatory: overview and methodology"@en ;
     dcterms:source <https://oecd.ai/en/incidents-methodology> ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/panel-2026-07-28-json> a aiprov:Source ;
+    aiprov:filePath "doc/reviews/panel-2026-07-28.json" .
 
 <https://noheton.org/f-ai2-r/prov/source/resistance-welding2024> a aiprov:Source ;
     rdfs:label "On the capabilities of static resistance welding of carbon fiber-reinforced thermoplastic composites (Endraß et al., ITHEC 2024)"@en ;
@@ -3693,6 +3736,13 @@ aiprov:VerificationState a owl:Class ;
     prov:endedAtTime "2026-07-28T06:15:10.391356+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/aiprov-promote-yml>,
         <https://noheton.org/f-ai2-r/prov/source/operators-json> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/s98-review-quickfixes> a aiprov:Repair ;
+    rdfs:label "Applies the review panel's quickfixes and the operator's half-page related-work extension. Code repairs: verificationState domain widened to prov:Entity; structured aiprov:grantedRung written by promote and queried by the validator's human-only hard check (regex retained for legacy); transcript-turn metric fixed (3196 real turn headers, was 3634 with markdown headings counted); prose-word counter keeps formatting arguments; content-free session telemetry (timestamps, usage, tool names) published to doc/telemetry for third-party recomputation. Paper repairs per the verdicts, including the authenticated-vs-transcribed grant split as macros with the operator's framing that the issue path was itself derived mid-experiment. Related work: nanopub2010, micropub2014, manubot2019, in-toto2019, c2pa-spec registered and content-checked (quotes in promotion notes), cited in a new neighboring-lines paragraph conceding two practices as rediscoveries; the widened horizon is recorded as the bounded-novelty mechanism operating. Out of scope, recorded as pending: w3id namespace registration requires a PR to the w3id.org repository, outside this session's repository scope."@en ;
+    prov:endedAtTime "2026-07-28T11:47:35.267754+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/aiprov-schema-ttl>,
+        <https://noheton.org/f-ai2-r/prov/source/panel-2026-07-28-json> ;
     prov:wasAssociatedWith agent:claude-code .
 
 aiprov:Claim a owl:Class ;
