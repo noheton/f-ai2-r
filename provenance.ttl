@@ -226,6 +226,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/credit2019> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-dashboard-html-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of dashboard-html: unverified -> source-vendored (Repository-internal generated artefact (the provenance dashboard, rebuilt from the graph); entered the ladder as a used input of the figure activity without a content hash. Path and sha256 recorded now.)"@en ;
+    prov:endedAtTime "2026-07-28T10:40:20.380592+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/dashboard-html> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-datasheets2021-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of datasheets2021: reference-resolved -> ai-confirmed (Abstract checked (OpenAlex): 'Documentation to facilitate communication between dataset creators and consumers.' Supports 'datasheets document the dataset'. Abstract depth.)"@en ;
     prov:endedAtTime "2026-07-27T07:49:00.379294+00:00"^^xsd:dateTime ;
@@ -2405,9 +2411,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/build_paper_preview-py> ;
     prov:wasAssociatedWith agent:claude-code .
 
-<https://noheton.org/f-ai2-r/prov/source/dashboard-html> a aiprov:Source ;
-    aiprov:filePath "dashboard.html" .
-
 <https://noheton.org/f-ai2-r/prov/source/fair2r-repo> a aiprov:Source ;
     rdfs:label "F(AI)²R: FAIR research with AI in the loop, twice (research repository)"@en ;
     dcterms:creator agent:florian-krebs ;
@@ -2635,6 +2638,11 @@ agent:github-actions a aiprov:ToolAgent ;
     dcterms:isPartOf "Learned Publishing" ;
     aiprov:doi "https://doi.org/10.1002/leap.1210"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/dashboard-html> a aiprov:Source ;
+    aiprov:contentHash "sha256:726671d74da62322d941aa7f7969a4b43ad3272be07dbc5ae79f38d81e1d5184" ;
+    aiprov:filePath "dashboard.html" ;
+    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/easa-ai-concept2024> a aiprov:Source ;
     rdfs:label "EASA Artificial Intelligence Concept Paper Issue 2: Guidance for Level 1 and 2 machine-learning applications"@en ;
