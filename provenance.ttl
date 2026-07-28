@@ -286,6 +286,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/memas2024> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-memas2024-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of memas2024: ai-confirmed -> human-confirmed (supports claims. MEMAS was conducted jointly with other institutes at our lab.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #3 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T07:55:29.028323+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/memas2024> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-model-collapse2024-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of model-collapse2024: reference-resolved -> ai-confirmed (Content checked against the Nature abstract: 'indiscriminate use of model-generated content in training causes irreversible defects in the resulting models ... we refer to this effect as model collapse'. Supports 'models trained on the polluted pool degrade further'. Abstract depth; full text paywalled.)"@en ;
     prov:endedAtTime "2026-07-24T21:32:57.570669+00:00"^^xsd:dateTime ;
@@ -2426,14 +2434,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:filePath "paper/main.tex" ;
     aiprov:verificationState verif:source-vendored .
 
-<https://noheton.org/f-ai2-r/prov/source/memas2024> a aiprov:Source ;
-    rdfs:label "Project MEMAS: Integrated Data Management for Additive Manufacturing enabling High-Fidelity Modeling"@en ;
-    dcterms:date "2024" ;
-    dcterms:isPartOf "elib (German Aerospace Center)" ;
-    dcterms:source <https://elib.dlr.de/208404/> ;
-    aiprov:doi "https://doi.org/10.5281/zenodo.14067020"^^xsd:anyURI ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/model-collapse2024> a aiprov:Source ;
     rdfs:label "AI models collapse when trained on recursively generated data"@en ;
     dcterms:date "2024" ;
@@ -2642,6 +2642,14 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:doi "https://doi.org/10.37016/mr-2020-156"^^xsd:anyURI ;
     aiprov:filePath "doc/sources/gpt-fabricated2024.pdf" ;
     aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/memas2024> a aiprov:Source ;
+    rdfs:label "Project MEMAS: Integrated Data Management for Additive Manufacturing enabling High-Fidelity Modeling"@en ;
+    dcterms:date "2024" ;
+    dcterms:isPartOf "elib (German Aerospace Center)" ;
+    dcterms:source <https://elib.dlr.de/208404/> ;
+    aiprov:doi "https://doi.org/10.5281/zenodo.14067020"^^xsd:anyURI ;
+    aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/paper-preview-html> a aiprov:Source ;
     aiprov:contentHash "sha256:17697a107e1696454a5851cf128848adee0bf0ebcc97b4fdb3101d38b2149602" ;
@@ -3041,6 +3049,10 @@ aiprov:VerificationState a owl:Class ;
         <https://noheton.org/f-ai2-r/prov/source/operators-json> ;
     prov:wasAssociatedWith agent:claude-code .
 
+aiprov:Claim a owl:Class ;
+    rdfs:comment "An assertion in any artefact that warrants attribution and verification."@en ;
+    rdfs:subClassOf prov:Entity .
+
 agent:florian-krebs a aiprov:HumanAgent ;
     foaf:name "Florian Krebs" ;
     aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
@@ -3050,10 +3062,6 @@ verif:human-confirmed a aiprov:VerificationState ;
     rdfs:label "human-confirmed"@en ;
     rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
     aiprov:ladderPosition 5 .
-
-aiprov:Claim a owl:Class ;
-    rdfs:comment "An assertion in any artefact that warrants attribution and verification."@en ;
-    rdfs:subClassOf prov:Entity .
 
 verif:source-vendored a aiprov:VerificationState ;
     rdfs:label "source vendored"@en ;
