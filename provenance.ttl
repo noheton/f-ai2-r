@@ -1095,8 +1095,10 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160>,
         <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
         <https://noheton.org/f-ai2-r/prov/activity/s79-operator-grants-shepard-scope>,
-        <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper> ;
-    aiprov:contentHash "sha256:263f241a9b520e394b3fd1439163cad4f5285cfc9eeb4a8fcf8703b3eb7d5031",
+        <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper>,
+        <https://noheton.org/f-ai2-r/prov/activity/s94-overhead-chart> ;
+    aiprov:contentHash "sha256:07a8bdf0cede0c51c1ff8ad2e1993d776384dbd78f4a6f354f63b16b63ab6e95",
+        "sha256:263f241a9b520e394b3fd1439163cad4f5285cfc9eeb4a8fcf8703b3eb7d5031",
         "sha256:359f3cdd6b2e1428bade3fa2e4ceabc1ca5f6fdccd83bb508278f0550699521e",
         "sha256:3e7a615bb541bad3c8f7847b995d10b969b456e1113019974c3dcbb143ccbd5d",
         "sha256:4ce056ab41dddb7f64d9ea6ae775f94a04a1e8458dca49a61eac33bccfc7bc47",
@@ -1114,6 +1116,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "8e9da5a340bd523bb56269fdd6bf705855a2cf24",
         "a59c1de",
         "b8d3fe235b20f862a40e0ef45b5e8f3ddd7837cb",
+        "b94a9b5d0c350358ab5dd35b77aa6f14efdffb28",
         "cf16dd2",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d" .
 
@@ -1233,13 +1236,15 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s77-third-witness>,
         <https://noheton.org/f-ai2-r/prov/activity/s79-operator-grants-shepard-scope>,
         <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
-        <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing>,
+        <https://noheton.org/f-ai2-r/prov/activity/s94-overhead-chart> ;
     aiprov:contentHash "sha256:03ad1f33420e1cbfb1e1c22753540234ca23bed2a6aef65d8df3f108f642c06a",
         "sha256:0ae502fea46692d008b14632d42884f5e64adfa7b4cda32ff4fb0a96ac6f1860",
         "sha256:12d5dd72efdf48971de13781d1fada4d0387bd37160ecd4387c0be54ca81f402",
         "sha256:137e25b1779fbed783914ef50f3575f9248b52d1b1125ef436d3fb3a091b2194",
         "sha256:15a12cee502951add09328fc131772fe7655d80a61a6e83b7d4b3055b4965649",
         "sha256:2486c8f697d83820c14bca9fcb06297536fcd53154dced01fbced342a5256cb0",
+        "sha256:26f2a06e881c3ec05fb6a2ded56165a1ee1e346823cb342b974d6a0b28a60296",
         "sha256:29dd7cb85f192a7581ce3d7de057df6506789848e5460030dc19e9a791b8c67d",
         "sha256:4284e75a6de4491b41b52762e60a8f681c61a33501fe0fbea5cc7811bd78bb57",
         "sha256:4aeab1f9b1e2bb0d48fbe4801c55ad046a81317ce3b60a5ff668f6a64524bfba",
@@ -1281,6 +1286,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "82ffc86",
         "8984dcb",
         "8e9da5a340bd523bb56269fdd6bf705855a2cf24",
+        "b94a9b5d0c350358ab5dd35b77aa6f14efdffb28",
         "c4ff2e2ed4f0788a5c0cd9d500ab40e518b3286c",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
         "e97d357930e7d6be792a93c9787475b6901d7bc3",
@@ -1630,8 +1636,10 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
         <https://noheton.org/f-ai2-r/prov/activity/s72-skill-version-macro>,
         <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm>,
-        <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing> ;
-    aiprov:contentHash "sha256:17ec3a45b655665d85d9ee32691249f18e858e5c67f441f033f21dbd622d18f9",
+        <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing>,
+        <https://noheton.org/f-ai2-r/prov/activity/s94-overhead-chart> ;
+    aiprov:contentHash "sha256:0ff3161fe7852c0c8f741e04e7192d4be1c2f7d9f160c68125704ad304b32fd0",
+        "sha256:17ec3a45b655665d85d9ee32691249f18e858e5c67f441f033f21dbd622d18f9",
         "sha256:ab0d50c37733281c6fc03f098a1cf0ad103d6c5057a4d14c908f3fea717a6bbb",
         "sha256:b3d2394c8f59114d74ee9317aeac7a3456b88da3fbe6d0f1d0f330d8a9bacb86",
         "sha256:ce97cd54bcf4ee6fc635870a306ebd9cf42ffa95e9e736b7b456491b21bc7eae" ;
@@ -1639,6 +1647,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:gitCommit "1fcea34134276d7d10b47e462d14d52ab00f3122",
         "43af99d",
         "51ed6e6d5a23d7173421d02701bbc88cbc6af37d",
+        "b94a9b5d0c350358ab5dd35b77aa6f14efdffb28",
         "f7752e5475afbe6996ccb31ea109aac1c28b20f1" .
 
 <https://noheton.org/f-ai2-r/prov/entity/build_paper_preview-py> a aiprov:Artefact ;
@@ -1728,16 +1737,19 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure>,
         <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing>,
-        <https://noheton.org/f-ai2-r/prov/activity/s92-first-human-read> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s92-first-human-read>,
+        <https://noheton.org/f-ai2-r/prov/activity/s94-overhead-chart> ;
     aiprov:contentHash "sha256:0b4bdba56cda8386741d27b2c793101c4ac7a38a6f587bb4262dac5ec13d9037",
         "sha256:3c69e40455b755038860855feb34a70f1adcabcfcc9e9ba2a5239a56df368931",
         "sha256:64198af5f3437d670b54d63bf420314dd86123ea062f65f709260fed2a992dc3",
+        "sha256:792141f7a404eeace0dda8f079c0446c35321823234c270fb3eb3b32e3b2dbf0",
         "sha256:85d4cedf287064a5b3bf55f20f38cb9cd6a36f067bfe442ebeba55f175c81620" ;
     aiprov:filePath "paper/figures/dashboard.png" ;
     aiprov:gitCommit "42d3042",
         "51ed6e6d5a23d7173421d02701bbc88cbc6af37d",
         "8984dcb",
-        "b6137d07ff0b2d5070b22f5650a2ba7f13a0ac67" .
+        "b6137d07ff0b2d5070b22f5650a2ba7f13a0ac67",
+        "b94a9b5d0c350358ab5dd35b77aa6f14efdffb28" .
 
 <https://noheton.org/f-ai2-r/prov/entity/disclosure-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1760,15 +1772,18 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s78-figure5-and-copy-buttons>,
         <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper>,
         <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
-        <https://noheton.org/f-ai2-r/prov/activity/s91-demonstration-rungs-note> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s91-demonstration-rungs-note>,
+        <https://noheton.org/f-ai2-r/prov/activity/s94-overhead-chart> ;
     aiprov:contentHash "sha256:1e3f456272b54883d3a8d11d822e2d870c80030fd1fe9512c1f8b774ebdaeaa6",
         "sha256:323def5ed050c23c2476ec9fed30b4fa23f9391a18bd2e69157aea73fe402eaf",
         "sha256:43e00d6852bd8f148d567d7fc72b928879ea967c8ffe3cc2854a752678d0621d",
+        "sha256:692a11a13e338cbc59ecd0a71ffb586c87a683549962f9799884d9548ff7749a",
         "sha256:b69a1005476a6b62fce540155bc2954c20aa0b1e47f43f58458f3d8d1a3a484b",
         "sha256:ff85ef36d787f1f5e760cd300ee220fb3e4c4a3cb41e54b9c6df30d18c512b47" ;
     aiprov:filePath "paper/figures/environment.png" ;
     aiprov:gitCommit "8a1fec40853cc73078522d14a3ae354e742a29a5",
         "b8d3fe235b20f862a40e0ef45b5e8f3ddd7837cb",
+        "b94a9b5d0c350358ab5dd35b77aa6f14efdffb28",
         "c4ff2e2ed4f0788a5c0cd9d500ab40e518b3286c",
         "f9bf1b55f1d20fc1b08741e96c7bb1d90ef3aa28" .
 
@@ -1881,7 +1896,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix>,
         <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing>,
         <https://noheton.org/f-ai2-r/prov/activity/s91-demonstration-rungs-note>,
-        <https://noheton.org/f-ai2-r/prov/activity/s92-first-human-read> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s92-first-human-read>,
+        <https://noheton.org/f-ai2-r/prov/activity/s94-overhead-chart> ;
     aiprov:contentHash "sha256:0ecac01dd6686d42494449da9932c34ddfe521a456f3c9b7396fc334e7cbb893",
         "sha256:10d28f1f212df1d22fe9c87daf1cdd317d7e633b5b230ed0965de50505baa6a0",
         "sha256:111b02d4bc097e1164f5c819d09a0255669c5b48eb304726d78b25cc680d58da",
@@ -1894,6 +1910,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:402166d35efa68d25e296d063b8105d29150917eac55713c9677483a9b483dc6",
         "sha256:4a200a4de4e3b9172550aac81ea9d795c10c47c1563185b434aec7f59294ccf1",
         "sha256:61db266867cdf2a1c0ce8bb23f891bb33d56507e3b1f06ef9fa13466450c625a",
+        "sha256:6e32614607b06407ce0811a9cc6ee666c34fe63605c9d7ec43fa5031d1b06ce2",
         "sha256:7287d05be915dc9176785fa10fb9e3f49d7808a95519e969774e7f2c2fdbccfb",
         "sha256:72ea727c498e0ba6d8c7290eb173b5bdb17db6467fd628e6293b0f136eb7a285",
         "sha256:77e4330efe63279c63148a14d3620cd979708ec55a70ed9f151e78b10130f55a",
@@ -1922,6 +1939,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "a59c1de",
         "b6137d07ff0b2d5070b22f5650a2ba7f13a0ac67",
         "b8d3fe235b20f862a40e0ef45b5e8f3ddd7837cb",
+        "b94a9b5d0c350358ab5dd35b77aa6f14efdffb28",
         "c4ff2e2ed4f0788a5c0cd9d500ab40e518b3286c",
         "da4301b2c455a663664eef2cab3a91dd2039a79c",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
@@ -1954,7 +1972,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix>,
         <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing>,
         <https://noheton.org/f-ai2-r/prov/activity/s91-demonstration-rungs-note>,
-        <https://noheton.org/f-ai2-r/prov/activity/s92-first-human-read> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s92-first-human-read>,
+        <https://noheton.org/f-ai2-r/prov/activity/s94-overhead-chart> ;
     aiprov:contentHash "sha256:0f9259f939d9575550b674e2bcc252d388f372c42a26ad7138deba6fa67b28d3",
         "sha256:1b3edb4234474b2f0fc93dfb1b0447feb1e13f049ede37f460c2f1e5b03c480d",
         "sha256:1d22e6fd2ac682c9531be9f5db5f02c23c41d29582529d96a34c1c5e0d3a828e",
@@ -1977,6 +1996,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:b2292186c8cd87b02d90891012f7c797e9eae10b2cfa1dd02e1af58ee7ba80a7",
         "sha256:bb772a66512d5db692acd37ae7d2e31161051d3236cdc20ae149af0ef0eac72f",
         "sha256:d8f7df0c75ff4656919bb9eaa9048db7f935a5d59da02622b931406a8b6e60a8",
+        "sha256:ee79f26b11c48dd1e989344d46b5490a6ea73630ceee4043292f97e72c8fb4e5",
         "sha256:fcf36f4422bd30bc1e0164b4afdb3fea7c77cfa8d59088b4d3f61d8cb4ffd0b8" ;
     aiprov:filePath "paper/metrics.tex" ;
     aiprov:gitCommit "1fcea34134276d7d10b47e462d14d52ab00f3122",
@@ -1995,6 +2015,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "a59c1de",
         "b6137d07ff0b2d5070b22f5650a2ba7f13a0ac67",
         "b8d3fe235b20f862a40e0ef45b5e8f3ddd7837cb",
+        "b94a9b5d0c350358ab5dd35b77aa6f14efdffb28",
         "c4ff2e2ed4f0788a5c0cd9d500ab40e518b3286c",
         "da4301b2c455a663664eef2cab3a91dd2039a79c",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
@@ -2500,6 +2521,9 @@ aiprov:verificationState a owl:ObjectProperty ;
     rdfs:label "Helmholtz Metadata Collaboration (HMC)"@en ;
     dcterms:source <https://helmholtz-metadaten.de/> ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/metrics-json> a aiprov:Source ;
+    aiprov:filePath "doc/metrics.json" .
 
 <https://noheton.org/f-ai2-r/prov/source/obscurity-is-dead> a aiprov:Source ;
     rdfs:label "Obscurity Is Dead — Proprietary by Design, Open by AI (research repository)"@en ;
@@ -3390,10 +3414,12 @@ aiprov:Contribution a owl:Class ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> ;
     prov:wasAssociatedWith agent:claude-code .
 
-<https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> a aiprov:Source ;
-    aiprov:contentHash "sha256:4d532f3034457f2bc98e98028491d50eb6cf8fb86529ea1edbc6a089a78c6c84" ;
-    aiprov:filePath "paper/sections/07-discussion.tex" ;
-    aiprov:verificationState verif:source-vendored .
+<https://noheton.org/f-ai2-r/prov/activity/s94-overhead-chart> a aiprov:AuthoringPass ;
+    rdfs:label "Operator request: a small chart for the overhead percentages in the cost discussion. New figure 8: four shares on a 0-100 axis (bookkeeping requests, their output tokens, their computed cost, bookkeeping-only commits), TikZ, driven by new numeric macros from the metrics single source (MOverReqNum etc.), so the chart can never disagree with the prose. The 0-100 axis is deliberate: it shows how small the overhead is rather than magnifying it. Cap held at 12 via prose tightening (dual-witness, telemetry, energy), CLI-figure compression, and screenshot crops."@en ;
+    prov:endedAtTime "2026-07-28T11:05:34.649921+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex>,
+        <https://noheton.org/f-ai2-r/prov/source/metrics-json> ;
+    prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
     rdfs:label "Bootstrap the f-ai2-r repository: vendor aiprov schema, provlog CLI, dashboard builder, attribute catalogue; write README; seed this provenance graph"@en ;
@@ -3414,6 +3440,11 @@ aiprov:Contribution a owl:Class ;
     aiprov:usedTool "bash",
         "edit",
         "write" .
+
+<https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> a aiprov:Source ;
+    aiprov:contentHash "sha256:4d532f3034457f2bc98e98028491d50eb6cf8fb86529ea1edbc6a089a78c6c84" ;
+    aiprov:filePath "paper/sections/07-discussion.tex" ;
+    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> a aiprov:Source ;
     aiprov:contentHash "sha256:14259982e1ad3c6cc270cc4f79d2146257c61473b384b3c53310ceebd6541e07" ;
