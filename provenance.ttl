@@ -1117,7 +1117,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s78-figure5-and-copy-buttons>,
         <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm>,
         <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper>,
-        <https://noheton.org/f-ai2-r/prov/activity/s86-source-pass-issue-grants> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s86-source-pass-issue-grants>,
+        <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing> ;
     aiprov:contentHash "sha256:1990ebaa3dffa13626c417064c24e8dc4c1eb64681be4e09373abe328b6e842e",
         "sha256:1e6886e01eb1a921111e3aa4bdcd33fa82caa63089c14600bff9610ad8982abb",
         "sha256:2b20b3b01e144b8a7c7b7266005d0691803a94ae063e2f74d58e795f8ce832cf",
@@ -1137,6 +1138,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:be480c648fbedb68fd4dd11e1e27910ba8090488d0ca113a40dfe47a858b9842",
         "sha256:c0304e48cc0c4957b25b82c2bcc58cc0a875e120575dda4f97569d800a45985f",
         "sha256:c6e2d6abf48db6d9180b423ddb7aaa6fe557a91dcff7d8d0ef053d4c54b96adf",
+        "sha256:da3dec3636adc5c2f9ac3f24cd571cc8fa49ee7b7281d66294e520fd8dbd6221",
         "sha256:f245b62d59e26d0b7d0dab6ec6a099d631dde182f2c067170f22948705286520",
         "sha256:fb17bd85e1269861fae391fe4354ab127bff7b1d4d2be06ec439c1211555e7e8",
         "sha256:fd265a536fb8a32e3dfa64d5eb01f28f6270b07d30e8bdfd0f53634abc4b7e63" ;
@@ -1145,6 +1147,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "42d3042",
         "43af99d",
         "4578a83",
+        "51ed6e6d5a23d7173421d02701bbc88cbc6af37d",
         "540e2c2",
         "63bde89",
         "73a11cd",
@@ -1196,7 +1199,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s72-skill-version-macro>,
         <https://noheton.org/f-ai2-r/prov/activity/s77-third-witness>,
         <https://noheton.org/f-ai2-r/prov/activity/s79-operator-grants-shepard-scope>,
-        <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
+        <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing> ;
     aiprov:contentHash "sha256:03ad1f33420e1cbfb1e1c22753540234ca23bed2a6aef65d8df3f108f642c06a",
         "sha256:0ae502fea46692d008b14632d42884f5e64adfa7b4cda32ff4fb0a96ac6f1860",
         "sha256:12d5dd72efdf48971de13781d1fada4d0387bd37160ecd4387c0be54ca81f402",
@@ -1215,6 +1219,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:9f3a6f335fb0901d201700b7505fa5f837e048d7b06be9f499f0f9965af2432f",
         "sha256:a27f1ffd99e9847dbfb36751bbcd4ecfabb770ddd17f0a691ef1442f9eea1227",
         "sha256:a8ec2433110bcb0346dc43fcff4b83e0d28bbbfeba35e453acdf30cfc69c9db1",
+        "sha256:a906fffe7b944e4e98c6e99de4b9371f69e873e5a952093d6dee5e751025a76c",
         "sha256:ab02f58905c5066dfda3a157446b798ea2ca2285e7c54079e9fef2ca70eefd07",
         "sha256:b49516b4dd9d146ac0a75c765085b478fa897713950184d495ee9d568ef15763",
         "sha256:b600eebd1cc748d22001591a480735f2593dde0e3468a1aabf7202639d69b338",
@@ -1236,6 +1241,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "43af99d",
         "4465d74",
         "48ae6b1c018beac3aed6d9ba9e62d3d2a4d2b60c",
+        "51ed6e6d5a23d7173421d02701bbc88cbc6af37d",
         "540e2c2",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "73a11cd",
@@ -1561,22 +1567,28 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
 
 <https://noheton.org/f-ai2-r/prov/entity/build_dashboard-py> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
-    aiprov:contentHash "sha256:889f1f86568cd4891329247ba24df2b8e62c907a16f39930a396f6a29734a754" ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap>,
+        <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing> ;
+    aiprov:contentHash "sha256:889f1f86568cd4891329247ba24df2b8e62c907a16f39930a396f6a29734a754",
+        "sha256:891beceda5660013bc332c6d23aebd5cf8e2e901038aff989af34ce4ba0c1485" ;
     aiprov:filePath "scripts/build_dashboard.py" ;
-    aiprov:gitCommit "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
+    aiprov:gitCommit "51ed6e6d5a23d7173421d02701bbc88cbc6af37d",
+        "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
 
 <https://noheton.org/f-ai2-r/prov/entity/build_metrics-py> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
         <https://noheton.org/f-ai2-r/prov/activity/s72-skill-version-macro>,
-        <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm> ;
-    aiprov:contentHash "sha256:ab0d50c37733281c6fc03f098a1cf0ad103d6c5057a4d14c908f3fea717a6bbb",
+        <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm>,
+        <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing> ;
+    aiprov:contentHash "sha256:17ec3a45b655665d85d9ee32691249f18e858e5c67f441f033f21dbd622d18f9",
+        "sha256:ab0d50c37733281c6fc03f098a1cf0ad103d6c5057a4d14c908f3fea717a6bbb",
         "sha256:b3d2394c8f59114d74ee9317aeac7a3456b88da3fbe6d0f1d0f330d8a9bacb86",
         "sha256:ce97cd54bcf4ee6fc635870a306ebd9cf42ffa95e9e736b7b456491b21bc7eae" ;
     aiprov:filePath "scripts/build_metrics.py" ;
     aiprov:gitCommit "1fcea34134276d7d10b47e462d14d52ab00f3122",
         "43af99d",
+        "51ed6e6d5a23d7173421d02701bbc88cbc6af37d",
         "f7752e5475afbe6996ccb31ea109aac1c28b20f1" .
 
 <https://noheton.org/f-ai2-r/prov/entity/build_paper_preview-py> a aiprov:Artefact ;
@@ -1654,11 +1666,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
 <https://noheton.org/f-ai2-r/prov/entity/dashboard-png> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s53-easa-dashboard-figure>,
-        <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing> ;
     aiprov:contentHash "sha256:3c69e40455b755038860855feb34a70f1adcabcfcc9e9ba2a5239a56df368931",
+        "sha256:64198af5f3437d670b54d63bf420314dd86123ea062f65f709260fed2a992dc3",
         "sha256:85d4cedf287064a5b3bf55f20f38cb9cd6a36f067bfe442ebeba55f175c81620" ;
     aiprov:filePath "paper/figures/dashboard.png" ;
     aiprov:gitCommit "42d3042",
+        "51ed6e6d5a23d7173421d02701bbc88cbc6af37d",
         "8984dcb" .
 
 <https://noheton.org/f-ai2-r/prov/entity/disclosure-tex> a aiprov:Artefact ;
@@ -1721,6 +1736,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:filePath "doc/sources/gpt-fabricated2024.pdf" ;
     aiprov:gitCommit "767b64f" .
 
+<https://noheton.org/f-ai2-r/prov/entity/ladder-stats-png> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing> ;
+    aiprov:contentHash "sha256:7173f0f57c0b1e2a98f9c74e0befb08653ee82ca7dcb7914376af36eeed6d582" ;
+    aiprov:filePath "paper/figures/ladder-stats.png" ;
+    aiprov:gitCommit "51ed6e6d5a23d7173421d02701bbc88cbc6af37d" .
+
 <https://noheton.org/f-ai2-r/prov/entity/main-tex> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure>,
@@ -1738,13 +1760,15 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s51-style-pass>,
         <https://noheton.org/f-ai2-r/prov/activity/s81-retitle>,
-        <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
+        <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing> ;
     aiprov:contentHash "sha256:292ee450094d64465800f568cc319a3a5839d697137d2d8497eedb2cbb9587e8",
         "sha256:2bf4f82e8c20375dd1f6a64b9213d60e71822d3592fb9facb54c6ed3ca1fa160",
         "sha256:31a7ad8196528484eb264b1d7cf0b737b49554499f3d14a83e7fd3713fb24a76",
         "sha256:60ae56b3f363c97288866ce11315e8cc911ebf22e2245c97388417c83d3956a0",
         "sha256:7ee7c6fa5c92b16acdaf2cda35b1c4bdf20ae0bf591dd05c7f05a8c8b2e097f7",
         "sha256:8cd66cfefe1676059579377dc32c718f2e5f261f29d284dad89319af4308b40a",
+        "sha256:9243379b9d0a744ecb89ebc5b2ad4fa6bf01bbfc24000e1890db6d0063d3e7e7",
         "sha256:b2a4c3be0e2de6b9808f1dff794cf9f4f06d71dcb1da4bb6ea6838361e9af019",
         "sha256:bb3577f785bcdd3a56265f5c96af83b5b1d455f3b64f8574a95251a87b77300e",
         "sha256:c1f73aca74f5645d10385d70c662474ab94214785f60aab02abe638eae29d3f9",
@@ -1760,6 +1784,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:gitCommit "1aaab86",
         "390d3af",
         "4c17c02faf15034458e93ddecd1d8da829020f3e",
+        "51ed6e6d5a23d7173421d02701bbc88cbc6af37d",
         "932815f187bfcfe585e84442be12d5041e2be116",
         "c4ff2e2ed4f0788a5c0cd9d500ab40e518b3286c" .
 
@@ -1784,7 +1809,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper>,
         <https://noheton.org/f-ai2-r/prov/activity/s86-source-pass-issue-grants>,
         <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
-        <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix>,
+        <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing> ;
     aiprov:contentHash "sha256:0ecac01dd6686d42494449da9932c34ddfe521a456f3c9b7396fc334e7cbb893",
         "sha256:10d28f1f212df1d22fe9c87daf1cdd317d7e633b5b230ed0965de50505baa6a0",
         "sha256:111b02d4bc097e1164f5c819d09a0255669c5b48eb304726d78b25cc680d58da",
@@ -1792,6 +1818,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:1dbbc873e4685551ccf892fabdcc21ba3325a7416847eedf7e795417d9360673",
         "sha256:2429fc24552d4d0218f33a19fa03c2d2a598f68ac4f8c32ad9f22045ff2eb091",
         "sha256:3264db9a2aa61bcec373dc6cd48f27649aa83ad153522567b1f3bafa8bf49f9e",
+        "sha256:35b28fa4af9f0ba64a71f49a973bae87874ee7213fd51889aff33f43da8a9f8b",
         "sha256:402166d35efa68d25e296d063b8105d29150917eac55713c9677483a9b483dc6",
         "sha256:4a200a4de4e3b9172550aac81ea9d795c10c47c1563185b434aec7f59294ccf1",
         "sha256:61db266867cdf2a1c0ce8bb23f891bb33d56507e3b1f06ef9fa13466450c625a",
@@ -1810,6 +1837,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "43af99d",
         "4578a83",
         "4d32cbc2ded644ffd99060c744aee92e60bed11d",
+        "51ed6e6d5a23d7173421d02701bbc88cbc6af37d",
         "5badaf3c53805ddf41aabad11b9c0a1fd4f63910",
         "5ed968a16900d7a554f163408f31040425fe0c35",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
@@ -1848,7 +1876,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper>,
         <https://noheton.org/f-ai2-r/prov/activity/s86-source-pass-issue-grants>,
         <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
-        <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix>,
+        <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing> ;
     aiprov:contentHash "sha256:0f9259f939d9575550b674e2bcc252d388f372c42a26ad7138deba6fa67b28d3",
         "sha256:1b3edb4234474b2f0fc93dfb1b0447feb1e13f049ede37f460c2f1e5b03c480d",
         "sha256:1d22e6fd2ac682c9531be9f5db5f02c23c41d29582529d96a34c1c5e0d3a828e",
@@ -1862,6 +1891,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:5f5dc1afd6a0df8db05405ad880fde8ff464d48906c26a9bb23df28ede84efef",
         "sha256:6e35446810b4df1e3dcd9efea5cbe40e440af069fe429869b933d613db081c90",
         "sha256:7ee1436305ab7328b4edf9150eb9e1c395d402d2a37cd9aca895f7b0a2b251be",
+        "sha256:7fa27fa898c0bebfbf4a9753b66ba2b84eac13e6f4e59722532c2eb81043a0c7",
         "sha256:a7d5ce71fd3e566e0e295cac39a1218c4e77b3d67b90c4883814027317b70060",
         "sha256:b1559c721a2dbf47180a1f8313d72c65e1babb2a28d957d61f45ec1e25ee34ba",
         "sha256:b1e4443423c007c0e7a394a6f250ad53c03f41eff9aeddce8291dd6fabc9a417",
@@ -1874,6 +1904,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "43af99d",
         "4578a83",
         "4d32cbc2ded644ffd99060c744aee92e60bed11d",
+        "51ed6e6d5a23d7173421d02701bbc88cbc6af37d",
         "5badaf3c53805ddf41aabad11b9c0a1fd4f63910",
         "5ed968a16900d7a554f163408f31040425fe0c35",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
@@ -2050,7 +2081,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s82-attention-citation>,
         <https://noheton.org/f-ai2-r/prov/activity/s83-issue-confirm-in-paper>,
         <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
-        <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix>,
+        <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing> ;
     aiprov:contentHash "sha256:08eb9544ef5515bcad157438d42bca519bcee2fcfecc15bfc68394ae9440a8dc",
         "sha256:09fce59b36763b24f4771f477b8e5e00d0731c954a56bc65cd8c14048c09c920",
         "sha256:0fc903e04d21b4059e2f3295fb37c263408b9ab538b279cde3ee198b8228e301",
@@ -2059,6 +2091,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:23bc630da48a4f5e78201d6f7e0895ecdb40fda43d538aa9992e7a7e5122c756",
         "sha256:2c9083a5cbae565f108062cd367f9fd5f7f14e725c53f6ef49e8deffb7c4da06",
         "sha256:2e60f501be4fc0abdb527db479644c2821171a5f2f4b6fff11093799991d8092",
+        "sha256:2e72850ced4c5d8afe39ef94ceb3982f08c9fad2a75acb19b95440e54f127f93",
         "sha256:2f4b7ec929c9b760b783bcd96f6237ef0fa8b92c2086e21e160d471c1a0abf5c",
         "sha256:30bb9669f6f41204045a99bff098153de8a53deac899ff456853e416d59a5681",
         "sha256:31163fcbbc31806309a2f36fbc2604888e67aa2d591e6fbb4a68750b2b09ad92",
@@ -2090,6 +2123,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "48ae6b1c018beac3aed6d9ba9e62d3d2a4d2b60c",
         "4c17c02faf15034458e93ddecd1d8da829020f3e",
         "4d32cbc2ded644ffd99060c744aee92e60bed11d",
+        "51ed6e6d5a23d7173421d02701bbc88cbc6af37d",
         "5ed968a16900d7a554f163408f31040425fe0c35",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "73a11cd",
@@ -2370,6 +2404,9 @@ aiprov:verificationState a owl:ObjectProperty ;
     prov:endedAtTime "2026-07-28T07:51:51.727249+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/build_paper_preview-py> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/source/dashboard-html> a aiprov:Source ;
+    aiprov:filePath "dashboard.html" .
 
 <https://noheton.org/f-ai2-r/prov/source/fair2r-repo> a aiprov:Source ;
     rdfs:label "F(AI)²R: FAIR research with AI in the loop, twice (research repository)"@en ;
@@ -2730,11 +2767,6 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:filePath "paper/sections/05-skill.tex" ;
     aiprov:verificationState verif:source-vendored .
 
-<https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex> a aiprov:Source ;
-    aiprov:contentHash "sha256:be480c648fbedb68fd4dd11e1e27910ba8090488d0ca113a40dfe47a858b9842" ;
-    aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
-    aiprov:verificationState verif:source-vendored .
-
 <https://noheton.org/f-ai2-r/prov/source/CHANGELOG-md> a aiprov:Source ;
     aiprov:contentHash "sha256:1db1da7d36fc2177bd5969c097610e0558fcfd1aeca067ea59e86be5adddd2c9" ;
     aiprov:filePath "CHANGELOG.md" ;
@@ -3014,6 +3046,11 @@ aiprov:Contribution a owl:Class ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/provenance-ttl>,
         <https://noheton.org/f-ai2-r/prov/source/references-bib> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex> a aiprov:Source ;
+    aiprov:contentHash "sha256:be480c648fbedb68fd4dd11e1e27910ba8090488d0ca113a40dfe47a858b9842" ;
+    aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
+    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/attention2017> a aiprov:Source ;
     aiprov:doi "https://doi.org/10.48550/arXiv.1706.03762"^^xsd:anyURI ;
@@ -3307,6 +3344,13 @@ aiprov:VerificationState a owl:Class ;
     aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
     aiprov:usedTool "bash",
         "edit" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing> a aiprov:AuthoringPass ;
+    rdfs:label "Two operator requests. (1) Regenerate the provenance-ledger screenshot and add a second one for the literature rung statistics: build_dashboard.py now renders separate ladder charts for claims and for sources, and figure 6 is recomposed from live captures as two panels (ledger excerpt; literature rung distribution showing 32 human-confirmed, 23 source-vendored, 9 ai-confirmed at capture). (2) Table II gains the model-cost comparison: the same recorded token volume repriced at Opus 5 and Sonnet 5 published list rates (Sonnet at introductory pricing), computed by build_metrics.py with the methodology in metrics.json and the footnote stating price bases are compared, not runs, since models tokenize and behave differently. Also repaired factual drift: the setup paragraph described the pre-refresh figure 5. Cap held at 12."@en ;
+    prov:endedAtTime "2026-07-28T09:03:54.686205+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex>,
+        <https://noheton.org/f-ai2-r/prov/source/dashboard-html> ;
+    prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015> a aiprov:AuthoringPass ;
     rdfs:label "Review-response round, operator-directed. Skill v0.15: build_metrics.py as single source of numbers (all paper quantities computed from primary records into doc/metrics.json + paper/metrics.tex macros; methodology block embedded; counterfactuals never computed) - fixes the fragile-numbers weakness structurally; promote --refuse makes disagreement first-class (AuditPass with aiprov:refusedRung, no state change, note required; sandbox-tested). Paper: meta-experiment scoped as demonstration-not-study (one operator, one domain, one session); future work gains the two owed audits from the self-review (independent re-verification of ai-confirmed judgements to measure self-confirmation bias; second operator in second domain for the portability claims); refusal sentence added to Invariant II; nostalgia and copyright paragraphs compressed to hold the 12-page cap."@en ;
