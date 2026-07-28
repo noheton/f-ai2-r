@@ -358,6 +358,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/prov-o2013> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-prov-o2013-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of prov-o2013: ai-confirmed -> human-confirmed (supports claims
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #2 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T07:48:48.871048+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/prov-o2013> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-provenance-overview2022-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of provenance-overview2022: reference-resolved -> ai-confirmed (Content checked against the open-access slide deck (elib.dlr.de/185438, full deck fetched): includes 'Provenance of Software Artifacts and Development Processes' with a 'general PROV model for software development' and 'provenance for git services'. Supports the DLR-practice and software-development-monitoring citing sentence. Full-slides depth.)"@en ;
     prov:endedAtTime "2026-07-24T21:32:58.968040+00:00"^^xsd:dateTime ;
@@ -2153,11 +2161,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://oecd.ai/en/incidents-methodology> ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/prov-o2013> a aiprov:Source ;
-    rdfs:label "PROV-O: The PROV Ontology (W3C Recommendation, 30 April 2013)"@en ;
-    dcterms:source <https://www.w3.org/TR/prov-o/> ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/provenance-overview2022> a aiprov:Source ;
     rdfs:label "An overview of Provenance and its use cases (Carina Haupt, RDA Deutschland Tagung 2022)"@en ;
     dcterms:source <https://elib.dlr.de/185438/> ;
@@ -2481,6 +2484,11 @@ agent:github-actions a aiprov:ToolAgent ;
     dcterms:isPartOf "2025 IEEE International Conference on eScience (eScience)" ;
     aiprov:doi "https://doi.org/10.1109/escience65000.2025.00093"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/prov-o2013> a aiprov:Source ;
+    rdfs:label "PROV-O: The PROV Ontology (W3C Recommendation, 30 April 2013)"@en ;
+    dcterms:source <https://www.w3.org/TR/prov-o/> ;
+    aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/publishing-strain2024> a aiprov:Source ;
     rdfs:label "The strain on scientific publishing"@en ;
@@ -3012,16 +3020,6 @@ aiprov:VerificationState a owl:Class ;
     aiprov:usedTool "bash",
         "edit" .
 
-agent:florian-krebs a aiprov:HumanAgent ;
-    foaf:name "Florian Krebs" ;
-    aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
-    aiprov:orcid "https://orcid.org/0000-0001-6033-801X"^^xsd:anyURI .
-
-verif:human-confirmed a aiprov:VerificationState ;
-    rdfs:label "human-confirmed"@en ;
-    rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
-    aiprov:ladderPosition 5 .
-
 <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015> a aiprov:AuthoringPass ;
     rdfs:label "Review-response round, operator-directed. Skill v0.15: build_metrics.py as single source of numbers (all paper quantities computed from primary records into doc/metrics.json + paper/metrics.tex macros; methodology block embedded; counterfactuals never computed) - fixes the fragile-numbers weakness structurally; promote --refuse makes disagreement first-class (AuditPass with aiprov:refusedRung, no state change, note required; sandbox-tested). Paper: meta-experiment scoped as demonstration-not-study (one operator, one domain, one session); future work gains the two owed audits from the self-review (independent re-verification of ai-confirmed judgements to measure self-confirmation bias; second operator in second domain for the portability claims); refusal sentence added to Invariant II; nostalgia and copyright paragraphs compressed to hold the 12-page cap."@en ;
     prov:endedAtTime "2026-07-26T06:01:35.822855+00:00"^^xsd:dateTime ;
@@ -3034,6 +3032,16 @@ verif:human-confirmed a aiprov:VerificationState ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/aiprov-promote-yml>,
         <https://noheton.org/f-ai2-r/prov/source/operators-json> ;
     prov:wasAssociatedWith agent:claude-code .
+
+agent:florian-krebs a aiprov:HumanAgent ;
+    foaf:name "Florian Krebs" ;
+    aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
+    aiprov:orcid "https://orcid.org/0000-0001-6033-801X"^^xsd:anyURI .
+
+verif:human-confirmed a aiprov:VerificationState ;
+    rdfs:label "human-confirmed"@en ;
+    rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
+    aiprov:ladderPosition 5 .
 
 aiprov:Claim a owl:Class ;
     rdfs:comment "An assertion in any artefact that warrants attribution and verification."@en ;
