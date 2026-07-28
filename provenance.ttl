@@ -322,6 +322,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/modelcards2019> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-modelcards2019-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of modelcards2019: ai-confirmed -> human-confirmed (claim correct.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #11 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T08:02:59.635260+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/modelcards2019> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-obscurity-is-dead-human-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of obscurity-is-dead: reference-resolved -> human-confirmed (Granted by the human operator in the session ('confirm my selfcitations'). The operator authored this repository and confirms the citing sentences: it established transcript-as-artifact and per-claim verification labels (repo-vendored, lit-read, unverified-external) while measuring how LLMs compress reverse-engineering effort. Command executed by the AI agent at explicit direction; judgement and grant are the human's.)"@en ;
     prov:endedAtTime "2026-07-27T07:59:13.298121+00:00"^^xsd:dateTime ;
@@ -2487,13 +2495,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1038/s41586-024-07566-y"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/modelcards2019> a aiprov:Source ;
-    rdfs:label "Model Cards for Model Reporting"@en ;
-    dcterms:date "2019" ;
-    dcterms:isPartOf "Proceedings of the Conference on Fairness, Accountability, and Transparency" ;
-    aiprov:doi "https://doi.org/10.1145/3287560.3287596"^^xsd:anyURI ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/oecd-ai-principles> a aiprov:Source ;
     rdfs:label "Recommendation of the Council on Artificial Intelligence (OECD/LEGAL-0449), adopted May 2019, amended May 2024; OECD AI Principles"@en ;
     dcterms:source <https://oecd.ai/en/ai-principles> ;
@@ -2684,6 +2685,13 @@ aiprov:HumanAgent a owl:Class ;
     dcterms:isPartOf "elib (German Aerospace Center)" ;
     dcterms:source <https://elib.dlr.de/208404/> ;
     aiprov:doi "https://doi.org/10.5281/zenodo.14067020"^^xsd:anyURI ;
+    aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/modelcards2019> a aiprov:Source ;
+    rdfs:label "Model Cards for Model Reporting"@en ;
+    dcterms:date "2019" ;
+    dcterms:isPartOf "Proceedings of the Conference on Fairness, Accountability, and Transparency" ;
+    aiprov:doi "https://doi.org/10.1145/3287560.3287596"^^xsd:anyURI ;
     aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/paper-preview-html> a aiprov:Source ;
