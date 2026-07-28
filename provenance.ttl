@@ -112,6 +112,18 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-ai-hallucination2023-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of ai-hallucination2023: source-vendored -> human-confirmed (Granted by the human operator in the session: operator confirms the source supports its citing sentences. The judgement and grant are the human's; the AI only records them.)"@en ;
+    prov:endedAtTime "2026-07-28T10:47:39.462343+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-ai-hallucination2023-human-read> a aiprov:AuditPass ;
+    rdfs:label "Promotion of ai-hallucination2023: human-confirmed -> human-read (Granted by the human operator in the session ('to confirmed then human read'): operator reports having read the source in full and confirms the citing claims with that context. First human-read rungs of the experiment; the judgement is the human's, transcribed by the AI.)"@en ;
+    prov:endedAtTime "2026-07-28T10:47:40.060251+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-ai-hallucination2023-source-vendored> a aiprov:AuditPass ;
     rdfs:label "Promotion of ai-hallucination2023: ai-confirmed -> source-vendored (Vendored for the access gate (same PDF used for the earlier full-text content check). Cureus article, open access CC BY.)"@en ;
     prov:endedAtTime "2026-07-27T07:00:18.646641+00:00"^^xsd:dateTime ;
@@ -251,6 +263,18 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:endedAtTime "2026-07-28T08:48:55.389777+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/doctors-vs-algorithms2026> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-doctors-vs-algorithms2026-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of doctors-vs-algorithms2026: source-vendored -> human-confirmed (Granted by the human operator in the session: operator confirms the source supports its citing sentences. The judgement and grant are the human's; the AI only records them.)"@en ;
+    prov:endedAtTime "2026-07-28T10:47:38.245191+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/doctors-vs-algorithms2026> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-doctors-vs-algorithms2026-human-read> a aiprov:AuditPass ;
+    rdfs:label "Promotion of doctors-vs-algorithms2026: human-confirmed -> human-read (Granted by the human operator in the session ('to confirmed then human read'): operator reports having read the source in full and confirms the citing claims with that context. First human-read rungs of the experiment; the judgement is the human's, transcribed by the AI.)"@en ;
+    prov:endedAtTime "2026-07-28T10:47:38.848178+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/doctors-vs-algorithms2026> ;
+    prov:wasAssociatedWith agent:florian-krebs .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-doctors-vs-algorithms2026-source-vendored> a aiprov:AuditPass ;
     rdfs:label "Promotion of doctors-vs-algorithms2026: ai-confirmed -> source-vendored (CC BY 4.0 (PLOS): redistribution permitted with attribution; full article PDF (17 pages) vendored from the publisher's printable endpoint.)"@en ;
@@ -2187,12 +2211,6 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:filePath "doc/sources/usco-ai-copyrightability2025.pdf" ;
     aiprov:gitCommit "fb1a484" .
 
-verif:human-read a aiprov:VerificationState ;
-    rdfs:label "human-read"@en ;
-    rdfs:comment "A HUMAN has read the source in full. Top of the ladder; consolidates the former lit-read rung. Human-only: an AI agent must never grant this rung."@en ;
-    skos:altLabel "lit-read"@en ;
-    aiprov:ladderPosition 6 .
-
 verif:needs-research a aiprov:VerificationState ;
     rdfs:label "needs research"@en ;
     rdfs:comment "A check was attempted or demanded and did not succeed (e.g. DOI did not resolve). Must not be cited or relied upon until re-verified."@en ;
@@ -2730,6 +2748,12 @@ agent:github-actions a aiprov:ToolAgent ;
     dcterms:source <https://elib.dlr.de/224241/> ;
     aiprov:verificationState verif:human-confirmed .
 
+verif:human-read a aiprov:VerificationState ;
+    rdfs:label "human-read"@en ;
+    rdfs:comment "A HUMAN has read the source in full. Top of the ladder; consolidates the former lit-read rung. Human-only: an AI agent must never grant this rung."@en ;
+    skos:altLabel "lit-read"@en ;
+    aiprov:ladderPosition 6 .
+
 aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;
     rdfs:comment "An LLM- or ML-driven agent participating in artefact production."@en ;
@@ -2815,15 +2839,6 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:doi "https://doi.org/10.62628/idta.01001-3-1-1"^^xsd:anyURI ;
     aiprov:verificationState verif:human-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> a aiprov:Source ;
-    rdfs:label "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing"@en ;
-    dcterms:date "2023" ;
-    dcterms:isPartOf "Cureus" ;
-    aiprov:contentHash "sha256:f17aff07c48774946a491a508a9c1be7d5e9298810e2dd4ca2e61afe02d26e15" ;
-    aiprov:doi "https://doi.org/10.7759/cureus.35179"^^xsd:anyURI ;
-    aiprov:filePath "doc/sources/ai-hallucination2023.pdf" ;
-    aiprov:verificationState verif:source-vendored .
-
 <https://noheton.org/f-ai2-r/prov/source/better-architecture2025> a aiprov:Source ;
     rdfs:label "Better Architecture, Better Software, Better Research"@en ;
     dcterms:date "2025" ;
@@ -2854,15 +2869,6 @@ aiprov:HumanAgent a owl:Class ;
     dcterms:isPartOf "Communications of the ACM" ;
     aiprov:doi "https://doi.org/10.1145/3458723"^^xsd:anyURI ;
     aiprov:verificationState verif:human-confirmed .
-
-<https://noheton.org/f-ai2-r/prov/source/doctors-vs-algorithms2026> a aiprov:Source ;
-    rdfs:label "Doctors vs. Algorithms: Physicians, too, struggle to learn from evidence that contradicts AI suggestions"@en ;
-    dcterms:date "2026" ;
-    dcterms:isPartOf "PLOS Digital Health" ;
-    aiprov:contentHash "sha256:46486f54f44dc1208b4e84daa061a342af8125444cbf6b7332604ee496d2c99d" ;
-    aiprov:doi "https://doi.org/10.1371/journal.pdig.0001490"^^xsd:anyURI ;
-    aiprov:filePath "doc/sources/doctors-vs-algorithms2026.pdf" ;
-    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/fabricated-citations2023> a aiprov:Source ;
     rdfs:label "Fabrication and errors in the bibliographic citations generated by ChatGPT"@en ;
@@ -3151,6 +3157,24 @@ aiprov:Contribution a owl:Class ;
     aiprov:contentHash "sha256:be480c648fbedb68fd4dd11e1e27910ba8090488d0ca113a40dfe47a858b9842" ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
     aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> a aiprov:Source ;
+    rdfs:label "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing"@en ;
+    dcterms:date "2023" ;
+    dcterms:isPartOf "Cureus" ;
+    aiprov:contentHash "sha256:f17aff07c48774946a491a508a9c1be7d5e9298810e2dd4ca2e61afe02d26e15" ;
+    aiprov:doi "https://doi.org/10.7759/cureus.35179"^^xsd:anyURI ;
+    aiprov:filePath "doc/sources/ai-hallucination2023.pdf" ;
+    aiprov:verificationState verif:human-read .
+
+<https://noheton.org/f-ai2-r/prov/source/doctors-vs-algorithms2026> a aiprov:Source ;
+    rdfs:label "Doctors vs. Algorithms: Physicians, too, struggle to learn from evidence that contradicts AI suggestions"@en ;
+    dcterms:date "2026" ;
+    dcterms:isPartOf "PLOS Digital Health" ;
+    aiprov:contentHash "sha256:46486f54f44dc1208b4e84daa061a342af8125444cbf6b7332604ee496d2c99d" ;
+    aiprov:doi "https://doi.org/10.1371/journal.pdig.0001490"^^xsd:anyURI ;
+    aiprov:filePath "doc/sources/doctors-vs-algorithms2026.pdf" ;
+    aiprov:verificationState verif:human-read .
 
 <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.8: automatic conversation logging — export_transcript.py renders the session record to doc/transcripts (images/oversized payloads omitted); repository Stop hook regenerates it every turn so the conversation rides into history with each commit; paper preview now also renders the per-section structure skeletons beneath the typeset pages (operator noticed the comment-based structure pass was invisible in the PDF)"@en ;
