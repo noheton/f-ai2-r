@@ -614,6 +614,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-usco-ai-copyrightability2025-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of usco-ai-copyrightability2025: source-vendored -> human-confirmed (confirmed.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #21 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T08:49:12.752027+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-usco-ai-copyrightability2025-source-vendored> a aiprov:AuditPass ;
     rdfs:label "Promotion of usco-ai-copyrightability2025: ai-confirmed -> source-vendored"@en ;
     prov:endedAtTime "2026-07-25T18:39:30.047670+00:00"^^xsd:dateTime ;
@@ -2584,13 +2592,6 @@ agent:github-actions a aiprov:ToolAgent ;
     dcterms:source <https://elib.dlr.de/224241/> ;
     aiprov:verificationState verif:human-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> a aiprov:Source ;
-    rdfs:label "Copyright and Artificial Intelligence, Part 2: Copyrightability (Report of the Register of Copyrights)"@en ;
-    dcterms:source <https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf> ;
-    aiprov:contentHash "sha256:30889d027cb7ec5b1e29919f26b1603ae691db6e77472acb270a2f8b8e540947" ;
-    aiprov:filePath "doc/sources/usco-ai-copyrightability2025.pdf" ;
-    aiprov:verificationState verif:source-vendored .
-
 aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;
     rdfs:comment "An LLM- or ML-driven agent participating in artefact production."@en ;
@@ -2827,6 +2828,13 @@ aiprov:HumanAgent a owl:Class ;
     dcterms:source <https://www.gesetze-im-internet.de/urhg/__2.html> ;
     aiprov:contentHash "sha256:934c52dbc789f46a65d1ee8ab5f01c23389bb3a16674d5671d72cbe98336a513" ;
     aiprov:filePath "doc/sources/urhg-para2.html" ;
+    aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> a aiprov:Source ;
+    rdfs:label "Copyright and Artificial Intelligence, Part 2: Copyrightability (Report of the Register of Copyrights)"@en ;
+    dcterms:source <https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf> ;
+    aiprov:contentHash "sha256:30889d027cb7ec5b1e29919f26b1603ae691db6e77472acb270a2f8b8e540947" ;
+    aiprov:filePath "doc/sources/usco-ai-copyrightability2025.pdf" ;
     aiprov:verificationState verif:human-confirmed .
 
 aiprov:Contribution a owl:Class ;
