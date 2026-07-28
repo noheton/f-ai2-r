@@ -344,6 +344,12 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/uncertainty-prov2026> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-unhide-helmholtz-kg-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of unhide-helmholtz-kg: reference-resolved -> ai-confirmed (Content checked at abstract depth (full abstract via Springer chapter page; Springer's auth wall blocked direct DOI negotiation, OpenAlex carried no abstract for this work - access path recorded): 'The Helmholtz Knowledge Graph aggregates metadata about digital assets and research output from the various institutional and siloed digital infrastructures within the Helmholtz association ... It is used to drive change towards better metadata practices, increase visibility of data and provide useful data-based services.' Broder, Preuss, D'Mello, Fathalla, Hofmann, Sandfeld; ESWC 2024 Satellite Events, LNCS, pp. 183-187. Supports the dilution-section sentence that research infrastructures treat metadata quality as their central lever, and concretely that the deployed remedy is graph-shaped.)"@en ;
+    prov:endedAtTime "2026-07-28T05:57:04.134676+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/unhide-helmholtz-kg> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-urhg-para2-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of urhg-para2: reference-resolved -> ai-confirmed (Content checked against the official gesetze-im-internet.de text: § 2 Abs. 2 UrhG reads verbatim 'Werke im Sinne dieses Gesetzes sind nur persoenliche geistige Schoepfungen' - only personal intellectual creations are works, which excludes output lacking a personal (human) creation from protection. Supports the German-law sentence in the copyright paragraph. Statute-text depth.)"@en ;
     prov:endedAtTime "2026-07-25T18:45:24.089111+00:00"^^xsd:dateTime ;
@@ -572,6 +578,12 @@
     rdfs:label "DOI verification of src:ultrasonic-welding2025 via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T20:45:01.391020+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/ultrasonic-welding2025> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-unhide-helmholtz-kg> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:unhide-helmholtz-kg via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-28T05:51:04.196080+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/unhide-helmholtz-kg> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/claim/c1> a aiprov:Claim ;
@@ -2189,6 +2201,13 @@ agent:github-actions a aiprov:ToolAgent ;
     dcterms:isPartOf "Composites Part A: Applied Science and Manufacturing" ;
     dcterms:source <https://elib.dlr.de/220058/> ;
     aiprov:doi "https://doi.org/10.1016/j.compositesa.2025.109194"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/unhide-helmholtz-kg> a aiprov:Source ;
+    rdfs:label "The Helmholtz Knowledge Graph: Driving the Transition Towards a FAIR Data Ecosystem in the Helmholtz Association"@en ;
+    dcterms:date "2025" ;
+    dcterms:isPartOf "Lecture Notes in Computer Science The Semantic Web: ESWC 2024 Satellite Events" ;
+    aiprov:doi "https://doi.org/10.1007/978-3-031-78952-6_23"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> a aiprov:Source ;
