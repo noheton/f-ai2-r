@@ -423,7 +423,21 @@ def _fetch_doi(doi: str) -> dict | None:
                 return meta
         except Exception:
             continue
-    return None
+    # DataCite-registered DOIs (e.g. arXiv's 10.48550 namespace) are not
+    # in Crossref/OpenAlex; doi.org content negotiation covers them.
+    try:
+        req = urllib.request.Request(
+            "https://doi.org/" + doi,
+            headers={"Accept": "application/vnd.citationstyles.csl+json",
+                     "User-Agent": "aiprov-provlog/0.1 (mailto:ops@example.org)"})
+        with urllib.request.urlopen(req, timeout=20) as r:
+            d = _json.loads(r.read())
+        issued = (d.get("issued", {}).get("date-parts") or [[None]])[0][0]
+        return {"title": d.get("title"), "year": issued,
+                "container": d.get("container-title"),
+                "source_api": "doi.org negotiation", "doi": doi}
+    except Exception:
+        return None
 
 
 def _set_state(g: Graph, base: str, node, state: str) -> None:
@@ -606,6 +620,43 @@ def cmd_search(a) -> None:
     for e in errors:
         print("  (backend unavailable:", e + ")")
     print("Next: provlog.py source --id <slug> --doi <doi> --verify --agent <id>")
+
+
+def cmd_hashes(a) -> None:
+    """Re-hash every vendored file against the digests recorded in the
+    graph - the auditor check: literature evidence (doc/sources/) must
+    match exactly; repository-internal artefacts may differ, their hash
+    pins the promotion-time version and git history reconciles."""
+    import hashlib
+    g = load()
+    bad = total = 0
+    rows = []
+    for s in g.subjects(RDF.type, AIPROV.Source):
+        files = [str(f) for f in g.objects(s, AIPROV.filePath)]
+        if not files:
+            continue
+        sid = str(s).rsplit("/", 1)[-1]
+        hashes = [str(h).removeprefix("sha256:")
+                  for h in g.objects(s, AIPROV.contentHash)]
+        for f in files:
+            total += 1
+            p = pathlib.Path(f)
+            lit = f.startswith("doc/sources/") and not f.endswith("VERIFICATION.md")
+            if not p.exists():
+                rows.append((sid, f, "MISSING")); bad += 1
+            elif not hashes:
+                rows.append((sid, f, "NO-HASH")); bad += 1
+            elif hashlib.sha256(p.read_bytes()).hexdigest() in hashes:
+                rows.append((sid, f, "match"))
+            elif lit:
+                rows.append((sid, f, "DIFFERS (evidence!)")); bad += 1
+            else:
+                rows.append((sid, f, "differs (living file; see git history)"))
+    for sid, f, st in sorted(rows):
+        print(f"  {sid:34s} {f:44s} {st}")
+    print(f"{total} vendored files checked; {bad} problem(s) "
+          f"(missing, unhashed, or literature-evidence mismatch)")
+    sys.exit(1 if bad else 0)
 
 
 def cmd_source(a) -> None:
@@ -909,6 +960,7 @@ def main() -> None:
     s.add_argument("--state", default="unverified")
 
     sub.add_parser("validate"); sub.add_parser("report")
+    sub.add_parser("hashes")
 
     s = sub.add_parser("disclosure")
     s.add_argument("--format", choices=["tex", "md"], default="md")
@@ -957,7 +1009,7 @@ def main() -> None:
     if a.cmd != "init" and a.base == DEFAULT_BASE:
         a.base = _detect_base() or a.base  # reuse the base the graph was seeded with
     {"init": cmd_init, "agent": cmd_agent, "log": cmd_log,
-     "claim": cmd_claim, "validate": cmd_validate, "report": cmd_report,
+     "claim": cmd_claim, "validate": cmd_validate, "hashes": cmd_hashes, "report": cmd_report,
      "extract": cmd_extract, "source": cmd_source, "promote": cmd_promote,
      "search": cmd_search, "disclosure": cmd_disclosure}[a.cmd](a)
 

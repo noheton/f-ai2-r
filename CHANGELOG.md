@@ -1,5 +1,37 @@
 # Changelog — ai-provenance skill
 
+## v0.21 (2026-07-28)
+
+- **Hash audit as a command.** New `provlog.py hashes` re-hashes every
+  vendored file against the recorded digests, tiered: literature
+  evidence under `doc/sources/` must match exactly (exit 1 on
+  mismatch, missing file, or missing hash), repository-internal
+  artefacts may differ — their hash pins the promotion-time version
+  and git history reconciles. Born from running the section-5 auditor
+  check for real (27 files, all evidence intact, one unhashed
+  registration repaired).
+- **DataCite DOIs resolve.** `source --verify` falls back to doi.org
+  content negotiation when Crossref/OpenAlex miss (arXiv's 10.48550
+  namespace), instead of parking real DOIs at needs-research. Also:
+  sanitize registry BibTeX before committing — publisher titles can
+  leak HTML tags into LaTeX.
+- **Deep rungs where the argument leans.** Guidance: suggest
+  `human-read` first for the sources the core claims ride on; the
+  relevance ordering names them. Exercised: the experiment's first
+  two rung-6 grants landed on the automation-bias evidence and the
+  machine-failure-modes premise.
+- **Reported vs formalized.** When an operator deliberately leaves
+  rungs ungranted for demonstration, record their blanket statement
+  and disclose the distinction wherever the ladder is shown: the
+  graph records grants; statements stay statements.
+- **Repricing is comparison, not counterfactual.** Extending the
+  derived-numbers rule: repricing recorded consumption at another
+  model's published rates is legitimate with the basis disclosed — it
+  compares price bases, never runs. The dashboard now charts claims
+  and sources ladders separately. Figure-describing prose is
+  re-checked whenever a screenshot regenerates (captions drift
+  silently).
+
 ## v0.20 (2026-07-28)
 
 - **Incorporation reads the whole thread.** When absorbing

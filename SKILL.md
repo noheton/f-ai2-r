@@ -81,11 +81,21 @@ F(AI)²R carry over unchanged:
 5. **Validate before committing**: `provlog.py validate` — exits non-zero on
    parentless or unattributed claims or AI-granted human-only rungs; the
    scaffolded CI runs it on every push, so it is also enforced server-side.
+   Periodically run `provlog.py hashes`: it re-hashes every vendored file
+   against the recorded digests — literature evidence under
+   `doc/sources/` must match exactly (a mismatch is an audit failure),
+   while repository-internal artefacts may differ, their hash pinning
+   the promotion-time version with git history reconciling the
+   evolution. Every registered source with a file should carry a hash.
 6. **Find and verify sources**: `provlog.py search --query "..."` sweeps
    Crossref, OpenAlex, arXiv, and DataCite (open APIs, no key); register
    picks with `provlog.py source --id <slug> --doi <doi> --verify --agent
    <id>` which resolves the DOI and promotes to `reference-resolved`.
-   Before requesting human confirmation of a source, hand over the
+   DOIs outside Crossref/OpenAlex (e.g. arXiv's DataCite namespace)
+   resolve through the doi.org content-negotiation fallback; sanitize
+   registry BibTeX before committing it (publisher titles can leak HTML
+   tags like `<i>` into LaTeX). Before requesting human confirmation of
+   a source, hand over the
    evidence: `promote --to source-vendored --file <path>` records the
    vendored copy (path + sha256), or make sure a clear DOI/URL is on the
    node — vendoring has no evidential value of its own; it is the access
@@ -120,7 +130,16 @@ F(AI)²R carry over unchanged:
    execute the recorded judgement from the issue body identically,
    note the failed run in the promotion note, then reply and close.
    An operator's granted judgement must never be silently dropped by
-   an infrastructure race. Two practices
+   an infrastructure race.
+   Guide the deepest rungs to where the argument leans hardest: suggest
+   `human-read` first for the sources the text's core claims ride on
+   (the relevance ordering names them). If the operator deliberately
+   leaves rungs ungranted for demonstration, record their blanket
+   statement and disclose the reported-vs-formalized distinction where
+   the ladder is shown; the graph records grants, statements stay
+   statements. When screenshots or figures are regenerated, re-check
+   the prose that describes them — captions and setup paragraphs drift
+   silently when the image changes underneath them. Two practices
    that pay off early: ask the operator to confirm **self-cited
    sources** first (for works they authored, their judgement is
    uniquely authoritative and costs them least effort), and when a
@@ -194,7 +213,7 @@ terms).
 | `assets/aiprov-schema.ttl` | Full vocabulary: agent/activity/entity classes + all attributes + verification ladder | Seeding, hand-editing, extending |
 | `assets/ci/aiprov-build.yml` | GitHub Actions template: validate graph, build dashboard, compile LaTeX paper to PDF, upload artifacts | Scaffolded by `init --ci` |
 | `assets/ci/aiprov-release.yml` | GitHub Actions template: on `v*` tags, conformance-gated GitHub Release with PDF + graph + dashboard + metrics + skill bundle + sha256 checksums | Scaffolded by `init --ci` |
-| `scripts/provlog.py` | CLI: init / agent / log / claim / validate / report / search / source / promote / disclosure / extract | Always — prefer it over hand-writing Turtle |
+| `scripts/provlog.py` | CLI: init / agent / log / claim / validate / hashes / report / search / source / promote / disclosure / extract | Always — prefer it over hand-writing Turtle |
 | `references/attributes.md` | Attribute catalogue with provider-API field mappings | Filling telemetry correctly |
 | `scripts/build_dashboard.py` | Self-contained HTML dashboard from provenance.ttl | Presenting results |
 | `scripts/export_transcript.py` | Session → `doc/transcripts/<session>.md` + `--usage` token aggregation (Claude Code session format; see Portability) | Transcript-as-artifact, token backfill |
@@ -259,7 +278,11 @@ the activity label or promotion note. Prefer committing the measurement script
 or making the computation reproducible from the record. Counterfactuals ("what
 this would have cost without AI") are not measurable from the record and are
 not estimated — omit-don't-estimate applies to them in full. An unexplained
-number is treated the same as a fabricated one.
+number is treated the same as a fabricated one. Repricing recorded
+consumption at another provider's or model's published rates is a
+legitimate computation when the basis is disclosed and the claim is
+scoped honestly: it compares price bases, never runs — consumption
+under a different model is a counterfactual and stays unestimated.
 
 **Demonstrations run on copies.** The live graph records only events that
 actually happened. To show the operator how the tooling behaves — a refusal,
