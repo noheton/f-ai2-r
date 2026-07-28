@@ -550,6 +550,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/uncertainty-prov2026> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-uncertainty-prov2026-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of uncertainty-prov2026: ai-confirmed -> human-confirmed (confirmed.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #19 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T08:37:02.580227+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/uncertainty-prov2026> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-unhide-helmholtz-kg-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of unhide-helmholtz-kg: reference-resolved -> ai-confirmed (Content checked at abstract depth (full abstract via Springer chapter page; Springer's auth wall blocked direct DOI negotiation, OpenAlex carried no abstract for this work - access path recorded): 'The Helmholtz Knowledge Graph aggregates metadata about digital assets and research output from the various institutional and siloed digital infrastructures within the Helmholtz association ... It is used to drive change towards better metadata practices, increase visibility of data and provide useful data-based services.' Broder, Preuss, D'Mello, Fathalla, Hofmann, Sandfeld; ESWC 2024 Satellite Events, LNCS, pp. 183-187. Supports the dilution-section sentence that research infrastructures treat metadata quality as their central lever, and concretely that the deployed remedy is graph-shaped.)"@en ;
     prov:endedAtTime "2026-07-28T05:57:04.134676+00:00"^^xsd:dateTime ;
@@ -2275,11 +2283,6 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:selfCitation true ;
     aiprov:verificationState verif:human-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/uncertainty-prov2026> a aiprov:Source ;
-    rdfs:label "An Uncertainty-Aware Provenance Framework for Enhanced Traceability in Engineering Systems"@en ;
-    dcterms:source <https://elib.dlr.de/224241/> ;
-    aiprov:verificationState verif:ai-confirmed .
-
 aiprov:ToolAgent a owl:Class ;
     rdfs:label "Deterministic tool"@en ;
     rdfs:comment "Non-AI software (compiler, linter, CI job) acting in the pipeline."@en ;
@@ -2555,6 +2558,11 @@ agent:github-actions a aiprov:ToolAgent ;
     dcterms:source <https://elib.dlr.de/220058/> ;
     aiprov:doi "https://doi.org/10.1016/j.compositesa.2025.109194"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/uncertainty-prov2026> a aiprov:Source ;
+    rdfs:label "An Uncertainty-Aware Provenance Framework for Enhanced Traceability in Engineering Systems"@en ;
+    dcterms:source <https://elib.dlr.de/224241/> ;
+    aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> a aiprov:Source ;
     rdfs:label "Copyright and Artificial Intelligence, Part 2: Copyrightability (Report of the Register of Copyrights)"@en ;
