@@ -33,9 +33,13 @@ inference logs and repository-side commit binding, each referencing
 the other's hashes, so that falsifying the record requires collusion
 between independent parties with separately published histories, the
 same trust structure as certificate transparency or double-entry
-bookkeeping. aiprov supplies one witness and the seam for the
-second; signed provenance is the strongest standing ask this paper
-directs at providers.
+bookkeeping. A third witness is nearly free: anchoring each release's
+checksums in an append-only public log (certificate-transparency
+style, or a distributed ledger) makes retroactive rewriting of the
+repository history detectable without trusting its host, though
+anchoring, like signing, certifies existence, never truth. aiprov
+supplies one witness and the seam for the others; signed provenance
+is the strongest standing ask this paper directs at providers.
 
 \textbf{Why human-only rungs stay human.} \texttt{ai-confirmed} is a
 machine judgement with known failure
