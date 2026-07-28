@@ -13,8 +13,8 @@ abstract: >-
   verification ladder with human-only rungs, a conformance validator
   suitable as a CI gate, and packaging as an executable Agent Skill that an
   AI agent operates itself. Generalized from the F(AI)²R experiment.
-version: 0.16.0
-date-released: "2026-07-26"
+version: 0.17.0
+date-released: "2026-07-28"
 license: Apache-2.0
 repository-code: "https://github.com/noheton/f-ai2-r"
 authors:

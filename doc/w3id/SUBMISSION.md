@@ -1,5 +1,10 @@
 # Registering https://w3id.org/aiprov — operator runbook
 
+> **Status: deferred by operator decision (2026-07-28).** Registration
+> waits for community feedback on the vocabulary, so the permanent
+> identifier freezes after, not before, its first external review.
+> The paper lists this under future work.
+
 The paper's vocabulary namespace `https://w3id.org/aiprov/ns#` must
 resolve (FAIR F1/A1; flagged by review). w3id.org identifiers are
 registered by pull request to the community repository; the PR must
