@@ -1061,12 +1061,15 @@
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012>,
         <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160>,
+        <https://noheton.org/f-ai2-r/prov/activity/s81-retitle> ;
     aiprov:contentHash "sha256:425e1445fd8c26066ef35d3204d67db8ba3efcedabcc78a07bd342630ab16258",
         "sha256:578727823e5f494d7c07acc3b871c5c582560de43f1b509988f8b90200fd7513",
+        "sha256:c2de2aacba3777c1e188af9bf3586530ce8ffa16d1f51f2dd0fd9f4b91f90496",
         "sha256:f1758cc6b965ff81c525d0256877aa07a25e6e2850187b092a63fe8537dcf181" ;
     aiprov:filePath "CITATION.cff" ;
     aiprov:gitCommit "8984dcb",
+        "932815f187bfcfe585e84442be12d5041e2be116",
         "a59c1de",
         "dbed058" .
 
@@ -1345,12 +1348,15 @@
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012>,
         <https://noheton.org/f-ai2-r/prov/activity/s55-consistency-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s58-release-v0160>,
+        <https://noheton.org/f-ai2-r/prov/activity/s81-retitle> ;
     aiprov:contentHash "sha256:21f48c6fd645f3a9103314dd87d3569703a1ba81216c1f05fa4a4d89d8b35734",
+        "sha256:a26b55ce18973bd46b0c498f236d42d675525198ab9bcd5aa70fd87b3266c4ce",
         "sha256:d217a2538acf9254d7378eba10e37087fea72d374b5975ff9e1c265f8104c11a",
         "sha256:f53d4bc8fade2754cfb3c3201a6f43ca60cd22674dc51d8d29a2dbb00d625f90" ;
     aiprov:filePath "codemeta.json" ;
     aiprov:gitCommit "8984dcb",
+        "932815f187bfcfe585e84442be12d5041e2be116",
         "a59c1de",
         "dbed058" .
 
@@ -1426,12 +1432,14 @@
         <https://noheton.org/f-ai2-r/prov/activity/s23-incident-figure>,
         <https://noheton.org/f-ai2-r/prov/activity/s26-memas-inspiration>,
         <https://noheton.org/f-ai2-r/prov/activity/s41-expand-compress-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s51-style-pass> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s51-style-pass>,
+        <https://noheton.org/f-ai2-r/prov/activity/s81-retitle> ;
     aiprov:contentHash "sha256:292ee450094d64465800f568cc319a3a5839d697137d2d8497eedb2cbb9587e8",
         "sha256:2bf4f82e8c20375dd1f6a64b9213d60e71822d3592fb9facb54c6ed3ca1fa160",
         "sha256:31a7ad8196528484eb264b1d7cf0b737b49554499f3d14a83e7fd3713fb24a76",
         "sha256:60ae56b3f363c97288866ce11315e8cc911ebf22e2245c97388417c83d3956a0",
         "sha256:7ee7c6fa5c92b16acdaf2cda35b1c4bdf20ae0bf591dd05c7f05a8c8b2e097f7",
+        "sha256:b2a4c3be0e2de6b9808f1dff794cf9f4f06d71dcb1da4bb6ea6838361e9af019",
         "sha256:bb3577f785bcdd3a56265f5c96af83b5b1d455f3b64f8574a95251a87b77300e",
         "sha256:c1f73aca74f5645d10385d70c662474ab94214785f60aab02abe638eae29d3f9",
         "sha256:c8a88d99a491d9629cc05d30fa8ba2706aed425673c59a17129d1ffd2f2f57de",
@@ -1445,7 +1453,8 @@
         "paper/main.tex" ;
     aiprov:gitCommit "1aaab86",
         "390d3af",
-        "4c17c02faf15034458e93ddecd1d8da829020f3e" .
+        "4c17c02faf15034458e93ddecd1d8da829020f3e",
+        "932815f187bfcfe585e84442be12d5041e2be116" .
 
 <https://noheton.org/f-ai2-r/prov/entity/metrics-json> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -1462,7 +1471,8 @@
         <https://noheton.org/f-ai2-r/prov/activity/s76-unhide-citation>,
         <https://noheton.org/f-ai2-r/prov/activity/s77-third-witness>,
         <https://noheton.org/f-ai2-r/prov/activity/s78-figure5-and-copy-buttons>,
-        <https://noheton.org/f-ai2-r/prov/activity/s79-operator-grants-shepard-scope> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s79-operator-grants-shepard-scope>,
+        <https://noheton.org/f-ai2-r/prov/activity/s81-retitle> ;
     aiprov:contentHash "sha256:0ecac01dd6686d42494449da9932c34ddfe521a456f3c9b7396fc334e7cbb893",
         "sha256:10d28f1f212df1d22fe9c87daf1cdd317d7e633b5b230ed0965de50505baa6a0",
         "sha256:111b02d4bc097e1164f5c819d09a0255669c5b48eb304726d78b25cc680d58da",
@@ -1475,6 +1485,7 @@
         "sha256:77e4330efe63279c63148a14d3620cd979708ec55a70ed9f151e78b10130f55a",
         "sha256:a07a8f86ead8227a8200f1519bbdc1070f55c16107ef3279cf07f22f6d68d8cd",
         "sha256:a8627d096b9424fc9265f5112b953c88d1d5ed4371d36554f76c74efaec7ed6b",
+        "sha256:b7c918b338c8bebe055ad0010a12446a6b222cd31b06b050ca3af5cf31a145e9",
         "sha256:bf4114e45fe71a636bdeb499e1cc3c48ff29fd75ce225b75cfde250de17d1f5c",
         "sha256:c555b41351941744ebc59416185c19cdc80600d219e56e53fe78d167b37efcab" ;
     aiprov:filePath "doc/metrics.json" ;
@@ -1485,6 +1496,7 @@
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "8a1fec40853cc73078522d14a3ae354e742a29a5",
         "8e9da5a340bd523bb56269fdd6bf705855a2cf24",
+        "932815f187bfcfe585e84442be12d5041e2be116",
         "989debe6507fc22672536a30c4912eac62120c2b",
         "9fba76d",
         "a59c1de",
@@ -1508,11 +1520,13 @@
         <https://noheton.org/f-ai2-r/prov/activity/s76-unhide-citation>,
         <https://noheton.org/f-ai2-r/prov/activity/s77-third-witness>,
         <https://noheton.org/f-ai2-r/prov/activity/s78-figure5-and-copy-buttons>,
-        <https://noheton.org/f-ai2-r/prov/activity/s79-operator-grants-shepard-scope> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s79-operator-grants-shepard-scope>,
+        <https://noheton.org/f-ai2-r/prov/activity/s81-retitle> ;
     aiprov:contentHash "sha256:0f9259f939d9575550b674e2bcc252d388f372c42a26ad7138deba6fa67b28d3",
         "sha256:1b3edb4234474b2f0fc93dfb1b0447feb1e13f049ede37f460c2f1e5b03c480d",
         "sha256:1d22e6fd2ac682c9531be9f5db5f02c23c41d29582529d96a34c1c5e0d3a828e",
         "sha256:1f2a47ea9d6145ad21cbc9b2fb726bd95598ee0f4a736611be2a5b33c6dc40ea",
+        "sha256:22c190df8c4a5a9194224b2274e47c1a1f6f65f97ec5a438b069e23be7981a54",
         "sha256:244ea7e023117fe07d592c6360f53a0beda305e31b3b1dd28c19698a7065ef3c",
         "sha256:398f03d4d708b71e7c169a0aab509b3a18e17f8ea87c5740804ed0daa6af8438",
         "sha256:4b9cf6fe370d9c66f5723a6fea08c62e3241e15937caac75030af232dcf22de9",
@@ -1531,6 +1545,7 @@
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "8a1fec40853cc73078522d14a3ae354e742a29a5",
         "8e9da5a340bd523bb56269fdd6bf705855a2cf24",
+        "932815f187bfcfe585e84442be12d5041e2be116",
         "989debe6507fc22672536a30c4912eac62120c2b",
         "9fba76d",
         "a59c1de",
@@ -1551,13 +1566,16 @@
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure>,
         <https://noheton.org/f-ai2-r/prov/activity/s06-dilution-section>,
         <https://noheton.org/f-ai2-r/prov/activity/s11-lineage>,
-        <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
+        <https://noheton.org/f-ai2-r/prov/activity/s81-retitle> ;
     aiprov:contentHash "sha256:a838082ac04e5aaac030ec3ff16580b747b6472d23ce4128e8367fab4f9dfcdc",
+        "sha256:b2512f083bbf9e4c4c5bd786d9b9474d737613e9730a64014852466a0f820ed8",
         "sha256:c6e1556d96b58e3f4aea5d888bdb9dcb1728ee52539f8be1787e8f3b1f98f182",
         "sha256:cc5ff625615d81b71203a724293bf316b362419917e3bc67ce708bdd24ea1f25",
         "sha256:d2cccd2848f7ac185a8db58b04e6f3eb7a40d2a0252b635ccd7e359c5776c1a2" ;
     aiprov:filePath "paper/outline.md" ;
-    aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e" .
+    aiprov:gitCommit "4c17c02faf15034458e93ddecd1d8da829020f3e",
+        "932815f187bfcfe585e84442be12d5041e2be116" .
 
 <https://noheton.org/f-ai2-r/prov/entity/package_skill-sh> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
@@ -2022,6 +2040,9 @@ aiprov:verificationState a owl:ObjectProperty ;
     rdfs:label "HMC Conference 2025 — Book of Abstracts (Helmholtz Metadata Collaboration)"@en ;
     dcterms:source <https://helmholtz-metadaten.de/storage/2298/HMC-Conference_2025_Book-of-Abstracts.pdf> ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/main-tex> a aiprov:Source ;
+    aiprov:filePath "paper/main.tex" .
 
 <https://noheton.org/f-ai2-r/prov/source/obscurity-is-dead> a aiprov:Source ;
     rdfs:label "Obscurity Is Dead — Proprietary by Design, Open by AI (research repository)"@en ;
@@ -2726,6 +2747,12 @@ aiprov:Contribution a owl:Class ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/05-skill-tex>,
         <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex>,
         <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/s81-retitle> a aiprov:AuthoringPass ;
+    rdfs:label "Operator requested title alternatives keeping the F(AI)2R brand and chose option 1: 'F(AI)2R: Who Did What, and Who Checked? Verifiable AI Provenance as an Executable Skill'. The acronym expansion (FAIR research with AI in the loop, twice) stays as the abstract's first sentence and the introduction's opening. Carried through paper title, CITATION.cff preferred-citation, codemeta referencePublication, outline, preview, and the regenerated arXiv bundle."@en ;
+    prov:endedAtTime "2026-07-28T06:22:44.846643+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/main-tex> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> a aiprov:Source ;
