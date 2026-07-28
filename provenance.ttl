@@ -416,6 +416,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/rocrate2022> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-rocrate2022-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of rocrate2022: ai-confirmed -> human-confirmed (trivial.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #4 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T07:55:55.379452+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/rocrate2022> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-shepard-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of shepard: reference-resolved -> ai-confirmed (Content checked against the Zenodo record (10.5281/zenodo.17897485, v5.1.2, published 2025-12-02; concept DOI 10.5281/zenodo.5091603): 'shepard is a storage for heterogeneous product and research data... The integrated data management system shepard developed at DLR simplifies the acquisition and processing of this data' - supports the citing sentence in the conclusion verbatim. Record lists Florian Krebs as contributor (sponsor role), so the source is now marked aiprov:selfCitation, replacing the previous link-only gitlab registration with a DOI-carrying archived release. Record-page depth.)"@en ;
     prov:endedAtTime "2026-07-26T05:28:16.124787+00:00"^^xsd:dateTime ;
@@ -2500,13 +2508,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1162/qss_a_00327"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/rocrate2022> a aiprov:Source ;
-    rdfs:label "Packaging research artefacts with RO-Crate"@en ;
-    dcterms:date "2022" ;
-    dcterms:isPartOf "Data Science" ;
-    aiprov:doi "https://doi.org/10.3233/ds-210053"^^xsd:anyURI ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/ultrasonic-welding2025> a aiprov:Source ;
     rdfs:label "Investigation of power and amplitude control in continuous ultrasonic welding of unidirectional CFRPs: A comparative study"@en ;
     dcterms:date "2025" ;
@@ -2655,6 +2656,13 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:contentHash "sha256:17697a107e1696454a5851cf128848adee0bf0ebcc97b4fdb3101d38b2149602" ;
     aiprov:filePath "paper-preview.html" ;
     aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/rocrate2022> a aiprov:Source ;
+    rdfs:label "Packaging research artefacts with RO-Crate"@en ;
+    dcterms:date "2022" ;
+    dcterms:isPartOf "Data Science" ;
+    aiprov:doi "https://doi.org/10.3233/ds-210053"^^xsd:anyURI ;
+    aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/shepard> a aiprov:Source ;
     rdfs:label "shepard - storage for heterogeneous product and research data (v5.1.2, Zenodo archive)"@en,
