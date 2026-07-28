@@ -1332,7 +1332,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s71-skill-v019>,
         <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm>,
         <https://noheton.org/f-ai2-r/prov/activity/s84-forge-neutral-buttons>,
-        <https://noheton.org/f-ai2-r/prov/activity/s86-source-pass-issue-grants> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s86-source-pass-issue-grants>,
+        <https://noheton.org/f-ai2-r/prov/activity/s93-skill-v021> ;
     aiprov:contentHash "sha256:0f6b3e6665b218d527bbcd404b6c45f127596888482cdf7c20f95d48a971f28b",
         "sha256:1a07880cb509cadc91ba052aaa0f637a63594523574561e05e791a82ee58db11",
         "sha256:1db1da7d36fc2177bd5969c097610e0558fcfd1aeca067ea59e86be5adddd2c9",
@@ -1343,6 +1344,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:4c07f3bc89b11e02d73459a8ff27db5c6113bec464b9de67aca5bb9aea8bcf45",
         "sha256:4f78a14ac6f9290f1ac55c2febe2b28f24b6315c8b7b883470e11b9b22c62923",
         "sha256:71f509608baa793c77e8bd9f05d5500cafd18943d3e7aa91c4964ce4c866bb11",
+        "sha256:804b62b93dd7ded997692b5166eb4de0e5ff3ad3d1c3decafab1fb4e16afed03",
         "sha256:8b96ed326fe8afcd8cf7d1c7adf444855f2c7d47ecec4c2b270bd50827650465",
         "sha256:a36e7fbec05e566ca79c60b150a896a9cf5047989b24d40fb962f21c0e654463",
         "sha256:aff3dfa3147f9f4c32c9d1671309ab353d6e594d78cf9132a65ad7f33b72b3c0",
@@ -1361,6 +1363,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "540e2c2",
         "720c9bf",
         "73a11cd",
+        "7d7f04dcb26cc626eb2ad3a87282d8890c8f4e03",
         "80e96c580a482fc7777268d957236c353f8dc083",
         "82ffc86",
         "9375ead",
@@ -1409,7 +1412,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s43-packaging-v012>,
         <https://noheton.org/f-ai2-r/prov/activity/s45-copyright-division>,
         <https://noheton.org/f-ai2-r/prov/activity/s60-vendoring-license>,
-        <https://noheton.org/f-ai2-r/prov/activity/s68-readme-dual-license> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s68-readme-dual-license>,
+        <https://noheton.org/f-ai2-r/prov/activity/s93-skill-v021> ;
     aiprov:contentHash "sha256:11926fc41d2b8907c394b6a91cf2118962a545308f08ace90cd50652f38b1690",
         "sha256:56a60461db27558d2382d3f49f5ed60918c5a9087d0563ef134ee93a99ef2d08",
         "sha256:6f81c25207743e7e34fdbbb1e7c84882f133c107d6269d8f9bdc0a5c0f27b03a",
@@ -1418,6 +1422,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:filePath "README.md" ;
     aiprov:gitCommit "5fd7bf8ab838b3e0a481f21958c5b01f18d6b895",
         "767b64f",
+        "7d7f04dcb26cc626eb2ad3a87282d8890c8f4e03",
         "a0fbb0c638448e9d220ef09da953a271ff3ee331",
         "dbed058",
         "fb1a484" .
@@ -1442,12 +1447,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation>,
         <https://noheton.org/f-ai2-r/prov/activity/s71-skill-v019>,
         <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm>,
-        <https://noheton.org/f-ai2-r/prov/activity/s86-source-pass-issue-grants> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s86-source-pass-issue-grants>,
+        <https://noheton.org/f-ai2-r/prov/activity/s93-skill-v021> ;
     aiprov:contentHash "sha256:090a7be7d3bc8e3657cb69971334ffa70881d6c03b3d6092151040363d8defe7",
         "sha256:1d1c13e88bf3b3ad2623767bc7fe515518ee9faaed9193a44e942b18f7977801",
         "sha256:333e6cfb08385a0003b31e9acdb22e9f83f0bca42fc3b8799e30099d75f7d881",
         "sha256:39715e08fca65e1a38fff74a81880f5a6f1e48b5cd1fb93a5acbe78b62ffef0f",
         "sha256:503f6ea38419390c47520c894c918945d69bdb294f23c1a7e7855336fef02dec",
+        "sha256:56dadd64fbea57ab43573c18920571e900db8887936310ee3eab6903785e140e",
         "sha256:61ef8a6ab60e92f760190169833119b56f57fecab5db0ea9bae938178a2fd15d",
         "sha256:69443814ed35aede2eb15f12893eb55eb94369d8a5e75ec52f2c07ac3b5c4431",
         "sha256:7e4a6cfa8401358ff1c7286f4fcd827d64f64cb1629f4f7aba2f56455b0f92e0",
@@ -1469,6 +1476,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "43af99d",
         "540e2c2",
         "720c9bf",
+        "7d7f04dcb26cc626eb2ad3a87282d8890c8f4e03",
         "82ffc86",
         "9375ead",
         "b387cb9",
@@ -2107,7 +2115,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s57-release-pipeline-v016>,
         <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation>,
         <https://noheton.org/f-ai2-r/prov/activity/s65-pending-content-pass>,
-        <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm>,
+        <https://noheton.org/f-ai2-r/prov/activity/s93-skill-v021> ;
     aiprov:contentHash "sha256:050b861b00097199740a6912116bc116b6f5d443a2b311a31a25b1866cb50e93",
         "sha256:3acdb43dfb1171c8893bd1bf6bd4ede6b4b0ca65a4406e8b1a3a02d7a23f6caa",
         "sha256:4fcf76d42d5ff092249936e72824ab85fd65526f65343af9329732469007a034",
@@ -2116,6 +2125,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:6444b9130086817bc87c05c2a8bb3e8e017f53e5832af9e698aedd559eebbe4e",
         "sha256:81f585aebc425c372a1975cc898f722441a34a92c162f90e0d3ef7ba8a64e4c7",
         "sha256:85bf422e7a66e7e1f9e823b672bb65d9813bb893fa782309c1059a458acfb6d0",
+        "sha256:9556af82a76b32d6faa7dac6226ff6e6bc76d32da40eec5d0c1ee8b8ed809299",
         "sha256:9fb00e85ac68c52c7a85916982a0cda62e990683d76e1fa4bdecceb233200b5a",
         "sha256:ad4c4e608429248b151d9fa97c045a798981abd550766fe3a8555749e3fc02dc",
         "sha256:c4c0c5dddfe77b5f639d71a0b522964929438baa4cd7c40f381e79ec83fa12a0" ;
@@ -2123,6 +2133,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:gitCommit "30839e87e71b86a51db47795a5fc442765934c4b",
         "43af99d",
         "720c9bf",
+        "7d7f04dcb26cc626eb2ad3a87282d8890c8f4e03",
         "9375ead",
         "9fba76d",
         "a0fbb0c638448e9d220ef09da953a271ff3ee331",
@@ -2502,6 +2513,9 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://oecd.ai/en/incidents-methodology> ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/provlog-py> a aiprov:Source ;
+    aiprov:filePath "scripts/provlog.py" .
+
 <https://noheton.org/f-ai2-r/prov/source/resistance-welding2024> a aiprov:Source ;
     rdfs:label "On the capabilities of static resistance welding of carbon fiber-reinforced thermoplastic composites (Endraß et al., ITHEC 2024)"@en ;
     dcterms:source <https://elib.dlr.de/209478/> ;
@@ -2650,11 +2664,6 @@ agent:github-actions a aiprov:ToolAgent ;
 <https://noheton.org/f-ai2-r/prov/source/README-md> a aiprov:Source ;
     aiprov:contentHash "sha256:ed8488f5411c3c61d85829093c083cf0d647c8406b4d1b0700a54695d3c8628b" ;
     aiprov:filePath "README.md" ;
-    aiprov:verificationState verif:source-vendored .
-
-<https://noheton.org/f-ai2-r/prov/source/SKILL-md> a aiprov:Source ;
-    aiprov:contentHash "sha256:b591fae54b529a6858afc190f0bcab63860744b190628bf7bf96d021a25ca0e5" ;
-    aiprov:filePath "SKILL.md" ;
     aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/aas-part1-v30rc02> a aiprov:Source ;
@@ -2849,9 +2858,9 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:filePath "paper/sections/05-skill.tex" ;
     aiprov:verificationState verif:source-vendored .
 
-<https://noheton.org/f-ai2-r/prov/source/CHANGELOG-md> a aiprov:Source ;
-    aiprov:contentHash "sha256:1db1da7d36fc2177bd5969c097610e0558fcfd1aeca067ea59e86be5adddd2c9" ;
-    aiprov:filePath "CHANGELOG.md" ;
+<https://noheton.org/f-ai2-r/prov/source/SKILL-md> a aiprov:Source ;
+    aiprov:contentHash "sha256:b591fae54b529a6858afc190f0bcab63860744b190628bf7bf96d021a25ca0e5" ;
+    aiprov:filePath "SKILL.md" ;
     aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/VERIFICATION-md> a aiprov:Source ;
@@ -3115,6 +3124,19 @@ aiprov:Contribution a owl:Class ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/provenance-ttl>,
         <https://noheton.org/f-ai2-r/prov/source/references-bib> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/s93-skill-v021> a aiprov:AuthoringPass ;
+    rdfs:label "Skill v0.21 on operator request to implement all session learnings. As code: provlog hashes subcommand (tiered vendored-file audit, exit 1 on literature-evidence mismatch or missing hash; verified on the live graph, 27 files clean) and a doi.org content-negotiation fallback in source --verify for DataCite DOIs (verified against arXiv 1706.03762; test registration reverted before commit). As guidance: BibTeX sanitization, deepest-rungs-where-the-argument-leans, reported-vs-formalized disclosure for demonstration rungs, repricing-as-comparison, and figure-prose recheck after screenshot regeneration. CHANGELOG v0.21; command tables updated; bundle repackaged."@en ;
+    prov:endedAtTime "2026-07-28T11:00:53.244303+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/CHANGELOG-md>,
+        <https://noheton.org/f-ai2-r/prov/source/SKILL-md>,
+        <https://noheton.org/f-ai2-r/prov/source/provlog-py> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/source/CHANGELOG-md> a aiprov:Source ;
+    aiprov:contentHash "sha256:1db1da7d36fc2177bd5969c097610e0558fcfd1aeca067ea59e86be5adddd2c9" ;
+    aiprov:filePath "CHANGELOG.md" ;
+    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/attention2017> a aiprov:Source ;
     aiprov:doi "https://doi.org/10.48550/arXiv.1706.03762"^^xsd:anyURI ;
