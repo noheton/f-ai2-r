@@ -1467,8 +1467,10 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s79-operator-grants-shepard-scope>,
         <https://noheton.org/f-ai2-r/prov/activity/s82-attention-citation>,
         <https://noheton.org/f-ai2-r/prov/activity/s86-source-pass-issue-grants>,
-        <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source> ;
-    aiprov:contentHash "sha256:177de4e78f67de86083fd3d3e8b679dbfe4b0244145f9d3013450d851aeac997",
+        <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
+        <https://noheton.org/f-ai2-r/prov/activity/s90-vendored-integrity-audit> ;
+    aiprov:contentHash "sha256:09445d8e7417036c3589fab331352138aa7883065d45339eda0cf00dc91c2d7b",
+        "sha256:177de4e78f67de86083fd3d3e8b679dbfe4b0244145f9d3013450d851aeac997",
         "sha256:19db5ad5930b384cec80e36eb66cb6b96447d9d2a47683c8d544fa60e3ecff9b",
         "sha256:37ef2de85aa50ac1b0ab1a64a78b251e6bc350738f4f487aeaf6deed5199f130",
         "sha256:437de47907cd202eec3f4c3f459eafb36fbcebc544c31b76dcf5c7714ac4c221",
@@ -1485,7 +1487,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:f9058f2613431c3304ca19a7f9dbde308f86ab7da0990f3f2abb1b2c60900a1e",
         "sha256:fb8ca64d527a5ab8dd996c106ef6eca71aac31df370cb2ffe747e73f428fc370" ;
     aiprov:filePath "doc/sources/VERIFICATION.md" ;
-    aiprov:gitCommit "4578a83",
+    aiprov:gitCommit "40010cd47c34a204b2c57a914a7838235b307dd8",
+        "4578a83",
         "48ae6b1c018beac3aed6d9ba9e62d3d2a4d2b60c",
         "5badaf3c53805ddf41aabad11b9c0a1fd4f63910",
         "5ed968a16900d7a554f163408f31040425fe0c35",
@@ -1992,7 +1995,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s82-attention-citation>,
         <https://noheton.org/f-ai2-r/prov/activity/s86-source-pass-issue-grants>,
         <https://noheton.org/f-ai2-r/prov/activity/s87-automation-bias-source>,
-        <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s88-authorship-and-bib-fix>,
+        <https://noheton.org/f-ai2-r/prov/activity/s90-vendored-integrity-audit> ;
     aiprov:contentHash "sha256:1962e4cfb168cab3a02b7fc8f213de06f54ef1593cbe2ebf571954d85adb12e6",
         "sha256:263573bea1a8f430ad31760633aa3931532ca1c6065d928f3be1c6aa792aabb1",
         "sha256:3feb82810dc02a489738eb6ad65d3ebb1b43463b37475ff8362b03dd1ab8b311",
@@ -2004,11 +2008,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:90b1bd88ad320a22c98e2d0d23d94bb601a5abb7754c593d360d6a2f722e9fe1",
         "sha256:a70ea19999d9be8da8834c8d6dcdee9d0f93343db0eb5ba4b164e23de126b5fd",
         "sha256:ac028bddf7b68aca69707016a556a3f8fc29f001d47605b50d5233e543eb17fe",
+        "sha256:af808d62b586b9f47e653ef7766bd72dd39eca66de5d193c677f95a7094c466b",
         "sha256:ce9c9de5d625851abe745fba3fbdb665aecebe34577f6a20048c375602ebb361",
         "sha256:f384cb31d5add6d750d3785ec681a0b66125cb520af69961532aae4888973a16",
         "sha256:f95e21af73b3c7ce8ed5ba2fb3f2df45ef7295710544a35ac8048939ecc5f9d9" ;
     aiprov:filePath "provenance.ttl" ;
-    aiprov:gitCommit "4d32cbc2ded644ffd99060c744aee92e60bed11d",
+    aiprov:gitCommit "40010cd47c34a204b2c57a914a7838235b307dd8",
+        "4d32cbc2ded644ffd99060c744aee92e60bed11d",
         "5badaf3c53805ddf41aabad11b9c0a1fd4f63910",
         "5ed968a16900d7a554f163408f31040425fe0c35",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
@@ -2558,6 +2564,12 @@ aiprov:Transcript a owl:Class ;
     rdfs:label "Operator feedback: rename the confirm button to git issue for GitLab compatibility, and the button did not work in their viewer. Buttons renamed Confirm/Refuse via git issue; the URL builder now emits the GitLab new-issue pattern (/-/issues/new?issue[title]=...) for GitLab remotes and GitHub otherwise; a clipboard fallback stages the issue link when a sandboxed viewer swallows the navigation. Diagnosis: hrefs and script were valid (no page errors; local click navigates), so the failure is the artifact frame's handling of dynamically-created target=_blank anchors - target removed, sanctioned link navigation kept, fallback added. GitLab CI equivalent of the promote workflow remains future work; the issue-body format and parser are forge-agnostic."@en ;
     prov:endedAtTime "2026-07-28T07:46:22.992894+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/build_paper_preview-py> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/s90-vendored-integrity-audit> a aiprov:AuditPass ;
+    rdfs:label "Operator request: check the vendored sources. Re-hashed all 27 vendored files against the digests recorded in the graph, the auditor check described in section 5 run for real. Result: all 7 literature evidence files under doc/sources/ match exactly (ai-hallucination2023, doctors-vs-algorithms2026, fabricated-citations2023, fair2016, gpt-fabricated2024, urhg-para2, usco-ai-copyrightability2025); 12 repository-internal artefacts differ by design, being living files whose recorded hash pins the promotion-time version with git history reconciling the evolution (the regenerated worksheet and graph among them); no file missing. One gap repaired: dashboard.html had been registered as a used input without a content hash and is now source-vendored with path and sha256 recorded."@en ;
+    prov:endedAtTime "2026-07-28T10:40:21.552466+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> ;
     prov:wasAssociatedWith agent:claude-code .
 
 agent:github-actions a aiprov:ToolAgent ;
@@ -3218,11 +3230,6 @@ aiprov:Contribution a owl:Class ;
         <https://noheton.org/f-ai2-r/prov/source/paper-preview-html> ;
     prov:wasAssociatedWith agent:claude-code .
 
-<https://noheton.org/f-ai2-r/prov/source/provenance-ttl> a aiprov:Source ;
-    aiprov:contentHash "sha256:14259982e1ad3c6cc270cc4f79d2146257c61473b384b3c53310ceebd6541e07" ;
-    aiprov:filePath "provenance.ttl" ;
-    aiprov:verificationState verif:source-vendored .
-
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
     prov:endedAtTime "2026-07-24T18:43:45.977114+00:00"^^xsd:dateTime ;
@@ -3284,6 +3291,11 @@ aiprov:Contribution a owl:Class ;
 <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> a aiprov:Source ;
     aiprov:contentHash "sha256:4d532f3034457f2bc98e98028491d50eb6cf8fb86529ea1edbc6a089a78c6c84" ;
     aiprov:filePath "paper/sections/07-discussion.tex" ;
+    aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/provenance-ttl> a aiprov:Source ;
+    aiprov:contentHash "sha256:14259982e1ad3c6cc270cc4f79d2146257c61473b384b3c53310ceebd6541e07" ;
+    aiprov:filePath "provenance.ttl" ;
     aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
