@@ -74,9 +74,13 @@ Transcript & 1 session, \MTurns{} turns \\
 Output tokens & \MOutTok \\
 Input tokens (uncached) & \MInTok \\
 Cache tokens (read / write) & \MCacheReadM\,M / \MCacheWriteM\,M \\
-Cost (computed, not reported) & $\approx$ USD~\MCostUSD \\
+Cost (computed, not reported)$^{\dagger}$ & $\approx$ USD~\MCostUSD \\
 \bottomrule
 \end{tabular}
+\par\smallskip
+{\raggedright\footnotesize $^{\dagger}$Basis: the provider's published
+API list prices~\cite{anthropic-pricing}, per million tokens:
+\MPriceBasis{} (all cache writes in the record are 1\,h-TTL).\par}
 \end{table}
 
 \begin{figure}[t]

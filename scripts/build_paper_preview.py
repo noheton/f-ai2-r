@@ -68,7 +68,7 @@ def structure_notes() -> list[tuple[str, str]]:
 # static, so a click cannot (and must not) write the graph — the
 # human-only rung is granted in the repository. The button stages the
 # exact command instead.
-COPY_SCRIPT = """
+COPY_SCRIPT_TEMPLATE = """
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.verif details pre').forEach(function (pre) {
@@ -98,11 +98,38 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
       bar.appendChild(b);
+      var pm = cmd.match(/--id (\\S+) --to (\\S+)/);
+      if (pm) {
+        var a = document.createElement('a');
+        a.textContent = refuse ? 'Refuse via GitHub issue' : 'Confirm via GitHub issue';
+        a.style.cssText = b.style.cssText + ';text-decoration:none;display:inline-block';
+        var body = 'Action: ' + (refuse ? 'refuse' : 'grant') +
+          '\\nNote: <replace with your reasoning - required>\\n\\n' +
+          'Opened from the paper preview; the aiprov-promote workflow executes ' +
+          'this after verifying the issue author is a registered operator.';
+        a.href = 'https://github.com/__REPO_SLUG__/issues/new?title=' +
+          encodeURIComponent('aiprov-promote: ' + pm[1] + ' -> ' + pm[2]) +
+          '&body=' + encodeURIComponent(body);
+        a.target = '_blank';
+        bar.appendChild(a);
+      }
     });
     pre.after(bar);
   });
 });
 </script>"""
+
+
+def _repo_slug() -> str:
+    try:
+        url = sh(["git", "remote", "get-url", "origin"]).stdout.strip()
+        m = re.search(r"([\w.-]+/[\w.-]+?)(?:\.git)?/?$", url)
+        return m.group(1) if m else "noheton/f-ai2-r"
+    except Exception:
+        return "noheton/f-ai2-r"
+
+
+COPY_SCRIPT = None  # resolved lazily in verification_html
 
 
 def verification_html() -> str:
@@ -165,7 +192,9 @@ def verification_html() -> str:
         'work first; \U0001f5c2 is an in-repo artefact needing no literature '
         'check; \u2713 is done. Generated from provenance.ttl; the '
         'human rungs are the operator\'s alone.</p>'
-        + "\n".join(parts) + COPY_SCRIPT + '</details>')
+        + "\n".join(parts)
+        + COPY_SCRIPT_TEMPLATE.replace('__REPO_SLUG__', _repo_slug())
+        + '</details>')
 
 
 def graph_stats() -> dict | None:

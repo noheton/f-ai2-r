@@ -249,6 +249,10 @@ def write_outputs(m):
     mac("\\MProseWordsK", f"{round(m['prose_words'], -2):,}".replace(",", "\\,"))
     mac("\\MToolLinesK", f"{round(m['tool_lines'], -2):,}".replace(",", "\\,"))
     mac("\\MSkillVersion", m["skill_version"])
+    mac("\\MPriceBasis",
+        f"input \\${PRICE['input']:.0f}, output \\${PRICE['output']:.0f}, "
+        f"cache read \\${PRICE['cache_read']:.0f}, 1\\,h cache write "
+        f"\\${PRICE['cache_write_1h']:.0f}")
     (ROOT / "paper" / "metrics.tex").write_text("\n".join(L) + "\n")
     print(f"doc/metrics.json + paper/metrics.tex written "
           f"({m['activities']} activities, cost {m['cost_usd']} USD)")

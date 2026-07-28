@@ -1,5 +1,28 @@
 # Changelog — ai-provenance skill
 
+## v0.20 (2026-07-28)
+
+- **Click-to-confirm without touching the repository.** The preview's
+  worksheet buttons now include "Confirm/Refuse via GitHub issue":
+  they open a prefilled issue, and a new issues-triggered workflow
+  (`assets/ci/aiprov-promote.yml` + `scripts/promote_from_issue.py`,
+  scaffolded by `init --ci`) verifies the issue author against a
+  registered-operator mapping (`doc/operators.json`), executes the
+  promotion with the mapped human agent id, regenerates the
+  worksheet, commits, and replies on the issue. The human-only
+  invariant holds: the authenticated click and the required note are
+  the operator's judgement; the workflow only transcribes them. An
+  unregistered author or empty note is refused with a reply, not
+  executed. Copy-to-clipboard buttons remain for the CLI path.
+- **Worksheet entries carry the claim to check.** Each cited source
+  lists the citing sentence(s), extracted mechanically from the LaTeX
+  sources, so the human check has its object in front of it; access
+  links render clickable in the preview.
+- **Priced-cost citation.** The computed-cost footnote/table basis now
+  cites the provider's published price list as a ladder-tracked source
+  (content-checked page depth), and the price basis renders from the
+  metrics single source (`\MPriceBasis`).
+
 ## v0.19 (2026-07-27)
 
 - **Review worksheet ordered by computed relevance.**

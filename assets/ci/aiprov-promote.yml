@@ -1,0 +1,29 @@
+# Click-to-confirm: executes ladder promotions requested via prefilled
+# GitHub issues (opened from the paper preview's Confirm/Refuse buttons).
+# The issue author must be a registered operator (doc/operators.json);
+# the workflow transcribes their authenticated judgement into the graph.
+name: aiprov-promote
+on:
+  issues:
+    types: [opened]
+permissions:
+  contents: write
+  issues: write
+jobs:
+  promote:
+    if: startsWith(github.event.issue.title, 'aiprov-promote:')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install rdflib
+      - name: Execute promotion from issue
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/promote_from_issue.py

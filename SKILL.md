@@ -105,7 +105,13 @@ F(AI)²R carry over unchanged:
    bucket the queue is ordered by computed relevance — the number of
    `\cite` occurrences across the paper, shown per entry — so the
    operator checks the most load-bearing sources first; the ordering
-   methodology is disclosed in the worksheet header. Two practices
+   methodology is disclosed in the worksheet header. Operators who
+   never touch the repository can grant or refuse via prefilled
+   GitHub issues: the preview's buttons open them, and the
+   `aiprov-promote` workflow (scaffolded by `init --ci`) verifies the
+   author against `doc/operators.json`, executes with the mapped
+   human agent id, and replies on the issue — the authenticated click
+   and required note are the judgement; the workflow transcribes. Two practices
    that pay off early: ask the operator to confirm **self-cited
    sources** first (for works they authored, their judgement is
    uniquely authoritative and costs them least effort), and when a

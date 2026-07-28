@@ -104,6 +104,12 @@
     prov:used <https://noheton.org/f-ai2-r/prov/source/aiprovenance-v0-skill> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-anthropic-pricing-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of anthropic-pricing: reference-resolved -> ai-confirmed (Content checked at page depth (developer docs pricing table, fetched 2026-07-28): Claude Fable 5 row lists Base Input $10/MTok, 1h Cache Writes $20/MTok, Cache Hits & Refreshes $1/MTok, Output $50/MTok; prompt-caching section confirms the multipliers (1h write 2x base input, cache read 0.1x). Matches the price basis used by build_metrics.py for the computed session cost exactly; the page itself points to claude.com/pricing for current figures.)"@en ;
+    prov:endedAtTime "2026-07-28T06:12:40.447911+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/anthropic-pricing> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-better-architecture2025-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of better-architecture2025: reference-resolved -> ai-confirmed (Content checked against the open-access full text (eprints.soton.ac.uk / elib.dlr.de/215763 mirrors of the CiSE article): abstract states 'Better software drives better research... better architecture underpins better software... we advocate and emphasize the importance of designing robust architectures for research software to elevate the quality of research outcomes'; body documents the incentive diagnosis (funding rewards novelty, few resources for maintenance; accidental architectures) and CI static-analysis recommendations. Supports the citing sentence that the infrastructural-quality-to-research-quality argument shape is established in RSE. Full-text depth.)"@en ;
     prov:endedAtTime "2026-07-25T19:28:01.552010+00:00"^^xsd:dateTime ;
@@ -1943,6 +1949,11 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://agentskills.io/> ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/anthropic-pricing> a aiprov:Source ;
+    rdfs:label "Anthropic: Claude API pricing (developer documentation)"@en ;
+    dcterms:source <https://platform.claude.com/docs/en/about-claude/pricing> ;
+    aiprov:verificationState verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/eu-ai-act2024> a aiprov:Source ;
     rdfs:label "Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act)"@en ;
     dcterms:source <https://eur-lex.europa.eu/eli/reg/2024/1689/oj> ;
@@ -2813,12 +2824,12 @@ aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
     rdfs:subClassOf prov:Entity .
 
-aiprov:Source a owl:Class ;
-    rdfs:subClassOf prov:Entity .
-
 aiprov:AuthoringPass a owl:Class ;
     rdfs:comment "AI or human produces/edits an artefact."@en ;
     rdfs:subClassOf prov:Activity .
+
+aiprov:Source a owl:Class ;
+    rdfs:subClassOf prov:Entity .
 
 aiprov:AuditPass a owl:Class ;
     rdfs:comment "AI or human reviews, verifies, or contests an artefact."@en ;

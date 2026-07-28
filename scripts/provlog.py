@@ -79,6 +79,7 @@ def now() -> Literal:
 
 CI_TEMPLATE = pathlib.Path(__file__).resolve().parent.parent / "assets" / "ci" / "aiprov-build.yml"
 RELEASE_TEMPLATE = CI_TEMPLATE.parent / "aiprov-release.yml"
+PROMOTE_TEMPLATE = CI_TEMPLATE.parent / "aiprov-promote.yml"
 PAPER_TEMPLATE = pathlib.Path(__file__).resolve().parent.parent / "assets" / "paper"
 
 
@@ -147,6 +148,9 @@ def cmd_init(a) -> None:
             (RELEASE_TEMPLATE, "aiprov-release.yml",
              "on v* tags: conformance-gated GitHub Release with PDF, graph, "
              "dashboard, skill bundle, and checksums"),
+            (PROMOTE_TEMPLATE, "aiprov-promote.yml",
+             "click-to-confirm: executes ladder promotions from prefilled "
+             "issues after verifying the author against doc/operators.json"),
         ):
             dst = pathlib.Path(".github/workflows") / name
             if dst.exists() and not a.force:
