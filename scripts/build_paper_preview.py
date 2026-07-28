@@ -111,20 +111,18 @@ document.addEventListener('DOMContentLoaded', function () {
           .replace('{title}', encodeURIComponent('aiprov-promote: ' + pm[1] + ' -> ' + pm[2]))
           .replace('{body}', encodeURIComponent(body));
         a.rel = 'noopener';
+        var label = a.textContent;
         a.addEventListener('click', function () {
-          // Fallback for viewers that swallow the navigation (sandboxed
-          // frames without popup permission): after a beat, stage the URL
-          // on the clipboard so the operator can open it anywhere.
+          // Repeat-safe: some viewer shells honor only the first external
+          // navigation, so every click also stages the link on the
+          // clipboard, then the button resets itself for the next use.
           var url = a.href;
-          setTimeout(function () {
-            if (!document.hidden) {
-              var done = function () {
-                a.textContent = 'Issue link copied - open it in your browser'; };
-              if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(url).then(done, function () {});
-              }
-            }
-          }, 600);
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(function () {
+              a.textContent = 'Link copied - paste in browser if no tab opened';
+            }, function () {});
+          }
+          setTimeout(function () { a.textContent = label; }, 3000);
         });
         bar.appendChild(a);
       }
