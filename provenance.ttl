@@ -278,6 +278,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/fabricated-citations2023> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-fair2016-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of fair2016: source-vendored -> human-confirmed (correct. 
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #20 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T08:48:34.688078+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/fair2016> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-fair2016-source-vendored> a aiprov:AuditPass ;
     rdfs:label "Promotion of fair2016: reference-resolved -> source-vendored (Vendored for the human-verification access gate. Redistribution lawful: Scientific Data article published open access under CC BY 4.0.)"@en ;
     prov:endedAtTime "2026-07-27T07:00:17.967287+00:00"^^xsd:dateTime ;
@@ -2518,15 +2526,6 @@ agent:github-actions a aiprov:ToolAgent ;
     dcterms:source <https://eur-lex.europa.eu/eli/reg/2024/1689/oj> ;
     aiprov:verificationState verif:human-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/fair2016> a aiprov:Source ;
-    rdfs:label "The FAIR Guiding Principles for scientific data management and stewardship"@en ;
-    dcterms:date "2016" ;
-    dcterms:isPartOf "Scientific Data" ;
-    aiprov:contentHash "sha256:cdddd9f4808f7e3e1f013139c3915ef4d7cdccb008fa947ef5f72b4c7b6ffde7" ;
-    aiprov:doi "https://doi.org/10.1038/sdata.2016.18"^^xsd:anyURI ;
-    aiprov:filePath "doc/sources/fair2016.pdf" ;
-    aiprov:verificationState verif:source-vendored .
-
 <https://noheton.org/f-ai2-r/prov/source/llm-homogenization2024> a aiprov:Source ;
     rdfs:label "Homogenizing Effect of a Large Language Model (LLM) on Creative Diversity: An Empirical Comparison of Human and ChatGPT Writing"@en ;
     dcterms:date "2024" ;
@@ -2725,6 +2724,15 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:doi "https://doi.org/10.1038/s41598-023-41032-5"^^xsd:anyURI ;
     aiprov:filePath "doc/sources/fabricated-citations2023.pdf" ;
     aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/fair2016> a aiprov:Source ;
+    rdfs:label "The FAIR Guiding Principles for scientific data management and stewardship"@en ;
+    dcterms:date "2016" ;
+    dcterms:isPartOf "Scientific Data" ;
+    aiprov:contentHash "sha256:cdddd9f4808f7e3e1f013139c3915ef4d7cdccb008fa947ef5f72b4c7b6ffde7" ;
+    aiprov:doi "https://doi.org/10.1038/sdata.2016.18"^^xsd:anyURI ;
+    aiprov:filePath "doc/sources/fair2016.pdf" ;
+    aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/gpt-fabricated2024> a aiprov:Source ;
     rdfs:label "GPT-fabricated scientific papers on Google Scholar: Key features, spread, and implications for preempting evidence manipulation"@en ;
