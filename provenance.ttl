@@ -1097,10 +1097,12 @@
         <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
         <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation>,
         <https://noheton.org/f-ai2-r/prov/activity/s70-worksheet-relevance-order>,
-        <https://noheton.org/f-ai2-r/prov/activity/s73-source-pass-remaining> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s73-source-pass-remaining>,
+        <https://noheton.org/f-ai2-r/prov/activity/s74-worksheet-internal-bucket> ;
     aiprov:contentHash "sha256:19db5ad5930b384cec80e36eb66cb6b96447d9d2a47683c8d544fa60e3ecff9b",
         "sha256:437de47907cd202eec3f4c3f459eafb36fbcebc544c31b76dcf5c7714ac4c221",
         "sha256:4589f7bfc5cda8d96c73a07560961887f8465e485bfd8f84514bb34080ec0868",
+        "sha256:5258c8037f58e6cea1a24057953002b6ddb37f426b08554328b8063028f607c1",
         "sha256:8456d220982113b8d215050092de7b664fc7516e9715c58af5dc92e32295cfaf",
         "sha256:9bec8fc4bc0bf1ad0fc96c7dfb09be8cf074d0fa40c57591f9cbde747352415e",
         "sha256:d847d04bc3613e89b459f1bc61eeb0f6ed398c2a855b84368f875f12cea5c1ea",
@@ -1114,6 +1116,7 @@
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "9fba76d",
         "c1703b2",
+        "da4301b2c455a663664eef2cab3a91dd2039a79c",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
         "f4710311911c087b88722cfb96bbf2dfa9662b3a",
         "fb091d5" .
@@ -1204,8 +1207,10 @@
         <https://noheton.org/f-ai2-r/prov/activity/s29-ethics-incentives>,
         <https://noheton.org/f-ai2-r/prov/activity/s46-german-law-roles-leverage>,
         <https://noheton.org/f-ai2-r/prov/activity/s63-worksheet-automation>,
-        <https://noheton.org/f-ai2-r/prov/activity/s64-actionable-queue> ;
-    aiprov:contentHash "sha256:03ae2fc848ffea2d468a69d5c9ad5ce015f8b2fed2dcd5765ef463e5819abfbc",
+        <https://noheton.org/f-ai2-r/prov/activity/s64-actionable-queue>,
+        <https://noheton.org/f-ai2-r/prov/activity/s74-worksheet-internal-bucket> ;
+    aiprov:contentHash "sha256:01a2005992850b7802082444113d0df8700382736bd03a8b217e726ffd6e7b4e",
+        "sha256:03ae2fc848ffea2d468a69d5c9ad5ce015f8b2fed2dcd5765ef463e5819abfbc",
         "sha256:33f9795a25e0b1d0c152b53b514c9e567ecf20f0e406cf39e5635a667738d517",
         "sha256:4e13ed79bea23cb89f32e99b9896daa02ed66323f84b7f8a9216dd80463bcdcd",
         "sha256:b45713f43001d699f308fb520bc56d5af6abdee6204f6d21ca0003128a05b36f",
@@ -1214,19 +1219,23 @@
     aiprov:filePath "scripts/build_paper_preview.py" ;
     aiprov:gitCommit "720c9bf",
         "73a11cd",
-        "c1703b2" .
+        "c1703b2",
+        "da4301b2c455a663664eef2cab3a91dd2039a79c" .
 
 <https://noheton.org/f-ai2-r/prov/entity/build_review_list-py> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s61-verification-worksheet>,
         <https://noheton.org/f-ai2-r/prov/activity/s64-actionable-queue>,
-        <https://noheton.org/f-ai2-r/prov/activity/s70-worksheet-relevance-order> ;
-    aiprov:contentHash "sha256:71d001eecd127b51796ae1aad20ce6f5a39e4bc8b59f8ead708d5a3eaef09044",
+        <https://noheton.org/f-ai2-r/prov/activity/s70-worksheet-relevance-order>,
+        <https://noheton.org/f-ai2-r/prov/activity/s74-worksheet-internal-bucket> ;
+    aiprov:contentHash "sha256:42b836de9440c97818c6f8b342631089656863c3e9d8404bdc24e6a59813f23c",
+        "sha256:71d001eecd127b51796ae1aad20ce6f5a39e4bc8b59f8ead708d5a3eaef09044",
         "sha256:bf7306a2b06e3fc5805acb158ad06178289866baa5677d878d37c44e8bc0b170",
         "sha256:dd2947dfcbb718830c5ac6c242010b67f3dc18cf9f6d55539cbe47c1da49aaa7" ;
     aiprov:filePath "scripts/build_review_list.py" ;
     aiprov:gitCommit "48ae6b1c018beac3aed6d9ba9e62d3d2a4d2b60c",
         "c1703b2",
+        "da4301b2c455a663664eef2cab3a91dd2039a79c",
         "fb091d5" .
 
 <https://noheton.org/f-ai2-r/prov/entity/codemeta-json> a aiprov:Artefact ;
@@ -1342,10 +1351,12 @@
         <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
         <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation>,
         <https://noheton.org/f-ai2-r/prov/activity/s72-skill-version-macro>,
-        <https://noheton.org/f-ai2-r/prov/activity/s73-source-pass-remaining> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s73-source-pass-remaining>,
+        <https://noheton.org/f-ai2-r/prov/activity/s74-worksheet-internal-bucket> ;
     aiprov:contentHash "sha256:0ecac01dd6686d42494449da9932c34ddfe521a456f3c9b7396fc334e7cbb893",
         "sha256:10d28f1f212df1d22fe9c87daf1cdd317d7e633b5b230ed0965de50505baa6a0",
         "sha256:111b02d4bc097e1164f5c819d09a0255669c5b48eb304726d78b25cc680d58da",
+        "sha256:3264db9a2aa61bcec373dc6cd48f27649aa83ad153522567b1f3bafa8bf49f9e",
         "sha256:402166d35efa68d25e296d063b8105d29150917eac55713c9677483a9b483dc6",
         "sha256:4a200a4de4e3b9172550aac81ea9d795c10c47c1563185b434aec7f59294ccf1",
         "sha256:7287d05be915dc9176785fa10fb9e3f49d7808a95519e969774e7f2c2fdbccfb",
@@ -1360,6 +1371,7 @@
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "9fba76d",
         "a59c1de",
+        "da4301b2c455a663664eef2cab3a91dd2039a79c",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
         "f4710311911c087b88722cfb96bbf2dfa9662b3a" .
 
@@ -1373,8 +1385,10 @@
         <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
         <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation>,
         <https://noheton.org/f-ai2-r/prov/activity/s72-skill-version-macro>,
-        <https://noheton.org/f-ai2-r/prov/activity/s73-source-pass-remaining> ;
-    aiprov:contentHash "sha256:1b3edb4234474b2f0fc93dfb1b0447feb1e13f049ede37f460c2f1e5b03c480d",
+        <https://noheton.org/f-ai2-r/prov/activity/s73-source-pass-remaining>,
+        <https://noheton.org/f-ai2-r/prov/activity/s74-worksheet-internal-bucket> ;
+    aiprov:contentHash "sha256:0f9259f939d9575550b674e2bcc252d388f372c42a26ad7138deba6fa67b28d3",
+        "sha256:1b3edb4234474b2f0fc93dfb1b0447feb1e13f049ede37f460c2f1e5b03c480d",
         "sha256:1d22e6fd2ac682c9531be9f5db5f02c23c41d29582529d96a34c1c5e0d3a828e",
         "sha256:244ea7e023117fe07d592c6360f53a0beda305e31b3b1dd28c19698a7065ef3c",
         "sha256:398f03d4d708b71e7c169a0aab509b3a18e17f8ea87c5740804ed0daa6af8438",
@@ -1391,6 +1405,7 @@
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
         "9fba76d",
         "a59c1de",
+        "da4301b2c455a663664eef2cab3a91dd2039a79c",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
         "f4710311911c087b88722cfb96bbf2dfa9662b3a" .
 
@@ -1432,15 +1447,18 @@
         <https://noheton.org/f-ai2-r/prov/activity/s66-selfcitations-confirmed>,
         <https://noheton.org/f-ai2-r/prov/activity/s67-oecd-integration>,
         <https://noheton.org/f-ai2-r/prov/activity/s69-oecd-aim-citation>,
-        <https://noheton.org/f-ai2-r/prov/activity/s73-source-pass-remaining> ;
+        <https://noheton.org/f-ai2-r/prov/activity/s73-source-pass-remaining>,
+        <https://noheton.org/f-ai2-r/prov/activity/s74-worksheet-internal-bucket> ;
     aiprov:contentHash "sha256:1962e4cfb168cab3a02b7fc8f213de06f54ef1593cbe2ebf571954d85adb12e6",
         "sha256:90b1bd88ad320a22c98e2d0d23d94bb601a5abb7754c593d360d6a2f722e9fe1",
         "sha256:ac028bddf7b68aca69707016a556a3f8fc29f001d47605b50d5233e543eb17fe",
         "sha256:ce9c9de5d625851abe745fba3fbdb665aecebe34577f6a20048c375602ebb361",
-        "sha256:f384cb31d5add6d750d3785ec681a0b66125cb520af69961532aae4888973a16" ;
+        "sha256:f384cb31d5add6d750d3785ec681a0b66125cb520af69961532aae4888973a16",
+        "sha256:f95e21af73b3c7ce8ed5ba2fb3f2df45ef7295710544a35ac8048939ecc5f9d9" ;
     aiprov:filePath "provenance.ttl" ;
     aiprov:gitCommit "5badaf3c53805ddf41aabad11b9c0a1fd4f63910",
         "60a4d3a70b4e24159c3555b651f051be69e3901e",
+        "da4301b2c455a663664eef2cab3a91dd2039a79c",
         "dca76e7d2a3119ef4cb81ee2b5c0a837013faa8d",
         "f4710311911c087b88722cfb96bbf2dfa9662b3a" .
 
@@ -2480,6 +2498,11 @@ aiprov:Repair a owl:Class ;
     prov:endedAtTime "2026-07-27T19:47:16.647563+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex>,
         <https://noheton.org/f-ai2-r/prov/source/references-bib> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/s74-worksheet-internal-bucket> a aiprov:AuthoringPass ;
+    rdfs:label "Operator approved the internal-artefacts refinement: build_review_list.py gains a fifth bucket for sources whose vendored evidence is an in-repo file rather than literature under doc/sources/ (rule: vendored files outside doc/sources/, with the generated worksheet itself special-cased). Eleven internal artefacts leave the operator's awaiting-check queue, which drops to 35 genuine literature checks; the preview renders the bucket with its own muted style and count. Also absorbed the self-referential loop: the worksheet entered the ladder as a used input of an audit activity and was promoted as an internal artefact."@en ;
+    prov:endedAtTime "2026-07-28T04:11:58.318668+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code .
 
 agent:florian-krebs a aiprov:HumanAgent ;
