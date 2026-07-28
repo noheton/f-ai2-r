@@ -340,6 +340,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/model-collapse2024> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-model-collapse2024-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of model-collapse2024: ai-confirmed -> human-confirmed (Training on AI generated contend leads to narrower models.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #18 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T08:07:08.623226+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/model-collapse2024> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-modelcards2019-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of modelcards2019: reference-resolved -> ai-confirmed (Abstract checked (OpenAlex): model cards are 'short documents accompanying trained machine learning models' detailing performance characteristics, proposed 'to encourage transparent model reporting'. Supports 'model cards document the model' and the after-the-fact documentation framing. Abstract depth.)"@en ;
     prov:endedAtTime "2026-07-27T07:49:00.842686+00:00"^^xsd:dateTime ;
@@ -2499,13 +2507,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:filePath "paper/main.tex" ;
     aiprov:verificationState verif:source-vendored .
 
-<https://noheton.org/f-ai2-r/prov/source/model-collapse2024> a aiprov:Source ;
-    rdfs:label "AI models collapse when trained on recursively generated data"@en ;
-    dcterms:date "2024" ;
-    dcterms:isPartOf "Nature" ;
-    aiprov:doi "https://doi.org/10.1038/s41586-024-07566-y"^^xsd:anyURI ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/oecd-ai-principles> a aiprov:Source ;
     rdfs:label "Recommendation of the Council on Artificial Intelligence (OECD/LEGAL-0449), adopted May 2019, amended May 2024; OECD AI Principles"@en ;
     dcterms:source <https://oecd.ai/en/ai-principles> ;
@@ -2710,6 +2711,13 @@ aiprov:HumanAgent a owl:Class ;
     dcterms:isPartOf "elib (German Aerospace Center)" ;
     dcterms:source <https://elib.dlr.de/208404/> ;
     aiprov:doi "https://doi.org/10.5281/zenodo.14067020"^^xsd:anyURI ;
+    aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/model-collapse2024> a aiprov:Source ;
+    rdfs:label "AI models collapse when trained on recursively generated data"@en ;
+    dcterms:date "2024" ;
+    dcterms:isPartOf "Nature" ;
+    aiprov:doi "https://doi.org/10.1038/s41586-024-07566-y"^^xsd:anyURI ;
     aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/modelcards2019> a aiprov:Source ;
@@ -3154,6 +3162,11 @@ verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
     aiprov:ladderPosition 3 .
 
+verif:source-vendored a aiprov:VerificationState ;
+    rdfs:label "source vendored"@en ;
+    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
+    aiprov:ladderPosition 4 .
+
 agent:florian-krebs a aiprov:HumanAgent ;
     foaf:name "Florian Krebs" ;
     aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
@@ -3163,11 +3176,6 @@ verif:human-confirmed a aiprov:VerificationState ;
     rdfs:label "human-confirmed"@en ;
     rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
     aiprov:ladderPosition 5 .
-
-verif:source-vendored a aiprov:VerificationState ;
-    rdfs:label "source vendored"@en ;
-    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
-    aiprov:ladderPosition 4 .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
     dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
