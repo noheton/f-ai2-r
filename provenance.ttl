@@ -1743,6 +1743,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "a0fbb0c638448e9d220ef09da953a271ff3ee331",
         "f7094c24b7ccad9fa89509c7828d94217ebab631" .
 
+<https://noheton.org/f-ai2-r/prov/entity/arxiv-0-17-0-tar-gz> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:github-actions ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/release-v0170> ;
+    aiprov:contentHash "sha256:3f9c9de2b0fa323f1f85085f26192945074844ae91b1620f3348f89e0449e4ee" ;
+    aiprov:filePath "dist/arxiv-0.17.0.tar.gz" ;
+    aiprov:gitCommit "01561cd507d3d9595069c80ef75291f23157a6d9" .
+
 <https://noheton.org/f-ai2-r/prov/entity/attributes-md> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap>,
@@ -2647,6 +2654,11 @@ aiprov:verificationState a owl:ObjectProperty ;
     rdfs:domain aiprov:Claim ;
     rdfs:range aiprov:VerificationState .
 
+<https://noheton.org/f-ai2-r/prov/activity/release-v0170> a aiprov:Build ;
+    rdfs:label "GitHub Release v0.17.0 published by aiprov-release.yml run 30356759535 (workflow_dispatch with tag input; tag created server-side at commit 01561cd). Conformance gate passed; disclosure regenerated from the graph before compiling. This is the pinned submission snapshot the paper's numbers describe. Assets and sha256 digests: paper-v0.17.0.pdf f5a9e0af...; provenance-v0.17.0.ttl 9b0910cc...; dashboard-v0.17.0.html d4d06997...; metrics-v0.17.0.json c7e29e4f...; ai-provenance.skill 79abc6e2...; checksums-v0.17.0.sha256 6b1b2c0f... Release URL: github.com/noheton/f-ai2-r/releases/tag/v0.17.0"@en ;
+    prov:endedAtTime "2026-07-28T11:59:02.416996+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:github-actions .
+
 <https://noheton.org/f-ai2-r/prov/activity/s02-register-human> a aiprov:AuditPass ;
     rdfs:label "Register human agent florian-krebs: ORCID supplied by the user in session; name and current affiliation resolved from the ORCID public API (pub.orcid.org record 0000-0001-6033-801X)"@en ;
     prov:endedAtTime "2026-07-24T18:12:09.190883+00:00"^^xsd:dateTime ;
@@ -2905,10 +2917,6 @@ aiprov:Transcript a owl:Class ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/06-meta-experiment-tex>,
         <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex> ;
     prov:wasAssociatedWith agent:claude-code .
-
-agent:github-actions a aiprov:ToolAgent ;
-    foaf:name "GitHub Actions (aiprov build workflow)" ;
-    aiprov:provider "GitHub"^^xsd:string .
 
 <https://noheton.org/f-ai2-r/prov/source/02-background-tex> a aiprov:Source ;
     aiprov:contentHash "sha256:a770badee2f669b45366e68f1c9758c31d1b14ab13052dc621d515cdd5eaf1ef" ;
@@ -3339,10 +3347,6 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:filePath "doc/sources/usco-ai-copyrightability2025.pdf" ;
     aiprov:verificationState verif:human-confirmed .
 
-aiprov:Build a owl:Class ;
-    rdfs:comment "Deterministic build/compile/CI activity."@en ;
-    rdfs:subClassOf prov:Activity .
-
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
@@ -3440,6 +3444,10 @@ aiprov:Contribution a owl:Class ;
         <https://noheton.org/f-ai2-r/prov/source/provlog-py> ;
     prov:wasAssociatedWith agent:claude-code .
 
+agent:github-actions a aiprov:ToolAgent ;
+    foaf:name "GitHub Actions (aiprov build workflow)" ;
+    aiprov:provider "GitHub"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/source/CHANGELOG-md> a aiprov:Source ;
     aiprov:contentHash "sha256:1db1da7d36fc2177bd5969c097610e0558fcfd1aeca067ea59e86be5adddd2c9" ;
     aiprov:filePath "CHANGELOG.md" ;
@@ -3453,6 +3461,10 @@ aiprov:Contribution a owl:Class ;
     aiprov:contentHash "sha256:6090d822b64dc669decc62a96d01d8018b1ba095aa00c54d879f68d80d63bf3b" ;
     aiprov:filePath "doc/metrics.json" ;
     aiprov:verificationState verif:source-vendored .
+
+aiprov:Build a owl:Class ;
+    rdfs:comment "Deterministic build/compile/CI activity."@en ;
+    rdfs:subClassOf prov:Activity .
 
 <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.2: repo becomes canonical skill source; ORCID-first setup, base derivation/auto-detection, CI/CD scaffolding (validate + LaTeX-to-PDF artifacts); packaging script; verified by test-run in scratch repository"@en ;
