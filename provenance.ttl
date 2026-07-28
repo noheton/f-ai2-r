@@ -192,6 +192,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/chatgpt-wrote-it2023> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-chatgpt-wrote-it2023-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of chatgpt-wrote-it2023: ai-confirmed -> human-confirmed (yes. but transparency and accountability matter.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #13 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T08:04:23.894467+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/chatgpt-wrote-it2023> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-credit-niso2022-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of credit-niso2022: reference-resolved -> ai-confirmed (Registry check: DOI 10.3789/ansi.niso.z39.104-2022 resolves to ANSI/NISO Z39.104-2022, the CRediT Contributor Roles Taxonomy as a NISO standard. Supports 'now a NISO standard'. Registry/title depth.)"@en ;
     prov:endedAtTime "2026-07-27T07:48:59.838179+00:00"^^xsd:dateTime ;
@@ -2440,13 +2448,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1038/d41586-023-00288-7"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/chatgpt-wrote-it2023> a aiprov:Source ;
-    rdfs:label "Opinion Paper: “So what if ChatGPT wrote it?” Multidisciplinary perspectives on opportunities, challenges and implications of generative conversational AI for research, practice and policy"@en ;
-    dcterms:date "2023" ;
-    dcterms:isPartOf "International Journal of Information Management" ;
-    aiprov:doi "https://doi.org/10.1016/j.ijinfomgt.2023.102642"^^xsd:anyURI ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/credit-niso2022> a aiprov:Source ;
     rdfs:label "ANSI/NISO Z39.104-2022, CRediT, Contributor Roles Taxonomy"@en ;
     aiprov:doi "https://doi.org/10.3789/ansi.niso.z39.104-2022"^^xsd:anyURI ;
@@ -2661,6 +2662,13 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:contentHash "sha256:dd61a051ee9f9305078d9183a1462d87891977884768faec1b5a130a328f759c" ;
     aiprov:filePath "scripts/build_paper_preview.py" ;
     aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/chatgpt-wrote-it2023> a aiprov:Source ;
+    rdfs:label "Opinion Paper: “So what if ChatGPT wrote it?” Multidisciplinary perspectives on opportunities, challenges and implications of generative conversational AI for research, practice and policy"@en ;
+    dcterms:date "2023" ;
+    dcterms:isPartOf "International Journal of Information Management" ;
+    aiprov:doi "https://doi.org/10.1016/j.ijinfomgt.2023.102642"^^xsd:anyURI ;
+    aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/datasheets2021> a aiprov:Source ;
     rdfs:label "Datasheets for datasets"@en ;
