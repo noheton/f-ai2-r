@@ -460,6 +460,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/perverse-incentives2017> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-perverse-incentives2017-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of perverse-incentives2017: ai-confirmed -> human-confirmed (confirms the misaligned incentives.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #23 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T08:52:07.837203+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/perverse-incentives2017> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-prov-agent2025-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of prov-agent2025: reference-resolved -> ai-confirmed (Abstract checked (doi.org resolution): PROV-AGENT 'extends W3C PROV and leverages the Model Context Protocol' to 'integrate agent interactions into end-to-end workflow provenance' with near-real-time capture. Confirms it as nearest neighbor to aiprov - shared PROV substrate and agent-centric metadata (prompts, responses) - and confirms absence of human-only verification rungs, skill packaging, and self-application in its stated contributions. Abstract depth.)"@en ;
     prov:endedAtTime "2026-07-25T18:53:41.936739+00:00"^^xsd:dateTime ;
@@ -2570,13 +2578,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1002/ijc.33604"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/perverse-incentives2017> a aiprov:Source ;
-    rdfs:label "Academic Research in the 21st Century: Maintaining Scientific Integrity in a Climate of Perverse Incentives and Hypercompetition"@en ;
-    dcterms:date "2017" ;
-    dcterms:isPartOf "Environmental Engineering Science" ;
-    aiprov:doi "https://doi.org/10.1089/ees.2016.0223"^^xsd:anyURI ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/prov-o2013> a aiprov:Source ;
     rdfs:label "PROV-O: The PROV Ontology (W3C Recommendation, 30 April 2013)"@en ;
     dcterms:source <https://www.w3.org/TR/prov-o/> ;
@@ -2791,6 +2792,13 @@ aiprov:HumanAgent a owl:Class ;
     dcterms:date "2013" ;
     dcterms:isPartOf "Journal of Biomedical Semantics" ;
     aiprov:doi "https://doi.org/10.1186/2041-1480-4-37"^^xsd:anyURI ;
+    aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/perverse-incentives2017> a aiprov:Source ;
+    rdfs:label "Academic Research in the 21st Century: Maintaining Scientific Integrity in a Climate of Perverse Incentives and Hypercompetition"@en ;
+    dcterms:date "2017" ;
+    dcterms:isPartOf "Environmental Engineering Science" ;
+    aiprov:doi "https://doi.org/10.1089/ees.2016.0223"^^xsd:anyURI ;
     aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/prov-agent2025> a aiprov:Source ;
@@ -3244,13 +3252,13 @@ agent:florian-krebs a aiprov:HumanAgent ;
     aiprov:affiliation "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"^^xsd:string ;
     aiprov:orcid "https://orcid.org/0000-0001-6033-801X"^^xsd:anyURI .
 
+<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
+    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+
 verif:human-confirmed a aiprov:VerificationState ;
     rdfs:label "human-confirmed"@en ;
     rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
     aiprov:ladderPosition 5 .
-
-<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 aiprov:Artefact a owl:Class ;
     rdfs:comment "Generalizes Manuscript/Section/Figure: any produced file or object."@en ;
