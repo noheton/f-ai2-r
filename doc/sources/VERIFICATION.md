@@ -24,6 +24,9 @@ Within each bucket, sources are ordered by expected relevance to the paper's arg
 
 - **Your action:** open the vendored copy, check it against the citing sentence(s), then grant or refuse:
 - Cited: 3× in 02-background, 03-dilution, 07-discussion
+- Claim to check (02-background): “The trust gap. Large language models fabricate plausible citations [ai-hallucination2023]: existence of a reference is machine-checkable, support for a claim is a judgement, and the two must not be conflated.”
+- Claim to check (03-dilution): “Language models fabricate plausible-looking references and citation errors at documented rates [fabricated-citations2023, ai-hallucination2023]; once such a reference is indexed, nothing in today's retrieval chain stops it from being cited onward, and models trained on the polluted pool degrade further [model-collap...”
+- Claim to check (07-discussion): “Why human-only rungs stay human. ai-confirmed is a machine judgement with known failure modes [ai-hallucination2023].”
 - Vendored copy: `doc/sources/ai-hallucination2023.pdf` (sha256:f17aff07c48774946a491a508a9c1be7d5e9298810e2dd4ca2e61afe02d26e15)
 - Access: https://doi.org/10.7759/cureus.35179
 - Recorded check: Promotion of ai-hallucination2023: reference-resolved -> ai-confirmed (Content checked against the gold-OA full text (assets.cureus.com PDF): 'None of the provided paper titles existed, and all provided PubMed IDs (PMIDs) were of different unrelated papers.' Supports 'LLMs fabricate plausible citations' (Sec. 2) and 'machine judgement with known failure modes' (Sec. 7). Full-text depth.)
@@ -39,6 +42,8 @@ python3 scripts/provlog.py promote --id ai-hallucination2023 --to human-confirme
 
 - **Your action:** open the vendored copy, check it against the citing sentence(s), then grant or refuse:
 - Cited: 2× in 03-dilution, 07-discussion
+- Claim to check (03-dilution): “Language models fabricate plausible-looking references and citation errors at documented rates [fabricated-citations2023, ai-hallucination2023]; once such a reference is indexed, nothing in today's retrieval chain stops it from being cited onward, and models trained on the polluted pool degrade further [model-collap...”
+- Claim to check (07-discussion): “Registry-fetched citation metadata: every BibTeX entry comes from doi.org content negotiation, never typed from memory, a concrete discipline against fabricated references [fabricated-citations2023]; the one failure was a registry serving malformed BibTeX, and CI caught it, not a reader.”
 - Vendored copy: `doc/sources/fabricated-citations2023.pdf` (sha256:2a911abde0ab94ad322871af9c259cefe25254324815507157071da1e5e66b83)
 - Access: https://doi.org/10.1038/s41598-023-41032-5
 - Recorded check: Promotion of fabricated-citations2023: reference-resolved -> ai-confirmed (Content checked against the open-access abstract: 55% of GPT-3.5 and 18% of GPT-4 citations fabricated; 43%/24% of real citations carry substantive errors. Supports 'documented rates' (Sec. 3) and the fabricated-references discipline (Sec. 7).)
@@ -54,6 +59,7 @@ python3 scripts/provlog.py promote --id fabricated-citations2023 --to human-conf
 
 - **Your action:** open the vendored copy, check it against the citing sentence(s), then grant or refuse:
 - Cited: 1× in 01-introduction
+- Claim to check (01-introduction): “It reads as FAIR [fair2016] with the AI factor squared, because AI enters research twice: once authoring an artefact, and once auditing it into a machine-readable record of who did what, when, and from which sources.”
 - Vendored copy: `doc/sources/fair2016.pdf` (sha256:cdddd9f4808f7e3e1f013139c3915ef4d7cdccb008fa947ef5f72b4c7b6ffde7)
 - Access: https://doi.org/10.1038/sdata.2016.18
 - Recorded check: Promotion of fair2016: reference-resolved -> source-vendored (Vendored for the human-verification access gate. Redistribution lawful: Scientific Data article published open access under CC BY 4.0.)
@@ -69,6 +75,7 @@ python3 scripts/provlog.py promote --id fair2016 --to human-confirmed --agent fl
 
 - **Your action:** open the vendored copy, check it against the citing sentence(s), then grant or refuse:
 - Cited: 1× in 03-dilution
+- Claim to check (03-dilution): “GPT-fabricated papers are already indexed and ranked by scholarly search engines [gpt-fabricated2024].”
 - Vendored copy: `doc/sources/gpt-fabricated2024.pdf` (sha256:405b9290833205c2b2673151f3af8be6dd6ecfc767306ca96952a985ccd6a4ec)
 - Access: https://doi.org/10.37016/mr-2020-156
 - Recorded check: Promotion of gpt-fabricated2024: reference-resolved -> ai-confirmed (Content checked against the open-access article page: 'Google Scholar easily locates and lists these questionable papers alongside reputable, quality-controlled research.' Supports 'GPT-fabricated papers are already indexed and ranked by scholarly search engines'.)
@@ -84,6 +91,7 @@ python3 scripts/provlog.py promote --id gpt-fabricated2024 --to human-confirmed 
 
 - **Your action:** open the vendored copy, check it against the citing sentence(s), then grant or refuse:
 - Cited: 1× in 07-discussion
+- Claim to check (07-discussion): “The U.S.\ Copyright Office holds that copyright "does not extend to purely AI-generated material, or material where there is insufficient human control over the expressive elements", that prompts alone do not provide that control, and that protection attaches to human-authored expression and to "the creative selecti...”
 - Vendored copy: `doc/sources/usco-ai-copyrightability2025.pdf` (sha256:30889d027cb7ec5b1e29919f26b1603ae691db6e77472acb270a2f8b8e540947)
 - Access: https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf
 - Recorded check: Promotion of usco-ai-copyrightability2025: reference-resolved -> ai-confirmed (Content checked against the full report PDF (fetched from copyright.gov): 'Copyright does not extend to purely AI-generated material, or material where there is insufficient human control over the expressive elements'; 'prompts do not alone provide sufficient control'; protection can rest on perceptible human-authored expression and 'the creative selection, coordination, or arrangement of material in the outputs, or creative modifications of the outputs'; international consensus that AI content is eligible 'only if the human input in the creative process was significant'. Full-text depth.)
@@ -101,6 +109,9 @@ python3 scripts/provlog.py promote --id usco-ai-copyrightability2025 --to human-
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 4× in 05-skill, 07-discussion, main (acknowledgment)
+- Claim to check (05-skill): “Effective oversight of a fast-moving AI collaborator needs a continuously current view of the deliverable; the EU AI Act's human-oversight expectation [eu-ai-act2024] becomes a user-interface property.”
+- Claim to check (07-discussion): “Regulatory alignment. The EU AI Act's transparency rules ask for disclosure and machine-readable marking of AI-generated content [eu-ai-act2024].”
+- Claim to check (07-discussion): “The same graph then answers what certification, liability, and the EU AI Act ask of high-risk systems, whose events must be automatically logged over the system's lifetime and which must remain under effective human oversight [eu-ai-act2024]: which agent decided, on which evidence, under which model version, and who...”
 - Access: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
 - Recorded check: Promotion of eu-ai-act2024: reference-resolved -> ai-confirmed (Article-level check via the AI Act explorer rendering of the canonical text (EUR-Lex ELI recorded on this source): Art. 50 requires outputs 'marked in a machine-readable format and detectable as artificially generated or manipulated' and disclosure of AI interaction; Art. 14 requires high-risk systems be 'effectively overseen by natural persons', incl. override/intervention. Supports the transparency-marking and human-oversight citing sentences.)
 
@@ -115,6 +126,8 @@ python3 scripts/provlog.py promote --id eu-ai-act2024 --to human-confirmed --age
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 3× in 02-background, 03-dilution, main (acknowledgment)
+- Claim to check (02-background): “The Helmholtz Metadata Collaboration [hmc, hmc-conference2025] provides the community context: a provenance graph is metadata about work, extending FAIR metadata practice from data description to collaboration description.”
+- Claim to check (03-dilution): “Research infrastructures already treat metadata quality as their central lever [hmc-conference2025]; the diluted literature is, in our words, a data swamp one level up, and it admits the same remedy.”
 - Access: https://helmholtz-metadaten.de/storage/2298/HMC-Conference_2025_Book-of-Abstracts.pdf
 - Recorded check: Promotion of hmc-conference2025: reference-resolved -> ai-confirmed (Book of abstracts fetched in full: metadata quality is a central conference theme (multiple sessions incl. 'Enhancing Metadata Quality through Persistent Identifiers'). The paper's 'data swamps' metaphor is OURS, not the source's (0 hits in the PDF); the citing sentence was re-scoped in the same pass to attribute the metaphor correctly. Full-document depth.)
 
@@ -129,6 +142,8 @@ python3 scripts/provlog.py promote --id hmc-conference2025 --to human-confirmed 
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 3× in 02-background, 08-conclusion, main (acknowledgment)
+- Claim to check (02-background): “The second is engineering provenance: adjacent DLR work extends PROV-O with uncertainty quantification for traceability in engineering systems [uncertainty-prov2026]; the axes are complementary, since aiprov records who and how, while uncertainty-aware provenance records how confident, and a combined profile is futu...”
+- Claim to check (08-conclusion): “Further work includes multi-agent attribution, energy accounting, registry integration beyond ORCID and DOI, vendoring sources at the access gate by default, and a combined profile with uncertainty-aware provenance [uncertainty-prov2026].”
 - Access: https://elib.dlr.de/224241/
 - Recorded check: Promotion of uncertainty-prov2026: reference-resolved -> ai-confirmed (elib record checked (224241): 'An Uncertainty-Aware Provenance Framework for Enhanced Traceability in Engineering Systems', keywords Uncertainty Quantification / PROV-O / Traceability / Certification, IEEE Aerospace and Electronic Systems Magazine, dated March 2026, status Submitted (disclosed). Supports 'extends PROV-O with uncertainty quantification for traceability in engineering systems'. Record/keyword depth.)
 
@@ -143,6 +158,7 @@ python3 scripts/provlog.py promote --id uncertainty-prov2026 --to human-confirme
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 2× in 02-background, main (acknowledgment)
+- Claim to check (02-background): “The Helmholtz Metadata Collaboration [hmc, hmc-conference2025] provides the community context: a provenance graph is metadata about work, extending FAIR metadata practice from data description to collaboration description.”
 - Access: https://helmholtz-metadaten.de/
 - Recorded check: Promotion of hmc: reference-resolved -> ai-confirmed (Site checked (helmholtz-metadaten.de): HMC 'promotes the qualitative enrichment of research data by means of metadata', goal to make Helmholtz research data FAIR, motto 'Better research through better metadata'. Supports the FAIR-metadata-practice citing sentences. Page depth.)
 
@@ -157,6 +173,7 @@ python3 scripts/provlog.py promote --id hmc --to human-confirmed --agent florian
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 2× in 08-conclusion, main (acknowledgment)
+- Claim to check (08-conclusion): “shepard [shepard], a jointly developed DLR system for heterogeneous product and research data, already serves as the data backbone of engineering deployments such as the MEMAS additive-manufacturing pipeline [memas2024]; an experimental fork [shepard-fork] is the staging ground for integrating aiprov into it as plan...”
 - Access: https://doi.org/10.5281/zenodo.14067020
 - Access: https://elib.dlr.de/208404/
 - Recorded check: Promotion of memas2024: reference-resolved -> ai-confirmed (Abstract checked (OpenAlex/Zenodo): MEMAS covers integrated data management across pre-production, production and post-production for additive manufacturing of aerospace composites enabling high-fidelity modeling; earlier session check additionally found the explicit statement that MEMAS uses the shepard integrated data management system. Supports the MEMAS citing sentences. Abstract depth.)
@@ -172,6 +189,8 @@ python3 scripts/provlog.py promote --id memas2024 --to human-confirmed --agent f
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 2× in 01-introduction, 02-background
+- Claim to check (01-introduction): “Existing responses are either policy (disclosure statements, authorship bans) or documentation artefacts written after the fact, such as model cards [modelcards2019]; neither is machine-checkable at the granularity of a single claim.”
+- Claim to check (02-background): “AI transparency artefacts. Model cards [modelcards2019] and datasheets [datasheets2021] document the model or the dataset.”
 - Access: https://doi.org/10.1145/3287560.3287596
 - Recorded check: Promotion of modelcards2019: reference-resolved -> ai-confirmed (Abstract checked (OpenAlex): model cards are 'short documents accompanying trained machine learning models' detailing performance characteristics, proposed 'to encourage transparent model reporting'. Supports 'model cards document the model' and the after-the-fact documentation framing. Abstract depth.)
 
@@ -186,6 +205,8 @@ python3 scripts/provlog.py promote --id modelcards2019 --to human-confirmed --ag
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 2× in 01-introduction, 03-dilution
+- Claim to check (01-introduction): “The incentive system makes this urgent rather than optional: publish-or-perish pays for counted output, and hypercompetition selects for whatever maximizes the count [perverse-incentives2017].”
+- Claim to check (03-dilution): “Publish-or-perish pays for counted output, and hypercompetition selects for whatever maximizes the count [perverse-incentives2017].”
 - Access: https://doi.org/10.1089/ees.2016.0223
 - Recorded check: Promotion of perverse-incentives2017: reference-resolved -> ai-confirmed (Content checked against the publisher full text: 'Quantitative metrics now dominate decision-making in faculty hiring, promotion and tenure, awards, and funding'; hypercompetition 'selectively weeds out ethical and altruistic actors, while selecting for academics ... responsive to perverse incentives'. Supports both citing sentences. Full-text depth.)
 
@@ -200,6 +221,8 @@ python3 scripts/provlog.py promote --id perverse-incentives2017 --to human-confi
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 2× in 02-background, 07-discussion
+- Claim to check (02-background): “Closest to this work, PROV-AGENT extends W3C PROV to capture agent interactions, prompts, responses, and decisions, in agentic workflows in near real time [prov-agent2025]; it shares the substrate and the agent-centric telemetry, and differs in what this paper adds on top: verification rungs reserved for humans, pac...”
+- Claim to check (07-discussion): “Per-activity AI provenance on a PROV substrate is not new, PROV-AGENT does that [prov-agent2025]; what no found work combines is human-only verification rungs, executable-skill packaging, and self-application, and that combination, within the recorded horizon, is this paper's originality claim, refutable by widening...”
 - Access: https://doi.org/10.1109/escience65000.2025.00093
 - Recorded check: Promotion of prov-agent2025: reference-resolved -> ai-confirmed (Abstract checked (doi.org resolution): PROV-AGENT 'extends W3C PROV and leverages the Model Context Protocol' to 'integrate agent interactions into end-to-end workflow provenance' with near-real-time capture. Confirms it as nearest neighbor to aiprov - shared PROV substrate and agent-centric metadata (prompts, responses) - and confirms absence of human-only verification rungs, skill packaging, and self-application in its stated contributions. Abstract depth.)
 
@@ -214,6 +237,8 @@ python3 scripts/provlog.py promote --id prov-agent2025 --to human-confirmed --ag
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 2× in 01-introduction, 02-background
+- Claim to check (01-introduction): “First, aiprov, a domain-agnostic generalization of the F(AI)2R vocabulary over PROV-O [prov-o2013]: agents, passes, claims, full inference telemetry, and a verification ladder with human-only rungs (Section [ref]).”
+- Claim to check (02-background): “section{Background and Related Worksec:background Provenance models. W3C PROV-O [prov-o2013] is the standard vocabulary for expressing who generated what, through which activity; it consolidated the lineage begun by the Open Provenance Model [opm2010], and PAV refined it for authoring and versioning [pav2013].”
 - Access: https://www.w3.org/TR/prov-o/
 - Recorded check: Promotion of prov-o2013: reference-resolved -> ai-confirmed (W3C Recommendation page checked: 'The PROV Ontology (PROV-O) expresses the PROV Data Model', W3C Recommendation 30 April 2013. Supports 'the standard vocabulary for expressing who generated what, through which activity'. Page depth.)
 
@@ -228,6 +253,7 @@ python3 scripts/provlog.py promote --id prov-o2013 --to human-confirmed --agent 
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 2× in 02-background, main (acknowledgment)
+- Claim to check (02-background): “Carina Haupt's overview of provenance use cases documents the practice inside DLR, including monitoring software development processes with provenance data [provenance-overview2022].”
 - Access: https://elib.dlr.de/185438/
 - Recorded check: Promotion of provenance-overview2022: reference-resolved -> ai-confirmed (Content checked against the open-access slide deck (elib.dlr.de/185438, full deck fetched): includes 'Provenance of Software Artifacts and Development Processes' with a 'general PROV model for software development' and 'provenance for git services'. Supports the DLR-practice and software-development-monitoring citing sentence. Full-slides depth.)
 
@@ -242,6 +268,8 @@ python3 scripts/provlog.py promote --id provenance-overview2022 --to human-confi
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 2× in 01-introduction, 03-dilution
+- Claim to check (01-introduction): “Generative AI collapses the marginal cost of exactly the thing the metric counts, onto a review system already strained by output growth [publishing-strain2024].”
+- Claim to check (03-dilution): “section{The Dilution Crisissec:dilution Scientific output has been growing faster than the community's capacity to review it [publishing-strain2024], and paper mills industrialized fabrication well before language models [paper-mills2021].”
 - Access: https://doi.org/10.1162/qss_a_00327
 - Recorded check: Promotion of publishing-strain2024: reference-resolved -> ai-confirmed (Content checked against the authors' arXiv preprint (2309.15884; publisher page returned 403 to automated access): 'exponential growth in the number of peer-reviewed journal articles, which has not been matched by the training of new researchers who can vet those articles', editors report difficulty recruiting qualified reviewers. Supports both citing sentences (output growing faster than review capacity; strained review system).)
 
@@ -256,6 +284,7 @@ python3 scripts/provlog.py promote --id publishing-strain2024 --to human-confirm
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 02-background
+- Claim to check (02-background): “The third root is industrial semantic modeling: the author co-authored the Asset Administration Shell Part 1 specification [aas-part1-v30rc02], continued as IDTA-01001 [aas-part1-idta].”
 - Access: https://doi.org/10.62628/idta.01001-3-1-1
 - Recorded check: Promotion of aas-part1-idta: reference-resolved -> ai-confirmed (DOI resolution checked: 10.62628/idta.01001-3-1-1 resolves to 'Specification of the Asset Administration Shell Part 1: Metamodel' by the IDTA workstream. Supports 'continued as IDTA-01001'. Registry depth.)
 
@@ -270,6 +299,7 @@ python3 scripts/provlog.py promote --id aas-part1-idta --to human-confirmed --ag
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 07-discussion
+- Claim to check (07-discussion): “Generality also holds across clients and models: the skill bundle follows the open Agent Skills format [agent-skills-spec], which independent agent clients implement, so the same bundle loads beyond the environment that produced this paper, and the graph is provider-agnostic, since any AI system, hosted or local, re...”
 - Access: https://agentskills.io/
 - Recorded check: Promotion of agent-skills-spec: reference-resolved -> ai-confirmed (URL resolved (HTTP 200) at registration. Content checked against agentskills.io and the OpenCode skills documentation (opencode.ai/docs/skills): the format is 'a lightweight, open format' (folder + SKILL.md with name/description frontmatter), 'originally developed by Anthropic, released as an open standard, and has been adopted by a growing number of agent products'; the adopter list includes OpenCode, whose docs confirm native discovery incl. Claude-compatible .claude/skills paths; OpenWork (different-ai/openwork) states it is powered by OpenCode. Supports the paper's portability sentence. Page depth.)
 
@@ -284,6 +314,7 @@ python3 scripts/provlog.py promote --id agent-skills-spec --to human-confirmed -
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 02-background
+- Claim to check (02-background): “The argument shape itself is established in research software engineering: better architecture makes better software makes better research [better-architecture2025]; aiprov extends that chain from the software to the record of its making.”
 - Access: https://doi.org/10.1109/MCSE.2025.3573887
 - Recorded check: Promotion of better-architecture2025: reference-resolved -> ai-confirmed (Content checked against the open-access full text (eprints.soton.ac.uk / elib.dlr.de/215763 mirrors of the CiSE article): abstract states 'Better software drives better research... better architecture underpins better software... we advocate and emphasize the importance of designing robust architectures for research software to elevate the quality of research outcomes'; body documents the incentive diagnosis (funding rewards novelty, few resources for maintenance; accidental architectures) and CI static-analysis recommendations. Supports the citing sentence that the infrastructural-quality-to-research-quality argument shape is established in RSE. Full-text depth.)
 
@@ -298,6 +329,7 @@ python3 scripts/provlog.py promote --id better-architecture2025 --to human-confi
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 01-introduction
+- Claim to check (01-introduction): “The debate about whether they should is loud and well documented [chatgpt-wrote-it2023, chatgpt-priorities2023]; the record-keeping has not kept pace.”
 - Access: https://doi.org/10.1038/d41586-023-00288-7
 - Recorded check: Promotion of chatgpt-priorities2023: reference-resolved -> ai-confirmed (Checked via Semantic Scholar record of the Nature comment: title 'ChatGPT: five priorities for research', standfirst 'Conversational AI is a game-changer for science. Here's how to respond.' Supports 'the debate is loud and well documented'. Title/standfirst depth.)
 
@@ -312,6 +344,7 @@ python3 scripts/provlog.py promote --id chatgpt-priorities2023 --to human-confir
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 01-introduction
+- Claim to check (01-introduction): “The debate about whether they should is loud and well documented [chatgpt-wrote-it2023, chatgpt-priorities2023]; the record-keeping has not kept pace.”
 - Access: https://doi.org/10.1016/j.ijinfomgt.2023.102642
 - Recorded check: Promotion of chatgpt-wrote-it2023: reference-resolved -> ai-confirmed (Content checked against the open-access ScienceDirect abstract: 43 expert contributions across disciplines on opportunities, challenges and policy implications of generative conversational AI. Supports 'the debate ... is loud and well documented'. Abstract depth.)
 
@@ -326,6 +359,7 @@ python3 scripts/provlog.py promote --id chatgpt-wrote-it2023 --to human-confirme
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 02-background
+- Claim to check (02-background): “Contributor attribution. CRediT names who contributed what kind of work [credit2019] and is now a NISO standard [credit-niso2022], but it operates at manuscript granularity and admits only humans.”
 - Access: https://doi.org/10.3789/ansi.niso.z39.104-2022
 - Recorded check: Promotion of credit-niso2022: reference-resolved -> ai-confirmed (Registry check: DOI 10.3789/ansi.niso.z39.104-2022 resolves to ANSI/NISO Z39.104-2022, the CRediT Contributor Roles Taxonomy as a NISO standard. Supports 'now a NISO standard'. Registry/title depth.)
 
@@ -340,6 +374,7 @@ python3 scripts/provlog.py promote --id credit-niso2022 --to human-confirmed --a
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 02-background
+- Claim to check (02-background): “Contributor attribution. CRediT names who contributed what kind of work [credit2019] and is now a NISO standard [credit-niso2022], but it operates at manuscript granularity and admits only humans.”
 - Access: https://doi.org/10.1002/leap.1210
 - Recorded check: Promotion of credit2019: reference-resolved -> ai-confirmed (Abstract checked: CRediT taxonomy proposed 'a shift to a more holistic way for authors to describe their contributions ... moving beyond a static concept of authorship' (authorship to contributorship). Supports 'CRediT names who contributed what kind of work'. Abstract depth.)
 
@@ -354,6 +389,7 @@ python3 scripts/provlog.py promote --id credit2019 --to human-confirmed --agent 
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 02-background
+- Claim to check (02-background): “AI transparency artefacts. Model cards [modelcards2019] and datasheets [datasheets2021] document the model or the dataset.”
 - Access: https://doi.org/10.1145/3458723
 - Recorded check: Promotion of datasheets2021: reference-resolved -> ai-confirmed (Abstract checked (OpenAlex): 'Documentation to facilitate communication between dataset creators and consumers.' Supports 'datasheets document the dataset'. Abstract depth.)
 
@@ -368,6 +404,7 @@ python3 scripts/provlog.py promote --id datasheets2021 --to human-confirmed --ag
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 07-discussion
+- Claim to check (07-discussion): “Aviation's certification guidance already anticipates exactly this setting: EASA's AI concept paper covers systems that automatically take decisions under human oversight and demands traceability of data from origin to final operation through the whole pipeline, naming record-keeping of AI-related data among the req...”
 - Access: https://www.easa.europa.eu/en/document-library/general-publications/easa-artificial-intelligence-concept-paper-issue-2
 - Recorded check: Promotion of easa-ai-concept2024: reference-resolved -> ai-confirmed (Content checked at full-document depth (PDF fetched from easa.europa.eu): Level 2 AI is defined as systems that 'automatically take decisions under human oversight' (human-AI teaming); the guidance requires 'the traceability of the data from their origin to their final operation through the whole pipeline of operations' and names record-keeping of AI-related data and continuous safety assessment among the needed methodologies. Supports the industry-relevance paragraph: certified aviation guidance already anticipates AI decisions under human oversight with pipeline-wide traceability.)
 
@@ -382,6 +419,7 @@ python3 scripts/provlog.py promote --id easa-ai-concept2024 --to human-confirmed
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 07-discussion
+- Claim to check (07-discussion): “The fast side, the AI's active hours, supplied execution and recombination, and recombination is exactly what the empirical evidence says models supply: in preregistered comparisons, each additional human-written text contributes more new ideas to the collective pool than each additional model-written one [llm-homog...”
 - Access: https://doi.org/10.31234/osf.io/8p9wu
 - Recorded check: Promotion of llm-homogenization2024: reference-resolved -> ai-confirmed (Abstract checked (preprint, not peer-reviewed - cited as such): across three preregistered studies on 2,200 essays, 'each additional human-written essay contributed more new ideas than each additional GPT-4 essay', homogenization persisting under prompt/parameter enhancements. Supports the originality paragraph's claim that collective novelty enters through the human side. Abstract depth.)
 
@@ -396,6 +434,7 @@ python3 scripts/provlog.py promote --id llm-homogenization2024 --to human-confir
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 03-dilution
+- Claim to check (03-dilution): “Language models fabricate plausible-looking references and citation errors at documented rates [fabricated-citations2023, ai-hallucination2023]; once such a reference is indexed, nothing in today's retrieval chain stops it from being cited onward, and models trained on the polluted pool degrade further [model-collap...”
 - Access: https://doi.org/10.1038/s41586-024-07566-y
 - Recorded check: Promotion of model-collapse2024: reference-resolved -> ai-confirmed (Content checked against the Nature abstract: 'indiscriminate use of model-generated content in training causes irreversible defects in the resulting models ... we refer to this effect as model collapse'. Supports 'models trained on the polluted pool degrade further'. Abstract depth; full text paywalled.)
 
@@ -410,6 +449,7 @@ python3 scripts/provlog.py promote --id model-collapse2024 --to human-confirmed 
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 07-discussion
+- Claim to check (07-discussion): “Beyond the EU, the OECD AI Principles, the first intergovernmental AI standard, ask AI actors to "ensure traceability, including in relation to datasets, processes and decisions made during the AI system lifecycle" [oecd-ai-principles]: a per-activity provenance graph in all but name, and the OECD.AI observatory's i...”
 - Access: https://oecd.ai/en/ai-principles
 - Recorded check: Promotion of oecd-ai-principles: reference-resolved -> ai-confirmed (Content checked at page depth against oecd.ai/en/ai-principles and the principle dashboards P7/P9: 'The OECD Recommendation on AI is the first intergovernmental standard on AI. Today, there are 47 adherents' (adopted May 2019, updated May 2024). Transparency principle 1.3: AI actors should 'provide plain and easy-to-understand information on the sources of data/input, factors, processes and/or logic that led to the prediction, content, recommendation or decision'. Accountability principle 1.5: 'AI actors should ensure traceability, including in relation to datasets, processes and decisions made during the AI system lifecycle, to enable analysis of the AI system's outputs and responses to inquiry'. Both support the regulatory-alignment sentence. Canonical instrument page (legalinstruments.oecd.org OECD-LEGAL-0449) is script-rendered and returned no text to automated fetch; the oecd.ai principle pages are the recorded access path.)
 
@@ -424,6 +464,7 @@ python3 scripts/provlog.py promote --id oecd-ai-principles --to human-confirmed 
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 07-discussion
+- Claim to check (07-discussion): “Beyond the EU, the OECD AI Principles, the first intergovernmental AI standard, ask AI actors to "ensure traceability, including in relation to datasets, processes and decisions made during the AI system lifecycle" [oecd-ai-principles]: a per-activity provenance graph in all but name, and the OECD.AI observatory's i...”
 - Access: https://oecd.ai/en/incidents-methodology
 - Recorded check: Promotion of oecd-aim: reference-resolved -> ai-confirmed (Content checked at page depth against oecd.ai/en/incidents-methodology and oecd.ai/en/site/incidents: 'The goal of the AIM is to track actual AI incidents and hazards, as defined by the OECD, in real time and provide the evidence-base to inform related AI policy discussions' (developed by the OECD.AI expert group on AI incidents); the incidents overview adds 'Incident reporting and monitoring must be consistent and interoperable globally'. Supports the discussion sentence that OECD.AI incident monitoring aggregates per-project records. Page depth; the AIM dashboard itself is script-rendered, the methodology page is the recorded access path.)
 
@@ -438,6 +479,7 @@ python3 scripts/provlog.py promote --id oecd-aim --to human-confirmed --agent fl
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 02-background
+- Claim to check (02-background): “section{Background and Related Worksec:background Provenance models. W3C PROV-O [prov-o2013] is the standard vocabulary for expressing who generated what, through which activity; it consolidated the lineage begun by the Open Provenance Model [opm2010], and PAV refined it for authoring and versioning [pav2013].”
 - Access: https://doi.org/10.1016/j.future.2010.07.005
 - Recorded check: Promotion of opm2010: reference-resolved -> ai-confirmed (Title/venue checked: 'The Open Provenance Model core specification (v1.1)', FGCS 2011 - the community provenance model predating W3C PROV; together with the PROV-O Recommendation page this supports 'consolidated the lineage begun by the Open Provenance Model'. Title/venue depth, no abstract available; consolidation reasoning disclosed.)
 
@@ -452,6 +494,7 @@ python3 scripts/provlog.py promote --id opm2010 --to human-confirmed --agent flo
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 03-dilution
+- Claim to check (03-dilution): “section{The Dilution Crisissec:dilution Scientific output has been growing faster than the community's capacity to review it [publishing-strain2024], and paper mills industrialized fabrication well before language models [paper-mills2021].”
 - Access: https://doi.org/10.1002/ijc.33604
 - Recorded check: Promotion of paper-mills2021: reference-resolved -> ai-confirmed (Abstract now checked via OpenAlex after the earlier publisher bot-wall (recorded fallback): the IJC editorial describes the journal's data-integrity measures and its reaction 'to this threat to scientific integrity' from fake data and paper mills, 2021, pre-LLM. Supports 'paper mills industrialized fabrication well before language models'. Abstract depth.)
 
@@ -466,6 +509,7 @@ python3 scripts/provlog.py promote --id paper-mills2021 --to human-confirmed --a
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 02-background
+- Claim to check (02-background): “section{Background and Related Worksec:background Provenance models. W3C PROV-O [prov-o2013] is the standard vocabulary for expressing who generated what, through which activity; it consolidated the lineage begun by the Open Provenance Model [opm2010], and PAV refined it for authoring and versioning [pav2013].”
 - Access: https://doi.org/10.1186/2041-1480-4-37
 - Recorded check: Promotion of pav2013: reference-resolved -> ai-confirmed (Abstract checked (OpenAlex): PROV-O is general-purpose; PAV covers 'authoring and versioning information of web resources' beyond PROV-O's basic methodology. Supports 'PAV refined it for authoring and versioning'. Abstract depth.)
 
@@ -480,6 +524,7 @@ python3 scripts/provlog.py promote --id pav2013 --to human-confirmed --agent flo
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 02-background
+- Claim to check (02-background): “RO-Crate [rocrate2022] is complementary packaging; an aiprov graph can travel inside a crate.”
 - Access: https://doi.org/10.3233/ds-210053
 - Recorded check: Promotion of rocrate2022: reference-resolved -> ai-confirmed (Abstract checked (OpenAlex): RO-Crate is 'an open, community-driven, and lightweight approach to packaging research artefacts along with their metadata in a machine readable manner'. Supports 'complementary packaging'. Abstract depth.)
 
@@ -494,6 +539,7 @@ python3 scripts/provlog.py promote --id rocrate2022 --to human-confirmed --agent
 
 - **Your action:** follow the access link, check the citing sentence(s), then grant or refuse:
 - Cited: 1× in 05-skill
+- Claim to check (05-skill): “Worked example: analysing experimental data. The workflow is not specific to writing papers; consider a study like the comparison of power and amplitude control in continuous ultrasonic welding of unidirectional CFRPs [ultrasonic-welding2025], where welding trials produce in-situ process data, scans, mechanical test...”
 - Access: https://doi.org/10.1016/j.compositesa.2025.109194
 - Access: https://elib.dlr.de/220058/
 - Recorded check: Promotion of ultrasonic-welding2025: reference-resolved -> ai-confirmed (Abstract checked (elib.dlr.de/220058): 'evaluate two different control methods for continuous ultrasonic welding of carbon fibre reinforced high performance polymers', novel power-control compared - supports the worked example's description of the study. Abstract depth.)
@@ -681,6 +727,9 @@ python3 scripts/provlog.py promote --id references-bib --to human-confirmed --ag
 
 - **Done.** Optionally deepen to `human-read` after a full read:
 - Cited: 5× in 01-introduction, 02-background, 03-dilution, 04-method, main (acknowledgment)
+- Claim to check (01-introduction): “The ideas were sharpened across earlier experiments: Obscurity-Is-Dead [obscurity-is-dead] established transcript-as-artifact and per-claim verification labels while measuring how large language models compress reverse-engineering effort, and the original F(AI)2R experiment [fair2r-repo] formalized the two-pass mode...”
+- Claim to check (02-background): “The first is AI-assisted research practice: Obscurity-Is-Dead [obscurity-is-dead] introduced transcript-as-artifact and the verification labels (repo-vendored, lit-read, unverified-external) that the present ladder canonicalizes, and F(AI)2R [fair2r-repo] formalized the two-pass model and no-parentless-claim.”
+- Claim to check (03-dilution): “Obscurity-Is-Dead measured how large language models compress the effort gap for reverse-engineering proprietary devices [obscurity-is-dead]; the same compression applies to producing a plausible paper.”
 - Access: https://github.com/noheton/Obscurity-Is-Dead
 - Recorded check: Promotion of obscurity-is-dead: reference-resolved -> human-confirmed (Granted by the human operator in the session ('confirm my selfcitations'). The operator authored this repository and confirms the citing sentences: it established transcript-as-artifact and per-claim verification labels (repo-vendored, lit-read, unverified-external) while measuring how LLMs compress reverse-engineering effort. Command executed by the AI agent at explicit direction; judgement and grant are the human's.)
 
@@ -695,6 +744,9 @@ python3 scripts/provlog.py promote --id obscurity-is-dead --to human-read --agen
 
 - **Done.** Optionally deepen to `human-read` after a full read:
 - Cited: 4× in 01-introduction, 02-background, 04-method, main (acknowledgment)
+- Claim to check (01-introduction): “The ideas were sharpened across earlier experiments: Obscurity-Is-Dead [obscurity-is-dead] established transcript-as-artifact and per-claim verification labels while measuring how large language models compress reverse-engineering effort, and the original F(AI)2R experiment [fair2r-repo] formalized the two-pass mode...”
+- Claim to check (02-background): “The first is AI-assisted research practice: Obscurity-Is-Dead [obscurity-is-dead] introduced transcript-as-artifact and the verification labels (repo-vendored, lit-read, unverified-external) that the present ladder canonicalizes, and F(AI)2R [fair2r-repo] formalized the two-pass model and no-parentless-claim.”
+- Claim to check (04-method): “The ladder itself has provenance: it canonicalizes labels field-tested in Obscurity-Is-Dead [obscurity-is-dead] and hardened in F(AI)2R [fair2r-repo], and legacy names remain machine-readable aliases, so that ancestor graphs can consolidate onto this ladder without rewriting history; the aliases are in place, though...”
 - Access: https://github.com/noheton/f-ai-r
 - Recorded check: Promotion of fair2r-repo: reference-resolved -> human-confirmed (Granted by the human operator in the session ('confirm my selfcitations'). The operator authored this repository and confirms the citing sentences: the original F(AI)2R experiment formalized the two-pass model and the no-parentless-claim rule on a single scholarly paper. Executed at explicit direction; judgement and grant are the human's.)
 
@@ -709,6 +761,8 @@ python3 scripts/provlog.py promote --id fair2r-repo --to human-read --agent flor
 
 - **Done.** Optionally deepen to `human-read` after a full read:
 - Cited: 2× in 02-background, 07-discussion
+- Claim to check (02-background): “The third root is industrial semantic modeling: the author co-authored the Asset Administration Shell Part 1 specification [aas-part1-v30rc02], continued as IDTA-01001 [aas-part1-idta].”
+- Claim to check (07-discussion): “Generality. Beyond papers, the same invariants and ladder apply to code, data pipelines, CAD models, and AAS submodels [aas-part1-v30rc02]; what remains domain work is the choice of entity subclasses.”
 - Access: https://www.plattform-i40.de/IP/Redaktion/EN/Downloads/Publikation/Details_of_the_Asset_Administration_Shell_Part1_V3.html
 - Recorded check: Promotion of aas-part1-v30rc02: ai-confirmed -> human-confirmed (Granted by the human operator in the session ('confirm my selfcitations'). The operator co-authored this specification and confirms the citing sentences: AAS Part 1 defines the information content of the Asset Administration Shell with formal, machine-readable semantics for cross-partner exchange. Executed at explicit direction; judgement and grant are the human's.)
 
@@ -723,6 +777,8 @@ python3 scripts/provlog.py promote --id aas-part1-v30rc02 --to human-read --agen
 
 - **Done.** Optionally deepen to `human-read` after a full read:
 - Cited: 2× in 01-introduction, 08-conclusion
+- Claim to check (01-introduction): “Several strands of that programme advance in parallel under one operator, this method, this paper, and a system-integration fork of the shepard data-management platform [shepard-fork], which is precisely why per-activity accounting matters: parallelism without provenance is how contributions and errors alike become ...”
+- Claim to check (08-conclusion): “shepard [shepard], a jointly developed DLR system for heterogeneous product and research data, already serves as the data backbone of engineering deployments such as the MEMAS additive-manufacturing pipeline [memas2024]; an experimental fork [shepard-fork] is the staging ground for integrating aiprov into it as plan...”
 - Access: https://github.com/noheton/shepard
 - Recorded check: Promotion of shepard-fork: reference-resolved -> human-confirmed (Granted by the human operator in the session ('confirm my selfcitations'). The operator owns this experimental fork and confirms the citing sentences: it is the staging ground for integrating aiprov into shepard as planned work. Executed at explicit direction; judgement and grant are the human's.)
 
@@ -737,6 +793,7 @@ python3 scripts/provlog.py promote --id shepard-fork --to human-read --agent flo
 
 - **Done.** Optionally deepen to `human-read` after a full read:
 - Cited: 1× in 08-conclusion
+- Claim to check (08-conclusion): “shepard [shepard], a jointly developed DLR system for heterogeneous product and research data, already serves as the data backbone of engineering deployments such as the MEMAS additive-manufacturing pipeline [memas2024]; an experimental fork [shepard-fork] is the staging ground for integrating aiprov into it as plan...”
 - Access: https://doi.org/10.5281/zenodo.17897485
 - Access: https://gitlab.com/dlr-shepard
 - Recorded check: Promotion of shepard: reference-resolved -> ai-confirmed (Content checked against the Zenodo record (10.5281/zenodo.17897485, v5.1.2, published 2025-12-02; concept DOI 10.5281/zenodo.5091603): 'shepard is a storage for heterogeneous product and research data... The integrated data management system shepard developed at DLR simplifies the acquisition and processing of this data' - supports the citing sentence in the conclusion verbatim. Record lists Florian Krebs as contributor (sponsor role), so the source is now marked aiprov:selfCitation, replacing the previous link-only gitlab registration with a DOI-carrying archived release. Record-page depth.)
@@ -752,6 +809,7 @@ python3 scripts/provlog.py promote --id shepard --to human-read --agent florian-
 
 - **Done.** Optionally deepen to `human-read` after a full read:
 - Cited: 1× in 07-discussion
+- Claim to check (07-discussion): “German law agrees from its definition of the work: 2(2) UrhG protects only pers\"onliche geistige Sch\"opfungen [urhg-para2], so current LLM output as such is not copyrightable in Germany.”
 - Vendored copy: `doc/sources/urhg-para2.html` (sha256:934c52dbc789f46a65d1ee8ab5f01c23389bb3a16674d5671d72cbe98336a513)
 - Access: https://www.gesetze-im-internet.de/urhg/__2.html
 - Recorded check: Promotion of urhg-para2: source-vendored -> human-confirmed (Granted by the human operator in the session ('urhg-para2 human confirmed'; see committed transcript). Operator spot-check of the vendored statute text: s2(2) UrhG reads 'Werke im Sinne dieses Gesetzes sind nur persoenliche geistige Schoepfungen', supporting the copyright paragraph's citing sentence that only personal intellectual creations are protected works in Germany. Command executed by the AI agent at the operator's explicit direction; the judgement and the grant are the human's.)

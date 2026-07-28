@@ -50,6 +50,40 @@ def cite_locations(sid: str) -> tuple[list[str], int]:
     return locs, count
 
 
+def _detex(s: str) -> str:
+    """Light LaTeX-to-text cleanup for displaying a citing sentence."""
+    s = re.sub(r"\\cite\{([^}]*)\}", r"[\1]", s)
+    s = re.sub(r"\\(?:texttt|emph|textbf|textsuperscript)\{([^}]*)\}", r"\1", s)
+    s = re.sub(r"\\ref\{[^}]*\}", "[ref]", s)
+    s = re.sub(r"~", " ", s)
+    s = re.sub(r"\\[a-zA-Z]+\{?", "", s).replace("}", "")
+    s = re.sub(r"``|''", '"', s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def citing_sentences(sid: str, limit: int = 3) -> list[tuple[str, str]]:
+    """The exact sentence(s) in which the paper cites the source — the
+    claim the human check is about. Extracted mechanically: the sentence
+    containing each \\cite occurrence, lightly de-TeXed."""
+    out = []
+    for f in sorted((ROOT / "paper" / "sections").glob("*.tex")):
+        text = " ".join(l for l in f.read_text().splitlines()
+                        if not l.lstrip().startswith("%"))
+        for m in re.finditer(r"\\cite\{([^}]*)\}", text):
+            if sid not in (k.strip() for k in m.group(1).split(",")):
+                continue
+            start = max(text.rfind(". ", 0, m.start()) + 2, 0)
+            end = text.find(". ", m.end())
+            end = len(text) if end == -1 else end + 1
+            sent = _detex(text[start:end])
+            if len(sent) > 320:
+                sent = sent[:317] + "..."
+            out.append((f.stem, sent))
+            if len(out) >= limit:
+                return out
+    return out
+
+
 def main():
     g = Graph()
     g.parse(ROOT / "provenance.ttl", format="turtle")
@@ -170,6 +204,8 @@ def main():
             L.append(f"- {ACTION[key]}")
             if locs:
                 L.append(f"- Cited: {cites}× in {', '.join(locs)}")
+                for where, sent in citing_sentences(sid):
+                    L.append(f"- Claim to check ({where}): “{sent}”")
             else:
                 L.append("- Cited: not currently cited in the paper")
             if files:

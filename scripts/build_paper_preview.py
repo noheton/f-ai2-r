@@ -106,9 +106,10 @@ def verification_html() -> str:
             incode = not incode
             continue
         esc = _h.escape(line)
-        esc = re.sub(r"\*\*(.+?)\*\*", r"<b>\\1</b>", esc)
-        esc = re.sub(r"`([^`]+)`", r"<i>\\1</i>", esc)
-        buf.append(esc + ("" if incode else "<br>"))
+        esc = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", esc)
+        esc = re.sub(r"`([^`]+)`", r"<i>\1</i>", esc)
+        esc = re.sub(r"(https?://[^\s<]+)", r'<a href="\1">\1</a>', esc)
+        buf.append(esc + ("\n" if incode else "<br>"))
     flush()
     total = sum(counts.values())
     warn, done, wait = counts["\u26a0"], counts["\u2713"], counts["\u23f3"]
