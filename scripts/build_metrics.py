@@ -27,6 +27,17 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 # 20 (1h-TTL, 2x). Change only with a logged operator direction.
 PRICE = {"input": 10.0, "output": 50.0, "cache_read": 1.0, "cache_write_1h": 20.0}
 
+# Repricing bases for the model-cost comparison (published list prices,
+# USD per 1M tokens, fetched 2026-07-28 from the provider's pricing
+# docs). Same recorded token volume, different price list: a price-basis
+# comparison, NOT a prediction of what another model would have
+# consumed (tokenizers and behaviour differ per model).
+PRICE_ALT = {
+    "opus": {"input": 5.0, "output": 25.0, "cache_read": 0.5, "cache_write_1h": 10.0},
+    # Sonnet 5 introductory pricing in effect through 2026-08-31
+    "sonnet": {"input": 2.0, "output": 10.0, "cache_read": 0.2, "cache_write_1h": 4.0},
+}
+
 ACTIVE_GAP_MIN = 30          # active-time clustering threshold
 PASTE_WORDS = 500            # direction messages above this = pasted document
 MACHINERY = ("<command-name>", "Base directory for this skill", "<system-reminder>")
@@ -153,6 +164,11 @@ def session_metrics(m):
     m["cache_write_5m"] = cw_5m
     m["cache_write_1h"] = cw_1h
     m["cost_usd"] = round(all_cost, 2)
+    for name, pr in PRICE_ALT.items():
+        m[f"cost_usd_{name}"] = round(
+            (tot["input"] * pr["input"] + tot["output"] * pr["output"]
+             + tot["cache_read"] * pr["cache_read"]
+             + tot["cache_write"] * pr["cache_write_1h"]) / 1e6, 2)
     m["overhead_req_pct"] = round(100 * over_req / reqs, 1)
     m["overhead_out_pct"] = round(100 * over_out / tot["output"], 1)
     m["overhead_cost_pct"] = round(100 * over_cost / all_cost, 1)
@@ -209,6 +225,11 @@ def write_outputs(m):
                     "(provlog log/claim/validate/report/init/agent/disclosure/"
                     "extract, promote/source, graph+transcript commits, exporters)",
         "prose_words": "sections/*.tex, comments stripped, LaTeX commands stripped",
+        "cost_repriced": "same recorded token volume repriced at other "
+                         "models' published list prices (Opus 5; Sonnet 5 at "
+                         "introductory pricing through 2026-08-31); a "
+                         "price-basis comparison, not a run prediction - "
+                         "tokenizers and behaviour differ per model",
         "counterfactuals": "not computed (omit-don't-estimate)",
     }
     (ROOT / "doc" / "metrics.json").write_text(json.dumps(m, indent=2) + "\n")
@@ -234,6 +255,8 @@ def write_outputs(m):
     mac("\\MCacheWriteM", f"{m['tok_cache_write'] / 1e6:.1f}")
     mac("\\MCacheReadMint", f"{round(m['tok_cache_read'] / 1e6)}")
     mac("\\MCostUSD", f"{round(m['cost_usd'])}")
+    mac("\\MCostOpus", f"{round(m['cost_usd_opus'])}")
+    mac("\\MCostSonnet", f"{round(m['cost_usd_sonnet'])}")
     mac("\\MOverReqPct", f"{m['overhead_req_pct']}\\%")
     mac("\\MOverOutPct", f"{m['overhead_out_pct']}\\%")
     mac("\\MOverCostPct", f"{m['overhead_cost_pct']}\\%")

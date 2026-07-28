@@ -6,17 +6,16 @@ operator. Three agents are registered: one human (identity resolved
 from ORCID), one AI system, and the CI service as a tool agent. Every
 round of work follows the two-commit pattern of
 Section~\ref{sec:method}, so each logged activity binds a real commit.
-Figure~\ref{fig:environment} shows the working environment: the
-operator's conversation with the agent on the left, the continuously
-rebuilt draft of this paper on the right, the loop of
-Section~\ref{sec:skill} in operation. Scope, before any number:
+Figure~\ref{fig:environment} shows the oversight surface: the
+continuously rebuilt draft beside its source-verification queue, the
+loop of Section~\ref{sec:skill} in operation. Scope, before any number:
 this is a demonstration, not a study; one operator, one domain, one
 session. The quantities below characterize this instance of an idea
 in use (Section~\ref{sec:conclusion} lists the trials it owes).
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.92\textwidth]{figures/environment.png}
+\includegraphics[width=0.88\textwidth]{figures/environment.png}
 \caption{The continuously rebuilt preview of this paper (screenshot,
 2026-07-28), republished to a stable URL after every editing round.
 Left: commit, build time, and live graph statistics above the typeset
@@ -44,11 +43,10 @@ carries no priced entries, so cost was first omitted rather than
 assumed; the operator then directed pricing the recorded tokens
 against the provider's published price list at time of writing. The
 resulting figure is \emph{computed, not provider-reported}, and the
-graph records it exactly so, with the price basis in the activity's
-label. All
+graph records it exactly so, price basis in the activity's label. All
 eight recorded claims sit at \texttt{ai-confirmed}, the ceiling an AI
-may grant; promotion beyond that waits for the human operator, and the
-tooling will hand over the evidence when asked.
+may grant; promotion beyond waits for the human operator, with the
+evidence handed over on request.
 
 \begin{table}[t]
 \caption{Provenance-graph state of this paper's production at the time
@@ -77,25 +75,32 @@ Output tokens & \MOutTok \\
 Input tokens (uncached) & \MInTok \\
 Cache tokens (read / write) & \MCacheReadM\,M / \MCacheWriteM\,M \\
 Cost (computed, not reported)$^{\dagger}$ & $\approx$ USD~\MCostUSD \\
+\quad same tokens at Opus~5 / Sonnet~5 rates$^{\dagger}$ &
+  $\approx$ USD~\MCostOpus{} / \MCostSonnet \\
 \bottomrule
 \end{tabular}
 \par\smallskip
 {\raggedright\footnotesize $^{\dagger}$Basis: the provider's published
 API list prices~\cite{anthropic-pricing}, per million tokens:
-\MPriceBasis{} (all cache writes in the record are 1\,h-TTL).\par}
+\MPriceBasis{}; all cache writes 1\,h-TTL. The repricing holds the
+recorded token volume fixed and only swaps the price list (Sonnet~5
+at introductory rates); it compares price bases, not runs, since
+models tokenize and behave differently.\par}
 \end{table}
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{figures/dashboard.png}
+\includegraphics[width=\columnwidth]{figures/dashboard.png}\\[2pt]
+\includegraphics[width=\columnwidth]{figures/ladder-stats.png}
 \caption{The dashboard rendered from \texttt{provenance.ttl}
-(excerpt: header, registered agents, and the first entry of the
-activity ledger of this paper's production). The full page is one
-self-contained HTML file, including the ladder chart and an
-interactive graph view; the cost figure is the computed one of
-Table~\ref{tab:telemetry}. The token column sums per-activity
-records, whose overlapping cumulative backfills read high; the table
-aggregates the session record directly.}
+(screenshot, 2026-07-28). Top: header, registered agents, and the
+start of the activity ledger of this paper's production; the cost
+figure is the computed one of Table~\ref{tab:telemetry}, and the
+token column sums per-activity records whose overlapping cumulative
+backfills read high (the table aggregates the session record
+directly). Bottom: the literature rung distribution, most sources
+operator-confirmed through the issue path. The full page is one
+self-contained HTML file with an interactive graph view.}
 \label{fig:dashboard}
 \end{figure}
 

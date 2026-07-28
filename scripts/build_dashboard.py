@@ -110,6 +110,12 @@ def extract(path: pathlib.Path) -> dict:
                 (lambda x: x)(local(val(s, "verificationState") or "unverified")),
                 local(val(s, "verificationState") or "unverified"))})
     claims.sort(key=lambda c: c["id"])
+
+    sources = []
+    for s in subjects_of("Source"):
+        st = local(val(s, "verificationState") or "unverified")
+        sources.append({"id": local(s), "state": RUNG_ALIASES.get(st, st)})
+    sources.sort(key=lambda c: c["id"])
     # --- graph view: typed nodes + labelled edges over the instance data ---
     nodes, edges = {}, []
     def add_node(iri, kind, label=None):
@@ -156,7 +162,7 @@ def extract(path: pathlib.Path) -> dict:
     return {"generatedAt": datetime.datetime.now().astimezone().isoformat(timespec="seconds"),
             "source": str(path), "triples": len(g),
             "agents": sorted(agents.values(), key=lambda a: a["kind"]),
-            "activities": acts, "claims": claims,
+            "activities": acts, "claims": claims, "sources": sources,
             "nodes": sorted(nodes.values(), key=lambda n: n["id"]), "edges": edges}
 
 
@@ -248,7 +254,8 @@ font:11.5px var(--mono);color:var(--dim)}
 <div class="glegend" id="glegend"></div>
 <div class="ghint">drag nodes · click to highlight neighbourhood · click background to reset</div>
 </div></section>
-<section><h2>Verification ladder</h2><div class="rungs" id="rungs"></div></section>
+<section><h2>Verification ladder — claims</h2><div class="rungs" id="rungs"></div></section>
+<section><h2>Verification ladder — sources (literature)</h2><div class="rungs" id="srungs"></div></section>
 <section><h2>Claims</h2><table id="claims"><thead><tr>
 <th>ID</th><th>Claim</th><th>Parent activity</th><th>Attributed to</th><th>State</th>
 </tr></thead><tbody></tbody></table></section>
@@ -297,6 +304,11 @@ const maxR=Math.max(1,...Object.values(rc));
 $("#rungs").innerHTML=LADDER.map(r=>{const n=rc[r]||0;
  const cls=r.startsWith("human")?"hu":(r==="unverified"||r==="needs-research")?"warn":"";
  return `<div>${r}</div><div class="rbar ${cls}"><i style="width:${n/maxR*100}%"></i></div><div style="text-align:right">${n}</div>`}).join("");
+const src=(D.sources||[]);const sc={};src.forEach(c=>sc[c.state]=(sc[c.state]||0)+1);
+const maxS=Math.max(1,...Object.values(sc));
+$("#srungs").innerHTML=LADDER.map(r=>{const n=sc[r]||0;
+ const cls=r.startsWith("human")?"hu":(r==="unverified"||r==="needs-research")?"warn":"";
+ return `<div>${r}</div><div class="rbar ${cls}"><i style="width:${n/maxS*100}%"></i></div><div style="text-align:right">${n}</div>`}).join("");
 $("#claims tbody").innerHTML=D.claims.map(c=>`<tr><td class="mono">${esc(c.id)}</td>
  <td>${esc(c.text)}</td><td class="mono">${esc(c.parent)}</td><td class="mono">${esc(c.agent)}</td>
  <td><span class="st st-${esc(c.state)}">${esc(c.state)}</span></td></tr>`).join("");
