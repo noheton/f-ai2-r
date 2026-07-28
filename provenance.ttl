@@ -390,6 +390,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/prov-agent2025> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-prov-agent2025-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label """Promotion of prov-agent2025: ai-confirmed -> human-confirmed (similar idea. rung concept new.
+
+Opened from the paper preview; the aiprov-promote workflow executes this after verifying the issue author is a registered operator. (granted via GitHub issue #10 by @noheton; the click and the judgement are the operator's, the workflow transcribed them))"""@en ;
+    prov:endedAtTime "2026-07-28T08:02:39.435344+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/prov-agent2025> ;
+    prov:wasAssociatedWith agent:florian-krebs .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-prov-o2013-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of prov-o2013: reference-resolved -> ai-confirmed (W3C Recommendation page checked: 'The PROV Ontology (PROV-O) expresses the PROV Data Model', W3C Recommendation 30 April 2013. Supports 'the standard vocabulary for expressing who generated what, through which activity'. Page depth.)"@en ;
     prov:endedAtTime "2026-07-27T07:49:03.685072+00:00"^^xsd:dateTime ;
@@ -2524,13 +2532,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1089/ees.2016.0223"^^xsd:anyURI ;
     aiprov:verificationState verif:ai-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/prov-agent2025> a aiprov:Source ;
-    rdfs:label "PROV-AGENT: Unified Provenance for Tracking AI Agent Interactions in Agentic Workflows"@en ;
-    dcterms:date "2025" ;
-    dcterms:isPartOf "2025 IEEE International Conference on eScience (eScience)" ;
-    aiprov:doi "https://doi.org/10.1109/escience65000.2025.00093"^^xsd:anyURI ;
-    aiprov:verificationState verif:ai-confirmed .
-
 <https://noheton.org/f-ai2-r/prov/source/prov-o2013> a aiprov:Source ;
     rdfs:label "PROV-O: The PROV Ontology (W3C Recommendation, 30 April 2013)"@en ;
     dcterms:source <https://www.w3.org/TR/prov-o/> ;
@@ -2689,6 +2690,13 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:contentHash "sha256:17697a107e1696454a5851cf128848adee0bf0ebcc97b4fdb3101d38b2149602" ;
     aiprov:filePath "paper-preview.html" ;
     aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/prov-agent2025> a aiprov:Source ;
+    rdfs:label "PROV-AGENT: Unified Provenance for Tracking AI Agent Interactions in Agentic Workflows"@en ;
+    dcterms:date "2025" ;
+    dcterms:isPartOf "2025 IEEE International Conference on eScience (eScience)" ;
+    aiprov:doi "https://doi.org/10.1109/escience65000.2025.00093"^^xsd:anyURI ;
+    aiprov:verificationState verif:human-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/publishing-strain2024> a aiprov:Source ;
     rdfs:label "The strain on scientific publishing"@en ;
