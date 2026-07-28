@@ -113,7 +113,7 @@ step starts with the evidence in hand rather than a search for it.
 
 \begin{figure}[t]
 \centering
-\scriptsize
+\fontsize{6.6}{7.6}\selectfont
 \begin{verbatim}
 $ provlog.py validate
 [ OK ] parentless claims: 0
@@ -129,9 +129,7 @@ REFUSED: rung 'human-confirmed' is human-only;
   HumanAgent. An AI must never grant this rung.
                                           exit 1
 # a parentless claim spliced into the graph
-$ provlog.py validate
 [FAIL] parentless claims: 1
-[FAIL] unattributed claims: 1
     -> .../prov/claim/rogue               exit 1
 # access gate: human rung, source not in hand
 $ provlog.py promote --id demo-src \
@@ -142,8 +140,7 @@ REFUSED: 'human-confirmed' requires the source
   record a DOI/URL for it                 exit 1
 # vendor the copy, then the gate hands it over
 $ provlog.py promote --id demo-src \
-    --to source-vendored --agent claude-code \
-    --file protocol.pdf
+    --to source-vendored --file protocol.pdf
 demo-src: reference-resolved -> source-vendored
 $ provlog.py promote --id demo-src \
     --to human-confirmed --agent florian-krebs

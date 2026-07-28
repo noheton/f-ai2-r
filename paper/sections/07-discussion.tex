@@ -15,10 +15,9 @@ remaining weakness is that the record has one witness. Telemetry is
 provider-generated but agent-relayed: nothing stops a dishonest agent
 from underreporting usage, omitting sessions, or inventing
 activities. Provider-side provenance, signed inference records
-carrying model, timestamps, usage, role labels, and hashes of prompt
-and response, would eliminate exactly that class of misreporting, and
-would subsume this paper's other provider asks (reported cost and
-energy, unambiguous roles) as by-products. It would not, however, be
+carrying model, timestamps, usage, roles, and prompt/response
+hashes, would eliminate that class of misreporting and subsume this
+paper's other provider asks (cost, energy, unambiguous roles). It would not, however, be
 tamper-\emph{proof}, on three grounds. Trust shifts rather than
 vanishes: a signature proves the provider asserted the record, so
 key custody moves to the centre. Coverage stops at the API seam: the
@@ -65,7 +64,30 @@ graph and transcript commits) versus everything else, attributes
 on the repository side, \MBookCommits{} of \MCommits{} commits
 carried only graph or transcript updates. No request mixed bookkeeping with substantive
 work, so upper and lower bounds coincide: roughly a tenth of the
-activity is the price of making the other nine tenths auditable.
+activity is the price of making the other nine tenths auditable
+(Figure~\ref{fig:overhead}).
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=0.0058\columnwidth, y=0.30cm, font=\scriptsize]
+\foreach [count=\i] \v/\l in {\MOverReqNum/{provider requests},
+    \MOverOutNum/{output tokens}, \MOverCostNum/{computed cost},
+    \MBookCommitsPctNum/{commits}} {
+  \fill[black!10] (0,-\i) rectangle (100,-\i+0.62);
+  \fill[black!60] (0,-\i) rectangle (\v,-\i+0.62);
+  \node[left] at (-1,-\i+0.31) {\l};
+  \node[right] at (\v,-\i+0.31) {\v\,\%};
+}
+\draw (0,-4.55) -- (100,-4.55);
+\foreach \t in {0,25,50,75,100}
+  \draw (\t,-4.55) -- (\t,-4.75) node[below] {\t};
+\end{tikzpicture}
+\caption{Method overhead as shares of the record (metrics single
+source; classification as in the text). Commits counts
+bookkeeping-only commits: every logging round commits, however
+small, hence the larger share.}
+\label{fig:overhead}
+\end{figure}
 Token telemetry illustrates the omit-don't-estimate rule in motion:
 the harness exposes no live usage to the agent, so nothing was
 recorded at first; when the operator challenged the gap, the session
@@ -75,26 +97,24 @@ them, reported rather than estimated. Cost closed the same way, one
 step later and one grade weaker: the record is unpriced, so under
 omit-don't-estimate no cost was recorded until the operator directed
 pricing the recorded tokens against the provider's published price
-list, first roughly USD~415, refreshed to the figure in
-Table~\ref{tab:telemetry} as the session continued. The
-distinction the graph preserves is between \emph{reported} telemetry
-(the token counts, carried in the provider's own usage blocks) and
-\emph{computed} telemetry (the cost, derived from those counts and a
-price list that the activity's label discloses). Computed values are
+list, first roughly USD~415, since refreshed in
+Table~\ref{tab:telemetry}. The graph preserves the distinction
+between \emph{reported} telemetry (token counts from the provider's
+usage blocks) and \emph{computed} telemetry (cost, derived from them
+at a disclosed price list). Computed values are
 honest only while their basis is recorded; provider-reported cost
-would still be the stronger record. A larger question stays open
-behind the numbers. This one session consumed \MCacheReadMint~million cache-read
-tokens, roughly USD~\MCostUSD{} at list prices, to produce one draft paper
-and one method release; whether that expenditure justifies its
-environmental footprint and its other costs is a debate this paper
-does not settle and does not want to hide. The schema reserves
-\texttt{aiprov:energyWh} for exactly this reason, and it sits empty
-here because no provider reported energy. Our position is only that
-the debate should be held over recorded consumption rather than
-guesses, in either direction: neither dismissing AI assistance as
-obviously wasteful nor excusing it as obviously worthwhile. The graph
-makes the bill legible; whether it is worth paying is a judgement the
-record enables but cannot make.
+would still be the stronger record. A larger question stays open behind the
+numbers: this one session consumed \MCacheReadMint~million cache-read
+tokens, roughly USD~\MCostUSD{} at list prices, for one draft paper
+and one method release, and whether that justifies its environmental
+and other costs is a debate this paper does not settle and does not
+hide. The schema reserves \texttt{aiprov:energyWh} for exactly this
+reason; it sits empty because no provider reported energy. Our
+position is only that the debate belongs over recorded consumption,
+not guesses, in either direction: neither dismissing AI assistance
+as obviously wasteful nor excusing it as obviously worthwhile. The
+graph makes the bill legible; whether it is worth paying is a
+judgement the record enables but cannot make.
 
 \textbf{Skill drift.} The method evolved mid-experiment, v0 to \MSkillVersion{},
 including two operator-contested ladder redesigns. Immutable archived

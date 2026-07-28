@@ -188,6 +188,7 @@ def repo_metrics(m):
     log = sh("git", "log", "--oneline")
     m["commits_bookkeeping"] = len(re.findall(
         r"^[0-9a-f]+ (Log s|Refresh session transcript)", log, re.M))
+    m["commits_bookkeeping_pct"] = round(100 * m["commits_bookkeeping"] / m["commits"], 1)
     words = 0
     for p in (ROOT / "paper" / "sections").glob("*.tex"):
         for ln in p.read_text().splitlines():
@@ -260,6 +261,11 @@ def write_outputs(m):
     mac("\\MOverReqPct", f"{m['overhead_req_pct']}\\%")
     mac("\\MOverOutPct", f"{m['overhead_out_pct']}\\%")
     mac("\\MOverCostPct", f"{m['overhead_cost_pct']}\\%")
+    # numeric variants for TikZ charts (no \% suffix)
+    mac("\\MOverReqNum", m["overhead_req_pct"])
+    mac("\\MOverOutNum", m["overhead_out_pct"])
+    mac("\\MOverCostNum", m["overhead_cost_pct"])
+    mac("\\MBookCommitsPctNum", m["commits_bookkeeping_pct"])
     mac("\\MDirMsgs", m["dir_msgs"])
     mac("\\MDirWords", tex_int(m["dir_words"]))
     mac("\\MDirMedian", m["dir_median"])
