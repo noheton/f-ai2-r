@@ -66,7 +66,7 @@ Triples & \MTriples \\
 Logged activities & \MActivities \\
 Claims (all \texttt{ai-confirmed}) & \MClaims \\
 Sources on the ladder & \MSources \\
-\quad thereof content-checked (\texttt{ai-confirmed}) & \MSrcChecked \\
+\quad thereof at \texttt{ai-confirmed} or above & \MSrcChecked \\
 \quad thereof marked self-citation & \MSrcSelf \\
 Registered agents (human / AI / tool) & 1 / 1 / 1 \\
 Commits & \MCommits \\
@@ -93,13 +93,12 @@ models tokenize and behave differently.\par}
 \includegraphics[width=\columnwidth]{figures/dashboard.png}\\[2pt]
 \includegraphics[width=\columnwidth]{figures/ladder-stats.png}
 \caption{The dashboard rendered from \texttt{provenance.ttl}
-(screenshot, 2026-07-28). Top: header, registered agents, and the
-start of the activity ledger of this paper's production; the cost
-figure is the computed one of Table~\ref{tab:telemetry}, and the
-token column sums per-activity records whose overlapping cumulative
-backfills read high (the table aggregates the session record
-directly). Bottom: the literature rung distribution, most sources
-operator-confirmed through the issue path. The full page is one
+(screenshot, 2026-07-28). Top: header, graph totals, agents, and the
+start of the activity ledger; the token and cost tiles sum
+per-activity records, so they differ from the session-record
+aggregates of Table~\ref{tab:telemetry}, drawn from the record
+directly. Bottom: the literature rung distribution, most sources
+operator-verified, the top rung populated. The full page is one
 self-contained HTML file with an interactive graph view.}
 \label{fig:dashboard}
 \end{figure}
@@ -120,7 +119,7 @@ weakest point, and content passes closed it: for every cited source
 the AI fetched the actual content (full text or slides where openly
 accessible, abstracts otherwise) and checked it against the specific
 citing sentence, recording the supporting quotation and the checked
-depth in the promotion note, to \MSrcChecked{} content-checked at
+depth in the promotion note; every cited source was checked at
 the time of writing. Negative outcomes stayed recorded rather than
 smoothed over: one publisher's bot-wall deferred a check until an
 open index carried the abstract, the operator-owned repositories were
@@ -139,7 +138,7 @@ the self-report is an \texttt{AuditPass} naming what happened, the
 tools involved, and the restoring commit. (ii)~An infrastructure
 failure: a registry served malformed BibTeX, which broke the CI build;
 the diagnosis and fix live in commits, and the first green run is a
-logged \texttt{Build} activity by the CI tool agent carrying artifact
+logged \texttt{Build} activity by the CI tool agent carrying artefact
 digests. (iii)~Blocked access: a publisher returned 403 to automated
 requests, and the fallback to the canonical page is recorded in the
 registering activity's label rather than silently swallowed. (iv)~Method
@@ -214,7 +213,7 @@ and that reading is consistent: the operator's direction messages
 carry scope, lineage, people, and every contested semantic decision
 (both ladder redesigns, the cost policy, the license choice, the
 page budget), while the AI executed all authoring, audit, and repair
-activities and CI contributed the deterministic builds. Rungs above the AI ceiling remain scarce by
+activities and CI contributed the deterministic builds. Rungs above the AI ceiling remain human by
 design: the operator granted the first \texttt{human-confirmed}
 against a vendored statute text the gate handed over, confirmed
 the five self-cited sources they authored, the class where the
@@ -222,7 +221,7 @@ human's judgement is uniquely authoritative, and then walked the
 queue through the issue path of Section~\ref{sec:skill},
 \MHumanRungs{} human rungs granted at the time of writing. The
 remaining sources are deliberately kept at their machine rungs so
-the demonstration retains every ladder state in the wild; the
+the demonstration shows every rung in use; the
 operator reports having checked all sources and claims, and the
 ladder records which of those checks they chose to formalize as
 grants. The hypothesis that AI absorbs tedium while humans
@@ -251,9 +250,7 @@ freed attention went: nearly every typed word carries scope,
 semantics, lineage, or people, not prose. The gain is less the
 saved time than this: the human's whole contribution could be
 judgement. Every derived figure above follows the skill's
-derivation rule: its methodology is stated with the number, active
-time joins request timestamps with gaps under thirty minutes, word
-counts strip LaTeX markup, direction counts exclude tool results,
+derivation rule: its methodology is stated with the number, word counts strip LaTeX markup, direction counts exclude tool results,
 hook messages, skill loads, and pasted documents over five hundred
 words, and the thresholds ride in the measuring activity's label, so
 a sceptic can recompute or contest any of them.

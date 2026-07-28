@@ -21,7 +21,7 @@ Dilution is misaligned incentives meeting free volume.
 The consequence is that finding good sources is now the bottleneck of
 research. Retrieval trusts proxies: indexed, cited, fluent. Generation
 has learned to imitate all three. Language models fabricate
-plausible-looking references and citation errors at documented
+plausible references and make citation errors at documented
 rates~\cite{fabricated-citations2023, ai-hallucination2023}; once such
 a reference is indexed, nothing in today's retrieval chain stops it
 from being cited onward, and models trained on the polluted pool
@@ -51,7 +51,7 @@ facts, and both outcomes leave a record.
 
 aiprov's answer makes claims first-class. Each assertion carries
 \texttt{prov:wasGeneratedBy}, \texttt{prov:wasAttributedTo}, and a
-ladder state that separates ``the reference exists''
+ladder rung that separates ``the reference exists''
 (machine-checkable) from ``the content supports the claim''
 (machine-judged at most) from ``a human checked'' (human-only).
 Refutation is explicit: \texttt{aiprov:contradicts} records a claim

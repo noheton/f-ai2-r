@@ -71,23 +71,23 @@ whose tree contains the artefacts it describes, content-hashed; the
 graph itself lives in later commits of the same history. Backdating a
 record would require rewriting published git history, and quietly
 swapping an artefact would break its recorded hash: either
-falsification is possible, but neither is silent, and that asymmetry,
-honest work is cheap and dishonest work is loud, is the design goal
+falsification is possible, but neither is silent; that asymmetry
+(honest work is cheap, dishonest work is loud) is the design goal
 throughout.
 
 \textbf{The validator, exhaustively.} Conformance is seven concrete
 checks, each a SPARQL query over the graph, and naming them makes the
 invariants operational rather than aspirational. Three enforce
 Invariant~I: no claim without a generating activity, no claim without
-an attributed agent, no activity without an associated agent. Two
+an attributed agent, and, as a warning, no agentless activity. Two
 enforce Invariant~II: no human-only rung granted by an AI agent, and
 no human-only rung without a recorded promotion activity naming a
-human grantor, which closes the loophole of a rung edited directly
+human grantor, a warning that flags a rung edited directly
 into the graph without an audit trail. Two enforce the access gate:
 no source above \texttt{needs-research} without a resolvable DOI, URL,
 or vendored copy, and a warning, rather than a failure, for
 human-verified sources whose audit target is link-only and therefore
-mutable. Six checks are hard failures with a nonzero exit code;
+mutable. Four checks fail hard with a nonzero exit code;
 that exit code is the entire integration contract, which is why the
 same command serves unchanged as a pre-commit hook, a CI gate, and an
 auditor's first step.
@@ -192,7 +192,7 @@ Pos & Rung & What it asserts & Who may grant \\
 4 & \texttt{source-vendored} & A copy of the source is preserved inside
     the repository (content-hashed), immune to link rot and silent
     revision. Of no evidential value by itself: this rung is the
-    \emph{access gate} to human verification: the agent hands the
+    \emph{access gate} to human verification; the agent hands the
     human the evidence, and tooling refuses rungs 5--6 unless the
     source is vendored or carries a clear access link (DOI/URL). &
     any agent (hash-checkable) \\
