@@ -1881,6 +1881,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "a59c1de",
         "dbed058" .
 
+<https://noheton.org/f-ai2-r/prov/entity/cover-letter-md> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-code ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s102-qss-variant> ;
+    aiprov:contentHash "sha256:7b89142cd5eb0064377d20c8bc3c88ad1ac8d6d631db9f2fa857bc322c506d70" ;
+    aiprov:filePath "paper-qss/cover-letter.md" ;
+    aiprov:gitCommit "a85a57784e2624a9ec30a393a6ac16dd3c67612d" .
+
 <https://noheton.org/f-ai2-r/prov/entity/dashboard-html> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s100-final-metrics-pass>,
@@ -2016,6 +2023,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s06-dilution-section>,
         <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
         <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding>,
+        <https://noheton.org/f-ai2-r/prov/activity/s102-qss-variant>,
         <https://noheton.org/f-ai2-r/prov/activity/s11-lineage>,
         <https://noheton.org/f-ai2-r/prov/activity/s12-hmc-context>,
         <https://noheton.org/f-ai2-r/prov/activity/s15-bullets-title>,
@@ -2031,7 +2039,8 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing>,
         <https://noheton.org/f-ai2-r/prov/activity/s96-final-pass-applied>,
         <https://noheton.org/f-ai2-r/prov/activity/s98-review-quickfixes> ;
-    aiprov:contentHash "sha256:292ee450094d64465800f568cc319a3a5839d697137d2d8497eedb2cbb9587e8",
+    aiprov:contentHash "sha256:0e256aa41d7df8483750d034927cceb6974d5567b5d1d50b64bb4adf9946533d",
+        "sha256:292ee450094d64465800f568cc319a3a5839d697137d2d8497eedb2cbb9587e8",
         "sha256:2bf4f82e8c20375dd1f6a64b9213d60e71822d3592fb9facb54c6ed3ca1fa160",
         "sha256:31a7ad8196528484eb264b1d7cf0b737b49554499f3d14a83e7fd3713fb24a76",
         "sha256:60ae56b3f363c97288866ce11315e8cc911ebf22e2245c97388417c83d3956a0",
@@ -2051,12 +2060,14 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:fea3e8672bf52320c421694dee3158369fdf00814701713554c9426612ea5fdc",
         "sha256:ff3d72212ad9e25814e889f98abca32e0ebfc29772d0b8fefb70c54b7eba2097" ;
     aiprov:filePath "assets/paper/main.tex",
+        "paper-qss/main.tex",
         "paper/main.tex" ;
     aiprov:gitCommit "1aaab86",
         "390d3af",
         "4c17c02faf15034458e93ddecd1d8da829020f3e",
         "51ed6e6d5a23d7173421d02701bbc88cbc6af37d",
         "932815f187bfcfe585e84442be12d5041e2be116",
+        "a85a57784e2624a9ec30a393a6ac16dd3c67612d",
         "c4ff2e2ed4f0788a5c0cd9d500ab40e518b3286c",
         "e84d041d11fe8bf7a58b0b1651eed9af09c5f7f9",
         "f7094c24b7ccad9fa89509c7828d94217ebab631" .
@@ -2804,6 +2815,9 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:selfCitation true ;
     aiprov:verificationState verif:human-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/venues-md> a aiprov:Source ;
+    aiprov:filePath "doc/venues.md" .
+
 aiprov:ToolAgent a owl:Class ;
     rdfs:label "Deterministic tool"@en ;
     rdfs:comment "Non-AI software (compiler, linter, CI job) acting in the pipeline."@en ;
@@ -2820,6 +2834,13 @@ aiprov:Transcript a owl:Class ;
     aiprov:sessionId "session_01VKCLhUZ6NZ7suGGsJp2mA4"^^xsd:string ;
     aiprov:usedTool "bash",
         "web_fetch" .
+
+<https://noheton.org/f-ai2-r/prov/activity/s102-qss-variant> a aiprov:AuthoringPass ;
+    rdfs:label "Produces the QSS submission variant on operator request: paper-qss/main.tex, a single-column journal manuscript that inputs the canonical section sources, metrics macros, figures, and bibliography from paper/ so prose exists once and typesets twice; compiles clean at 24 pages with journal front matter, keywords, availability, competing-interests and funding statements, and the graph-generated disclosure. Cover letter drafted under the 300-word limit framing scholarly-communication infrastructure with a measured self-demonstration, noting the arXiv preprint, the public record and pinned release v0.17.0, no concurrent submission, and the AI production disclosed. Both artefacts await the operator's read; the letter's arXiv identifier placeholder fills in once the preprint announces."@en ;
+    prov:endedAtTime "2026-07-29T05:44:30.028743+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/main-tex>,
+        <https://noheton.org/f-ai2-r/prov/source/venues-md> ;
+    prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/s12-hmc-context> a aiprov:AuthoringPass ;
     rdfs:label "Acknowledgement extended: chairing the HMC Conference 2025 programme committee credited as context that broadened the AI-in-research perspective; Book of Abstracts registered as source (URL verified 200, application/pdf)"@en ;
@@ -3249,11 +3270,6 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:filePath "doc/sources/gpt-fabricated2024.pdf" ;
     aiprov:verificationState verif:source-vendored .
 
-<https://noheton.org/f-ai2-r/prov/source/main-tex> a aiprov:Source ;
-    aiprov:contentHash "sha256:b2a4c3be0e2de6b9808f1dff794cf9f4f06d71dcb1da4bb6ea6838361e9af019" ;
-    aiprov:filePath "paper/main.tex" ;
-    aiprov:verificationState verif:source-vendored .
-
 <https://noheton.org/f-ai2-r/prov/source/memas2024> a aiprov:Source ;
     rdfs:label "Project MEMAS: Integrated Data Management for Additive Manufacturing enabling High-Fidelity Modeling"@en ;
     dcterms:date "2024" ;
@@ -3468,6 +3484,11 @@ agent:github-actions a aiprov:ToolAgent ;
 <https://noheton.org/f-ai2-r/prov/source/attention2017> a aiprov:Source ;
     aiprov:doi "https://doi.org/10.48550/arXiv.1706.03762"^^xsd:anyURI ;
     aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/main-tex> a aiprov:Source ;
+    aiprov:contentHash "sha256:b2a4c3be0e2de6b9808f1dff794cf9f4f06d71dcb1da4bb6ea6838361e9af019" ;
+    aiprov:filePath "paper/main.tex" ;
+    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/metrics-json> a aiprov:Source ;
     aiprov:contentHash "sha256:6090d822b64dc669decc62a96d01d8018b1ba095aa00c54d879f68d80d63bf3b" ;
