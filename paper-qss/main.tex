@@ -1,0 +1,108 @@
+% QSS manuscript variant — single-column journal format.
+% Reuses the canonical section sources in ../paper/sections; the IEEE
+% conference variant remains ../paper/main.tex. Numbers come from the
+% same generated metrics macros (single source of numbers).
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[margin=2.6cm]{geometry}
+\usepackage{setspace}\onehalfspacing
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,fit}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={F(AI)2R: Who Did What, and Who Checked? Verifiable AI Provenance as an Executable Skill},
+  pdfauthor={Florian Krebs}}
+\graphicspath{{../paper/}}
+\input{../paper/metrics}
+
+\title{F(AI)\textsuperscript{2}R: Who Did What, and Who Checked?\\
+\large Verifiable AI Provenance as an Executable Skill}
+\author{Florian Krebs\\
+\normalsize Deutsches Zentrum f\"ur Luft- und Raumfahrt (DLR)\\
+\normalsize ORCID: 0000-0001-6033-801X}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+F(AI)\textsuperscript{2}R is FAIR research with AI in the loop,
+twice: an AI-assisted \emph{authoring} pass and a machine-readable
+\emph{audit} pass over every artefact. AI systems now draft, refactor,
+and verify research artefacts, yet their
+contributions are rarely recorded in a form a later human or machine can
+audit. Building on the original F(AI)\textsuperscript{2}R
+experiment, we generalize its provenance model beyond scholarly writing into
+\emph{aiprov}, a PROV-O extension covering any AI-in-the-loop artefact,
+and we package the method as an \emph{executable skill} that an AI agent
+operates itself: setup asks the human operator for their ORCID iD,
+resolves their identity from the public registry, and scaffolds continuous
+integration that gates every push on graph conformance and publishes the
+current build of this very paper. The paper is its own case study. Every
+activity, claim, and source in its production is recorded in the
+repository's provenance graph under two invariants: no parentless claim,
+and verification rungs that only humans may grant.
+
+\medskip
+\noindent\textbf{Keywords:} AI provenance; PROV-O; research integrity;
+verification; agent skills; FAIR; human oversight
+\end{abstract}
+
+\input{../paper/sections/01-introduction}
+\input{../paper/sections/02-background}
+\input{../paper/sections/03-dilution}
+\input{../paper/sections/04-method}
+\input{../paper/sections/05-skill}
+\input{../paper/sections/06-meta-experiment}
+\input{../paper/sections/07-discussion}
+\input{../paper/sections/08-conclusion}
+
+\section*{Acknowledgment and AI Transparency Statement}
+The ideas in this paper were sharpened through earlier
+experiments~\cite{obscurity-is-dead, fair2r-repo}; through discussions
+in the context of the Helmholtz Metadata Collaboration
+(HMC)~\cite{hmc}: with Witold Arndt in the HMC hub for
+aeronautics, space and transport, and through the broad view of AI in
+research afforded by chairing the HMC Conference 2025 programme
+committee~\cite{hmc-conference2025}; through exchanges with Frank
+Dressel on provenance for engineering
+systems~\cite{uncertainty-prov2026}; through deep discussions with
+Sirko Schindler and Carsten Hoyer-Klick on ontologies; through the
+research-data-management evangelism of Christian Langenbach at DLR;
+and through the inspiration of Carina Haupt's work on provenance
+use cases~\cite{provenance-overview2022} and of the MEMAS project's
+integrated data management~\cite{memas2024}.
+
+This paper and its repository were produced with an AI agent operating
+the ai-provenance skill; every activity, generated artefact, claim, and
+source is recorded in the version-controlled provenance graph,
+including the production of this statement. The following disclosure is
+generated from that graph by \texttt{provlog.py disclosure} and is made
+in view of the transparency rules of the EU Artificial Intelligence
+Act~\cite{eu-ai-act2024}:
+
+\begingroup\itshape
+\input{../paper/disclosure}
+\endgroup
+
+\emph{Availability:} skill bundle, provenance graph, transcripts,
+and paper sources are public at
+\url{https://github.com/noheton/f-ai2-r}; the skill loads in any
+Agent Skills client, and conformance-gated releases carry bundle,
+PDF, graph, and checksums. A preprint of this article is available
+on arXiv.
+
+\emph{Competing interests:} the author declares none.
+
+\emph{Funding:} no dedicated funding; author employed by DLR.
+
+\bibliographystyle{IEEEtran}
+\bibliography{../paper/references}
+
+\end{document}
