@@ -1,5 +1,14 @@
 # Zenodo deposit runbook (operator)
 
+**Status: completed 2026-07-29.** The operator deposited release
+v0.17.0 via Path A: <https://zenodo.org/records/21667684>, version
+DOI `10.5281/zenodo.21667684`, concept DOI `10.5281/zenodo.21667683`,
+CC BY 4.0, all seven files (source tarball, skill bundle, paper PDF,
+provenance graph, metrics, dashboard, checksums). The DOI is wired
+into `paper/references.bib` (`fair2r-data2026`), `CITATION.cff`,
+`codemeta.json`, the cover letter, and both manuscript variants.
+The steps below are kept for future versions.
+
 QSS requires all data essential for reproducing the findings to be
 shared in a public repository that mints a persistent identifier, and
 names Zenodo as an example ("Making data available on request is not

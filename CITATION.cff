@@ -17,6 +17,14 @@ version: 0.17.0
 date-released: "2026-07-28"
 license: Apache-2.0
 repository-code: "https://github.com/noheton/f-ai2-r"
+doi: 10.5281/zenodo.21667684
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21667684
+    description: "Zenodo archive of release v0.17.0 (version DOI)"
+  - type: doi
+    value: 10.5281/zenodo.21667683
+    description: "Zenodo concept DOI (resolves to the latest archived version)"
 authors:
   - family-names: Krebs
     given-names: Florian

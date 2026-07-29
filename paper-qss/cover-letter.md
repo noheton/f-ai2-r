@@ -27,12 +27,12 @@ engages the transparency expectations of the EU AI Act. Limitations
 measured rather than waived away: the paper presents an idea in use,
 not a completed study.
 
-A preprint is available on arXiv; the repository and a checksummed
-release are public (github.com/noheton/f-ai2-r, release v0.17.0),
-and the data essential for reproduction, graph, metrics, telemetry,
-and transcripts, are archived on Zenodo as cited in the data
-availability statement. The manuscript is not under consideration
-elsewhere. It was produced with an AI agent
+A preprint is available as arXiv:2607.25637; the repository and a
+checksummed release are public (github.com/noheton/f-ai2-r, release
+v0.17.0), and the data essential for reproduction, graph, metrics,
+telemetry, and transcripts, are archived on Zenodo
+(doi.org/10.5281/zenodo.21667684). The manuscript is not under
+consideration elsewhere. It was produced with an AI agent
 operating the described method; the disclosure statement it carries
 is generated from the record itself.
 

@@ -7,7 +7,8 @@
   "issueTracker": "https://github.com/noheton/f-ai2-r/issues",
   "license": "https://spdx.org/licenses/Apache-2.0",
   "version": "0.17.0",
-  "dateModified": "2026-07-26",
+  "identifier": "https://doi.org/10.5281/zenodo.21667684",
+  "dateModified": "2026-07-29",
   "programmingLanguage": "Python",
   "operatingSystem": "OS Independent",
   "softwareRequirements": [
@@ -37,5 +38,5 @@
     }
   ],
   "developmentStatus": "active",
-  "referencePublication": "F(AI)²R: Who Did What, and Who Checked? Verifiable AI Provenance as an Executable Skill (draft in paper/, built by CI)"
+  "referencePublication": "F(AI)²R: Who Did What, and Who Checked? Verifiable AI Provenance as an Executable Skill (arXiv:2607.25637; sources in paper/, built by CI)"
 }

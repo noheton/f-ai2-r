@@ -779,6 +779,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
 
+<https://noheton.org/f-ai2-r/prov/activity/s105-zenodo-doi-wired> a aiprov:AuthoringPass ;
+    rdfs:label "Zenodo deposit completed by the operator (record 21667684, version DOI 10.5281/zenodo.21667684, concept DOI 10.5281/zenodo.21667683, CC BY 4.0, seven files archiving release v0.17.0). Wired the DOI into references.bib (fair2r-data2026, pending note removed), CITATION.cff (doi + identifiers), codemeta.json (identifier), the QSS cover letter (arXiv:2607.25637 confirmed live and added; 276 words), the QSS data availability statement, and the IEEE availability note; .zenodo.json gained the arXiv related identifier for future deposits; runbook marked completed. Registered the deposit as self-citation source fair2r-data2026, DOI verified via doi.org content negotiation. Both manuscript variants rebuilt (QSS 25 pp, IEEE 13 pp) and render the DOI."@en ;
+    prov:endedAtTime "2026-07-29T10:57:25.720646+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
     rdfs:label "Token telemetry backfilled from provider-reported usage blocks in the agent session record (aggregated by export_transcript.py --usage over 655+ API requests of this session; covers all activities of session_01VKC to this point). Cost remains omitted: the record carries no priced entries and computing cost would require assumed prices, violating omit-don't-estimate"@en ;
     prov:endedAtTime "2026-07-24T20:41:28.824406+00:00"^^xsd:dateTime ;
@@ -892,6 +898,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     rdfs:label "DOI verification of src:fair2016 via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T18:25:43.758496+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/fair2016> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-fair2r-data2026> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:fair2r-data2026 via doi.org negotiation -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-29T10:57:09.019868+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/fair2r-data2026> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-gpt-fabricated2024> a aiprov:AuditPass ;
@@ -2527,13 +2539,6 @@ verif:needs-research a aiprov:VerificationState ;
     rdfs:comment "A check was attempted or demanded and did not succeed (e.g. DOI did not resolve). Must not be cited or relied upon until re-verified."@en ;
     aiprov:ladderPosition 1 .
 
-verif:reference-resolved a aiprov:VerificationState ;
-    rdfs:label "reference resolved"@en ;
-    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
-    skos:altLabel "lit-retrieved"@en,
-        "retrieved"@en ;
-    aiprov:ladderPosition 2 .
-
 verif:unverified a aiprov:VerificationState ;
     rdfs:label "unverified"@en ;
     rdfs:comment "Recorded, nothing checked yet by anyone. Default state at creation."@en ;
@@ -2786,6 +2791,14 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://c2pa.org/specifications/> ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/fair2r-data2026> a aiprov:Source ;
+    rdfs:label "F(AI)²R provenance record and analysis data (Zenodo, version 0.17.0)"@en ;
+    dcterms:date "2026" ;
+    dcterms:source <https://doi.org/10.5281/zenodo.21667684> ;
+    aiprov:doi "https://doi.org/10.5281/zenodo.21667684"^^xsd:anyURI ;
+    aiprov:selfCitation true ;
+    aiprov:verificationState verif:reference-resolved .
+
 <https://noheton.org/f-ai2-r/prov/source/fair2r-repo> a aiprov:Source ;
     rdfs:label "F(AI)²R: FAIR research with AI in the loop, twice (research repository)"@en ;
     dcterms:creator agent:florian-krebs ;
@@ -2829,6 +2842,13 @@ aiprov:verificationState a owl:ObjectProperty ;
 
 <https://noheton.org/f-ai2-r/prov/source/venues-md> a aiprov:Source ;
     aiprov:filePath "doc/venues.md" .
+
+verif:reference-resolved a aiprov:VerificationState ;
+    rdfs:label "reference resolved"@en ;
+    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
+    skos:altLabel "lit-retrieved"@en,
+        "retrieved"@en ;
+    aiprov:ladderPosition 2 .
 
 aiprov:ToolAgent a owl:Class ;
     rdfs:label "Deterministic tool"@en ;

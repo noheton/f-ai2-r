@@ -25,6 +25,11 @@
       "identifier": "https://github.com/noheton/f-ai2-r/releases/tag/v0.17.0",
       "relation": "isSupplementTo",
       "scheme": "url"
+    },
+    {
+      "identifier": "arXiv:2607.25637",
+      "relation": "isSupplementTo",
+      "scheme": "arxiv"
     }
   ],
   "version": "0.17.0"
