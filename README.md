@@ -4,6 +4,7 @@
 [![code license: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-blue.svg)](LICENSE)
 [![paper license: CC BY-NC-SA 4.0](https://img.shields.io/badge/paper-CC--BY--NC--SA--4.0-lightgrey.svg)](paper/LICENSE)
 [![citation](https://img.shields.io/badge/cite-CITATION.cff-green.svg)](CITATION.cff)
+[![skills.sh](https://skills.sh/b/noheton/f-ai2-r)](https://skills.sh/noheton/f-ai2-r)
 
 Records every AI-in-the-loop activity as a [PROV-O](https://www.w3.org/TR/prov-o/)
 graph so a later human or AI can **verify, replay, or contest** each output.
@@ -24,7 +25,13 @@ This repository is also the canonical source of the **ai-provenance skill**:
 `SKILL.md` plus `scripts/`, `assets/`, `references/` are the skill tree,
 packaged into `dist/ai-provenance.skill` by `scripts/package_skill.sh`. The
 initial uploaded version is preserved at `archive/aiprovenance-v0.skill`;
-see `CHANGELOG.md` for its evolution.
+see `CHANGELOG.md` for its evolution. The skill is listed on
+[skills.sh](https://skills.sh/noheton/f-ai2-r) and installs into any
+supported agent with:
+
+```sh
+npx skills add noheton/f-ai2-r
+```
 
 ## Quickstart
 

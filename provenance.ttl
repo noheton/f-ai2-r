@@ -773,6 +773,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
 
+<https://noheton.org/f-ai2-r/prov/activity/s104-skills-sh-badge> a aiprov:AuthoringPass ;
+    rdfs:label "skills.sh listing surfaced in README: added the official skills.sh install-count badge (https://skills.sh/b/noheton/f-ai2-r) to the badge row and a one-line install snippet (npx skills add noheton/f-ai2-r); verified the listing page exists and indexes the ai-provenance skill, and seeded one genuine CLI install from the session container; badge endpoint still returns 'resource not found' pending their index refresh and will self-heal at the same URL."@en ;
+    prov:endedAtTime "2026-07-29T09:15:51.367201+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
     rdfs:label "Token telemetry backfilled from provider-reported usage blocks in the agent session record (aggregated by export_transcript.py --usage over 655+ API requests of this session; covers all activities of session_01VKC to this point). Cost remains omitted: the record carries no priced entries and computing cost would require assumed prices, violating omit-don't-estimate"@en ;
     prov:endedAtTime "2026-07-24T20:41:28.824406+00:00"^^xsd:dateTime ;
