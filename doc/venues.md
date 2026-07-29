@@ -75,3 +75,46 @@ meta-paper since the resource paper is a different article.
   manuscript (single column); the 12.5-page cap no longer binds, so
   the review-driven compressions may partially unwind where clarity
   gains.
+
+## QSS full guidelines (2026-07-29, via Web Archive snapshot of 2026-02-21)
+
+direct.mit.edu blocks automated fetches; the full submission
+guidelines were read from the Wayback Machine capture
+`web.archive.org/web/20260221062714/https://direct.mit.edu/qss/pages/submission-guidelines`.
+
+- Data sharing is REQUIRED: "requires authors to openly share all
+  data essential for reproducing the key findings", "Data must be
+  shared in a public repository that provides a persistent identifier
+  such as a DOI. You may for instance use Zenodo", "Making data
+  available on request is not acceptable". Code sharing strongly
+  recommended. A data availability statement in the manuscript is
+  mandatory. Data sets (own and third-party) must be formally cited
+  in text and reference list, preferably by DOI.
+  Action: Zenodo deposit of release v0.17.0 (doc/zenodo/RUNBOOK.md);
+  data availability statement and dataset citation added to
+  paper-qss/main.tex.
+- First submission format: single Word or PDF file, everything
+  integrated; no strict template. Abstract <= 200 words; up to six
+  keywords; numbered pages and sections, line numbering suggested;
+  author names and affiliations on page 1. References in a
+  consistent AUTHOR-YEAR style; "Numbered references should not be
+  used" (fixed: paper-qss now uses natbib + apalike). APA style only
+  at revision stage (Word or LaTeX; methods early, statements and
+  appendices at the end).
+- Article types: Articles typically 5,000-8,000 words (ours: ~9,300
+  prose words; "typically" is not a hard cap, but expect pressure to
+  tighten); Reviews 5,000-10,000; Letters up to 1,000; book reviews
+  1,000-2,000.
+- Required at submission: cover letter <= 300 words; co-author
+  approvals (n/a); ORCIDs strongly encouraged; CRediT author
+  contributions REQUIRED for research articles (added to
+  manuscript); competing-interest declarations; agreement to CC BY.
+- Preprinting: strongly encouraged, including revised versions, not
+  just the initial one (arXiv named first).
+- Peer review: editor triage then typically 2-3 external reviewers;
+  single anonymized; target ~5 weeks; on acceptance the reports,
+  responses, and decision letters are published openly in Web of
+  Science; reviewers of preprinted manuscripts encouraged to publish
+  reviews (without revealing the journal or a recommendation).
+- Supplementary materials: any suitable file type, <= 100 Mb.
+- Reviewer suggestions and oppositions may be provided.

@@ -8,12 +8,18 @@
 \usepackage{mathptmx}
 \usepackage[margin=2.6cm]{geometry}
 \usepackage{setspace}\onehalfspacing
+\emergencystretch=2em % single-column lines + unbreakable \texttt terms
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta,shapes.geometric,fit}
 \usepackage{xcolor}
 \usepackage{url}
+% QSS first-submission format: author-year citations (numbered
+% references are explicitly disallowed) and line numbers (suggested).
+\usepackage[round]{natbib}
+\renewcommand{\cite}{\citep} % section prose uses \cite as a bracketed reference
+\usepackage{lineno}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{pdftitle={F(AI)2R: Who Did What, and Who Checked? Verifiable AI Provenance as an Executable Skill},
   pdfauthor={Florian Krebs}}
@@ -28,6 +34,7 @@
 \date{}
 
 \begin{document}
+\linenumbers
 \maketitle
 
 \begin{abstract}
@@ -51,7 +58,7 @@ and verification rungs that only humans may grant.
 
 \medskip
 \noindent\textbf{Keywords:} AI provenance; PROV-O; research integrity;
-verification; agent skills; FAIR; human oversight
+agent skills; FAIR; human oversight
 \end{abstract}
 
 \input{../paper/sections/01-introduction}
@@ -91,18 +98,31 @@ Act~\cite{eu-ai-act2024}:
 \input{../paper/disclosure}
 \endgroup
 
-\emph{Availability:} skill bundle, provenance graph, transcripts,
-and paper sources are public at
-\url{https://github.com/noheton/f-ai2-r}; the skill loads in any
-Agent Skills client, and conformance-gated releases carry bundle,
-PDF, graph, and checksums. A preprint of this article is available
-on arXiv.
+\emph{Author contributions (CRediT):} Florian Krebs:
+conceptualization, methodology, investigation, validation, data
+curation, writing (original draft), writing (review and editing),
+supervision. All roles were exercised with AI assistance operating
+under the author's direction, as disclosed in the transparency
+statement above.
 
 \emph{Competing interests:} the author declares none.
 
 \emph{Funding:} no dedicated funding; author employed by DLR.
 
-\bibliographystyle{IEEEtran}
+\emph{Data availability:} all data essential for reproducing the
+findings, that is, the machine-readable provenance graph
+(\texttt{provenance.ttl}), the computed metrics
+(\texttt{metrics.json}), the per-request telemetry export, the source
+verification worksheet, and the full session transcripts, are openly
+available in the version-pinned release v0.17.0 of the repository at
+\url{https://github.com/noheton/f-ai2-r} and are archived on Zenodo
+under a persistent identifier~\cite{fair2r-data2026}. The skill
+bundle and all analysis code are available in the same release; the
+skill loads in any Agent Skills client, and conformance-gated
+releases carry bundle, PDF, graph, and checksums. A preprint of this
+article is available on arXiv.
+
+\bibliographystyle{plainnat}
 \bibliography{../paper/references}
 
 \end{document}
