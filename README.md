@@ -6,6 +6,8 @@
 [![citation](https://img.shields.io/badge/cite-CITATION.cff-green.svg)](CITATION.cff)
 [![skills.sh](https://skills.sh/b/noheton/f-ai2-r)](https://skills.sh/noheton/f-ai2-r)
 
+<img src="assets/eu-ai-labels/ai.png" alt="EU AI transparency label: AI was involved in creating this content" width="96" align="right">
+
 Records every AI-in-the-loop activity as a [PROV-O](https://www.w3.org/TR/prov-o/)
 graph so a later human or AI can **verify, replay, or contest** each output.
 Generalized from [F(AI)²R](https://github.com/noheton/f-ai-r) and decoupled
@@ -32,6 +34,16 @@ supported agent with:
 ```sh
 npx skills add noheton/f-ai2-r
 ```
+
+**Transparency labelling.** This repository's textual artefacts are
+AI-generated under human direction and review. The [EU "AI"
+label](https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content)
+shown above (Article 50(4) AI Act icons, vendored in
+`assets/eu-ai-labels/`, free to use without attribution) is displayed
+voluntarily: Article 50(4)'s labelling duty for published text falls
+away under human review with editorial responsibility, and the
+provenance graph is the record that substantiates both the label and
+that review.
 
 ## Quickstart
 

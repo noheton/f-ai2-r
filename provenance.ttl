@@ -322,6 +322,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/eu-ai-act2024> ;
     prov:wasAssociatedWith agent:florian-krebs .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-eu-ai-icons2026-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of eu-ai-icons2026: reference-resolved -> ai-confirmed (Page fetched and read (last update 2026-07-20, HTTP 200): the Commission publishes three freely usable icons (basic AI, fully AI-generated, partially AI-modified) supporting Article 50(4) AI Act disclosure of deep fakes and AI-generated text published on matters of public interest without human review or editorial control; icons are part of Section 2 of the Code of Practice on marking and labelling of AI-generated content and are 'made publicly available for everyone to use freely, without the need for attribution'. The three PNGs are vendored under assets/eu-ai-labels/.)"@en ;
+    prov:endedAtTime "2026-07-31T12:04:25.321354+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/eu-ai-icons2026> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:grantedRung verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-fabricated-citations2023-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of fabricated-citations2023: reference-resolved -> ai-confirmed (Content checked against the open-access abstract: 55% of GPT-3.5 and 18% of GPT-4 citations fabricated; 43%/24% of real citations carry substantive errors. Supports 'documented rates' (Sec. 3) and the fabricated-references discipline (Sec. 7).)"@en ;
     prov:endedAtTime "2026-07-24T21:32:57.880339+00:00"^^xsd:dateTime ;
@@ -353,6 +360,20 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:endedAtTime "2026-07-27T07:59:13.820988+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/fair2r-repo> ;
     prov:wasAssociatedWith agent:florian-krebs .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-faq-ai-gwp2025-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of faq-ai-gwp2025: reference-resolved -> ai-confirmed (Content checked in the English v2.1 PDF: consensus that AI does not qualify for authorship and that AI use 'needs to be appropriately and transparently declared in the manuscript', while 'the specifics of declaring the use of AI differ in policies and practice or still need to be defined'; common core of declarations: name of AI application including version, date of use, URL, and what/how it was used. Supports the citing sentence in the discussion's regulatory-alignment paragraph.)"@en ;
+    prov:endedAtTime "2026-07-31T12:04:14.252938+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/faq-ai-gwp2025> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:grantedRung verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-faq-ai-gwp2025-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of faq-ai-gwp2025: ai-confirmed -> source-vendored (English v2.1 PDF vendored from the Zenodo record (CC BY 4.0); sha256 recorded.)"@en ;
+    prov:endedAtTime "2026-07-31T12:04:15.235047+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/faq-ai-gwp2025> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:grantedRung verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-gpt-fabricated2024-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of gpt-fabricated2024: reference-resolved -> ai-confirmed (Content checked against the open-access article page: 'Google Scholar easily locates and lists these questionable papers alongside reputable, quality-controlled research.' Supports 'GPT-fabricated papers are already indexed and ranked by scholarly search engines'.)"@en ;
@@ -785,6 +806,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
 
+<https://noheton.org/f-ai2-r/prov/activity/s106-integrity-labelling-sources> a aiprov:AuthoringPass ;
+    rdfs:label "Two operator-suggested sources integrated into the regulatory-alignment paragraph. (1) Frisch 2025, FAQ Kuenstliche Intelligenz und gute wissenschaftliche Praxis Version 2 (Zenodo, DOI verified, CC BY 4.0): English v2.1 PDF vendored and content-checked; cited for the norms-side consensus that AI use be declared (tool, version, date, manner) with specifics under-defined across publishers. (2) European Commission EU icons for labelling AI-generated content (page fetched and read): three freely usable Article 50(4) icons vendored under assets/eu-ai-labels/; cited for the label-vs-record argument, since the labelling duty for published text falls away under human review with editorial responsibility, which the ladder records. README displays the basic AI label voluntarily with that explanation. Both variants rebuilt (IEEE 13 pp, QSS 25 pp)."@en ;
+    prov:endedAtTime "2026-07-31T12:05:21.908198+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
     rdfs:label "Token telemetry backfilled from provider-reported usage blocks in the agent session record (aggregated by export_transcript.py --usage over 655+ API requests of this session; covers all activities of session_01VKC to this point). Cost remains omitted: the record carries no priced entries and computing cost would require assumed prices, violating omit-don't-estimate"@en ;
     prov:endedAtTime "2026-07-24T20:41:28.824406+00:00"^^xsd:dateTime ;
@@ -904,6 +931,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     rdfs:label "DOI verification of src:fair2r-data2026 via doi.org negotiation -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-29T10:57:09.019868+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/fair2r-data2026> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-faq-ai-gwp2025> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:faq-ai-gwp2025 via openalex -> reference-resolved"@en ;
+    prov:endedAtTime "2026-07-31T12:04:13.132893+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/faq-ai-gwp2025> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-gpt-fabricated2024> a aiprov:AuditPass ;
@@ -2791,6 +2824,11 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://c2pa.org/specifications/> ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/eu-ai-icons2026> a aiprov:Source ;
+    rdfs:label "EU icons for labelling AI-generated content (European Commission)"@en ;
+    dcterms:source <https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content> ;
+    aiprov:verificationState verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/fair2r-data2026> a aiprov:Source ;
     rdfs:label "F(AI)²R provenance record and analysis data (Zenodo, version 0.17.0)"@en ;
     dcterms:date "2026" ;
@@ -3292,6 +3330,16 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:doi "https://doi.org/10.1038/sdata.2016.18"^^xsd:anyURI ;
     aiprov:filePath "doc/sources/fair2016.pdf" ;
     aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/faq-ai-gwp2025> a aiprov:Source ;
+    rdfs:label "FAQ Künstliche Intelligenz und gute wissenschaftliche Praxis, Version 2 (Frisch, German research-integrity ombuds context)"@en ;
+    dcterms:date "2025" ;
+    dcterms:isPartOf "Zenodo (CERN European Organization for Nuclear Research)" ;
+    dcterms:source <https://doi.org/10.5281/zenodo.17349995> ;
+    aiprov:contentHash "sha256:599c962bbeea1e3f6381c38bad31679351a8d857024ac444a61461888bc5f4b6" ;
+    aiprov:doi "https://doi.org/10.5281/zenodo.17349995"^^xsd:anyURI ;
+    aiprov:filePath "doc/sources/faq-ai-gwp2025.pdf" ;
+    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/gpt-fabricated2024> a aiprov:Source ;
     rdfs:label "GPT-fabricated scientific papers on Google Scholar: Key features, spread, and implications for preempting evidence manipulation"@en ;
@@ -3913,11 +3961,6 @@ verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
     aiprov:ladderPosition 3 .
 
-verif:source-vendored a aiprov:VerificationState ;
-    rdfs:label "source vendored"@en ;
-    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
-    aiprov:ladderPosition 4 .
-
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
     dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
@@ -3925,6 +3968,11 @@ verif:human-confirmed a aiprov:VerificationState ;
     rdfs:label "human-confirmed"@en ;
     rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
     aiprov:ladderPosition 5 .
+
+verif:source-vendored a aiprov:VerificationState ;
+    rdfs:label "source vendored"@en ;
+    rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
+    aiprov:ladderPosition 4 .
 
 agent:florian-krebs a aiprov:HumanAgent ;
     foaf:name "Florian Krebs" ;
