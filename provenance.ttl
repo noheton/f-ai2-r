@@ -308,6 +308,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/easa-ai-concept2024> ;
     prov:wasAssociatedWith agent:florian-krebs .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-esa-a2i-roadmap-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of esa-a2i-roadmap: reference-resolved -> ai-confirmed (Page read (HTTP 200 via browser UA; direct /a2i-roadmap URL 403s): A2I Roadmap by 70+ ESOC specialists with industry consortium, 2021 initiative; five priority domains, 14 use cases; five capabilities including 'Data Handling, Management, Governance, Assurance' providing 'pipelines for governance and assurance', plus AI-enhanced decision recommendation and planning. Supports the citing sentence naming governance and assurance among the capability pillars.)"@en ;
+    prov:endedAtTime "2026-08-01T22:19:37.692076+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/esa-a2i-roadmap> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:grantedRung verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-eu-ai-act2024-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of eu-ai-act2024: reference-resolved -> ai-confirmed (Article-level check via the AI Act explorer rendering of the canonical text (EUR-Lex ELI recorded on this source): Art. 50 requires outputs 'marked in a machine-readable format and detectable as artificially generated or manipulated' and disclosure of AI interaction; Art. 14 requires high-risk systems be 'effectively overseen by natural persons', incl. override/intervention. Supports the transparency-marking and human-oversight citing sentences.)"@en ;
     prov:endedAtTime "2026-07-24T21:32:58.520556+00:00"^^xsd:dateTime ;
@@ -360,6 +367,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:endedAtTime "2026-07-27T07:59:13.820988+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/fair2r-repo> ;
     prov:wasAssociatedWith agent:florian-krebs .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-fairdo2020-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of fairdo2020: reference-resolved -> ai-confirmed (Abstract checked via doi.org CSL-JSON: FAIR Digital Objects as 'encapsulations of data and metadata made accessible by persistent identifiers', self-contained typed units in the context of the FAIR principles. Supports the citing sentences on typed, identifier-bearing, machine-actionable units.)"@en ;
+    prov:endedAtTime "2026-08-01T22:19:37.090441+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/fairdo2020> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:grantedRung verif:ai-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-faq-ai-gwp2025-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of faq-ai-gwp2025: reference-resolved -> ai-confirmed (Content checked in the English v2.1 PDF: consensus that AI does not qualify for authorship and that AI use 'needs to be appropriately and transparently declared in the manuscript', while 'the specifics of declaring the use of AI differ in policies and practice or still need to be defined'; common core of declarations: name of AI application including version, date of use, URL, and what/how it was used. Supports the citing sentence in the discussion's regulatory-alignment paragraph.)"@en ;
@@ -673,6 +687,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/resistance-welding2024> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-retracted-citations2022-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of retracted-citations2022: reference-resolved -> ai-confirmed (Abstract checked via doi.org CSL-JSON: 'we noticed that there was no drop in the overall number of citations after the year of' retraction (humanities corpus, open citations). Supports the citing sentence 'retracted articles keep collecting citations long after retraction'. Published in QSS itself.)"@en ;
+    prov:endedAtTime "2026-08-01T22:19:36.474393+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/retracted-citations2022> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:grantedRung verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-rocrate2022-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of rocrate2022: reference-resolved -> ai-confirmed (Abstract checked (OpenAlex): RO-Crate is 'an open, community-driven, and lightweight approach to packaging research artefacts along with their metadata in a machine readable manner'. Supports 'complementary packaging'. Abstract depth.)"@en ;
     prov:endedAtTime "2026-07-27T07:49:02.759849+00:00"^^xsd:dateTime ;
@@ -818,6 +839,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:wasAssociatedWith agent:florian-krebs ;
     aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
 
+<https://noheton.org/f-ai2-r/prov/activity/s108-qss-revision-extensions> a aiprov:AuthoringPass ;
+    rdfs:label "Operator-directed extension package staged for the QSS revision, rendered only in the journal variant via a new ifextended toggle (IEEE variant unchanged at 13 pages, QSS grows 25 to 27 pages). Background: PROV-AGENT differentiation sharpened as capture vs governance (invariants, claims as first-class, failing validator), plus a FAIR-digital-objects paragraph tying aiprov records to FDOs (fairdo2020, abstract-checked), the HMC Kernel Information Profile (hmc-kip2022) and the Helmholtz Knowledge Graph. Skill section: 'Designed extensions' explicitly reported as designs, not shipped features: distributed reviewer library (portable signed verification events, personal and shared registries, third-witness import), backward closure with citation binding, dispute-ready workflow over the authenticated issue path. Discussion: ESA A2I mission-operations roadmap parallel next to EASA (page read; governance/assurance pillar quoted), V-model quality-gate and requirements-traceability alignment (traceability1994), and an Ecosystem trajectories block, marked as hypotheses about use: provenance-graphed corpora as training signal (model-collapse countervail) and computable retraction cascades (retracted-citations2022, QSS article, abstract-checked: no citation drop after retraction). Conclusion: FAIR-DO binding, Helmholtz-KG harvesting path, shepard as first edge, ecosystem-level vision. Five sources registered and DOI/URL-verified; three content-checked to ai-confirmed."@en ;
+    prov:endedAtTime "2026-08-01T22:19:59.065423+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
     rdfs:label "Token telemetry backfilled from provider-reported usage blocks in the agent session record (aggregated by export_transcript.py --usage over 655+ API requests of this session; covers all activities of session_01VKC to this point). Cost remains omitted: the record carries no priced entries and computing cost would require assumed prices, violating omit-don't-estimate"@en ;
     prov:endedAtTime "2026-07-24T20:41:28.824406+00:00"^^xsd:dateTime ;
@@ -939,6 +966,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/fair2r-data2026> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-fairdo2020> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:fairdo2020 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-08-01T22:15:48.532338+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/fairdo2020> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-faq-ai-gwp2025> a aiprov:AuditPass ;
     rdfs:label "DOI verification of src:faq-ai-gwp2025 via openalex -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-31T12:04:13.132893+00:00"^^xsd:dateTime ;
@@ -949,6 +982,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     rdfs:label "DOI verification of src:gpt-fabricated2024 via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T18:30:33.193216+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/gpt-fabricated2024> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-hmc-kip2022> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:hmc-kip2022 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-08-01T22:15:51.118076+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/hmc-kip2022> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-llm-homogenization2024> a aiprov:AuditPass ;
@@ -1029,6 +1068,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/publishing-strain2024> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-retracted-citations2022> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:retracted-citations2022 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-08-01T22:15:50.310595+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/retracted-citations2022> ;
+    prov:wasAssociatedWith agent:claude-code .
+
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-rocrate2022> a aiprov:AuditPass ;
     rdfs:label "DOI verification of src:rocrate2022 via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T18:25:52.269456+00:00"^^xsd:dateTime ;
@@ -1039,6 +1084,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     rdfs:label "DOI verification of src:shepard via openalex -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-26T05:28:15.869828+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/shepard> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-traceability1994> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:traceability1994 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-08-01T22:15:49.423532+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/traceability1994> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-ultrasonic-welding2025> a aiprov:AuditPass ;
@@ -2830,6 +2881,11 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://c2pa.org/specifications/> ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/esa-a2i-roadmap> a aiprov:Source ;
+    rdfs:label "A2I Roadmap @ ESA's Mission Operations (ESOC)"@en ;
+    dcterms:source <https://esoc.esa.int/a2i-roadmap-esas-missions-operations> ;
+    aiprov:verificationState verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/eu-ai-icons2026> a aiprov:Source ;
     rdfs:label "EU icons for labelling AI-generated content (European Commission)"@en ;
     dcterms:source <https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content> ;
@@ -2854,6 +2910,12 @@ aiprov:verificationState a owl:ObjectProperty ;
     rdfs:label "Helmholtz Metadata Collaboration (HMC)"@en ;
     dcterms:source <https://helmholtz-metadaten.de/> ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/hmc-kip2022> a aiprov:Source ;
+    rdfs:label "Helmholtz Metadata Collaboration, Helmholtz Kernel Information Profile"@en ;
+    dcterms:date "2022" ;
+    aiprov:doi "https://doi.org/10.3289/hmc_publ_03"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
 
 <https://noheton.org/f-ai2-r/prov/source/in-toto2019> a aiprov:Source ;
     rdfs:label "in-toto: Providing farm-to-table guarantees for bits and bytes (Torres-Arias et al., USENIX Security 2019)"@en ;
@@ -2884,15 +2946,14 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:selfCitation true ;
     aiprov:verificationState verif:human-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/traceability1994> a aiprov:Source ;
+    rdfs:label "An analysis of the requirements traceability problem"@en ;
+    dcterms:isPartOf "Proceedings of IEEE International Conference on Requirements Engineering" ;
+    aiprov:doi "https://doi.org/10.1109/icre.1994.292398"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
 <https://noheton.org/f-ai2-r/prov/source/venues-md> a aiprov:Source ;
     aiprov:filePath "doc/venues.md" .
-
-verif:reference-resolved a aiprov:VerificationState ;
-    rdfs:label "reference resolved"@en ;
-    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
-    skos:altLabel "lit-retrieved"@en,
-        "retrieved"@en ;
-    aiprov:ladderPosition 2 .
 
 aiprov:ToolAgent a owl:Class ;
     rdfs:label "Deterministic tool"@en ;
@@ -3107,6 +3168,13 @@ aiprov:Transcript a owl:Class ;
     dcterms:source <https://eur-lex.europa.eu/eli/reg/2024/1689/oj> ;
     aiprov:verificationState verif:human-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/fairdo2020> a aiprov:Source ;
+    rdfs:label "FAIR Digital Objects for Science: From Data Pieces to Actionable Knowledge Units"@en ;
+    dcterms:date "2020" ;
+    dcterms:isPartOf "Publications" ;
+    aiprov:doi "https://doi.org/10.3390/publications8020021"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/hmc-conference2025> a aiprov:Source ;
     rdfs:label "HMC Conference 2025 — Book of Abstracts (Helmholtz Metadata Collaboration)"@en ;
     dcterms:source <https://helmholtz-metadaten.de/storage/2298/HMC-Conference_2025_Book-of-Abstracts.pdf> ;
@@ -3175,6 +3243,13 @@ aiprov:Transcript a owl:Class ;
     aiprov:contentHash "sha256:9556af82a76b32d6faa7dac6226ff6e6bc76d32da40eec5d0c1ee8b8ed809299" ;
     aiprov:filePath "scripts/provlog.py" ;
     aiprov:verificationState verif:source-vendored .
+
+<https://noheton.org/f-ai2-r/prov/source/retracted-citations2022> a aiprov:Source ;
+    rdfs:label "A quantitative and qualitative open citation analysis of retracted articles in the humanities"@en ;
+    dcterms:date "2022" ;
+    dcterms:isPartOf "Quantitative Science Studies" ;
+    aiprov:doi "https://doi.org/10.1162/qss_a_00222"^^xsd:anyURI ;
+    aiprov:verificationState verif:ai-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/ultrasonic-welding2025> a aiprov:Source ;
     rdfs:label "Investigation of power and amplitude control in continuous ultrasonic welding of unidirectional CFRPs: A comparative study"@en ;
@@ -3460,6 +3535,13 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:contentHash "sha256:30889d027cb7ec5b1e29919f26b1603ae691db6e77472acb270a2f8b8e540947" ;
     aiprov:filePath "doc/sources/usco-ai-copyrightability2025.pdf" ;
     aiprov:verificationState verif:human-confirmed .
+
+verif:reference-resolved a aiprov:VerificationState ;
+    rdfs:label "reference resolved"@en ;
+    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
+    skos:altLabel "lit-retrieved"@en,
+        "retrieved"@en ;
+    aiprov:ladderPosition 2 .
 
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .
@@ -3962,11 +4044,6 @@ aiprov:Repair a owl:Class ;
         <https://noheton.org/f-ai2-r/prov/source/references-bib> ;
     prov:wasAssociatedWith agent:claude-code .
 
-verif:ai-confirmed a aiprov:VerificationState ;
-    rdfs:label "AI-confirmed"@en ;
-    rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
-    aiprov:ladderPosition 3 .
-
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
     dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
@@ -3979,6 +4056,11 @@ verif:source-vendored a aiprov:VerificationState ;
     rdfs:label "source vendored"@en ;
     rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
     aiprov:ladderPosition 4 .
+
+verif:ai-confirmed a aiprov:VerificationState ;
+    rdfs:label "AI-confirmed"@en ;
+    rdfs:comment "An AI agent checked that the source CONTENT supports the associated claim (abstract/full-text cross-check). This is the highest rung an AI may grant; it is a machine judgement, not a human one."@en ;
+    aiprov:ladderPosition 3 .
 
 agent:florian-krebs a aiprov:HumanAgent ;
     foaf:name "Florian Krebs" ;

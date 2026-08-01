@@ -171,6 +171,31 @@ Section~\ref{sec:conclusion}. Conversations are part of the record
 too: a transcript exporter renders the session to a committed file
 after every turn, and activities link to it, so the dialogue that
 shaped an artefact is as retrievable as the artefact.
+\ifextended
+
+\textbf{Designed extensions.} Three tool-level extensions are
+specified against the same invariants and are reported here as
+designs, not shipped features, in keeping with the rule that the
+record must not outrun the tooling. First, a \emph{distributed
+reviewer library}: a verification event is already self-contained,
+source identifier, rung, grantor, evidence hash, so it can be
+exported as a signed, portable record and pooled into personal and
+shared registries. A project importing such a registry sees a
+source's verification history across projects, with every rung still
+bound to its original grantor; human rungs are never inherited
+automatically but either re-granted locally or imported as attributed
+third-party audits, the third-witness pattern of
+Section~\ref{sec:discussion}. Second, \emph{backward closure with
+citation binding}: because every claim carries its parent activity
+and sources, a state change on a source, a refutation or retraction,
+can be propagated backward mechanically to enumerate every claim,
+citing sentence, and downstream artefact resting on it. Third, a
+\emph{dispute-ready workflow}: \texttt{aiprov:contradicts} already
+records refutation, and the extension routes disputes through the
+same authenticated issue path as promotions, so contesting a claim
+produces a structured, attributed record, who disputes what on which
+evidence, instead of a comment thread.
+\fi
 
 \begin{figure}[t]
 \centering

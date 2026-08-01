@@ -212,11 +212,46 @@ setting: EASA's AI concept paper covers systems that automatically
 take decisions under human oversight and demands traceability of
 data from origin to final operation through the whole pipeline,
 naming record-keeping of AI-related data among the required
-methodologies~\cite{easa-ai-concept2024}. The human-only rungs map
+methodologies~\cite{easa-ai-concept2024}.
+\ifextended
+Space operations run the same trajectory: ESA's mission-operations
+AI roadmap spans health monitoring, decision recommendation, and
+planning, and names data governance and assurance as one of its five
+capability pillars~\cite{esa-a2i-roadmap}, so AI-prepared operational
+decisions there raise the identical who-decided-on-what-evidence
+question. The framing is also recognizable to established
+engineering process models: the validator is a quality gate in the
+V-model sense, and the claim-to-source binding is requirements
+traceability~\cite{traceability1994} applied to scholarly
+assertions, so organizations operating certified quality-management
+processes could adopt the graph as an evidence layer without
+changing their process language.
+\fi
+The human-only rungs map
 directly onto release decisions that must stay with people. The shepard
 platform does not yet support aiprov; the integration planned in
 Section~\ref{sec:conclusion} would carry the record into the same
 backbone that already holds the production data.
+
+\ifextended
+\textbf{Ecosystem trajectories.} Two further consequences follow if
+records like this one become common, and both are hypotheses about
+use, not measured results. \emph{Training signal:} models trained on
+recursively generated text degrade~\cite{model-collapse2024}; a
+provenance-graphed corpus is the countervailing asset, since
+attribution and verification states let curators filter training
+pools by pedigree rather than fluency, and claims carrying recorded
+human confirmation are precisely the scarce, high-quality labels
+that data curation for scientific language models lacks today.
+\emph{Contradiction detection and cascading retractions:} retracted
+articles keep collecting citations long after
+retraction~\cite{retracted-citations2022}; a record that binds
+claims to sources makes the cascade computable, the backward closure
+of Section~\ref{sec:skill}, so a retraction stops being an event at
+one node and becomes a recomputation over its recorded descendants,
+each affected claim flagged with \texttt{aiprov:contradicts} rather
+than silently inherited.
+\fi
 
 \textbf{Originality of this work, on both sides of the division.}
 Section~\ref{sec:dilution} demands that novelty claims be bounded and

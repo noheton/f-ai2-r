@@ -30,6 +30,37 @@ time~\cite{prov-agent2025}; it shares the substrate and the
 agent-centric telemetry, and differs in what this paper adds on top:
 verification rungs reserved for humans, packaging as an executable
 skill, and the method applied to its own production.
+\ifextended
+The differentiation deserves precision, since the substrate is
+shared. PROV-AGENT instruments \emph{capture}: it wires agent
+frameworks so that prompts, responses, and tool decisions land in a
+PROV graph as they happen, serving debugging and reliability analysis
+of agentic pipelines. aiprov adds the \emph{governance} layer that
+capture alone does not provide: two enforced invariants, no
+parentless claim and human-only rungs that no AI agent may grant;
+claims as first-class resources whose verification state is part of
+the record rather than a property of a log line; and a conformance
+validator that fails a build instead of merely describing it. Capture
+answers what happened; governance answers what may enter the record
+and who is allowed to vouch for it. The two compose: a PROV-AGENT
+style capture layer could feed an aiprov-governed record without
+changing either vocabulary.
+
+\textbf{FAIR digital objects and metadata infrastructures.} The FAIR
+Digital Object line wraps research artefacts into typed, identifier-bearing
+units with machine-actionable metadata~\cite{fairdo2020}; the
+Helmholtz Metadata Collaboration standardizes the kernel attributes
+such objects carry in its Kernel Information
+Profile~\cite{hmc-kip2022}; and the Helmholtz Knowledge Graph
+harvests exactly such metadata across siloed
+infrastructures~\cite{unhide-helmholtz-kg}. An aiprov record is
+FAIR-DO-shaped by construction, typed entities under persistent
+identification (ORCID for people, DOI for sources, content hashes
+and commits for artefacts), which is what makes the
+infrastructure-level integration sketched in
+Section~\ref{sec:conclusion} a binding exercise rather than a
+redesign.
+\fi
 
 \textbf{The trust gap.} The large language models that now write
 research prose descend from the transformer
