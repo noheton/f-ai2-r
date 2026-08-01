@@ -47,6 +47,16 @@ the community feedback the operator wants before the w3id namespace
 freezes, and neither collides with a journal submission of the
 meta-paper since the resource paper is a different article.
 
+## Status
+
+**Submitted to QSS on 2026-07-29** (operator-reported in session):
+manuscript = paper-qss build at the state of this commit (author-year
+references, CRediT, data availability with Zenodo DOI
+10.5281/zenodo.21667684, arXiv:2607.25637 disclosed), cover letter
+276 words. QSS targets first review within ~5 weeks; on acceptance
+review reports, author responses, and decision letters are published
+openly in Web of Science.
+
 ## QSS detail check (2026-07-28)
 
 - Publisher/owner: MIT Press with ISSI; diamond-era OA since 2020,

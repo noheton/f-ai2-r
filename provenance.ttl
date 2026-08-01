@@ -812,6 +812,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
 
+<https://noheton.org/f-ai2-r/prov/activity/s107-qss-submission> a aiprov:AuditPass ;
+    rdfs:label "Manuscript submitted to Quantitative Science Studies by the human operator via the journal's submission portal (operator-reported in session, 2026-07-29; transcribed by the AI agent, checkable against the committed transcript). Submitted version: the QSS variant in its latest state, with author-year references, CRediT contributions, the data availability statement citing the Zenodo archive 10.5281/zenodo.21667684, the disclosed preprint arXiv:2607.25637, and the 276-word cover letter. QSS targets first review within about five weeks; on acceptance, review reports, author responses, and decision letters are published openly in Web of Science."@en ;
+    prov:endedAtTime "2026-08-01T14:12:29.122633+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:florian-krebs ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
     rdfs:label "Token telemetry backfilled from provider-reported usage blocks in the agent session record (aggregated by export_transcript.py --usage over 655+ API requests of this session; covers all activities of session_01VKC to this point). Cost remains omitted: the record carries no priced entries and computing cost would require assumed prices, violating omit-don't-estimate"@en ;
     prov:endedAtTime "2026-07-24T20:41:28.824406+00:00"^^xsd:dateTime ;

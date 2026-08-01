@@ -41,7 +41,7 @@ keywords:
   - FAIR
 preferred-citation:
   type: report
-  status: in-preparation
+  status: submitted
   year: 2026
   title: >-
     F(AI)²R: Who Did What, and Who Checked? Verifiable AI Provenance
@@ -52,6 +52,7 @@ preferred-citation:
       orcid: "https://orcid.org/0000-0001-6033-801X"
       affiliation: "Deutsches Zentrum für Luft- und Raumfahrt (DLR)"
   notes: >-
-    Draft manuscript in this repository (paper/); built to PDF by CI on
-    every push. Its production is recorded in the repository's provenance
-    graph (provenance.ttl).
+    Submitted to Quantitative Science Studies (2026-07-29); preprint
+    arXiv:2607.25637. Manuscript sources in this repository (paper/,
+    paper-qss/), built to PDF by CI on every push. Its production is
+    recorded in the repository's provenance graph (provenance.ttl).
