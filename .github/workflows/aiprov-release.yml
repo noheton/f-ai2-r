@@ -45,6 +45,13 @@ jobs:
           root_file: main.tex
           working_directory: paper
 
+      - name: Compile QSS journal variant to PDF
+        if: ${{ hashFiles('paper-qss/main.tex') != '' }}
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: paper-qss
+
       - name: Build provenance dashboard
         run: python3 scripts/build_dashboard.py provenance.ttl -o dashboard.html
 
@@ -56,6 +63,7 @@ jobs:
           mkdir -p release
           TAG="${{ github.event.inputs.tag || github.ref_name }}"
           [ -f paper/main.pdf ] && cp paper/main.pdf "release/paper-${TAG}.pdf"
+          [ -f paper-qss/main.pdf ] && cp paper-qss/main.pdf "release/paper-qss-${TAG}.pdf"
           cp provenance.ttl "release/provenance-${TAG}.ttl"
           cp dashboard.html "release/dashboard-${TAG}.html"
           [ -f doc/metrics.json ] && cp doc/metrics.json "release/metrics-${TAG}.json"
@@ -66,7 +74,8 @@ jobs:
             echo
             echo "| Asset | What |"
             echo "|---|---|"
-            echo "| paper-${TAG}.pdf | The typeset paper, built by this workflow |"
+            echo "| paper-${TAG}.pdf | The typeset paper (IEEE variant), built by this workflow |"
+            echo "| paper-qss-${TAG}.pdf | QSS journal variant (single column, author-year, extended material) |"
             echo "| provenance-${TAG}.ttl | The provenance graph the build was gated on |"
             echo "| dashboard-${TAG}.html | Self-contained ledger view of the graph |"
             echo "| metrics-${TAG}.json | Machine-derived quantities the paper cites |"

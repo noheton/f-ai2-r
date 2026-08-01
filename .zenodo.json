@@ -1,5 +1,5 @@
 {
-  "title": "F(AI)²R provenance record and analysis data (aiprov, release v0.17.0)",
+  "title": "F(AI)²R provenance record and analysis data (aiprov)",
   "description": "Data and software underlying the paper \"F(AI)²R: Who Did What, and Who Checked? Verifiable AI Provenance as an Executable Skill\". The deposit archives the version-pinned release of the repository that is simultaneously the canonical aiprov skill source, the paper, and its own provenance graph: the machine-readable provenance record (provenance.ttl, PROV-O plus the aiprov extension), the computed metrics that generate every number in the paper (metrics.json), the per-request telemetry export, the source verification worksheet, the full session transcripts, the conformance validator, and the executable Agent Skill bundle. All data essential for reproducing the paper's findings can be recomputed from these files with the included scripts.",
   "creators": [
     {
@@ -22,7 +22,7 @@
   ],
   "related_identifiers": [
     {
-      "identifier": "https://github.com/noheton/f-ai2-r/releases/tag/v0.17.0",
+      "identifier": "https://github.com/noheton/f-ai2-r/releases/tag/v0.18.0",
       "relation": "isSupplementTo",
       "scheme": "url"
     },
@@ -32,5 +32,5 @@
       "scheme": "arxiv"
     }
   ],
-  "version": "0.17.0"
+  "version": "0.18.0"
 }
