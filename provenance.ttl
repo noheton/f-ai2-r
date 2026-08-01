@@ -857,6 +857,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
 
+<https://noheton.org/f-ai2-r/prov/activity/s111-kant-passage> a aiprov:AuthoringPass ;
+    rdfs:label "Operator-directed Kant passage added to the Philosophical footing block (extended variant only), placed chronologically between Bacon and Popper. Three readings, each hedged: (1) the categories analogy explicitly offered as analogy, ladder/invariants/first-class claims as stipulated (not transcendental) conditions under which the record can speak of verified knowledge; (2) appearance vs thing-in-itself as the method's modesty, the record claims phenomenal access only, content-hashed vendored bytes plus verification history; (3) universalizability from the practical philosophy as the documentation rule, record claims so anyone could re-run the verification, grounding registry fetches, vendoring, disclosures. Critique of Pure Reason (Cambridge, Guyer/Wood) and Groundwork (Cambridge, Gregor) registered and DOI-verified, reference-resolved for operator reading. QSS holds 28 pages, IEEE unchanged at 13."@en ;
+    prov:endedAtTime "2026-08-01T22:28:46.504624+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
     rdfs:label "Token telemetry backfilled from provider-reported usage blocks in the agent session record (aggregated by export_transcript.py --usage over 655+ API requests of this session; covers all activities of session_01VKC to this point). Cost remains omitted: the record carries no priced entries and computing cost would require assumed prices, violating omit-don't-estimate"@en ;
     prov:endedAtTime "2026-07-24T20:41:28.824406+00:00"^^xsd:dateTime ;
@@ -1006,6 +1012,18 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     rdfs:label "DOI verification of src:hmc-kip2022 via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-08-01T22:15:51.118076+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/hmc-kip2022> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-kant-groundwork> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:kant-groundwork via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-08-01T22:28:08.077669+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/kant-groundwork> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-kant-krv> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:kant-krv via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-08-01T22:28:07.169359+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/kant-krv> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-llm-homogenization2024> a aiprov:AuditPass ;
@@ -2965,6 +2983,18 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://www.usenix.org/conference/usenixsecurity19/presentation/torres-arias> ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/kant-groundwork> a aiprov:Source ;
+    rdfs:label "Immanuel Kant: Groundwork of the Metaphysics of Morals"@en ;
+    dcterms:date "1998" ;
+    aiprov:doi "https://doi.org/10.1017/CBO9780511809590"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/kant-krv> a aiprov:Source ;
+    rdfs:label "Critique of Pure Reason"@en ;
+    dcterms:date "1998" ;
+    aiprov:doi "https://doi.org/10.1017/CBO9780511804649"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
 <https://noheton.org/f-ai2-r/prov/source/obscurity-is-dead> a aiprov:Source ;
     rdfs:label "Obscurity Is Dead — Proprietary by Design, Open by AI (research repository)"@en ;
     dcterms:creator agent:florian-krebs ;
@@ -3983,13 +4013,6 @@ aiprov:Build a owl:Class ;
         <https://noheton.org/f-ai2-r/prov/source/metrics-json> ;
     prov:wasAssociatedWith agent:claude-code .
 
-verif:reference-resolved a aiprov:VerificationState ;
-    rdfs:label "reference resolved"@en ;
-    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
-    skos:altLabel "lit-retrieved"@en,
-        "retrieved"@en ;
-    aiprov:ladderPosition 2 .
-
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
     rdfs:label "Bootstrap the f-ai2-r repository: vendor aiprov schema, provlog CLI, dashboard builder, attribute catalogue; write README; seed this provenance graph"@en ;
     prov:endedAtTime "2026-07-24T18:09:26.757162+00:00"^^xsd:dateTime ;
@@ -4046,6 +4069,13 @@ verif:reference-resolved a aiprov:VerificationState ;
     aiprov:contentHash "sha256:23bc630da48a4f5e78201d6f7e0895ecdb40fda43d538aa9992e7a7e5122c756" ;
     aiprov:filePath "paper/references.bib" ;
     aiprov:verificationState verif:source-vendored .
+
+verif:reference-resolved a aiprov:VerificationState ;
+    rdfs:label "reference resolved"@en ;
+    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
+    skos:altLabel "lit-retrieved"@en,
+        "retrieved"@en ;
+    aiprov:ladderPosition 2 .
 
 aiprov:VerificationState a owl:Class ;
     rdfs:comment "A rung on the verification ladder. Higher position = stronger check. Rungs at position 5+ are human-only: an AI agent must never grant them."@en .
