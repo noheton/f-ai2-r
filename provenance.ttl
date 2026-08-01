@@ -801,6 +801,11 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:endedAtTime "2026-07-27T06:39:29.732606+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:github-actions .
 
+<https://noheton.org/f-ai2-r/prov/activity/release-v0180> a aiprov:Build ;
+    rdfs:label "Release v0.18.0 published by the aiprov release workflow (run 30721628732, commit 5cac500): conformance-gated, seven assets with sha256 checksums, now including the QSS journal variant paper-qss-v0.18.0.pdf (sha256:1187abc6063cb05043f4a6e6aae77c1ed4dd0d61676937fb34398a4f1abe9e77) alongside the IEEE paper, provenance graph, dashboard, metrics, and skill bundle. https://github.com/noheton/f-ai2-r/releases/tag/v0.18.0"@en ;
+    prov:endedAtTime "2026-08-01T22:43:52.568446+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:github-actions .
+
 <https://noheton.org/f-ai2-r/prov/activity/s09-incident> a aiprov:AuditPass ;
     rdfs:label "Incident record (honest self-report): while creating paper-template stubs, a persisted working directory caused the agent to overwrite paper/sections/01-introduction.tex and 02-background.tex with generic stubs and create four stray stub files. Detected immediately via file-change notices and git status; both files restored with git checkout from commit 75d21bd; stray files deleted; nothing lost or pushed. Kept in the graph as evidence for the repository-is-the-process discussion (paper section 6.2)"@en ;
     prov:endedAtTime "2026-07-24T18:45:54.248700+00:00"^^xsd:dateTime ;
@@ -3730,10 +3735,6 @@ aiprov:Contribution a owl:Class ;
         <https://noheton.org/f-ai2-r/prov/source/provlog-py> ;
     prov:wasAssociatedWith agent:claude-code .
 
-agent:github-actions a aiprov:ToolAgent ;
-    foaf:name "GitHub Actions (aiprov build workflow)" ;
-    aiprov:provider "GitHub"^^xsd:string .
-
 <https://noheton.org/f-ai2-r/prov/source/CHANGELOG-md> a aiprov:Source ;
     aiprov:contentHash "sha256:1db1da7d36fc2177bd5969c097610e0558fcfd1aeca067ea59e86be5adddd2c9" ;
     aiprov:filePath "CHANGELOG.md" ;
@@ -3811,6 +3812,10 @@ agent:github-actions a aiprov:ToolAgent ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+agent:github-actions a aiprov:ToolAgent ;
+    foaf:name "GitHub Actions (aiprov build workflow)" ;
+    aiprov:provider "GitHub"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/source/ai-hallucination2023> a aiprov:Source ;
     rdfs:label "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing"@en ;
     dcterms:date "2023" ;
@@ -3828,10 +3833,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:doi "https://doi.org/10.1371/journal.pdig.0001490"^^xsd:anyURI ;
     aiprov:filePath "doc/sources/doctors-vs-algorithms2026.pdf" ;
     aiprov:verificationState verif:human-read .
-
-aiprov:Build a owl:Class ;
-    rdfs:comment "Deterministic build/compile/CI activity."@en ;
-    rdfs:subClassOf prov:Activity .
 
 <https://noheton.org/f-ai2-r/prov/activity/s28-transcript-logging> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.8: automatic conversation logging — export_transcript.py renders the session record to doc/transcripts (images/oversized payloads omitted); repository Stop hook regenerates it every turn so the conversation rides into history with each commit; paper preview now also renders the per-section structure skeletons beneath the typeset pages (operator noticed the comment-based structure pass was invisible in the PDF)"@en ;
@@ -3940,6 +3941,10 @@ aiprov:Build a owl:Class ;
     aiprov:contentHash "sha256:be480c648fbedb68fd4dd11e1e27910ba8090488d0ca113a40dfe47a858b9842" ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
     aiprov:verificationState verif:source-vendored .
+
+aiprov:Build a owl:Class ;
+    rdfs:comment "Deterministic build/compile/CI activity."@en ;
+    rdfs:subClassOf prov:Activity .
 
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
