@@ -845,6 +845,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
 
+<https://noheton.org/f-ai2-r/prov/activity/s109-philosophical-footing> a aiprov:AuthoringPass ;
+    rdfs:label "Operator-directed 'Philosophical footing' block added to the discussion, extended (QSS) variant only: Plato's Theaetetus (justification/logos, deliberately anchored there instead of the philosopher-king, which stands for authority rather than traceable justification), Bacon's Novum Organum (systematic documented procedure over the scholar's intuition), Popper (refutability made operational via claim-to-source walkability and aiprov:contradicts). Explicitly framed with no claim to philosophical novelty; direction of fit stated as infrastructure giving old epistemological demands a machine-checkable form. Three classics registered via registry sweeps and DOI-verified in scholarly editions (Routledge 2005, Oxford Francis Bacon Vol. 11 1620, Clarendon Plato Series 1973), left at reference-resolved for the operator's own reading; editor/author BibTeX conflicts fixed for plainnat. QSS 27 pages, IEEE unchanged at 13."@en ;
+    prov:endedAtTime "2026-08-01T22:24:13.032979+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
     rdfs:label "Token telemetry backfilled from provider-reported usage blocks in the agent session record (aggregated by export_transcript.py --usage over 655+ API requests of this session; covers all activities of session_01VKC to this point). Cost remains omitted: the record carries no priced entries and computing cost would require assumed prices, violating omit-don't-estimate"@en ;
     prov:endedAtTime "2026-07-24T20:41:28.824406+00:00"^^xsd:dateTime ;
@@ -904,6 +910,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     rdfs:label "DOI verification of src:attention2017 via crossref/openalex -> needs-research"@en ;
     prov:endedAtTime "2026-07-28T06:24:31.441864+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/attention2017> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-bacon1620> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:bacon1620 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-08-01T22:23:00.805196+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/bacon1620> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-better-architecture2025> a aiprov:AuditPass ;
@@ -1054,6 +1066,18 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     rdfs:label "DOI verification of src:perverse-incentives2017 via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-24T20:29:08.548799+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/perverse-incentives2017> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-plato-theaetetus> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:plato-theaetetus via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-08-01T22:23:01.709159+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/plato-theaetetus> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-popper1959> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:popper1959 via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-08-01T22:22:59.784797+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/popper1959> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/activity/verify-src-prov-agent2025> a aiprov:AuditPass ;
@@ -2876,6 +2900,13 @@ aiprov:verificationState a owl:ObjectProperty ;
         <https://noheton.org/f-ai2-r/prov/source/provenance-ttl> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/source/bacon1620> a aiprov:Source ;
+    rdfs:label "Novum Organum"@en ;
+    dcterms:date "1620" ;
+    dcterms:isPartOf "The Oxford Francis Bacon, Vol. 11: The Instauratio magna Part II: Novum organum and Associated Texts" ;
+    aiprov:doi "https://doi.org/10.1093/oseo/instance.00007242"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
 <https://noheton.org/f-ai2-r/prov/source/c2pa-spec> a aiprov:Source ;
     rdfs:label "Coalition for Content Provenance and Authenticity (C2PA): Content Credentials technical specification"@en ;
     dcterms:source <https://c2pa.org/specifications/> ;
@@ -2933,6 +2964,18 @@ aiprov:verificationState a owl:ObjectProperty ;
     rdfs:label "AI Incidents and Hazards Monitor (AIM), OECD.AI Policy Observatory: overview and methodology"@en ;
     dcterms:source <https://oecd.ai/en/incidents-methodology> ;
     aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/plato-theaetetus> a aiprov:Source ;
+    rdfs:label "Clarendon Plato Series: Theaetetus"@en ;
+    dcterms:date "1973" ;
+    aiprov:doi "https://doi.org/10.1093/actrade/9780198720836.book.1"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
+<https://noheton.org/f-ai2-r/prov/source/popper1959> a aiprov:Source ;
+    rdfs:label "The Logic of Scientific Discovery"@en ;
+    dcterms:date "2005" ;
+    aiprov:doi "https://doi.org/10.4324/9780203994627"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
 
 <https://noheton.org/f-ai2-r/prov/source/resistance-welding2024> a aiprov:Source ;
     rdfs:label "On the capabilities of static resistance welding of carbon fiber-reinforced thermoplastic composites (Endraß et al., ITHEC 2024)"@en ;
@@ -3536,13 +3579,6 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:filePath "doc/sources/usco-ai-copyrightability2025.pdf" ;
     aiprov:verificationState verif:human-confirmed .
 
-verif:reference-resolved a aiprov:VerificationState ;
-    rdfs:label "reference resolved"@en ;
-    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
-    skos:altLabel "lit-retrieved"@en,
-        "retrieved"@en ;
-    aiprov:ladderPosition 2 .
-
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .
 
@@ -3850,6 +3886,13 @@ aiprov:Build a owl:Class ;
     aiprov:contentHash "sha256:be480c648fbedb68fd4dd11e1e27910ba8090488d0ca113a40dfe47a858b9842" ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
     aiprov:verificationState verif:source-vendored .
+
+verif:reference-resolved a aiprov:VerificationState ;
+    rdfs:label "reference resolved"@en ;
+    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
+    skos:altLabel "lit-retrieved"@en,
+        "retrieved"@en ;
+    aiprov:ladderPosition 2 .
 
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
