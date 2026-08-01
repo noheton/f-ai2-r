@@ -851,6 +851,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
 
+<https://noheton.org/f-ai2-r/prov/activity/s110-wittgenstein-limit> a aiprov:AuthoringPass ;
+    rdfs:label "Operator-directed Wittgenstein extension of the Philosophical footing block (extended variant only): the Tractatus' closing demand read, explicitly marked as our reading rather than a claim about Wittgenstein's intent, as naming the method's limit. human-read records THAT a named person vouched over identified evidence; whether they read carefully or judged well is not machine-checkable, and no additional rung could make it so (regress noted). Human-only rungs reframed: not a reliability claim about people but the marker of the boundary where structural verification ends and attributable judgement begins; recorded refusals as the method's form of silence; omit-don't-estimate as the same discipline for numbers. Tractatus registered via registry sweep, DOI-verified (Routledge 2003, first published 1921), left at reference-resolved for operator reading. QSS 28 pages, IEEE unchanged at 13."@en ;
+    prov:endedAtTime "2026-08-01T22:26:55.574043+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
     rdfs:label "Token telemetry backfilled from provider-reported usage blocks in the agent session record (aggregated by export_transcript.py --usage over 655+ API requests of this session; covers all activities of session_01VKC to this point). Cost remains omitted: the record carries no priced entries and computing cost would require assumed prices, violating omit-don't-estimate"@en ;
     prov:endedAtTime "2026-07-24T20:41:28.824406+00:00"^^xsd:dateTime ;
@@ -1126,6 +1132,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     rdfs:label "DOI verification of src:unhide-helmholtz-kg via crossref -> reference-resolved"@en ;
     prov:endedAtTime "2026-07-28T05:51:04.196080+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/unhide-helmholtz-kg> ;
+    prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/verify-src-wittgenstein-tractatus> a aiprov:AuditPass ;
+    rdfs:label "DOI verification of src:wittgenstein-tractatus via crossref -> reference-resolved"@en ;
+    prov:endedAtTime "2026-08-01T22:26:12.003748+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/wittgenstein-tractatus> ;
     prov:wasAssociatedWith agent:claude-code .
 
 <https://noheton.org/f-ai2-r/prov/claim/c1> a aiprov:Claim ;
@@ -2998,6 +3010,12 @@ aiprov:verificationState a owl:ObjectProperty ;
 <https://noheton.org/f-ai2-r/prov/source/venues-md> a aiprov:Source ;
     aiprov:filePath "doc/venues.md" .
 
+<https://noheton.org/f-ai2-r/prov/source/wittgenstein-tractatus> a aiprov:Source ;
+    rdfs:label "Tractatus Logico-Philosophicus"@en ;
+    dcterms:date "2003" ;
+    aiprov:doi "https://doi.org/10.4324/9780203010341"^^xsd:anyURI ;
+    aiprov:verificationState verif:reference-resolved .
+
 aiprov:ToolAgent a owl:Class ;
     rdfs:label "Deterministic tool"@en ;
     rdfs:comment "Non-AI software (compiler, linter, CI job) acting in the pipeline."@en ;
@@ -3887,13 +3905,6 @@ aiprov:Build a owl:Class ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
     aiprov:verificationState verif:source-vendored .
 
-verif:reference-resolved a aiprov:VerificationState ;
-    rdfs:label "reference resolved"@en ;
-    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
-    skos:altLabel "lit-retrieved"@en,
-        "retrieved"@en ;
-    aiprov:ladderPosition 2 .
-
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
     prov:endedAtTime "2026-07-24T18:43:45.977114+00:00"^^xsd:dateTime ;
@@ -3971,6 +3982,13 @@ verif:reference-resolved a aiprov:VerificationState ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex>,
         <https://noheton.org/f-ai2-r/prov/source/metrics-json> ;
     prov:wasAssociatedWith agent:claude-code .
+
+verif:reference-resolved a aiprov:VerificationState ;
+    rdfs:label "reference resolved"@en ;
+    rdfs:comment "The reference EXISTS: its DOI/URL resolved in a bibliographic registry (Crossref, OpenAlex, DataCite) and metadata was captured. Says nothing about whether the content supports anything."@en ;
+    skos:altLabel "lit-retrieved"@en,
+        "retrieved"@en ;
+    aiprov:ladderPosition 2 .
 
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
     rdfs:label "Bootstrap the f-ai2-r repository: vendor aiprov schema, provlog CLI, dashboard builder, attribute catalogue; write README; seed this provenance graph"@en ;
