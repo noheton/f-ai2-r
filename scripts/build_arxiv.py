@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Build an arXiv-ready source bundle from paper/ (skill v0.17).
+"""Build an arXiv-ready source bundle (skill v0.17; --variant qss added in v0.22).
+
+Default builds from paper/ (IEEE variant); --variant qss flattens the
+QSS journal variant (paper-qss/main.tex over the shared sections, with
+the extended material enabled) into dist/arxiv-qss-<version>.tar.gz.
 
 Follows the community submission checklist (T. Campbell, "How to submit
 a paper to arXiv", trevorcampbell.me/html/arxiv.html) without touching
@@ -19,6 +23,7 @@ the repository layout the method needs:
 - emit dist/arxiv-<version>.tar.gz plus plain-text title/author/abstract
   (LaTeX stripped, single line) for the arXiv metadata form.
 """
+import argparse
 import pathlib
 import re
 import shutil
@@ -29,6 +34,11 @@ import tempfile
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAPER = ROOT / "paper"
+VARIANT = "ieee"  # set from --variant in main()
+
+
+def variant_dir() -> pathlib.Path:
+    return ROOT / ("paper-qss" if VARIANT == "qss" else "paper")
 
 
 def strip_full_line_comments(text: str) -> str:
@@ -42,9 +52,13 @@ def strip_full_line_comments(text: str) -> str:
 
 def flatten():
     stage = pathlib.Path(tempfile.mkdtemp(prefix="arxiv-"))
-    main = (PAPER / "main.tex").read_text(encoding="utf-8")
+    main = (variant_dir() / "main.tex").read_text(encoding="utf-8")
     main = strip_full_line_comments(main)
-    main = re.sub(r"\\input\{sections/([^}]+)\}", r"\\input{\1}", main)
+    main = re.sub(r"\\input\{(?:\.\./paper/)?sections/([^}]+)\}", r"\\input{\1}", main)
+    main = main.replace("../paper/metrics", "metrics")
+    main = main.replace("../paper/disclosure", "disclosure")
+    main = main.replace("../paper/references", "references")
+    main = re.sub(r"\\graphicspath\{[^\n]*\}\n?", "", main)
     if "\\pdfoutput=1" not in main:
         main = main.replace("\\documentclass", "\\pdfoutput=1\n\\documentclass", 1)
     if "get arXiv to do 4 passes" not in main:
@@ -60,9 +74,9 @@ def flatten():
     for aux in ("metrics.tex", "disclosure.tex"):
         t = strip_full_line_comments((PAPER / aux).read_text(encoding="utf-8"))
         (stage / aux).write_text(t, encoding="utf-8")
-    bbl = PAPER / "main.bbl"
+    bbl = variant_dir() / "main.bbl"
     if not bbl.exists():
-        sys.exit("paper/main.bbl missing — compile the paper first (latexmk)")
+        sys.exit(f"{bbl} missing — compile that variant first (latexmk)")
     shutil.copy(bbl, stage / "main.bbl")
     for fig in sorted((PAPER / "figures").iterdir()):
         if fig.suffix.lower() in (".png", ".jpg", ".jpeg", ".pdf"):
@@ -110,7 +124,7 @@ def plain(s: str) -> str:
 
 
 def metadata():
-    main = (PAPER / "main.tex").read_text(encoding="utf-8")
+    main = (variant_dir() / "main.tex").read_text(encoding="utf-8")
     title = re.search(r"\\title\{(.*?)\}\n", main, re.S).group(1)
     abstract = re.search(r"\\begin\{abstract\}(.*?)\\end\{abstract\}",
                          main, re.S).group(1)
@@ -118,6 +132,10 @@ def metadata():
 
 
 def main():
+    global VARIANT
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--variant", choices=("ieee", "qss"), default="ieee")
+    VARIANT = ap.parse_args().variant
     stage = flatten()
     # arXiv rejects generated files: compile-verify, then clean before packing
     pages = verify(stage)
@@ -136,7 +154,8 @@ def main():
             version = mv.group(1)
     dist = ROOT / "dist"
     dist.mkdir(exist_ok=True)
-    out = dist / f"arxiv-{version}.tar.gz"
+    stem = "arxiv-qss" if VARIANT == "qss" else "arxiv"
+    out = dist / f"{stem}-{version}.tar.gz"
     with tarfile.open(out, "w:gz") as tar:
         for f in sorted(stage.iterdir()):
             tar.add(f, arcname=f.name)

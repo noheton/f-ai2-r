@@ -887,6 +887,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s115-qss-arxiv-bundle> a aiprov:Build ;
+    rdfs:label "build_arxiv.py gains --variant qss: flattens paper-qss/main.tex over the shared sections (rewriting ../paper/ inputs, dropping graphicspath, keeping the extended material enabled), compile-verifies the flattened bundle (28 pages, matching the repo build), and emits dist/arxiv-qss-<version>.tar.gz. Release workflow builds and ships both arXiv bundles (arxiv-<tag>.tar.gz IEEE, arxiv-qss-<tag>.tar.gz QSS); earlier failed run 31164462773 diagnosed (pdfinfo missing in the TeXLive container) and fixed via log-based page-count fallback plus poppler install. Template mirror synced."@en ;
+    prov:endedAtTime "2026-08-07T09:16:16.535753+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
     rdfs:label "Token telemetry backfilled from provider-reported usage blocks in the agent session record (aggregated by export_transcript.py --usage over 655+ API requests of this session; covers all activities of session_01VKC to this point). Cost remains omitted: the record carries no priced entries and computing cost would require assumed prices, violating omit-don't-estimate"@en ;
     prov:endedAtTime "2026-07-24T20:41:28.824406+00:00"^^xsd:dateTime ;
@@ -3955,10 +3961,6 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
     aiprov:verificationState verif:source-vendored .
 
-aiprov:Build a owl:Class ;
-    rdfs:comment "Deterministic build/compile/CI activity."@en ;
-    rdfs:subClassOf prov:Activity .
-
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
     prov:endedAtTime "2026-07-24T18:43:45.977114+00:00"^^xsd:dateTime ;
@@ -4036,6 +4038,10 @@ aiprov:Build a owl:Class ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/07-discussion-tex>,
         <https://noheton.org/f-ai2-r/prov/source/metrics-json> ;
     prov:wasAssociatedWith agent:claude-code .
+
+aiprov:Build a owl:Class ;
+    rdfs:comment "Deterministic build/compile/CI activity."@en ;
+    rdfs:subClassOf prov:Activity .
 
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
     rdfs:label "Bootstrap the f-ai2-r repository: vendor aiprov schema, provlog CLI, dashboard builder, attribute catalogue; write README; seed this provenance graph"@en ;
@@ -4170,8 +4176,7 @@ verif:source-vendored a aiprov:VerificationState ;
     aiprov:ladderPosition 4 .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;

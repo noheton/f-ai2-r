@@ -57,7 +57,7 @@ jobs:
         run: |
           docker run --rm -v "$PWD":/work -w /work \
             ghcr.io/xu-cheng/texlive-full:latest \
-            sh -c "apk add --no-cache python3 poppler-utils >/dev/null 2>&1 || true; python3 scripts/build_arxiv.py"
+            sh -c "apk add --no-cache python3 poppler-utils >/dev/null 2>&1 || true; python3 scripts/build_arxiv.py && { [ -d paper-qss ] && python3 scripts/build_arxiv.py --variant qss || true; }"
 
       - name: Build provenance dashboard
         run: python3 scripts/build_dashboard.py provenance.ttl -o dashboard.html
@@ -75,7 +75,8 @@ jobs:
           cp dashboard.html "release/dashboard-${TAG}.html"
           [ -f doc/metrics.json ] && cp doc/metrics.json "release/metrics-${TAG}.json"
           [ -f dist/ai-provenance.skill ] && cp dist/ai-provenance.skill release/
-          for f in dist/arxiv-*.tar.gz; do [ -f "$f" ] && cp "$f" "release/arxiv-${TAG}.tar.gz" && break; done
+          for f in dist/arxiv-[0-9]*.tar.gz; do [ -f "$f" ] && cp "$f" "release/arxiv-${TAG}.tar.gz" && break; done
+          for f in dist/arxiv-qss-*.tar.gz; do [ -f "$f" ] && cp "$f" "release/arxiv-qss-${TAG}.tar.gz" && break; done
           (cd release && sha256sum * > "checksums-${TAG}.sha256")
           {
             echo "Release ${TAG} — artefact plus the record that produced it."
@@ -88,7 +89,8 @@ jobs:
             echo "| dashboard-${TAG}.html | Self-contained ledger view of the graph |"
             echo "| metrics-${TAG}.json | Machine-derived quantities the paper cites |"
             echo "| ai-provenance.skill | The method, packaged (Agent Skills format) |"
-            echo "| arxiv-${TAG}.tar.gz | arXiv-ready flattened source bundle (compile-verified) |"
+            echo "| arxiv-${TAG}.tar.gz | arXiv-ready flattened source bundle, IEEE variant (compile-verified) |"
+            echo "| arxiv-qss-${TAG}.tar.gz | arXiv-ready flattened source bundle, QSS variant with extended material |"
             echo "| checksums-${TAG}.sha256 | sha256 of every asset above |"
             echo
             echo "Conformance: \`provlog.py validate\` passed on this commit."
