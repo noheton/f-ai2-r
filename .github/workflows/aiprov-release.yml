@@ -58,6 +58,9 @@ jobs:
           docker run --rm -v "$PWD":/work -w /work \
             ghcr.io/xu-cheng/texlive-full:latest \
             sh -c "apk add --no-cache python3 poppler-utils >/dev/null 2>&1 || true; python3 scripts/build_arxiv.py && { [ -d paper-qss ] && python3 scripts/build_arxiv.py --variant qss || true; }"
+          # the container runs as root; hand dist/ back to the runner user
+          # so later steps (skill packaging) can write into it
+          sudo chown -R "$(id -u):$(id -g)" dist
 
       - name: Build provenance dashboard
         run: python3 scripts/build_dashboard.py provenance.ttl -o dashboard.html
