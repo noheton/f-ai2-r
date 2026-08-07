@@ -880,6 +880,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
 
+<https://noheton.org/f-ai2-r/prov/activity/s114-incident-secret-in-chat> a aiprov:AuditPass ;
+    rdfs:label "Incident record (honest self-report): the human operator pasted a live Zenodo personal access token in clear text into the conversation to enable deposit automation. Exposure path: this repository auto-commits the session transcript on every turn, so without intervention the token would have been published in the public repository within one turn. Containment, applied before the turn's transcript export: token moved to the untracked, gitignored .secrets/zenodo_token; export_transcript.py extended to mask every value stored under .secrets/ as [REDACTED:<name>]; verified by git grep that no tracked file carries the value and that the regenerated transcript shows only the masked form (a 9-character prefix quoted inside a verification command remains, unusable as a credential). Residual risk, stated plainly: the token crossed the wire in clear text and exists in the platform-side session record outside this repository's control; the operator is advised to rotate it and to hold the recurring credential as a GitHub Actions secret (ZENODO_TOKEN), which the session itself cannot create. Skill v0.22 codifies the handling; no leak occurred in the published record."@en ;
+    prov:endedAtTime "2026-08-07T09:12:28.192719+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
 <https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
     rdfs:label "Token telemetry backfilled from provider-reported usage blocks in the agent session record (aggregated by export_transcript.py --usage over 655+ API requests of this session; covers all activities of session_01VKC to this point). Cost remains omitted: the record carries no priced entries and computing cost would require assumed prices, violating omit-don't-estimate"@en ;
     prov:endedAtTime "2026-07-24T20:41:28.824406+00:00"^^xsd:dateTime ;
@@ -4152,9 +4159,6 @@ aiprov:Repair a owl:Class ;
         <https://noheton.org/f-ai2-r/prov/source/references-bib> ;
     prov:wasAssociatedWith agent:claude-code .
 
-<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
-
 verif:human-confirmed a aiprov:VerificationState ;
     rdfs:label "human-confirmed"@en ;
     rdfs:comment "A HUMAN checked that the source supports the claim (targeted spot-check, not necessarily a full read). Human-only: an AI agent must never grant this rung."@en ;
@@ -4164,6 +4168,10 @@ verif:source-vendored a aiprov:VerificationState ;
     rdfs:label "source vendored"@en ;
     rdfs:comment "A copy of the source is preserved inside the repository, immune to link rot; the vendored bytes are what any later audit reads."@en ;
     aiprov:ladderPosition 4 .
+
+<https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;

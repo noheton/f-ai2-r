@@ -1,5 +1,21 @@
 # Changelog — ai-provenance skill
 
+## v0.22 (2026-08-02)
+
+- **Secret redaction in the transcript exporter.** Values stored under
+  the untracked, gitignored `.secrets/` directory are masked as
+  `[REDACTED:<name>]` before the transcript is written, so a
+  credential pasted into the conversation cannot ride the
+  auto-committed transcript into a public repository. Born from a
+  real near-miss: the operator pasted a live Zenodo token into the
+  chat; the redaction landed before the turn's transcript export,
+  and the incident is recorded in the graph
+  (`s114-incident-secret-in-chat`).
+- **Secret-handling guidance in SKILL.md**: store pasted secrets
+  under `.secrets/`, verify nothing tracked carries the value, never
+  echo secrets, advise rotation, prefer platform secret stores, and
+  log the near-miss as an incident activity.
+
 ## v0.21 (2026-07-28)
 
 - **Hash audit as a command.** New `provlog.py hashes` re-hashes every

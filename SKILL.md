@@ -197,6 +197,22 @@ conversation is logged to the repository automatically and rides into
 history with each commit. Link activities to it via
 `provlog.py log --transcript doc/transcripts/<session>.md`.
 
+**Secret handling (the transcript is public).** Because the session
+transcript is auto-committed, any credential pasted into the
+conversation is one Stop hook away from publication. If the operator
+pastes a secret anyway: BEFORE your next turn ends, store it under
+`.secrets/<name>` (untracked; ensure `.secrets/` is gitignored) and
+rely on the exporter, which masks every stored value as
+`[REDACTED:<name>]` in the exported transcript; verify with
+`git grep` that no tracked file carries the value; never echo the
+secret into command output or logs; advise the operator to rotate the
+credential afterwards, since it crossed the wire in clear, and to use
+the platform's secret store (e.g. repository Actions secrets) for
+anything recurring. Record the near-miss as an incident activity in
+the graph, honest self-report, same as any other incident: what
+arrived, what would have leaked it, what contained it, what residual
+risk remains.
+
 ## Attribute catalogue
 
 Read `references/attributes.md` for the complete list of properties, their
