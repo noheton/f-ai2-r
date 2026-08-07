@@ -63,7 +63,7 @@ jobs:
         run: python3 scripts/build_dashboard.py provenance.ttl -o dashboard.html
 
       - name: Package the skill
-        run: sh scripts/package_skill.sh || echo "skill packaging skipped"
+        run: sh scripts/package_skill.sh || echo "::warning::skill packaging failed or not applicable"
 
       - name: Assemble release payload with checksums
         run: |

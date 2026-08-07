@@ -4,7 +4,6 @@
 set -eu
 cd "$(dirname "$0")/.."
 mkdir -p dist
-rm -f dist/ai-provenance.skill
 staging=$(mktemp -d)
 trap 'rm -rf "$staging"' EXIT
 mkdir -p "$staging/ai-provenance/scripts" "$staging/ai-provenance/assets/ci" \
@@ -17,7 +16,14 @@ cp assets/aiprov-schema.ttl "$staging/ai-provenance/assets/"
 cp assets/ci/aiprov-build.yml assets/ci/aiprov-release.yml "$staging/ai-provenance/assets/ci/"
 cp -r assets/paper "$staging/ai-provenance/assets/paper"
 cp references/attributes.md "$staging/ai-provenance/references/"
-(cd "$staging" && zip -X -q -r "$OLDPWD/dist/ai-provenance.skill" ai-provenance)
+# Build in staging, replace dist/ only on success; python fallback for
+# environments without zip (some CI runner images dropped it).
+if command -v zip >/dev/null 2>&1; then
+  (cd "$staging" && zip -X -q -r ai-provenance.skill ai-provenance)
+else
+  (cd "$staging" && python3 -m zipfile -c ai-provenance.skill ai-provenance)
+fi
+mv "$staging/ai-provenance.skill" dist/ai-provenance.skill
 echo "dist/ai-provenance.skill"
 echo "install: unzip into .claude/skills/, .opencode/skills/, or .agents/skills/"
 echo "         (any Agent Skills client), or import via OpenWork's Skills manager"
