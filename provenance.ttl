@@ -893,6 +893,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
 
+<https://noheton.org/f-ai2-r/prov/activity/s116-converge-one-content> a aiprov:AuthoringPass ;
+    rdfs:label "Variant convergence at operator direction: one content, two formats. paper/main.tex flips extendedtrue, so the IEEE variant now renders the full extended material (PROV-AGENT governance differentiation, FAIR-DO/HMC-KIP/Helmholtz-KG, designed extensions, ESA A2I and V-model alignment, ecosystem trajectories, philosophical footing incl. Kant and the Wittgenstein limit). The former 12.5-page conference cap is consciously retired; the ifextended mechanism stays so a future page-capped submission can drop the blocks by flipping one switch. Converged IEEE build: 15 pages, zero overfull boxes, zero undefined citations. IEEE arXiv bundle rebuilt from the converged source (15 pages verified) for the operator's preprint update."@en ;
+    prov:endedAtTime "2026-08-07T09:29:20.485867+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
     rdfs:label "Token telemetry backfilled from provider-reported usage blocks in the agent session record (aggregated by export_transcript.py --usage over 655+ API requests of this session; covers all activities of session_01VKC to this point). Cost remains omitted: the record carries no priced entries and computing cost would require assumed prices, violating omit-don't-estimate"@en ;
     prov:endedAtTime "2026-07-24T20:41:28.824406+00:00"^^xsd:dateTime ;
