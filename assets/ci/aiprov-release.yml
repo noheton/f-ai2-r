@@ -52,6 +52,13 @@ jobs:
           root_file: main.tex
           working_directory: paper-qss
 
+      - name: Build arXiv source bundle
+        if: ${{ hashFiles('scripts/build_arxiv.py') != '' }}
+        run: |
+          docker run --rm -v "$PWD":/work -w /work \
+            ghcr.io/xu-cheng/texlive-full:latest \
+            sh -c "command -v python3 >/dev/null || apk add --no-cache python3; python3 scripts/build_arxiv.py"
+
       - name: Build provenance dashboard
         run: python3 scripts/build_dashboard.py provenance.ttl -o dashboard.html
 
@@ -68,6 +75,7 @@ jobs:
           cp dashboard.html "release/dashboard-${TAG}.html"
           [ -f doc/metrics.json ] && cp doc/metrics.json "release/metrics-${TAG}.json"
           [ -f dist/ai-provenance.skill ] && cp dist/ai-provenance.skill release/
+          for f in dist/arxiv-*.tar.gz; do [ -f "$f" ] && cp "$f" "release/arxiv-${TAG}.tar.gz" && break; done
           (cd release && sha256sum * > "checksums-${TAG}.sha256")
           {
             echo "Release ${TAG} — artefact plus the record that produced it."
@@ -80,6 +88,7 @@ jobs:
             echo "| dashboard-${TAG}.html | Self-contained ledger view of the graph |"
             echo "| metrics-${TAG}.json | Machine-derived quantities the paper cites |"
             echo "| ai-provenance.skill | The method, packaged (Agent Skills format) |"
+            echo "| arxiv-${TAG}.tar.gz | arXiv-ready flattened source bundle (compile-verified) |"
             echo "| checksums-${TAG}.sha256 | sha256 of every asset above |"
             echo
             echo "Conformance: \`provlog.py validate\` passed on this commit."
@@ -98,4 +107,21 @@ jobs:
             release/dashboard-*.html
             release/metrics-*.json
             release/ai-provenance.skill
+            release/arxiv-*.tar.gz
             release/checksums-*.sha256
+
+      # Archive the release on Zenodo as a new version of the existing
+      # deposit (concept DOI 10.5281/zenodo.21667683). Requires the
+      # repository secret ZENODO_TOKEN (personal access token with
+      # deposit:write + deposit:actions); skips silently when absent so
+      # forks and token-less runs stay green.
+      - name: Archive release on Zenodo
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+        run: |
+          if [ -z "$ZENODO_TOKEN" ]; then
+            echo "ZENODO_TOKEN not set; skipping Zenodo archive"
+            exit 0
+          fi
+          TAG="${{ github.event.inputs.tag || github.ref_name }}"
+          python3 scripts/zenodo_archive.py --tag "$TAG" release/*

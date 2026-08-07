@@ -52,6 +52,31 @@ DOI.
    paper).
 5. Publish.
 
+## Path C (automated, preferred from v0.18.0 on): release workflow archives to Zenodo
+
+Since v0.18.0-prep the release workflow ends with an "Archive release
+on Zenodo" step driven by `scripts/zenodo_archive.py`: it creates a
+new version of the deposit behind concept DOI
+`10.5281/zenodo.21667683`, replaces the files with the just-built
+release assets (both paper variants, arXiv source bundle, graph,
+dashboard, metrics, skill bundle, checksums), refreshes the metadata
+from `/.zenodo.json`, and publishes. One operator action enables it:
+
+1. Create a Zenodo personal access token at
+   <https://zenodo.org/account/settings/applications/> with scopes
+   `deposit:write` and `deposit:actions`.
+2. Add it as the repository secret `ZENODO_TOKEN`
+   (Settings → Secrets and variables → Actions).
+3. To archive the already-published v0.18.0, re-run the "aiprov
+   release" workflow with tag `v0.18.0` (or ask the session to
+   re-trigger it): the release assets are rebuilt and the Zenodo step
+   publishes them as version 0.18.0 under the concept DOI.
+
+Without the secret the step logs "skipping" and the release stays
+green. The script is implemented against the documented Zenodo REST
+API and dry-run tested (`--dry-run`); its first live run happens once
+the token exists, so watch that first run's log.
+
 ## Path B: GitHub–Zenodo integration for future releases
 
 Optional but recommended for everything after v0.17.0: at

@@ -5,6 +5,7 @@
 [![paper license: CC BY-NC-SA 4.0](https://img.shields.io/badge/paper-CC--BY--NC--SA--4.0-lightgrey.svg)](paper/LICENSE)
 [![citation](https://img.shields.io/badge/cite-CITATION.cff-green.svg)](CITATION.cff)
 [![skills.sh](https://skills.sh/b/noheton/f-ai2-r)](https://skills.sh/noheton/f-ai2-r)
+[![EU AI label: AI-generated, human-reviewed](https://img.shields.io/badge/EU%20AI%20label-AI--generated%2C%20human--reviewed-003399.svg)](https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content)
 
 <img src="assets/eu-ai-labels/ai.png" alt="EU AI transparency label: AI was involved in creating this content" width="96" align="right">
 
