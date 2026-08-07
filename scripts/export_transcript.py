@@ -145,14 +145,23 @@ def main() -> None:
     out_dir = pathlib.Path(a.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     out = out_dir / f"{session_id}.md"
-    out.write_text(
+    body = (
         f"# Session transcript `{session_id}`\n\n"
         f"Auto-exported by export_transcript.py from the agent session "
         f"record; embedded images and oversized tool payloads omitted. "
         f"This file is regenerated on every turn — the latest committed "
         f"version is the transcript of record.\n\n"
-        + "\n\n---\n\n".join(turns) + "\n",
-        encoding="utf-8")
+        + "\n\n---\n\n".join(turns) + "\n")
+    # Secret redaction: any value stored under .secrets/ (untracked,
+    # gitignored) is masked before the transcript reaches the public
+    # repository. Covers credentials pasted into the conversation.
+    secrets_dir = pathlib.Path(__file__).resolve().parent.parent / ".secrets"
+    if secrets_dir.is_dir():
+        for sf in secrets_dir.iterdir():
+            val = sf.read_text(encoding="utf-8", errors="ignore").strip()
+            if len(val) >= 8:
+                body = body.replace(val, f"[REDACTED:{sf.name}]")
+    out.write_text(body, encoding="utf-8")
     if not a.quiet:
         print(f"{out}: {len(turns)} turns, {out.stat().st_size // 1024} KiB")
 
