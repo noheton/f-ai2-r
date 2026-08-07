@@ -76,8 +76,11 @@ Without the secret the step logs "skipping" and the release stays
 green. Security note: the first token for this automation was pasted
 into the session chat (incident s114-incident-secret-in-chat in the
 graph; contained before the public transcript export by the .secrets/
-redaction). Rotate that token and store the replacement only as the
-GitHub Actions secret. The script is implemented against the documented Zenodo REST
+redaction). The operator rotated that token on 2026-08-07
+(incident remediated; the revoked value stays in the untracked
+.secrets store solely so the transcript redaction keeps masking its
+historical occurrences). Store the replacement only as the GitHub
+Actions secret. The script is implemented against the documented Zenodo REST
 API and dry-run tested (`--dry-run`); its first live run happens once
 the token exists, so watch that first run's log.
 
