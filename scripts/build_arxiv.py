@@ -79,9 +79,24 @@ def verify(stage: pathlib.Path) -> int:
         cwd=stage, capture_output=True, text=True, errors="replace")
     if r.returncode != 0:
         sys.exit("flattened bundle failed to compile:\n" + r.stdout[-2000:])
-    info = subprocess.run(["pdfinfo", str(stage / "main.pdf")],
-                          capture_output=True, text=True)
-    pages = int(re.search(r"Pages:\s+(\d+)", info.stdout).group(1))
+    try:
+        info = subprocess.run(["pdfinfo", str(stage / "main.pdf")],
+                              capture_output=True, text=True)
+        pages = int(re.search(r"Pages:\s+(\d+)", info.stdout).group(1))
+    except FileNotFoundError:
+        # no poppler (e.g. bare TeXLive container): read the page count
+        # from the latexmk/pdflatex log instead
+        m = re.search(r"Output written on .*main\.pdf \((\d+) pages",
+                      r.stdout)
+        if not m:
+            log = (stage / "main.log")
+            m = log.is_file() and re.search(
+                r"Output written on .*main\.pdf \((\d+) pages",
+                log.read_text(errors="replace"))
+        if not m:
+            sys.exit("could not determine page count (no pdfinfo, "
+                     "no 'Output written' line)")
+        pages = int(m.group(1))
     return pages
 
 
