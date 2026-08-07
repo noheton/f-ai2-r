@@ -17,8 +17,11 @@ version: 0.18.0
 date-released: "2026-08-01"
 license: Apache-2.0
 repository-code: "https://github.com/noheton/f-ai2-r"
-doi: 10.5281/zenodo.21667684
+doi: 10.5281/zenodo.21836247
 identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21836247
+    description: "Zenodo archive of release v0.18.0 (version DOI)"
   - type: doi
     value: 10.5281/zenodo.21667684
     description: "Zenodo archive of release v0.17.0 (version DOI)"

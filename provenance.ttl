@@ -899,6 +899,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
 
+<https://noheton.org/f-ai2-r/prov/activity/s117-zenodo-v0180-archived> a aiprov:Build ;
+    rdfs:label "Release v0.18.0 archived on Zenodo as version 0.18.0 under concept DOI 10.5281/zenodo.21667683: new version DOI 10.5281/zenodo.21836247, nine files (converged 15-page IEEE paper with the full extended material, 28-page QSS variant, provenance graph, dashboard, metrics, skill bundle v0.22, both compile-verified arXiv source bundles, checksums), all sha256-verified against the release before upload. First live run of scripts/zenodo_archive.py, executed in-session with the operator's token from the redacted .secrets store after four release-run iterations fixed the pipeline (pdfinfo fallback, packaging build-then-replace with zipfile fallback, unmasked warnings, chown of the docker-owned dist/). CITATION.cff and codemeta.json now carry the 0.18.0 version DOI, with 0.17.0 kept as an identifier."@en ;
+    prov:endedAtTime "2026-08-07T09:49:55.540525+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
     rdfs:label "Token telemetry backfilled from provider-reported usage blocks in the agent session record (aggregated by export_transcript.py --usage over 655+ API requests of this session; covers all activities of session_01VKC to this point). Cost remains omitted: the record carries no priced entries and computing cost would require assumed prices, violating omit-don't-estimate"@en ;
     prov:endedAtTime "2026-07-24T20:41:28.824406+00:00"^^xsd:dateTime ;
@@ -4045,10 +4051,6 @@ agent:github-actions a aiprov:ToolAgent ;
         <https://noheton.org/f-ai2-r/prov/source/metrics-json> ;
     prov:wasAssociatedWith agent:claude-code .
 
-aiprov:Build a owl:Class ;
-    rdfs:comment "Deterministic build/compile/CI activity."@en ;
-    rdfs:subClassOf prov:Activity .
-
 <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> a aiprov:AuthoringPass ;
     rdfs:label "Bootstrap the f-ai2-r repository: vendor aiprov schema, provlog CLI, dashboard builder, attribute catalogue; write README; seed this provenance graph"@en ;
     prov:endedAtTime "2026-07-24T18:09:26.757162+00:00"^^xsd:dateTime ;
@@ -4068,6 +4070,10 @@ aiprov:Build a owl:Class ;
     aiprov:usedTool "bash",
         "edit",
         "write" .
+
+aiprov:Build a owl:Class ;
+    rdfs:comment "Deterministic build/compile/CI activity."@en ;
+    rdfs:subClassOf prov:Activity .
 
 <https://noheton.org/f-ai2-r/prov/activity/s04-paper-structure> a aiprov:AuthoringPass ;
     rdfs:label "Meta-paper principal structure: IEEEtran chapter-per-file skeleton (main.tex + sections/01-07), page budget and figure plan (outline.md), F1 ladder figure in TikZ; grounded in the F(AI)2R method (authoring+audit passes, no-parentless-claim, repository-is-the-paper)"@en ;
