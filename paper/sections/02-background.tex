@@ -60,6 +60,29 @@ and commits for artefacts), which is what makes the
 infrastructure-level integration sketched in
 Section~\ref{sec:conclusion} a binding exercise rather than a
 redesign.
+
+\textbf{Platform workspaces for AI-assisted science.} The model
+vendors themselves are converging on the same diagnosis from the
+product side. Anthropic's Claude Science, in beta at the time of
+writing, advertises artifacts that ``ship with their history,'' the
+exact code, environment, and conversation that produced them, plus a
+background reviewer that flags incorrect citations and untraceable
+numbers~\cite{claude-science2026}; OpenAI's Prism embeds GPT-5.2 in
+a free, cloud-based, LaTeX-native workspace for drafting, citation
+and equation management, and real-time
+collaboration~\cite{openai-prism2026}. That both major vendors now
+ship per-artifact history and citation checking validates the demand
+this paper starts from. What the platforms keep inside their walls,
+however, is exactly what this paper argues must travel: the history
+lives in a proprietary workspace, its format is the vendor's, and
+nothing in it enforces who may vouch for what. aiprov is the
+vendor-neutral complement, an open PROV-O record with enforced
+invariants and human-only rungs that any such workspace could emit,
+so the pedigree survives the tool that produced it. The disclosure
+obligation cuts close to home here: this paper was produced with a
+model from one of these vendors, as its transparency statement
+records, which is precisely why the record of that production is
+kept in an open format outside the vendor's platform.
 \fi
 
 \textbf{The trust gap.} The large language models that now write

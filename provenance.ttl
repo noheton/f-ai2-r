@@ -240,6 +240,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/chatgpt-wrote-it2023> ;
     prov:wasAssociatedWith agent:florian-krebs .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-claude-science2026-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of claude-science2026: reference-resolved -> ai-confirmed (Product page fetched and read (beta; Mac/Linux downloads): 'runs analyses, searches databases, and traces every step from data wrangling to publication'; 'Every artifact ships with its history' including 'exact code, environment, and conversation that produced them'; 'A background reviewer flags incorrect citations, untraceable numbers, and figures that don't match their underlying code'; 60+ scientific databases, persistent Python/R kernels. Supports the citing sentences on platform-native per-artifact history and citation checking. Marketing self-description, cited as such ('advertises').)"@en ;
+    prov:endedAtTime "2026-08-12T22:13:41.223390+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/claude-science2026> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:grantedRung verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-credit-niso2022-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of credit-niso2022: reference-resolved -> ai-confirmed (Registry check: DOI 10.3789/ansi.niso.z39.104-2022 resolves to ANSI/NISO Z39.104-2022, the CRediT Contributor Roles Taxonomy as a NISO standard. Supports 'now a NISO standard'. Registry/title depth.)"@en ;
     prov:endedAtTime "2026-07-27T07:48:59.838179+00:00"^^xsd:dateTime ;
@@ -541,6 +548,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:endedAtTime "2026-07-27T19:46:22.884105+00:00"^^xsd:dateTime ;
     prov:used <https://noheton.org/f-ai2-r/prov/source/oecd-aim> ;
     prov:wasAssociatedWith agent:claude-code .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-openai-prism2026-ai-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of openai-prism2026: reference-resolved -> ai-confirmed (Announcement fetched and read (dated January 27, 2026): 'a free, AI-native workspace for scientists to write and collaborate on research, powered by GPT-5.2'; cloud-based LaTeX-native; drafting, revision, citation and equation management, literature search (e.g. arXiv), real-time collaboration, unlimited collaborators; builds on the acquired Crixet platform. Cross-checked against TechCrunch and MIT Technology Review coverage of the launch. Supports the citing sentences.)"@en ;
+    prov:endedAtTime "2026-08-12T22:13:43.013010+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/openai-prism2026> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:grantedRung verif:ai-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/activity/promote-operators-json-source-vendored> a aiprov:AuditPass ;
     rdfs:label "Promotion of operators-json: unverified -> source-vendored (Repository-internal artefact registered as a source: the in-repo file is itself the vendored evidence; path and sha256 recorded at promotion time.)"@en ;
@@ -909,6 +923,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     rdfs:label "Two operator actions, operator-reported in session and transcribed by the AI agent. (1) The converged IEEE source bundle (15 pages, full extended material including the philosophical footing) was uploaded to arXiv as a new version of arXiv:2607.25637, following the QSS practice of preprinting revised versions. (2) The Zenodo personal access token exposed in chat (incident s114-incident-secret-in-chat) was rotated, closing the incident's residual risk; the revoked value remains in the untracked .secrets store solely so the transcript redaction keeps masking its historical occurrences in the regenerated public transcript."@en ;
     prov:endedAtTime "2026-08-07T09:57:08.545567+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:florian-krebs ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
+
+<https://noheton.org/f-ai2-r/prov/activity/s119-platform-workspaces> a aiprov:AuthoringPass ;
+    rdfs:label "Operator-directed background passage on vendor science workspaces. Claude Science (Anthropic, beta; product page read: artifacts 'ship with their history', exact code/environment/conversation, background reviewer flags incorrect citations and untraceable numbers; cited as the vendor's self-description) and OpenAI Prism (launch announcement of 2026-01-27 read and cross-checked against TechCrunch and MIT Technology Review: free cloud LaTeX-native workspace with GPT-5.2, built on the acquired Crixet platform). Argument: vendor convergence validates the demand for per-artifact history and citation checking, while the history stays in proprietary walls without governance over who may vouch; aiprov positioned as the vendor-neutral complement any workspace could emit. Conflict-of-interest named in the text: this paper is produced with one vendor's model, which is exactly why its record is kept in an open format outside that vendor's platform. Both sources registered, URL-verified, ai-confirmed. IEEE 15 pp, QSS 29 pp."@en ;
+    prov:endedAtTime "2026-08-12T22:14:36.306971+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
 
 <https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
@@ -2990,6 +3010,11 @@ aiprov:verificationState a owl:ObjectProperty ;
     dcterms:source <https://c2pa.org/specifications/> ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/source/claude-science2026> a aiprov:Source ;
+    rdfs:label "Claude Science (beta) — Anthropic product page"@en ;
+    dcterms:source <https://claude.com/product/claude-science> ;
+    aiprov:verificationState verif:ai-confirmed .
+
 <https://noheton.org/f-ai2-r/prov/source/esa-a2i-roadmap> a aiprov:Source ;
     rdfs:label "A2I Roadmap @ ESA's Mission Operations (ESOC)"@en ;
     dcterms:source <https://esoc.esa.int/a2i-roadmap-esas-missions-operations> ;
@@ -3053,6 +3078,11 @@ aiprov:verificationState a owl:ObjectProperty ;
 <https://noheton.org/f-ai2-r/prov/source/oecd-aim> a aiprov:Source ;
     rdfs:label "AI Incidents and Hazards Monitor (AIM), OECD.AI Policy Observatory: overview and methodology"@en ;
     dcterms:source <https://oecd.ai/en/incidents-methodology> ;
+    aiprov:verificationState verif:ai-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/openai-prism2026> a aiprov:Source ;
+    rdfs:label "Introducing Prism (OpenAI announcement, 2026-01-27)"@en ;
+    dcterms:source <https://openai.com/index/introducing-prism/> ;
     aiprov:verificationState verif:ai-confirmed .
 
 <https://noheton.org/f-ai2-r/prov/source/plato-theaetetus> a aiprov:Source ;
