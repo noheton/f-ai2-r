@@ -428,6 +428,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/hmc-conference2025> ;
     prov:wasAssociatedWith agent:florian-krebs .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-hoeffe1993-human-read> a aiprov:AuditPass ;
+    rdfs:label "Promotion of hoeffe1993: reference-resolved -> human-read (Granted by the human operator in session: 'quellen in den texten habe ich alle gelesen (damals war das ja immer so)', referring to the sources of the 2008 seminar paper, whose sole reference is this chapter (Höffe, Moral als Preis der Moderne, Suhrkamp 1993, pp. 20-33; DNB record 930747496, ISBN 3-518-28646-3). The operator read the chapter in 2008 while writing the seminar paper that works through it section by section; the vendored 2008 paper is the durable evidence of that engagement. Transcribed grant, checkable against the committed transcript.)"@en ;
+    prov:endedAtTime "2026-08-12T23:49:21.670746+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/hoeffe1993> ;
+    prov:wasAssociatedWith agent:florian-krebs ;
+    aiprov:grantedRung verif:human-read .
+
 <https://noheton.org/f-ai2-r/prov/activity/promote-in-toto2019-ai-confirmed> a aiprov:AuditPass ;
     rdfs:label "Promotion of in-toto2019: reference-resolved -> ai-confirmed (Content checked at page depth (USENIX Security 2019 presentation page, Torres-Arias et al.): in-toto 'cryptographically ensures the integrity of the software supply chain', letting the end user 'verify the software's supply chain from the project's inception to its deployment'. Supports the dual-witness related-work sentence: signed artefact-to-process binding exists in supply-chain security; aiprov's seam for signed provider records is the analogous ask for AI inference.)"@en ;
     prov:endedAtTime "2026-07-28T11:44:20.476413+00:00"^^xsd:dateTime ;
@@ -810,6 +817,27 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:used <https://noheton.org/f-ai2-r/prov/source/usco-ai-copyrightability2025> ;
     prov:wasAssociatedWith agent:claude-code .
 
+<https://noheton.org/f-ai2-r/prov/activity/promote-verantwortung2008-human-confirmed> a aiprov:AuditPass ;
+    rdfs:label "Promotion of verantwortung2008: source-vendored -> human-confirmed (Granted by the human operator in session: the operator authored this 2008 seminar paper and uploaded the original; confirms the citing sentences on the four-place relation, the quoted formula, and the Fazit question. Executed at explicit direction; judgement and grant are the human's, transcribed by the AI agent.)"@en ;
+    prov:endedAtTime "2026-08-12T23:49:10.904001+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/verantwortung2008> ;
+    prov:wasAssociatedWith agent:florian-krebs ;
+    aiprov:grantedRung verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-verantwortung2008-human-read> a aiprov:AuditPass ;
+    rdfs:label "Promotion of verantwortung2008: human-confirmed -> human-read (Author of the work; wrote and read it in full ('quellen in den texten habe ich alle gelesen', operator in session). Transcribed grant, checkable against the committed transcript.)"@en ;
+    prov:endedAtTime "2026-08-12T23:49:11.714214+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/verantwortung2008> ;
+    prov:wasAssociatedWith agent:florian-krebs ;
+    aiprov:grantedRung verif:human-read .
+
+<https://noheton.org/f-ai2-r/prov/activity/promote-verantwortung2008-source-vendored> a aiprov:AuditPass ;
+    rdfs:label "Promotion of verantwortung2008: unverified -> source-vendored (Operator-uploaded original (14 pages, misnamed BioInspired_Computing.pdf in the upload; content verified: Universität Augsburg, Lehrstuhl Philosophie mit Schwerpunkt Ethik, seminar 'Verantwortung' with C. Schröer, WS 2007/08, dated 2 March 2008, author Florian Krebs). Read in full by the AI agent: the four-place relation in section 2.3 (jemand verantwortet / etwas / vor oder gegenüber jemand anderem / nach Maßgabe von gewissen Beurteilungskriterien), the formula 'Wer trägt die Verantwortung wofür, vor wem und gemäß welcher Kriterien' (p. 8, after Höffe), the scientist's apodictic truth-obligation (p. 11), and the Fazit's question whether responsibility is divisible among corporate agents.)"@en ;
+    prov:endedAtTime "2026-08-12T23:49:10.102452+00:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/verantwortung2008> ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:grantedRung verif:source-vendored .
+
 <https://noheton.org/f-ai2-r/prov/activity/release-v0160> a aiprov:Build ;
     rdfs:label "GitHub Release v0.16.0 published by aiprov-release.yml run 30242563565 (workflow_dispatch with tag input; the session git proxy blocks tag pushes, so the release action created the tag server-side at commit 66e47d7). Conformance gate passed; disclosure regenerated from the graph before compiling. Assets and sha256 digests: paper-v0.16.0.pdf 7e51a022...; provenance-v0.16.0.ttl e925449e...; dashboard-v0.16.0.html 579fae40...; metrics-v0.16.0.json a07a8f86...; ai-provenance.skill 0f5bc9ff...; checksums-v0.16.0.sha256 1bceac00... Release URL: github.com/noheton/f-ai2-r/releases/tag/v0.16.0"@en ;
     prov:endedAtTime "2026-07-27T06:39:29.732606+00:00"^^xsd:dateTime ;
@@ -930,6 +958,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:endedAtTime "2026-08-12T22:14:36.306971+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
+
+<https://noheton.org/f-ai2-r/prov/activity/s120-hoeffe-lineage> a aiprov:AuthoringPass ;
+    rdfs:label "Deep lineage integrated: the operator's 2008 Augsburg seminar paper 'Die Semantik des Begriffs Verantwortung' (uploaded, read in full, vendored to doc/sources/verantwortung2008.pdf) works through Hoeffe's chapter 'Begriff Verantwortung' (Moral als Preis der Moderne, Suhrkamp 1993, pp. 20-33; DNB 930747496 resolved via the DNB SRU API) and renders responsibility as an at-least-four-place relation with the formula 'Wer traegt die Verantwortung wofuer, vor wem und gemaess welcher Kriterien'. The philosophical footing block gains a closing passage: the relation names what lies beyond the Wittgenstein boundary, the record operationalizes all four places (registry-resolved agent / activity with artefacts and claims / public graph and later auditors / rungs, invariants, validator), the paper title is the relation in interrogative form, and the 2008 Fazit's question whether responsibility is divisible among corporate agents gets an operational footing from the division-of-work accounting. Acknowledgments (both variants) credit Christian Schroeer's seminar. Sources: verantwortung2008 registered as self-citation, vendored, human-confirmed and human-read (operator authored it; grants transcribed in session); hoeffe1993 reference-resolved via DNB and human-read (operator: 'quellen in den texten habe ich alle gelesen (damals war das ja immer so)'). IEEE 15 pp, QSS 29 pp, no undefined citations."@en ;
+    prov:endedAtTime "2026-08-12T23:50:25.106134+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string ;
+    aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
 <https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
     rdfs:label "Token telemetry backfilled from provider-reported usage blocks in the agent session record (aggregated by export_transcript.py --usage over 655+ API requests of this session; covers all activities of session_01VKC to this point). Cost remains omitted: the record carries no priced entries and computing cost would require assumed prices, violating omit-don't-estimate"@en ;
@@ -3051,6 +3086,11 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:doi "https://doi.org/10.3289/hmc_publ_03"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
+<https://noheton.org/f-ai2-r/prov/source/hoeffe1993> a aiprov:Source ;
+    rdfs:label "Höffe: Moral als Preis der Moderne (Suhrkamp 1993), Kapitel Begriff Verantwortung"@en ;
+    dcterms:source <https://d-nb.info/930747496> ;
+    aiprov:verificationState verif:human-read .
+
 <https://noheton.org/f-ai2-r/prov/source/in-toto2019> a aiprov:Source ;
     rdfs:label "in-toto: Providing farm-to-table guarantees for bits and bytes (Torres-Arias et al., USENIX Security 2019)"@en ;
     dcterms:source <https://www.usenix.org/conference/usenixsecurity19/presentation/torres-arias> ;
@@ -3433,12 +3473,6 @@ aiprov:Transcript a owl:Class ;
     dcterms:source <https://elib.dlr.de/224241/> ;
     aiprov:verificationState verif:human-confirmed .
 
-verif:human-read a aiprov:VerificationState ;
-    rdfs:label "human-read"@en ;
-    rdfs:comment "A HUMAN has read the source in full. Top of the ladder; consolidates the former lit-read rung. Human-only: an AI agent must never grant this rung."@en ;
-    skos:altLabel "lit-read"@en ;
-    aiprov:ladderPosition 6 .
-
 aiprov:AIAgent a owl:Class ;
     rdfs:label "AI agent"@en ;
     rdfs:comment "An LLM- or ML-driven agent participating in artefact production."@en ;
@@ -3704,6 +3738,13 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:contentHash "sha256:30889d027cb7ec5b1e29919f26b1603ae691db6e77472acb270a2f8b8e540947" ;
     aiprov:filePath "doc/sources/usco-ai-copyrightability2025.pdf" ;
     aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/verantwortung2008> a aiprov:Source ;
+    rdfs:label "Die Semantik des Begriffs Verantwortung (seminar paper, Universität Augsburg, 2008-03-02)"@en ;
+    aiprov:contentHash "sha256:e4305419d5b9195bd77951b6bc163f7aaf3e5d629f322293be15600481157435" ;
+    aiprov:filePath "doc/sources/verantwortung2008.pdf" ;
+    aiprov:selfCitation true ;
+    aiprov:verificationState verif:human-read .
 
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .
@@ -4009,6 +4050,12 @@ agent:github-actions a aiprov:ToolAgent ;
     aiprov:filePath "paper/sections/06-meta-experiment.tex" ;
     aiprov:verificationState verif:source-vendored .
 
+verif:human-read a aiprov:VerificationState ;
+    rdfs:label "human-read"@en ;
+    rdfs:comment "A HUMAN has read the source in full. Top of the ladder; consolidates the former lit-read rung. Human-only: an AI agent must never grant this rung."@en ;
+    skos:altLabel "lit-read"@en ;
+    aiprov:ladderPosition 6 .
+
 <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.4: init --paper scaffolds compilable chapter-per-file LaTeX skeleton from assets/paper (author block from ORCID-resolved identity, references.bib seeded with EU AI Act entry, acknowledgement wired to generated disclosure); fixed malformed doi.org BibTeX for credit-niso2022 that broke CI run 3; CI disclosure step tolerant of empty graphs; verified by test-run: full init + latexmk compile in scratch repo"@en ;
     prov:endedAtTime "2026-07-24T18:43:45.977114+00:00"^^xsd:dateTime ;
@@ -4224,7 +4271,8 @@ verif:source-vendored a aiprov:VerificationState ;
     aiprov:ladderPosition 4 .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
+        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;
