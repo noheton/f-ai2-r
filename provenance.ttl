@@ -966,6 +966,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
 
+<https://noheton.org/f-ai2-r/prov/activity/s121-style-pass-v2> a aiprov:AuthoringPass ;
+    rdfs:label "Style pass against the updated writing-style profile (now two registers; the shared prohibitions apply to the paper). Scanned all section prose added since the last style pass: no em/en dashes as punctuation, no meta-phrases, no enumerating transitions, no closing formulas found. Fixed: the exactly/precisely density in the discussion (12 instances thinned to 3, keeping the load-bearing ones such as 'A provenance graph is exactly that marking'); two more in the background; 'Ecosystem trajectories' renamed 'Trajectories at infrastructure scale' and 'ecosystem-level' to 'infrastructure-level' per the buzzword list ('harness' and 'leverage' kept as defined technical terms of the paper). Both variants rebuilt, page counts unchanged (IEEE 15, QSS 29)."@en ;
+    prov:endedAtTime "2026-08-13T07:01:48.149727+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith agent:claude-code ;
+    aiprov:sessionId "106c4110-ee50-5c00-84da-a0b29f4102d9"^^xsd:string .
+
 <https://noheton.org/f-ai2-r/prov/activity/s31-session-usage> a aiprov:AuditPass ;
     rdfs:label "Token telemetry backfilled from provider-reported usage blocks in the agent session record (aggregated by export_transcript.py --usage over 655+ API requests of this session; covers all activities of session_01VKC to this point). Cost remains omitted: the record carries no priced entries and computing cost would require assumed prices, violating omit-don't-estimate"@en ;
     prov:endedAtTime "2026-07-24T20:41:28.824406+00:00"^^xsd:dateTime ;
@@ -4271,8 +4277,7 @@ verif:source-vendored a aiprov:VerificationState ;
     aiprov:ladderPosition 4 .
 
 <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> a aiprov:Transcript ;
-    dcterms:source <doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md>,
-        <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
+    dcterms:source <file:///home/user/f-ai2-r/doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md> .
 
 verif:ai-confirmed a aiprov:VerificationState ;
     rdfs:label "AI-confirmed"@en ;
