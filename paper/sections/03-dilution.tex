@@ -28,33 +28,32 @@ degrade further~\cite{model-collapse2024}, so dilution compounds. The
 parallelism that lets one operator advance several strands equally
 industrializes pollution (Section~\ref{sec:discussion});
 per-activity accounting is what tells the two apart.
-Research infrastructures already treat
-metadata quality as their central lever~\cite{hmc-conference2025},
-and the deployed remedy is graph-shaped: the Helmholtz Knowledge
-Graph harvests metadata from siloed infrastructures precisely to
-drive better metadata practice~\cite{unhide-helmholtz-kg}. The
-diluted literature is, in our words, a data swamp one level up, and
-it admits the same remedy.
+The diluted literature is, in our words, a data swamp one level up,
+and graph-shaped metadata harvesting is its deployed
+remedy~\cite{unhide-helmholtz-kg}.
 
 When text is cheap, the scarce good is an original idea whose support
 is checkable. We treat originality as a provenance property: a novelty
 claim carries its recorded search horizon, that is, what was searched,
 where, and when. Concretely, the tooling's registry sweeps (Crossref,
-OpenAlex, arXiv, DataCite) are logged activities with their query
-terms, so ``no prior work found'' stops being an unfalsifiable
+OpenAlex, arXiv, DataCite) only print candidates; the agent logs a
+sweep as an activity, and at least the novelty sweep behind this paper
+records its query terms. So ``no prior work found'' stops being an unfalsifiable
 assertion and becomes a bounded one: no prior work found \emph{within
 this recorded horizon}, which a sceptical reader can re-run, widen,
-and possibly refute. The literature sweeps behind this paper are
-logged exactly so. Every claim must then be supported, or refuted, by
-facts, and both outcomes leave a record.
+and possibly refute. Every claim must then be supported, or refuted,
+by facts.
 
 aiprov's answer makes claims first-class. Each assertion carries
 \texttt{prov:wasGeneratedBy}, \texttt{prov:wasAttributedTo}, and a
 ladder rung that separates ``the reference exists''
 (machine-checkable) from ``the content supports the claim''
 (machine-judged at most) from ``a human checked'' (human-only).
-Refutation is explicit: \texttt{aiprov:contradicts} records a claim
-refuted by facts as refuted, instead of silently deleting it. This is
+Refutation is declared but not yet recorded: \texttt{aiprov:contradicts}
+exists in the vocabulary for a claim refuted by facts, but no command
+writes it, no validation rule or rung uses it, and the graphs reported
+here hold no such triple; the review runs keep ``verified, not
+promoted'' only. This is
 supply-side transparency. Artefacts carry a pedigree that fabrication
 cannot cheaply forge: DOIs that resolve, content hashes, commits, and
 registry-resolved identities. Filtering the pool can then shift from
