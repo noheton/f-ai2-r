@@ -8,141 +8,118 @@ operating rules: log your own activities, record claims at
 \texttt{ai-confirmed} at most, never fabricate telemetry, and never
 grant a human-only rung.
 
-\textbf{ORCID-first setup.} Setup asks the human operator exactly one
-question: their ORCID iD. A single command then seeds the graph,
-resolves the operator's name and current affiliation from the public
-registry (never guessed; if resolution fails, only the bare iD is
-recorded), derives the instance IRI base from the git remote,
-scaffolds continuous integration, and lays down a compilable
-chapter-per-file paper skeleton whose author block is already filled
-from the resolved identity. Later commands auto-detect the base from
-the graph, so configuration never needs repeating
-(Figure~\ref{fig:workflow}).
+\textbf{Live preview as oversight affordance.} Effective oversight of
+a fast-moving AI collaborator needs a continuously current view of the
+deliverable; the EU AI Act's human-oversight
+expectation~\cite{eu-ai-act2024} becomes a user-interface property
+(Figure~\ref{fig:environment}, right panel). The judgement stays the
+human's; only its transcription is automated.
 
-\textbf{CI as the deterministic build agent.} Every push validates the
-graph server-side, renders the dashboard, regenerates the
-AI-transparency disclosure, and compiles the paper to PDF, uploading
-dashboard and PDF as build artefacts. The current version of the paper
-is always available, and a conformance violation blocks the build. The
-CI service itself is registered as a \texttt{ToolAgent}, and its green
-runs are logged \texttt{Build} activities carrying artefact digests.
-Version tags extend the same discipline to releases: a \texttt{v*}
-tag publishes a conformance-gated release whose assets are the PDF
-together with the graph it was built from, the metrics snapshot, the
-packaged skill, and their checksums, so a release is the artefact
-plus its record.
+Table~\ref{tab:matrix} sorts the capabilities by code line, because
+this paper describes the skill line while the open package is a subset
+of it plus orchestration; the operating loop is
+Figure~\ref{fig:workflow}.
 
-\textbf{Live preview as oversight affordance.} On request, the agent
-republishes the current typeset build, together with the per-section
-planning skeletons, to a stable preview URL after every editing round
-(Figure~\ref{fig:environment}, right panel). Effective oversight of
-a fast-moving AI collaborator needs a continuously current view of
-the deliverable; the EU AI Act's human-oversight
-expectation~\cite{eu-ai-act2024} becomes a user-interface property.
-The preview also renders the source-verification queue, whose
-buttons open prefilled repository issues; a workflow verifies the
-issue author against a registered-operator mapping and transcribes
-the authenticated grant or refusal into the graph, so the operator
-walks the human rungs without touching a checkout: the judgement
-stays the human's, only its transcription is automated.
+\begin{table*}[t]
+\caption{Capabilities by code line: skill line (changelog entries; v0.21
+measured, v0.22 current), package 0.1.0, package unreleased, and
+planned or designed.}
+\label{tab:matrix}
+\centering
+\footnotesize
+\begin{tabular}{p{6.2cm}llll}
+\toprule
+Capability & Skill & Pkg 0.1.0 & Pkg unreleased & Planned \\
+\midrule
+Core commands (\texttt{init}, \texttt{agent}, \texttt{log}, \texttt{claim}, \texttt{validate}, \texttt{report}, \texttt{search}, \texttt{source}, \texttt{promote}, \texttt{extract}), dashboard & v0 & yes & yes & \\
+ORCID-first init, identity from the public registry, never guessed & v0.2 & -- & -- & \\
+CI per push; CI as \texttt{ToolAgent} with \texttt{Build} activities & v0.2 & -- & -- & \\
+Disclosure regenerated from the graph & v0.3 & -- & -- & \\
+Paper skeleton from \texttt{init} & v0.4 & -- & -- & \\
+Live preview; planning skeletons & v0.5, v0.8 & -- & -- & \\
+Access gate and refusal & v0.6 & -- & -- & \\
+Transcript exporter; stored secrets masked & v0.8, v0.22 & -- & -- & \\
+Conformance-gated release & v0.16 & -- & -- & \\
+Verification queue; issue-based promotion & v0.18, v0.20 & -- & -- & \\
+Hash audit & v0.21 & -- & -- & \\
+Orchestration, sharded merge, plan bindings & -- & -- & yes & \\
+Vendoring as property, session types, OTel ingest & -- & -- & -- & 0.2.0 \\
+Reviewer library, backward closure, dispute workflow & -- & -- & -- & designed \\
+\bottomrule
+\end{tabular}
+\end{table*}
 
 \textbf{Structure before prose.} The agent first lays down each
 section's principal structure, its argument flow, evidence, and figure
 and citation plan, as a reviewable skeleton; prose is a separate later
 pass. The operator can contest structure cheaply before any prose
-exists to defend it, and both passes are logged, so the audit trail
-shows which structural decisions preceded which text. Two rungs of the
-ladder were redesigned exactly this way during this experiment.
+exists to defend it, and both passes are logged.
 
-\textbf{Regulatory fit by construction.} The EU AI Act transparency
-statement is derived from the graph on every build
-(Section~\ref{sec:discussion}); disclosure is a build product, not
-an authoring chore, and adopters inherit the mechanism.
+\textbf{CI.} Every push validates the graph, renders the dashboard,
+regenerates the disclosure, and compiles the paper; a conformance
+violation blocks the build, and CI runs can be logged as \texttt{Build}
+activities of a \texttt{ToolAgent}.
 
-\textbf{Worked example: analysing experimental data.} This example
-is a prospective design, not yet an implemented deployment. The
-workflow is not specific to writing papers; consider a study like the comparison
-of power and amplitude control in continuous ultrasonic welding of
-unidirectional carbon-fibre-reinforced polymers
-(CFRPs)~\cite{ultrasonic-welding2025}, where welding
-trials produce in-situ process data, scans, mechanical test results,
-and micrographs, and the outcome is comparative claims about two
-control strategies. Setup is identical: one ORCID question seeds the
-graph and registers the experimenters; the rig's data acquisition and
-the analysis scripts join as \texttt{ToolAgent}s, the AI assistant as
-an \texttt{AIAgent}. Each raw record (a weld's power trace, a scan,
-a test protocol) is registered as a \texttt{Source} and
-vendored with its content hash, so the access gate of rung~4 holds the
-evidence for every downstream claim as immutable bytes. Each analysis
-run is a logged \texttt{Build} activity that \texttt{used} the raw
-sources and \texttt{generated} the derived tables and figures, hashes
-included; CI reruns the analysis, so a figure that cannot be
-regenerated from the recorded inputs fails the build. AI-assisted
-interpretation is an \texttt{AuthoringPass} with telemetry, and every
-finding (say, that the two control modes yield equivalent weld quality
-on a given layup) is a claim generated by the analysis activity and
-attributed to its agent. The ladder then works exactly as in
-Section~\ref{sec:method}: the AI may cross-check a claim against the
-derived data and grant \texttt{ai-confirmed}; the experimenter
-spot-checks the mechanical-test table for \texttt{human-confirmed},
-with the tooling handing over the vendored data on request; the
-comparative conclusions that carry the paper deserve
-\texttt{human-read}. The disclosure statement and the report come for
-free, and once the shepard integration planned in
-Section~\ref{sec:conclusion} lands, raw data and provenance will
-share one backbone.
+\textbf{Worked example (prospective design).} The workflow is not
+specific to papers. In a study such as the comparison of power and
+amplitude control in continuous ultrasonic welding of
+CFRPs~\cite{ultrasonic-welding2025}, each raw record (power trace,
+scan, test protocol) is a vendored \texttt{Source} with its content
+hash; each analysis run is a logged \texttt{Build} activity that used
+those sources and generated the derived tables and figures; data
+acquisition and scripts are \texttt{ToolAgent}s, the assistant an
+\texttt{AIAgent}. A finding is a claim generated by the analysis
+activity: the AI may grant \texttt{ai-confirmed} after cross-checking
+the derived data, the experimenter spot-checks the test table for
+\texttt{human-confirmed}, and the comparative conclusions deserve
+\texttt{human-read}. This is a design, not a deployment; integration
+with the shepard platform is planned
+(Section~\ref{sec:conclusion}).
 
-\textbf{Auditability at the command line.} Auditability here is not an
-abstract property but a concrete session: an auditor clones the
-repository and runs the same tooling the authors ran. Three checks
-need no trust in anyone's honesty. Re-running the validator replays
-every invariant against the graph as it stands; re-hashing a vendored
-file or a committed artefact and comparing against the recorded digest
-detects any silent swap; re-resolving a recorded DOI confirms the
+\textbf{Auditability at the command line.} An auditor clones the
+repository and runs the same tooling as the authors. Three checks need
+no trust in anyone's honesty: re-running the validator replays every
+invariant against the graph as it stands; \texttt{hashes} re-hashes
+vendored files against the recorded digests (an exact match is required
+for literature evidence); re-resolving a recorded DOI confirms the
 citation metadata still matches the registry. Two further checks read
 rather than execute: the activity log tells the auditor \emph{who}
-granted each rung and under which commit, and the transcript shows the
-dialogue in which a contested decision was made. The tooling is built
-so that success is quiet and failure is loud,
-Figure~\ref{fig:cli}: a clean graph prints one \texttt{OK} line per
-invariant and exits zero, suitable as a CI gate; a violation names the
-offending node and exits nonzero; a refused operation says why it was
-refused and what would make it legitimate. The last property matters
-most for the human rungs: when the operator asks for
-\texttt{human-confirmed}, the gate either blocks for lack of access
-material or prints exactly where the review copy sits, so the human
-step starts with the evidence in hand rather than a search for it.
+granted each rung, and the transcript shows the dialogue in which a
+contested decision was made. Success is quiet and failure is loud
+(Figure~\ref{fig:cli}): a violation names the offending node and exits
+nonzero, and a refused operation says why and what would make it
+legitimate. For the human rungs the gate either blocks for lack of
+access material or prints where the review copy sits, so the human step
+starts with the evidence in hand.
 
 \begin{figure}[t]
 \centering
 \fontsize{6.6}{7.6}\selectfont
 \begin{verbatim}
-$ provlog.py validate
+$ provlog.py validate           (sandbox copy of the graph)
 [ OK ] parentless claims: 0
 [ OK ] unattributed claims: 0
 [ OK ] human-only rungs granted by AI agents: 0
-    (...four further checks OK...)        exit 0
+[ OK ] ... (three more OK, one WARN: link-only)   exit 0
 
-# an AI agent tries to grant a human-only rung
 $ provlog.py promote --id demo-claim \
     --to human-confirmed --agent claude-code
 REFUSED: rung 'human-confirmed' is human-only;
   agent:claude-code is not a registered
   HumanAgent. An AI must never grant this rung.
                                           exit 1
-# a parentless claim spliced into the graph
-[FAIL] parentless claims: 1
-    -> .../prov/claim/rogue               exit 1
-# access gate: human rung, source not in hand
+[FAIL] parentless claims: 1               (spliced claim)
+    -> .../prov/claim/rogue                 exit 1
+
 $ provlog.py promote --id demo-src \
     --to human-confirmed --agent florian-krebs
 REFUSED: 'human-confirmed' requires the source
-  in hand -- vendor a copy first (promote
-  --to source-vendored --file <path>) or
-  record a DOI/URL for it                 exit 1
-# vendor the copy, then the gate hands it over
+  in hand -- vendor a copy first (promote --id
+  demo-src --to source-vendored --file <path>)
+  or record a DOI/URL for it              exit 1
 $ provlog.py promote --id demo-src \
-    --to source-vendored --file protocol.pdf
+    --to source-vendored --file protocol.pdf \
+    --agent claude-code
 demo-src: reference-resolved -> source-vendored
 $ provlog.py promote --id demo-src \
     --to human-confirmed --agent florian-krebs
@@ -151,27 +128,12 @@ demo-src: source-vendored -> human-confirmed
   (logged as AuditPass, agent:florian-krebs)
                                           exit 0
 \end{verbatim}
-\caption{Success and failure, captured from the tooling running
-against a sandbox copy of this paper's graph: a clean validation, the
-two invariant refusals (human-only rung attempted by an AI; parentless
-claim), and the rung-4 access gate first blocking a human promotion
-and then, once a copy is vendored, handing the review material to the
-human. Output verbatim; long lines re-wrapped and exit codes
-annotated.}
+\caption{Abridged output of the skill line, not reproducible with
+package 0.1.0, on a sandbox copy of this paper's graph: clean
+validation, two refusals, a parentless claim, and the access gate
+blocking and then handing over the review material.}
 \label{fig:cli}
 \end{figure}
-
-\textbf{Versioning the method.} The skill tree is the repository:
-snapshots are immutable, changes are logged, and every activity binds
-its commit, so the meta-experiment can cite the exact method version
-in force at any point. The same property makes the skill the
-transferable unit; the bundle that wrote this paper is the
-intended integration payload for the shepard fork of
-Section~\ref{sec:conclusion}. Conversations are part of the record
-too: a transcript exporter renders the session to a committed file
-after every turn, and activities link to it, so the dialogue that
-shaped an artefact is as retrievable as the artefact.
-\ifextended\input{\extdir/05-skill-1}\fi
 
 \begin{figure}[t]
 \centering
@@ -220,3 +182,18 @@ is the AI agent operating the method, two commits per logged round
 (Section~\ref{sec:method}).}
 \label{fig:workflow}
 \end{figure}
+
+\textbf{Versions and the two code lines.} The skill line is the bundle
+in the paper repository (Apache-2.0; v0.21 measured, v0.22 current);
+the open package (\url{https://github.com/noheton/aiprov}, MIT, tag
+v0.1.0) carries the vocabulary and the core commands and has its own
+graph. A portable core runs on every Agent Skills client; three
+per-client shims (a Stop hook, the transcript exporter, usage
+aggregation) adapt it, and the exporter masks stored secrets. Snapshots
+are immutable and changes are logged, so the meta-experiment can cite
+the exact method version in force at any point, and commits bind to
+artefacts. The skill is also the transferable unit: the bundle that
+wrote this paper is the intended integration payload for the shepard
+fork of Section~\ref{sec:conclusion}.
+
+\ifextended\input{\extdir/05-skill-1}\fi
