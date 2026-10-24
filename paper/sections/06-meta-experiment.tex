@@ -17,46 +17,25 @@ in use (Section~\ref{sec:conclusion} lists the trials it owes).
 \centering
 \includegraphics[width=0.88\textwidth]{figures/environment.png}
 \caption{The continuously rebuilt preview of this paper (screenshot,
-2026-07-28), republished to a stable URL after every editing round.
-Left: commit, build time, and live graph statistics above the typeset
-pages. Right: the source-verification queue at the bottom of the same
-page; each entry shows the citing sentence to check, the recorded
-evidence, the access link, and buttons that stage the exact grant or
-refuse command or open a prefilled repository issue, which a workflow
-transcribes into the graph after verifying the issue author against
-the registered-operator mapping. The judgement stays the operator's;
-only its transcription is automated.}
+2026-07-28). Left: commit, build time, and live graph statistics.
+Right: the source-verification queue (Section~\ref{sec:skill}), one
+entry per citing sentence to check. The judgement stays the
+operator's; only its transcription is automated.}
 \label{fig:environment}
 \end{figure*}
 
 \textbf{The graph as evaluation object.} Table~\ref{tab:telemetry}
-reports the state of the graph at the time of writing, and
-Figure~\ref{fig:dashboard} shows the ledger view rendered from the
-same file. Token counts
-were initially absent: the harness (the agent's execution
-environment) exposes no live usage to the agent,
-and under omit-don't-estimate nothing was recorded. The operator's
-challenge (``why is this not reported?'') prompted a check of the
-session record, which turned out to carry the provider's per-request
-usage blocks; the totals in the table are aggregated from them,
-reported not estimated. Cost followed one step behind: the record
-carries no priced entries, so cost was first omitted; the
-operator then directed pricing the recorded tokens
-against the provider's published price list at time of writing. The
-resulting figure is \emph{computed, not provider-reported}, and the
-graph records it exactly so, price basis in the activity's label. All
-eight recorded claims sit at \texttt{ai-confirmed}, the ceiling an AI
-may grant; promotion beyond waits for the human operator, with the
-evidence handed over on request.
+reports the state of the graph at the time of writing (regenerated
+before submission); Section~\ref{sec:method} already states the
+telemetry backfill (tokens aggregated from the session record, cost
+computed at a disclosed price list). Claims sit at \texttt{ai-confirmed}
+or below, the ceiling an AI may grant; promotion beyond waits for the
+human operator, with the evidence handed over on request.
 
 \begin{table}[t]
-\caption{Provenance-graph state of this paper's production at the time
-of writing (from \texttt{provlog.py report} and the repository;
-regenerated before submission). Token totals are aggregated from the
-provider-reported usage blocks in the session record; the cost is
-computed from those tokens and the published price list at time of
-writing (all cache writes in the record are 1-hour-TTL), not reported
-by the provider, and is recorded in the graph as computed.}
+\caption{Provenance-graph state at the time of writing (regenerated
+before submission; tokens aggregated from the session record, cost
+computed and recorded as such, Section~\ref{sec:method}).}
 \label{tab:telemetry}
 \centering
 \begin{tabular}{lr}
@@ -66,12 +45,15 @@ Metric & Value \\
 Triples & \MTriples \\
 Logged activities & \MActivities \\
 Claims (all \texttt{ai-confirmed}) & \MClaims \\
-Sources on the ladder & \MSources \\
+Sources on the ladder: cited literature / repository files & \MSrcLit{} / \MSrcRepo \\
 \quad thereof at \texttt{ai-confirmed} or above & \MSrcChecked \\
+\quad thereof at the two human rungs (lit.\ / repo.) & \MSrcLitHuman{} / \MSrcRepoHuman \\
+\quad thereof still at \texttt{reference-resolved} & \MSrcRefResolved \\
 \quad thereof marked self-citation & \MSrcSelf \\
 Registered agents (human / AI / tool) & 1 / 1 / 1 \\
 Commits & \MCommits \\
-Transcript & 1 session, \MTurns{} turns \\
+Sessions recorded in the graph / transcripts kept & \MSessionIds{} / 1 \\
+Transcript turns (kept session) & \MTurns \\
 Output tokens & \MOutTok \\
 Input tokens (uncached) & \MInTok \\
 Cache tokens (read / write) & \MCacheReadM\,M / \MCacheWriteM\,M \\
@@ -81,28 +63,11 @@ Cost (computed, not reported)$^{\dagger}$ & $\approx$ USD~\MCostUSD \\
 \bottomrule
 \end{tabular}
 \par\smallskip
-{\raggedright\footnotesize $^{\dagger}$Basis: the provider's published
-API list prices~\cite{anthropic-pricing}, per million tokens:
-\MPriceBasis{}; all cache writes 1\,h-TTL. The repricing holds the
-recorded token volume fixed and only swaps the price list (Sonnet~5
-at introductory rates); it compares price bases, not runs, since
-models tokenize and behave differently.\par}
+{\raggedright\footnotesize $^{\dagger}$Price basis
+\MPriceBasis{}~\cite{anthropic-pricing}; the repricing compares price
+bases at the same token volume, not runs.\par}
 \end{table}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\columnwidth]{figures/dashboard.png}\\[2pt]
-\includegraphics[width=\columnwidth]{figures/ladder-stats.png}
-\caption{The dashboard rendered from \texttt{provenance.ttl}
-(screenshot, 2026-07-28). Top: header, graph totals, agents, and the
-start of the activity ledger; the token and cost tiles sum
-per-activity records (two aggregate backfills, roughly half the
-computed cost), so the session-record aggregates of
-Table~\ref{tab:telemetry} are the authoritative figures. Bottom: the literature rung distribution, most sources
-operator-verified, the top rung populated. The full page is one
-self-contained HTML file with an interactive graph view.}
-\label{fig:dashboard}
-\end{figure}
 
 \textbf{Worked examples.} Invariant enforcement was verified by
 test-run before any claim entered the graph: an injected parentless
@@ -124,86 +89,43 @@ depth in the promotion note; every cited source was checked at
 the time of writing. Negative outcomes stayed recorded rather than
 smoothed over: one publisher's bot-wall deferred a check until an
 open index carried the abstract, the operator-owned repositories were
-left to the operator's own rungs, and three citation overreaches
-surfaced by the checks were repaired in the text before any
-promotion.
+left to the operator's own rungs. Not every cited source reached a
+content check: \MSrcRefResolved{} of the \MSrcLit{} literature sources
+remain at \texttt{reference-resolved} (existence checked, content not)
+at the time of writing.
 
-\textbf{Incidents as first-class records.} The experiment produced
-four incident types, and none needed special vocabulary; each is an
-ordinary activity whose class carries its nature
-(Figure~\ref{fig:incident}). (i)~An agent mishap: while creating
-template stubs, a stale working directory led the agent to overwrite
-two committed manuscript sections. Version control surfaced the
-unintended diff immediately, restoration was a one-command revert, and
-the self-report is an \texttt{AuditPass} naming what happened, the
-tools involved, and the restoring commit. (ii)~An infrastructure
-failure: a registry served malformed BibTeX, which broke the CI build;
-the diagnosis and fix live in commits, and the first green run is a
-logged \texttt{Build} activity by the CI tool agent carrying artefact
-digests. (iii)~Blocked access: a publisher returned 403 to automated
-requests, and the fallback to the canonical page is recorded in the
-registering activity's label rather than silently swallowed. (iv)~Method
-contestation: the operator challenged the semantics of two ladder
-rungs; the redesigns are ordinary authoring activities whose generated
-artefacts are the new tool and schema versions, with the enforcement
-claim verified by test-run. The pattern generalizes: erasing an
-incident would require rewriting git history \emph{and} the graph, both
-visible acts, so honesty is the cheap path. The same property that
-makes contributions attributable makes errors reversible.
+\textbf{Incidents as first-class records.} Table~\ref{tab:incidents}
+lists the experiment's incidents; none needed special vocabulary, each
+is an ordinary activity whose class carries its nature. A fifth row, not in the count above: the operator pasted a live
+Zenodo access token into the conversation; moved to an untracked
+secrets store and masked by the transcript exporter before that
+turn's transcript was committed, it never reached the published
+record, and the token was rotated afterward (the incident's own
+activity records both steps). The pattern generalizes: erasing an incident would require
+rewriting git history \emph{and} the graph, both visible acts
+(Section~\ref{sec:method}), so honesty is the cheap path and the
+same property that makes contributions attributable makes errors
+reversible.
 
-\begin{figure*}[t]
+\begin{table}[t]
+\caption{Incidents recorded during this experiment: class, what
+happened, and how the record closed. None needed vocabulary beyond
+the ordinary activity classes of Section~\ref{sec:method}.}
+\label{tab:incidents}
 \centering
-\begin{tikzpicture}[
-  font=\scriptsize,
-  act/.style={draw=blue!50!black, fill=blue!10, rounded corners=1.5pt,
-              align=center, inner sep=3.5pt},
-  ent/.style={draw=orange!60!black, fill=yellow!22, ellipse,
-              align=center, inner sep=1.5pt},
-  clm/.style={ent, very thick},
-  ag/.style={draw=orange!75!black, fill=orange!22, regular polygon,
-             regular polygon sides=5, inner sep=1.5pt, align=center},
-  st/.style={draw=black!45, fill=black!5, align=center, inner sep=2.5pt},
-  attr/.style={draw=black!35, fill=black!4, align=left, inner sep=3pt,
-               font=\tiny},
-  lbl/.style={font=\tiny\itshape, fill=white, inner sep=1pt},
-  e/.style={-{Stealth[length=1.8mm]}}]
-% shared agent
-\node[ag] (agent) at (0,0) {agent:\\claude-code\\\tiny AIAgent};
-% (a) mishap: s09-incident
-\node[act] (s09) at (-4.6,0) {act:s09-incident\\\tiny aiprov:AuditPass};
-\node[attr] (s09a) at (-4.6,-1.9) {endedAtTime 2026-07-24T18:45Z\\
-sessionId session\_01VKC\ldots\\ usedTool bash, git\\
-label: ``\ldots overwrote two committed\\
-sections \ldots restored from 75d21bd''};
-\draw[e] (s09) -- node[lbl]{wasAssociatedWith} (agent);
-\draw[black!35, dotted] (s09) -- (s09a);
-% (b) redesign: s22-vendored-gate
-\node[act] (s22) at (4.6,0) {act:s22-vendored-gate\\\tiny aiprov:AuthoringPass};
-\draw[e] (s22) -- node[lbl]{wasAssociatedWith} (agent);
-\node[ent] (e1) at (2.9,-1.8) {provlog.py\\\tiny Artefact + hash};
-\node[ent] (e2) at (5.1,-2.1) {aiprov-schema.ttl\\\tiny Artefact + hash};
-\node[ent] (e3) at (7.1,-1.5) {SKILL.md\\\tiny Artefact + hash};
-\draw[e] (e1) -- node[lbl]{wasGeneratedBy} (s22);
-\draw[e] (e2) -- (s22);
-\draw[e] (e3) -- (s22);
-\node[clm] (c7) at (1.7,1.9) {claim:c7\\\tiny ``promote refuses human rungs\\\tiny without vendored copy or link''};
-\node[st] (vs) at (5.6,2.5) {verif:ai-confirmed};
-\draw[e] (c7) -- node[lbl]{wasGeneratedBy} (s22);
-\draw[e] (c7) to[bend right=12] node[lbl, pos=0.4]{wasAttributedTo} (agent);
-\draw[e] (c7) -- node[lbl]{verificationState} (vs);
-\end{tikzpicture}
-\caption{Two incidents from this experiment, exactly as the graph
-represents them (node contents abridged from real triples). Left, a
-mishap: the agent overwrote two committed manuscript sections; the
-self-report is an \texttt{AuditPass} carrying timestamp, session,
-tools, and the restoring commit in its label. Right, a contested
-design: the operator challenged the \texttt{source-vendored} rung's
-semantics; the redesign activity generated new tool and schema
-versions (content-hashed artefacts), and its enforcement claim sits at
-\texttt{ai-confirmed} after test-run. The incident vocabulary is just
-the ordinary vocabulary.}
-\label{fig:incident}
-\end{figure*}
+\footnotesize
+\begin{tabular}{p{1.9cm}p{3.6cm}p{1.9cm}}
+\toprule
+Class & What happened & Closed by \\
+\midrule
+Agent mishap & A stale working directory led the agent to overwrite two committed sections & \texttt{AuditPass} self-report naming the tools and the restoring commit \\
+Infrastructure failure & A registry served malformed BibTeX and broke the CI build & Diagnosis and fix in commits; first green run a \texttt{Build} activity with artefact digests \\
+Blocked access & A publisher returned 403 to automated requests & Fallback to the canonical page, recorded in the registering activity's label \\
+Method contestation & The operator challenged two ladder rungs' semantics & Redesign as ordinary authoring activities, enforcement verified by test-run \\
+Credential exposure & A live Zenodo access token was pasted into the conversation & Moved to an untracked store, masked by the exporter, rotated after \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \textbf{Division of labour as data.} The record makes the division of
 work between operator, AI agent, and infrastructure countable
@@ -220,54 +142,38 @@ against a vendored statute text the gate handed over, confirmed
 the five self-cited sources they authored, the class where the
 human's judgement is uniquely authoritative, and then walked the
 queue through the issue path of Section~\ref{sec:skill},
-\MHumanRungs{} human rungs granted at the time of writing.
-Authentication splits those grants honestly: \MGrantsIssue{}
-promotions carry GitHub-authenticated authorship through the issue
-path, itself derived mid-experiment, while \MGrantsSession{} were
-transcribed in session from the operator's instruction, checkable
-only against the committed transcript; \MLinkOnly{} of the
-human-verified sources remain link-only audit targets, the
-validator's warning kept visible. The
-remaining sources are deliberately kept at their machine rungs so
-every rung was exercised over the record's history
-(the final distribution occupies the upper four); the
-operator reports having checked all sources and claims, and the
-ladder records which of those checks they chose to formalize as
-grants. The hypothesis that AI absorbs tedium while humans
-connect ideas and people (Section~\ref{sec:discussion}) is thereby
-testable from the committed log and transcript, for this one
-experiment. One measurement pitfall became a method fix: the session
-format returns tool results under the \emph{user} role, so a naive
-role count inflates the human by an order of magnitude (595 of 663
-user-role messages were tool results). The transcript exporter now
-labels Human, Assistant, Tool result, and Hook distinctly; the same
-unambiguous role labeling is worth asking of provider session formats
-generally, in the same breath as provider-reported cost.
+\MHumanRungs{} human rungs granted at the time of writing
+(Table~\ref{tab:division} splits how they were authenticated). The operator reports having checked
+all sources and claims; the ladder records which of those checks were
+formalized as grants. The hypothesis that AI absorbs tedium while
+humans connect ideas and people (Section~\ref{sec:discussion}) is
+thereby testable from the committed log and transcript, for this one
+experiment.
 
 \textbf{Leverage as data.} The same record measures what the
-multiplication bought, without estimating any counterfactual. The
-operator typed \MDirWords{} words of direction in total, median
-\MDirMedian{} words per message; active session time, clustering
-request timestamps and counting gaps under thirty minutes, is about
-\MActiveH{} hours inside a wall-clock span of \MSpanH{} hours. Against
-that input stand roughly \MProseWordsK{} words of typeset prose,
-about \MToolLinesK{} lines of tooling, \MSources{} ladder-backed
+multiplication bought, without estimating any counterfactual.
+Table~\ref{tab:division} gives the direction volume and active time;
+against that input stand roughly \MProseWordsK{} words of typeset
+prose, about \MToolLinesK{} lines of tooling, \MSources{} ladder-backed
 sources, and the graph itself. What a solo baseline would have cost
 is deliberately not estimated, omit-don't-estimate applies to
 counterfactuals too; what the record does show is \emph{where} the
 freed attention went: nearly every typed word carries scope,
-semantics, lineage, or people, not prose. The gain is less the
-saved time than this: the human's whole contribution could be
-judgement. Every derived figure above follows the skill's
-derivation rule: its methodology is stated with the number, word counts strip LaTeX markup, direction counts exclude tool results,
-hook messages, skill loads, and pasted documents over five hundred
-words, and the thresholds ride in the measuring activity's label, so
-a sceptic can recompute or contest any of them.
+semantics, lineage, or people, not prose. The gain is less the saved
+time than this: the human's whole contribution could be judgement.
 
 \begin{table}[t]
-\caption{Division of work in the meta-experiment, counted from the
-provenance graph and the session record at the time of writing
-(regenerated before submission).}
+\caption{Division of work, counted from the graph and the session
+record (regenerated before submission). Each derived figure's
+methodology is stated with the number in code (word counts strip
+LaTeX markup; direction excludes tool results, hooks, skill loads and
+pastes over 500 words), so a sceptic can recompute or contest it.
+Authentication splits the human rungs: \MGrantsIssue{} promotions
+carry GitHub-authenticated authorship through the issue path,
+\MGrantsSession{} were transcribed in session from the operator's
+instruction; \MLinkOnly{} human-verified sources remain link-only
+audit targets. Rungs are counted per source, authentication per
+promotion, so the two need not add up to the same total.}
 \label{tab:division}
 \centering
 \begin{tabular}{p{5.2cm}lr}
