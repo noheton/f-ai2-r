@@ -9,71 +9,79 @@ as source code and bound to activities as plans
 (Figure~\ref{fig:vocab}). Humans carry ORCID and affiliation; AI
 agents carry model, version, provider, endpoint, context window, and
 knowledge cutoff; tool agents cover deterministic actors such as CI
-jobs. Treating prompts as plans deserves a word: a prompt is to an AI
-activity what a script is to a batch job, the executable
-specification of intent, so it is hashed and bound with
-\texttt{prov:hadPlan} rather than paraphrased into a comment. An
-auditor who wants to know \emph{why} an artefact came out as it did
-reads the plan and the transcript; neither is recoverable after the
+jobs. A prompt is hashed and bound with \texttt{prov:hadPlan} rather
+than paraphrased; plan and transcript are not recoverable after the
 fact if not captured when the activity runs.
 
 \textbf{Telemetry.} Activities carry session and request identifiers,
 token counts by class (input, output, cache, reasoning), sampling
 parameters, cost, energy, and the tools invoked. One rule governs all
 of it: omit, don't estimate. Absent telemetry is recorded as absent;
-invented precision is worse than a visible gap. Generated artefacts
+invented precision is worse than a visible gap. Reported and computed
+values stay apart: a cost computed from token counts at a disclosed
+price basis is marked as computed, and energy stays empty unless
+reported. The agent harness exposes no usage to the agent, so tokens
+were not recorded live; totals are aggregated afterwards from the
+provider usage blocks of the session record. Generated artefacts
 receive sha256 content hashes at logging time, and prompt files
 receive prompt hashes.
 
 \textbf{Invariant I: no parentless claim.} Every \texttt{aiprov:Claim}
 needs a generating activity, an attributed agent, and a verification
-state. The conformance validator treats violations as hard failures
-and is suitable as a pre-commit hook or CI gate.
+state. The conformance validator treats violations of the first two as
+hard failures, and its nonzero exit code is the entire integration
+contract: the same command serves as a pre-commit hook, a CI gate, and
+an auditor's first step.
 
 \textbf{Invariant II: the verification ladder.} Rungs answer who
-checked what (Figure~\ref{fig:ladder}, Table~\ref{tab:ladder}).
-Promotions must strictly climb and are themselves logged as audit
-activities, so every rung a claim or source holds has a recorded
-grantor. Disagreement is first-class: an agent may \emph{refuse} a
-promotion, which changes no state but is logged as an audit activity
-carrying the refused rung, so ``checked and not convinced'' is
-distinguishable from ``never checked''. Rungs 5--6 are human-only; an AI-granted promotion to them is
-a validator hard failure. Two rungs deserve comment. Vendoring
-(rung~4) is not a verification statement: an unread vendored copy
-proves nothing beyond \texttt{reference-resolved}. Its role is
-instrumental, the access gate that makes human verification feasible
-and durable. Operationally, the agent must hand the human the
-evidence: \texttt{promote} refuses the human-only rungs unless the
-source is vendored (path and hash recorded) or carries a clear access
-link, and prints the review material with every request; a human
-confirmation against link-only material is flagged, since the audit
-target remains mutable. At the top, \texttt{human-read} subsumes
+checked what (Table~\ref{tab:ladder}). Promotions must strictly climb
+and are themselves logged as audit activities, so every rung a claim
+or source holds has a recorded grantor. Disagreement is first-class: an
+agent may \emph{refuse} a promotion, which changes no state but is
+logged as an audit activity carrying the refused rung, so ``checked and
+not convinced'' is distinguishable from ``never checked''. Rungs 5--6
+are human-only; an AI-granted promotion to them is a validator hard
+failure. Vendoring (rung~4) is not a verification statement: an unread
+vendored copy proves nothing beyond \texttt{reference-resolved}. It is
+the access gate that makes human verification feasible and durable:
+\texttt{promote} refuses the human-only rungs unless the source is
+vendored (path and hash recorded) or carries a clear access link, and
+prints the review material with every request; a human confirmation
+against link-only material is flagged, since the audit target remains
+mutable. At the top, \texttt{human-read} subsumes
 \texttt{human-confirmed}: it asserts full-text familiarity \emph{and}
-confirmation, because a name alone would mislead, as reading does not
-entail checking. Both refinements were operator-contested
-mid-experiment (Section~\ref{sec:meta}). The ladder itself has
-provenance: it canonicalizes labels field-tested in
+confirmation, because reading does not entail checking. The ladder
+canonicalizes labels field-tested in
 \emph{Obscurity-Is-Dead}~\cite{obscurity-is-dead} and hardened in
-F(AI)\textsuperscript{2}R~\cite{fair2r-repo}, and legacy names remain
-machine-readable aliases, so that ancestor graphs can consolidate
-onto this ladder without rewriting history; the aliases are in place,
-though the consolidation has not yet been exercised against the
-ancestor repositories' graphs.
+F(AI)\textsuperscript{2}R~\cite{fair2r-repo}; legacy names remain
+machine-readable aliases (four in the alias table, three as
+\texttt{skos:altLabel}), but the consolidation of ancestor graphs has
+not been exercised.
 
 \textbf{Commit binding.} An activity can only bind a commit that
 already exists, and a commit cannot contain the graph entry describing
-itself. The working discipline that follows: commit the artefacts, log
-the activity with that commit's hash, then commit the graph update
-separately. The graph never claims a hash it could not have known; the
-cost is one extra commit per logged round. What the two commits buy
-is tamper evidence in both directions. The graph entry names a commit
-whose tree contains the artefacts it describes, content-hashed; the
-graph itself lives in later commits of the same history. Backdating a
-record would require rewriting published git history, and quietly
-swapping an artefact would break its recorded hash: either
-falsification is possible, but neither is silent; that asymmetry
-(honest work is cheap, dishonest work is loud) is the design goal
-throughout.
+itself. The working discipline that follows: commit the artefacts,
+record that commit's hash in the graph (commits bind to artefacts, not
+to activities), then commit the graph update separately; the cost is one
+extra commit per logged round. The two commits buy tamper evidence in
+both directions: backdating a record would require rewriting published
+git history, and quietly swapping an artefact would break its recorded
+hash. Falsification is possible, but neither is silent; honest work is
+cheap, dishonest work is loud.
+
+\textbf{Multi-agent runs.} The package adds a fifth activity class,
+\texttt{Orchestration}: a run declares its planned roles and agents,
+optionally bound to roles, delegation uses \texttt{prov:actedOnBehalfOf}
+and \texttt{prov:wasInformedBy}, and logger and validator refuse
+sub-activities outside the declared plan. Each sub-agent logs into its
+own shard of the graph, since parallel writers to one file overwrite
+each other, and \texttt{provlog merge} unions the shards append-only
+while keeping the human-only invariant across them: it refuses a bare
+human rung, a demotion, an edit of the plan, and any new validation
+failure. A per-orchestration report keeps a cascade from counting as
+many independent AI activities, and sub-agent telemetry is recorded
+only when the harness reports it. This is implemented and covered by
+tests, and unreleased.
 
 \textbf{The validator, exhaustively.} Conformance is seven concrete
 checks, each a SPARQL query over the graph, and naming them makes the
@@ -135,7 +143,8 @@ if the registry actually resolves it.
 \node[acls, right=of auth] (audit) {AuditPass};
 \node[acls, right=of audit] (build) {Build};
 \node[acls, right=of build] (repair) {Repair};
-\node[acls, right=of repair, draw=black!35, fill=black!5]
+\node[acls, right=of repair, dashed] (orch) {Orchestration};
+\node[acls, right=of orch, draw=black!35, fill=black!5]
   (tele) {\tiny session, tokens,\\[-3pt]\tiny cost, energy, tools};
 \node[pkg, fit=(auth)(tele)] (apkg) {};
 \node[pkl, anchor=south west] at ([xshift=2mm]apkg.north west)
@@ -158,8 +167,9 @@ if the registry actually resolves it.
   node[lbl, pos=0.45, rotate=90] {wasAttributedTo} (gpkg.west);
 \end{tikzpicture}%
 }
-\caption{Core aiprov vocabulary as an extension of PROV-O. Every class
-subclasses a \texttt{prov:} term; tiny annotations name characteristic
+\caption{Core aiprov vocabulary as an extension of PROV-O. All classes but
+the verification-state class reach a \texttt{prov:} superclass (the
+dashed class is in the package, unreleased); tiny annotations name characteristic
 attributes. Claims point to their generating activity, their
 attributed agent, and a verification state; activities carry inference
 telemetry and link prompts (as plans) and transcripts.}
@@ -167,10 +177,10 @@ telemetry and link prompts (as plans) and transcripts.}
 \end{figure}
 
 \begin{table*}[t]
-\caption{The verification ladder. Positions are machine-readable
-(\texttt{aiprov:ladderPosition}); promotions must strictly increase
-them and are themselves logged as audit activities, so every rung a
-claim or source holds has a recorded grantor.}
+\caption{The verification ladder as defined for the skill line (v0.21
+measured, v0.22 current); positions are machine-readable
+(\texttt{aiprov:ladderPosition}). Rung~4 is planned to become a
+property in aiprov 0.2.0.}
 \label{tab:ladder}
 \centering
 \small
@@ -207,31 +217,3 @@ Pos & Rung & What it asserts & Who may grant \\
 \end{tabular}
 \end{table*}
 
-\begin{figure}[t]
-\centering
-\resizebox{0.80\columnwidth}{!}{%
-\begin{tikzpicture}[
-  rung/.style={draw, rounded corners=1pt, minimum width=5.6cm,
-               minimum height=0.52cm, font=\footnotesize, align=center},
-  human/.style={rung, fill=black!12},
-  note/.style={font=\scriptsize\itshape, anchor=west}]
-\node[human] (r6) {6\; human-read};
-\node[human, below=0.16cm of r6] (r5) {5\; human-confirmed};
-\node[rung, below=0.16cm of r5] (r4) {4\; source-vendored};
-\node[rung, below=0.16cm of r4] (r3) {3\; ai-confirmed};
-\node[rung, below=0.16cm of r3] (r2) {2\; reference-resolved};
-\node[rung, below=0.16cm of r2] (r1) {1\; needs-research};
-\node[rung, below=0.16cm of r1] (r0) {0\; unverified};
-\node[note, right=0.15cm of r6] {human-only};
-\node[note, right=0.15cm of r5] {human-only};
-\node[note, right=0.15cm of r4] {access gate for 5--6};
-\node[note, right=0.15cm of r3] {highest AI-grantable};
-\draw[-{Stealth}, thick] ([xshift=-0.5cm]r0.west) -- ([xshift=-0.5cm]r6.west)
-  node[midway, sloped, above, font=\scriptsize] {promotions strictly climb};
-\end{tikzpicture}%
-}
-\caption{The verification ladder. Every promotion is logged as an audit
-activity; rungs 5--6 may never be granted by an AI agent, and the
-validator treats such grants as hard failures.}
-\label{fig:ladder}
-\end{figure}
