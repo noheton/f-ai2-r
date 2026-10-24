@@ -4,12 +4,9 @@
 standard vocabulary for expressing who generated what, through which
 activity; it consolidated the lineage begun by the Open Provenance
 Model~\cite{opm2010}, and PAV refined it for authoring and
-versioning~\cite{pav2013}. Carina Haupt's overview of provenance use
-cases documents the practice inside DLR, including monitoring software
-development processes with provenance
-data~\cite{provenance-overview2022}. aiprov extends this stack rather
-than forking it: every class subclasses a \texttt{prov:} term, so
-generic PROV tooling keeps working.
+versioning~\cite{pav2013}. aiprov extends this stack rather
+than forking it: all classes but the verification-state class reach a
+\texttt{prov:} superclass, so generic PROV tooling keeps working.
 
 \textbf{Contributor attribution.} CRediT names who contributed what
 kind of work~\cite{credit2019} and is now a NISO
@@ -30,15 +27,18 @@ time~\cite{prov-agent2025}; it shares the substrate and the
 agent-centric telemetry, and differs in what this paper adds on top:
 verification rungs reserved for humans, packaging as an executable
 skill, and the method applied to its own production.
+PROV-AGENT instruments capture; aiprov adds governance, with claims as
+first-class resources and a validator that fails the build on a
+violation, and the two compose. An aiprov record is FAIR-DO-shaped by
+construction~\cite{fairdo2020} (the kernel information
+profile~\cite{hmc-kip2022} is the pointer); integration with metadata
+infrastructures such as the Helmholtz knowledge
+graph~\cite{unhide-helmholtz-kg} is a binding exercise. Vendor
+workspaces for AI-assisted science, Claude Science~\cite{claude-science2026}
+and OpenAI Prism~\cite{openai-prism2026} (beta products described by
+their vendors, not measured), keep history and citation checks inside
+proprietary workspaces; aiprov is the vendor-neutral open record.
 \ifextended\input{\extdir/02-background-1}\fi
-
-\textbf{The trust gap.} The large language models that now write
-research prose descend from the transformer
-architecture~\cite{attention2017}, and they fabricate plausible
-citations~\cite{ai-hallucination2023}: existence of a reference is
-machine-checkable, support for a claim is a judgement, and the two
-must not be conflated. The ladder of Section~\ref{sec:method} keeps
-them apart and names the grantor of every judgement.
 
 \textbf{Neighboring lines beyond provenance vocabularies.} Claims
 as first-class citizens predate this work: nanopublications make a
@@ -57,17 +57,13 @@ to bytes; aiprov records how humans and AI divided the research work
 and who vouched for which claim, the layer the dual-witness ask of
 Section~\ref{sec:discussion} would connect to this signing
 infrastructure. Manubot demonstrated CI-built manuscripts with
-citation-by-identifier years earlier~\cite{manubot2019}. These four
-lines entered the record through the review that requested them:
-the original novelty sweep, two registry queries, missed all of
-them, the bounded-novelty mechanism working as designed, a narrow
-recorded horizon visibly widened.
+citation-by-identifier years earlier~\cite{manubot2019}.
 
 \textbf{Lineage and neighbors.} This work has three roots. The first
 is AI-assisted research practice: \emph{Obscurity-Is-Dead}
 \cite{obscurity-is-dead} introduced transcript-as-artifact and the
-verification labels (\texttt{repo-vendored}, \texttt{lit-read},
-\texttt{unverified-external}) that the present ladder canonicalizes,
+verification labels (\texttt{lit-read} among them) that the present
+ladder maps through an alias table,
 and F(AI)\textsuperscript{2}R~\cite{fair2r-repo} formalized the
 two-pass model and no-parentless-claim. The second is engineering
 provenance: adjacent DLR work extends PROV-O with uncertainty
@@ -75,19 +71,13 @@ quantification for traceability in engineering
 systems~\cite{uncertainty-prov2026}; the axes are complementary, since
 aiprov records who and how, while uncertainty-aware provenance records
 how confident, and a combined profile is future work
-(Section~\ref{sec:conclusion}). The argument shape itself is
-established in research software engineering: better architecture
-makes better software makes better
-research~\cite{better-architecture2025}; aiprov extends that chain
-from the software to the record of its making. The third root is industrial semantic
+(Section~\ref{sec:conclusion}). Better architecture makes better software makes better
+research~\cite{better-architecture2025}; aiprov extends the chain to
+the record. The third root is industrial semantic
 modeling: the author co-authored the Asset Administration Shell
 (AAS) Part~1 specification~\cite{aas-part1-v30rc02}, continued as
 IDTA-01001~\cite{aas-part1-idta}. Where partners exchange information
 across a value chain, semantics must be formal and machine-readable or
 interoperability fails. aiprov applies that discipline to a new
 exchange relationship: the one between humans, AI agents, and the
-future auditors of their joint work. The Helmholtz Metadata
-Collaboration~\cite{hmc, hmc-conference2025} provides the community
-context: a provenance graph is metadata about \emph{work}, extending
-FAIR metadata practice from data description to collaboration
-description.
+future auditors of their joint work.
