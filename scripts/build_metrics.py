@@ -49,8 +49,21 @@ TR = re.compile(r"export_transcript\.py|build_metrics\.py")
 
 
 def find_session_file():
+    """The newest local Claude Code transcript of THIS project, never of any other.
+
+    Bug found and fixed 2026-10-24: the previous version globbed every project's transcripts
+    (~/.claude/projects/*/*.jsonl) and took the single most recently touched one on the whole
+    machine. Run from inside a different, more recently active Claude Code project (as happened
+    once in practice), it silently picked that project's transcript instead and would have
+    written its token counts and cost into this paper as if they were this repository's own -
+    wrong by two orders of magnitude, undetectable from the numbers alone. Scoping to this
+    project's own directory (the same name -> directory mapping Claude Code itself uses) turns a
+    silent wrong answer into a clear refusal when no local transcript exists.
+    """
+    slug = "-" + str(ROOT).strip("/").replace("/", "-").replace("_", "-")
     base = pathlib.Path.home() / ".claude" / "projects"
-    cands = sorted(base.glob("*/*.jsonl"), key=lambda p: p.stat().st_mtime)
+    cands = [p for d in base.glob(f"{slug}*") if d.is_dir() for p in d.glob("*.jsonl")]
+    cands.sort(key=lambda p: p.stat().st_mtime)
     return cands[-1] if cands else None
 
 
@@ -111,12 +124,29 @@ def graph_metrics(m):
     m["sources_self"] = self_cited
     m["sources_checked"] = checked
     m["human_rungs_granted"] = human_rungs
+    # Cited literature (a references.bib key) versus repository-internal sources (registered for claims about the
+    # repository's own state, e.g. a config file or a changelog entry); the two were never meant to share one count.
+    bib = (ROOT / "paper" / "references.bib").read_text(encoding="utf-8")
+    bib_keys = set(re.findall(r"^@\w+\{([\w-]+),", bib, re.M))
+    rung_of = {}
+    for s in sources:
+        st = g.value(s, AIPROV.verificationState)
+        rung_of[s] = str(st).rsplit("/", 1)[-1] if st is not None else ""
+    is_lit = {s: str(s).rsplit("/", 1)[-1] in bib_keys for s in sources}
+    m["sources_lit"] = sum(is_lit.values())
+    m["sources_repo"] = len(sources) - m["sources_lit"]
+    m["sources_lit_human"] = sum(1 for s in sources if is_lit[s] and rung_of[s] in ("human-confirmed", "human-read"))
+    m["sources_repo_human"] = sum(1 for s in sources if not is_lit[s] and rung_of[s] in ("human-confirmed", "human-read"))
+    m["sources_reference_resolved"] = sum(1 for s in sources if rung_of[s] == "reference-resolved")
+    m["session_ids"] = len({str(o) for o in g.objects(None, AIPROV.sessionId)})
 
 
 def session_metrics(m):
     src = find_session_file()
     if not src:
-        sys.exit("no session record found; session metrics unavailable")
+        sys.exit("no local transcript of THIS project found under ~/.claude/projects/; session metrics "
+                 "unavailable here (this is expected when the transcript is only on the machine that wrote "
+                 "it - see issue 18 of the thesis repository)")
     tot = {"input": 0, "output": 0, "cache_read": 0, "cache_write": 0}
     cw_1h = cw_5m = reqs = 0
     over_req = over_out = 0
@@ -280,6 +310,8 @@ def write_outputs(m):
                          "price-basis comparison, not a run prediction - "
                          "tokenizers and behaviour differ per model",
         "counterfactuals": "not computed (omit-don't-estimate)",
+        "sources_lit_vs_repo": "a source whose id matches a references.bib key is cited literature; every other "
+                               "registered source is repository-internal",
     }
     (ROOT / "doc" / "metrics.json").write_text(json.dumps(m, indent=2) + "\n")
     L = []
@@ -295,6 +327,12 @@ def write_outputs(m):
     mac("\\MSrcChecked", m["sources_checked"])
     mac("\\MSrcSelf", m["sources_self"])
     mac("\\MHumanRungs", m["human_rungs_granted"])
+    mac("\\MSrcLit", m["sources_lit"])
+    mac("\\MSrcRepo", m["sources_repo"])
+    mac("\\MSrcLitHuman", m["sources_lit_human"])
+    mac("\\MSrcRepoHuman", m["sources_repo_human"])
+    mac("\\MSrcRefResolved", m["sources_reference_resolved"])
+    mac("\\MSessionIds", m["session_ids"])
     mac("\\MCommits", m["commits"])
     mac("\\MBookCommits", m["commits_bookkeeping"])
     mac("\\MTurns", tex_int(m["transcript_turns"]))
@@ -338,10 +376,29 @@ def write_outputs(m):
           f"({m['activities']} activities, cost {m['cost_usd']} USD)")
 
 
+SESSION_KEYS = ["requests", "tok_input", "tok_output", "tok_cache_read", "tok_cache_write", "cache_write_5m",
+                "cache_write_1h", "cost_usd", "cost_usd_opus", "cost_usd_sonnet", "overhead_req_pct",
+                "overhead_out_pct", "overhead_cost_pct", "overhead_reqs", "dir_msgs", "dir_words", "dir_median",
+                "active_hours", "span_hours"]
+
+
 def main():
     m = {}
     graph_metrics(m)
-    session_metrics(m)
+    if find_session_file():
+        session_metrics(m)
+    else:
+        # No local transcript of this project (common off the machine that wrote it, see issue 18 of the thesis
+        # repository): keep the session-derived numbers of the last run that had one, visibly unrefreshed, rather
+        # than fail outright and block the graph- and repo-derived numbers, which ARE always recomputable here.
+        prior_path = ROOT / "doc" / "metrics.json"
+        prior = json.loads(prior_path.read_text()) if prior_path.is_file() else {}
+        missing = [k for k in SESSION_KEYS if k not in prior]
+        if missing:
+            sys.exit(f"no local transcript and no prior doc/metrics.json value for {missing}; cannot proceed")
+        m.update({k: prior[k] for k in SESSION_KEYS})
+        print(f"no local transcript of this project; kept {len(SESSION_KEYS)} session-derived numbers from "
+              f"doc/metrics.json as last run them (not re-verified this run)")
     repo_metrics(m)
     write_outputs(m)
 
