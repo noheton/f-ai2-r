@@ -29,25 +29,14 @@ author's assurances. Our stance is a measured one: not banning AI from
 research, and not trusting it blindly, but building the layer on which
 trust can be grounded. Provenance is that layer. A verification ladder
 says who may vouch for what, and its top rungs are reserved for
-humans. The incentive system makes this urgent rather than optional:
-publish-or-perish pays for counted output, and hypercompetition
-selects for whatever maximizes the
-count~\cite{perverse-incentives2017}. Generative AI collapses the
-marginal cost of exactly the thing the metric counts, onto a review
-system already strained by output
-growth~\cite{publishing-strain2024}. Section~\ref{sec:dilution} describes the predictable result. Appeals
+humans. The incentive system makes this urgent
+(Section~\ref{sec:dilution}). Appeals
 to ethics alone do not bend that curve. Infrastructure that makes
 verifiable work cheaper than unverifiable work can. The most expensive
 mistake would be to scale speed without traceability.
 
-This is a fast paper standing on slow work. The ideas were sharpened
-across earlier experiments: \emph{Obscurity-Is-Dead}
-\cite{obscurity-is-dead} established transcript-as-artifact and
-per-claim verification labels while measuring how large language
-models compress reverse-engineering effort, and the original
-F(AI)\textsuperscript{2}R experiment~\cite{fair2r-repo} formalized the
-two-pass model and the no-parentless-claim rule on a single scholarly
-paper, bound to paper writing. Several strands of that programme
+This is a fast paper standing on slow work
+(Section~\ref{sec:background} traces the lineage). Several strands of that programme
 advance in parallel under one operator: this method, this paper, and a
 system-integration fork of the shepard data-management
 platform~\cite{shepard-fork}. That is precisely why per-activity
@@ -57,15 +46,15 @@ contributions and errors alike become untraceable.
 The paper makes three contributions. First, \emph{aiprov}, a
 domain-agnostic generalization of the F(AI)\textsuperscript{2}R
 vocabulary over PROV-O~\cite{prov-o2013}: agents, passes, claims, full
-inference telemetry, and a verification ladder with human-only rungs
-(Section~\ref{sec:method}). Second, the method packaged as an
-\emph{executable skill} that an AI agent operates itself, from an
-ORCID-first setup through continuous integration that gates every push
-on graph conformance and publishes the current build of this very
-paper (Section~\ref{sec:skill}). Third, a meta-experiment: the paper
-is its own case study, and its provenance graph, including mishaps and
-mid-experiment method changes, is the evaluation object
-(Section~\ref{sec:meta}). Sections~\ref{sec:background}
+inference telemetry, and a verification ladder with human-only rungs,
+shipped as an open package (\url{https://github.com/noheton/aiprov},
+tag v0.1.0; orchestration of multi-agent runs is implemented and
+unreleased) (Section~\ref{sec:method}). Second, the method packaged as
+an \emph{executable skill} that an AI agent operates itself (the skill
+line, v0.21 measured, v0.22 current; Section~\ref{sec:skill}). Third, a
+meta-experiment on the paper's own record: its provenance graph,
+including mishaps and mid-experiment method changes, is the evaluation
+object (Section~\ref{sec:meta}). Sections~\ref{sec:background}
 and~\ref{sec:dilution} position the work and motivate it;
 Sections~\ref{sec:discussion} and~\ref{sec:conclusion} discuss limits
 and close the loop.
