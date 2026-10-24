@@ -1,18 +1,11 @@
 \section{Conclusion}\label{sec:conclusion}
 
 We generalized the F(AI)\textsuperscript{2}R method into aiprov, a
-domain-agnostic PROV-O extension for AI-in-the-loop work; we packaged
-the method as an executable skill an AI agent operates itself; and we
-applied it to its own production, mishaps, mid-experiment redesigns,
-and all. The stance of the original experiment carries over and
-extends: the repository is the paper, is the process, and now also is
-the method, versioned, validated, and shipped alongside what it
-produced.
-
-Three roots converge here: AI-assisted research practice, which
-contributed transcript-as-artifact; engineering provenance, which
-insists on traceability; and industrial semantic modeling, which
-taught that where exchange matters, semantics must be formal. Where
+domain-agnostic PROV-O extension for AI-in-the-loop work, packaged it
+as an executable skill an AI agent operates itself, and applied it to
+its own production, mishaps, mid-experiment redesigns, and all. The
+repository is the paper, is the process, and now also is the method,
+versioned, validated, and shipped alongside what it produced. Where
 semantics are important, provenance is the semantics of work.
 
 The path forward is infrastructure. shepard~\cite{shepard}, a jointly
@@ -22,13 +15,17 @@ the MEMAS additive-manufacturing pipeline~\cite{memas2024}; an
 experimental fork~\cite{shepard-fork} is the staging ground for
 integrating aiprov into it as planned work. Where shepard instances
 capture what was produced and measured, aiprov adds who, human or AI,
-shaped it and how it was verified. Further work includes multi-agent
-attribution, energy accounting, registry integration beyond ORCID and
-DOI, vendoring sources at the access gate by default, a combined
-profile with uncertainty-aware provenance~\cite{uncertainty-prov2026},
-and registering the vocabulary namespace as a permanent identifier,
-deliberately deferred so that community feedback shapes the terms
-before the identifier freezes.
+shaped it and how it was verified. Table~\ref{tab:matrix} locates
+further work by code line: multi-agent attribution is implemented and
+tested in the open package, not yet in a tagged release; aiprov 0.2.0
+is planned to turn vendoring into a source property and deprecate
+rung~4; the namespace registration is deliberately deferred so that
+community feedback shapes the terms before the identifier freezes;
+energy accounting and a combined profile with uncertainty-aware
+provenance~\cite{uncertainty-prov2026} remain future rows. Providers
+should label tool results distinct from user turns, so role counts
+need no heuristic.
+
 Two further items come straight from reviewing this work against its
 own standard. The \texttt{ai-confirmed} judgements here were granted
 by the agent that wrote the citing sentences; measuring that
