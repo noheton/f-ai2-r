@@ -1,0 +1,92 @@
+\textbf{Trajectories at infrastructure scale.} Two further consequences follow if
+records like this one become common, and both are hypotheses about
+use, not measured results. \emph{Training signal:} models trained on
+recursively generated text degrade~\cite{model-collapse2024}; a
+provenance-graphed corpus is the countervailing asset, since
+attribution and verification states let curators filter training
+pools by pedigree rather than fluency, and claims carrying recorded
+human confirmation are the scarce, high-quality labels
+that data curation for scientific language models lacks today.
+\emph{Contradiction detection and cascading retractions:} retracted
+articles keep collecting citations long after
+retraction~\cite{retracted-citations2022}; a record that binds
+claims to sources makes the cascade computable, the backward closure
+of Section~\ref{sec:skill}, so a retraction stops being an event at
+one node and becomes a recomputation over its recorded descendants,
+each affected claim flagged with \texttt{aiprov:contradicts} rather
+than silently inherited.
+
+\textbf{Philosophical footing.} The method operationalizes demands
+much older than its tooling. Plato's \emph{Theaetetus} ties the
+question of knowledge to justification, examining whether true
+judgement counts as knowledge only with an account, a \emph{logos},
+attached~\cite{plato-theaetetus}; the ladder is that demand made
+structural, since every rung names who gave the account and on what
+evidence, replacing trust in authority with traceable justification.
+Bacon's \emph{Novum Organum} replaces the scholar's intuition with
+systematic, documented procedure~\cite{bacon1620}; an aiprov record
+is Baconian in that sense, the logged activity rather than
+the author's standing carries the epistemic weight. Kant's critical
+turn holds that cognition is structured by categories the
+understanding brings to experience~\cite{kant-krv}; the analogy, and
+it is offered as analogy, is that the ladder, the invariants, and
+claims as first-class resources are the stipulated conditions under
+which the record can speak of \emph{verified} knowledge at all,
+without them the graph would hold only unordered assertions. Kant's
+distinction between things as they appear and as they are in
+themselves also names a modesty the method practices: the record
+never claims the source as such, what enters it is phenomenal
+access, content-hashed vendored bytes plus the verification history,
+declared as exactly that. And the universalizability test of his
+practical philosophy~\cite{kant-groundwork} reads as the method's
+documentation rule: record each claim so that anyone, not just its
+author, could re-run the verification, which is why registry
+fetches, vendoring, and generated disclosures exist. Popper makes
+refutability the mark of the scientific~\cite{popper1959}; the graph
+makes refutability operational rather than rhetorical, since a claim
+names its sources, a reader can walk to them, and a refutation
+enters the record as \texttt{aiprov:contradicts} instead of
+disappearing into correspondence.
+
+There is also a limit, and Wittgenstein names it. The
+\emph{Tractatus} closes with the demand to stay silent about what
+cannot be said~\cite{wittgenstein-tractatus}; read against this
+method, our reading, not a claim about Wittgenstein's intent, the
+last verification step is exactly such a point. What
+\texttt{human-read} records is \emph{that} a named person vouched,
+on a date, over identified evidence; whether that person read
+carefully, understood correctly, or judged well is not itself
+machine-checkable, and no additional rung could make it so, since
+the same question would reattach to the new rung. The human-only
+rungs are therefore not a claim that people are more reliable than
+machines. They mark the boundary where structural verification ends
+and attributable judgement begins, and the graph's honesty is that
+it documents the boundary instead of paving over it: a recorded
+refusal to promote is the method's form of silence, and the
+omit-don't-estimate rule is the same discipline applied to numbers,
+no invented precision where there is none.
+
+What lies on the far side of that boundary has a precise classical
+form of its own. H\"offe analyses responsibility as an at least
+four-place relation: someone answers, for something, before someone,
+according to criteria of judgement~\cite{hoeffe1993}. The record
+operationalizes every place: the registry-resolved agent (who), the
+activity with its artefacts and claims (for what), the public graph
+and its later auditors (before whom), and the rungs, invariants, and
+validator (according to which criteria); this paper's title is that
+relation in interrogative form. The lineage is personal and predates
+the tooling by eighteen years: the operator's 2008 seminar analysis
+of the semantics of responsibility, built on H\"offe's chapter and
+vendored in this repository~\cite{verantwortung2008}, renders the
+formula ``who bears responsibility, for what, before whom, and
+according to which criteria,'' and closes by asking whether
+responsibility is divisible at all among corporate agents acting at
+global scale. The division-of-work accounting of
+Section~\ref{sec:meta} gives that question an operational footing
+for human--AI collaboration: divisible, but only over a record that
+keeps every share attributable. None of this is claimed
+as philosophical novelty. The point is the direction of fit: the
+infrastructure gives these old demands a machine-checkable form,
+and marks where checkability ends, so the contribution reads not
+only as a new method but as a technical answer to questions science
+studies has always owned.
