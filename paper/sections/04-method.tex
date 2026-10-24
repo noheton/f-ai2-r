@@ -18,11 +18,10 @@ token counts by class (input, output, cache, reasoning), sampling
 parameters, cost, energy, and the tools invoked. One rule governs all
 of it: omit, don't estimate. Absent telemetry is recorded as absent;
 invented precision is worse than a visible gap. Reported and computed
-values stay apart: a cost computed from token counts at a disclosed
-price basis is marked as computed, and energy stays empty unless
-reported. The agent harness exposes no usage to the agent, so tokens
-were not recorded live; totals are aggregated afterwards from the
-provider usage blocks of the session record. Generated artefacts
+values stay apart (a computed cost carries its price basis; energy
+stays empty unless reported). The harness exposes no usage to the
+agent, so token totals are aggregated afterwards from the provider
+usage blocks of the session record. Generated artefacts
 receive sha256 content hashes at logging time, and prompt files
 receive prompt hashes.
 
@@ -46,7 +45,7 @@ vendored copy proves nothing beyond \texttt{reference-resolved}. It is
 the access gate that makes human verification feasible and durable:
 \texttt{promote} refuses the human-only rungs unless the source is
 vendored (path and hash recorded) or carries a clear access link, and
-prints the review material with every request; a human confirmation
+a human confirmation
 against link-only material is flagged, since the audit target remains
 mutable. At the top, \texttt{human-read} subsumes
 \texttt{human-confirmed}: it asserts full-text familiarity \emph{and}
@@ -70,8 +69,7 @@ hash. Falsification is possible, but neither is silent; honest work is
 cheap, dishonest work is loud.
 
 \textbf{Multi-agent runs.} The package adds a fifth activity class,
-\texttt{Orchestration}: a run declares its planned roles and agents,
-optionally bound to roles, delegation uses \texttt{prov:actedOnBehalfOf}
+\texttt{Orchestration}: a run declares its planned roles and agents; delegation uses \texttt{prov:actedOnBehalfOf}
 and \texttt{prov:wasInformedBy}, and logger and validator refuse
 sub-activities outside the declared plan. Each sub-agent logs into its
 own shard of the graph, since parallel writers to one file overwrite
@@ -79,35 +77,47 @@ each other, and \texttt{provlog merge} unions the shards append-only
 while keeping the human-only invariant across them: it refuses a bare
 human rung, a demotion, an edit of the plan, and any new validation
 failure. A per-orchestration report keeps a cascade from counting as
-many independent AI activities, and sub-agent telemetry is recorded
-only when the harness reports it. This is implemented and covered by
+many independent AI activities. This is implemented and covered by
 tests, and unreleased.
 
-\textbf{The validator, exhaustively.} Conformance is seven concrete
-checks, each a SPARQL query over the graph, and naming them makes the
-invariants operational rather than aspirational. Three enforce
-Invariant~I: no claim without a generating activity, no claim without
-an attributed agent, and, as a warning, no agentless activity. Two
-enforce Invariant~II: no human-only rung granted by an AI agent, and
-no human-only rung without a recorded promotion activity naming a
-human grantor, a warning that flags a rung edited directly
-into the graph without an audit trail. Two enforce the access gate:
-no source above \texttt{needs-research} without a resolvable DOI, URL,
-or vendored copy, and a warning, rather than a failure, for
-human-verified sources whose audit target is link-only and therefore
-mutable. Four checks fail hard with a nonzero exit code;
-that exit code is the entire integration contract, which is why the
-same command serves unchanged as a pre-commit hook, a CI gate, and an
-auditor's first step.
+\textbf{The validator.} Conformance is a set of SPARQL checks over the
+graph (Table~\ref{tab:checks}): the skill line prints \MChkSkill{}
+checks, \MChkSkillFail{} of which fail hard, and the package prints
+\MChkPkg{}, \MChkPkgFail{} of which can fail.
 
 \textbf{Auditability operations.} \texttt{report} aggregates tokens,
 cost, and rung distributions; \texttt{extract} computes the backward
-closure of everything that contributed to chosen entities;
-\texttt{dashboard} renders the graph as a self-contained offline
-ledger. Sources enter through open registries (Crossref, OpenAlex,
+closure of everything that contributed to chosen entities; a separate
+script, \texttt{aiprov-dashboard}, renders the graph as a
+self-contained offline ledger. Sources enter through open registries (Crossref, OpenAlex,
 arXiv, DataCite): a search command sweeps them, and registration with
 DOI verification promotes a source to \texttt{reference-resolved} only
 if the registry actually resolves it.
+
+\begin{table}[t]
+\caption{Checks of the two validators (skill line v0.22; package at
+commit \MChkPkgCommit). A failing check exits nonzero, a warning only prints.}
+\label{tab:checks}
+\centering
+\footnotesize
+\begin{tabular}{p{4.3cm}lcc}
+\toprule
+Check & Level & Skill & Package \\
+\midrule
+claim without generating activity & fail & yes & yes \\
+claim without attributed agent & fail & yes & yes \\
+human-only rung granted by an AI agent & fail & yes & yes \\
+human-only rung without human promotion & warn & yes & yes \\
+source above \texttt{needs-research} without DOI or URL & fail & or vendored file & yes \\
+human-verified source, link-only & warn & yes & -- \\
+activity without agent & warn & yes & yes \\
+dangling \texttt{wasInformedBy} & fail & -- & yes \\
+sub-activity outside the plan & fail & -- & yes \\
+orchestration logged twice & fail & -- & yes \\
+sub-activity before its orchestration & fail & -- & yes \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{figure}[t]
 \centering
