@@ -138,7 +138,15 @@ def graph_metrics(m):
     m["sources_lit_human"] = sum(1 for s in sources if is_lit[s] and rung_of[s] in ("human-confirmed", "human-read"))
     m["sources_repo_human"] = sum(1 for s in sources if not is_lit[s] and rung_of[s] in ("human-confirmed", "human-read"))
     m["sources_reference_resolved"] = sum(1 for s in sources if rung_of[s] == "reference-resolved")
+    m["sources_self_human"] = sum(1 for s in sources if (s, AIPROV.selfCitation, None) in g
+                                  and rung_of[s] in ("human-confirmed", "human-read"))
     m["session_ids"] = len({str(o) for o in g.objects(None, AIPROV.sessionId)})
+    m["energy_triples"] = len(list(g.triples((None, AIPROV.energyWh, None))))
+    acts_tok = set(g.subjects(AIPROV.outputTokens, None)) | set(g.subjects(AIPROV.inputTokens, None))
+    acts_cost = set(g.subjects(AIPROV.cost, None))
+    m["acts_with_tokens"] = len(acts_tok)
+    m["acts_with_cost"] = len(acts_cost)
+    m["acts_with_telemetry"] = len(acts_tok | acts_cost)
 
 
 def session_metrics(m):
@@ -333,6 +341,11 @@ def write_outputs(m):
     mac("\\MSrcRepoHuman", m["sources_repo_human"])
     mac("\\MSrcRefResolved", m["sources_reference_resolved"])
     mac("\\MSessionIds", m["session_ids"])
+    mac("\\MEnergyTriples", m["energy_triples"])
+    mac("\\MActsTokens", m["acts_with_tokens"])
+    mac("\\MActsCost", m["acts_with_cost"])
+    mac("\\MActsTelemetry", m["acts_with_telemetry"])
+    mac("\\MSrcSelfHuman", m["sources_self_human"])
     mac("\\MCommits", m["commits"])
     mac("\\MBookCommits", m["commits_bookkeeping"])
     mac("\\MTurns", tex_int(m["transcript_turns"]))
