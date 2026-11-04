@@ -156,9 +156,10 @@ def session_metrics(m):
                  "unavailable here (this is expected when the transcript is only on the machine that wrote "
                  "it - see issue 18 of the thesis repository)")
     tot = {"input": 0, "output": 0, "cache_read": 0, "cache_write": 0}
-    cw_1h = cw_5m = reqs = 0
+    cw_1h = cw_5m = reqs = repeats = 0
     over_req = over_out = 0
     over_cost = all_cost = 0.0
+    responses, resp_by_id, prev_u = [], {}, None
     stamps, direction = [], []
     for line in src.read_text(encoding="utf-8", errors="replace").splitlines():
         try:
@@ -174,6 +175,27 @@ def session_metrics(m):
         msg = d.get("message") or {}
         u = msg.get("usage")
         if isinstance(u, dict) and "output_tokens" in u:
+            mid = msg.get("id")
+            content = msg.get("content")
+            calls = []
+            if isinstance(content, list):
+                calls = [json.dumps(b.get("input", {}), ensure_ascii=False)
+                         for b in content
+                         if isinstance(b, dict) and b.get("type") == "tool_use"]
+            # One response is written once per content block, each line carrying the same usage block
+            #. Count a response once: by message id when the record has
+            # one; without an id, a usage block identical to the previous usage line is a repeat.
+            if mid and mid in resp_by_id:
+                prior_resp = resp_by_id[mid]
+            elif not mid and responses and u == prev_u:
+                prior_resp = responses[-1]
+            else:
+                prior_resp = None
+            prev_u = u
+            if prior_resp is not None:
+                prior_resp["calls"].extend(calls)
+                repeats += 1
+                continue
             reqs += 1
             vals = {
                 "input": u.get("input_tokens") or 0,
@@ -191,17 +213,10 @@ def session_metrics(m):
                     + vals["cache_read"] * PRICE["cache_read"]
                     + vals["cache_write"] * PRICE["cache_write_1h"]) / 1e6
             all_cost += cost
-            content = msg.get("content")
-            calls = []
-            if isinstance(content, list):
-                calls = [json.dumps(b.get("input", {}), ensure_ascii=False)
-                         for b in content
-                         if isinstance(b, dict) and b.get("type") == "tool_use"]
-            if calls and all(BOOK.search(c) or AUD.search(c) or GC.search(c)
-                             or TR.search(c) for c in calls):
-                over_req += 1
-                over_out += vals["output"]
-                over_cost += cost
+            resp = {"calls": calls, "out": vals["output"], "cost": cost}
+            responses.append(resp)
+            if mid:
+                resp_by_id[mid] = resp
         if d.get("type") == "user":
             c = msg.get("content")
             texts = [c] if isinstance(c, str) else [
@@ -210,12 +225,20 @@ def session_metrics(m):
             t = " ".join(texts).strip()
             if t and "Stop hook feedback" not in t and not any(x in t for x in MACHINERY):
                 direction.append(len(t.split()))
+    # Overhead is judged per response, over the tool calls of all its content blocks.
+    for r in responses:
+        if r["calls"] and all(BOOK.search(c) or AUD.search(c) or GC.search(c)
+                              or TR.search(c) for c in r["calls"]):
+            over_req += 1
+            over_out += r["out"]
+            over_cost += r["cost"]
     stamps.sort()
     active = sum(((b - a) for a, b in zip(stamps, stamps[1:])
                   if (b - a) <= datetime.timedelta(minutes=ACTIVE_GAP_MIN)),
                  datetime.timedelta())
     typed = [w for w in direction if w <= PASTE_WORDS]
     m["requests"] = reqs
+    m["requests_repeated"] = repeats
     m["tok_input"] = tot["input"]
     m["tok_output"] = tot["output"]
     m["tok_cache_read"] = tot["cache_read"]
@@ -255,8 +278,10 @@ def session_metrics(m):
                 continue
             tools = [b.get("name") for b in (msg.get("content") or [])
                      if isinstance(b, dict) and b.get("type") == "tool_use"]
-            out_f.write(json.dumps({"ts": d.get("timestamp"), "usage": u,
-                                    "tools": tools}) + "\n")
+            rec = {"ts": d.get("timestamp"), "usage": u, "tools": tools}
+            if msg.get("id"):
+                rec["id"] = msg["id"]  # lets a later check count responses exactly
+            out_f.write(json.dumps(rec) + "\n")
 
 
 def repo_metrics(m):
@@ -305,6 +330,9 @@ def write_outputs(m):
     m["_methodology"] = {
         "cost": f"computed from token counts at price basis {PRICE} USD/1M; "
                 "all cache writes verified 1h-TTL; not provider-reported",
+        "requests": "a response is counted once: by message id when the record has one, else a usage block "
+                    "identical to the previous usage line is a repeat of the same response (heuristic); "
+                    "requests_repeated is the number of lines left out",
         "active_hours": f"request timestamps clustered, gaps <= {ACTIVE_GAP_MIN} min joined",
         "direction": f"user messages minus tool results, hooks, machinery, and "
                      f"pastes > {PASTE_WORDS} words",
