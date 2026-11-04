@@ -1315,6 +1315,12 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s47-novelty-sweep> ;
     aiprov:verificationState verif:ai-confirmed .
 
+<https://noheton.org/f-ai2-r/prov/claim/usage-dedup-heuristic> a aiprov:Claim ;
+    rdfs:label "Without a message id, a usage block identical to the previous usage line is treated as a repeat of the same response; this is a heuristic and may merge two distinct responses with identical usage."@en ;
+    prov:wasAttributedTo agent:claude-sonnet-5-5 ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/2026-11-04-usage-dedup> ;
+    aiprov:verificationState verif:unverified .
+
 <https://noheton.org/f-ai2-r/prov/entity/-gitignore> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s01-bootstrap> ;
@@ -1724,8 +1730,10 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:filePath "doc/transcripts/106c4110-ee50-5c00-84da-a0b29f4102d9.md" .
 
 <https://noheton.org/f-ai2-r/prov/entity/CHANGELOG-md> a aiprov:Artefact ;
-    prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02>,
+    prov:wasAttributedTo agent:claude-code,
+        agent:claude-sonnet-5-5 ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/2026-11-04-usage-dedup>,
+        <https://noheton.org/f-ai2-r/prov/activity/s03-skill-v02>,
         <https://noheton.org/f-ai2-r/prov/activity/s07-eu-ai-act>,
         <https://noheton.org/f-ai2-r/prov/activity/s08-paper-scaffolding>,
         <https://noheton.org/f-ai2-r/prov/activity/s10-show-paper>,
@@ -1762,6 +1770,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "sha256:aff3dfa3147f9f4c32c9d1671309ab353d6e594d78cf9132a65ad7f33b72b3c0",
         "sha256:c5375067d0182ed473f612999edb0c3420878ca6cc4da458d9c29413671c1b8f",
         "sha256:cb69fb786e0e97f03501c365e6784f770e50c5f45757599be255ac69a5e2f796",
+        "sha256:ce5f8ecdbba2852f67c2043611abbf5ff8488cf2836acc74d03709217b7d622e",
         "sha256:d4d2beedd48dfed8d7ac9b367bfbe70af4b6a27b19551f947a37e11bdc336bcf",
         "sha256:ec57e6cd163d4bca8b4fdea59130f006442171294c45c0abd11e59aef8edbc55",
         "sha256:fb82e27a8a85e07bfaf1ed1bb50a98c84d404b04a415a5a0bfc98fd65a73988b",
@@ -1778,6 +1787,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "7d7f04dcb26cc626eb2ad3a87282d8890c8f4e03",
         "80e96c580a482fc7777268d957236c353f8dc083",
         "82ffc86",
+        "91ed36f04bb1195013c8379f25bc3e62c46616a1",
         "9375ead",
         "b387cb9",
         "dbed058",
@@ -2059,8 +2069,10 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         "a0fbb0c638448e9d220ef09da953a271ff3ee331" .
 
 <https://noheton.org/f-ai2-r/prov/entity/build_metrics-py> a aiprov:Artefact ;
-    prov:wasAttributedTo agent:claude-code ;
-    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
+    prov:wasAttributedTo agent:claude-code,
+        agent:claude-sonnet-5-5 ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/2026-11-04-usage-dedup>,
+        <https://noheton.org/f-ai2-r/prov/activity/s56-review-response-v015>,
         <https://noheton.org/f-ai2-r/prov/activity/s72-skill-version-macro>,
         <https://noheton.org/f-ai2-r/prov/activity/s80-click-to-confirm>,
         <https://noheton.org/f-ai2-r/prov/activity/s89-ledger-figures-and-repricing>,
@@ -2068,6 +2080,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
         <https://noheton.org/f-ai2-r/prov/activity/s98-review-quickfixes> ;
     aiprov:contentHash "sha256:0ff3161fe7852c0c8f741e04e7192d4be1c2f7d9f160c68125704ad304b32fd0",
         "sha256:17ec3a45b655665d85d9ee32691249f18e858e5c67f441f033f21dbd622d18f9",
+        "sha256:2f39ffdf4652becd958feb2838bc3d5bc4e88cc98ead853c235be55ad0d5788e",
         "sha256:9e8454ca31a6e895c7aeb46909afee26109b081be770c169e50bcf8353f2592f",
         "sha256:ab0d50c37733281c6fc03f098a1cf0ad103d6c5057a4d14c908f3fea717a6bbb",
         "sha256:b3d2394c8f59114d74ee9317aeac7a3456b88da3fbe6d0f1d0f330d8a9bacb86",
@@ -2076,6 +2089,7 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:gitCommit "1fcea34134276d7d10b47e462d14d52ab00f3122",
         "43af99d",
         "51ed6e6d5a23d7173421d02701bbc88cbc6af37d",
+        "91ed36f04bb1195013c8379f25bc3e62c46616a1",
         "b94a9b5d0c350358ab5dd35b77aa6f14efdffb28",
         "f7094c24b7ccad9fa89509c7828d94217ebab631",
         "f7752e5475afbe6996ccb31ea109aac1c28b20f1" .
@@ -2759,6 +2773,13 @@ Opened from the paper preview; the aiprov-promote workflow executes this after v
     aiprov:contentHash "sha256:2396f31f30c335ee351fe5c5ace8a37ded685491f0d02b8388b9b2c458e9d224" ;
     aiprov:filePath ".claude/settings.json" .
 
+<https://noheton.org/f-ai2-r/prov/entity/test_build_metrics_dedup-py> a aiprov:Artefact ;
+    prov:wasAttributedTo agent:claude-sonnet-5-5 ;
+    prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/2026-11-04-usage-dedup> ;
+    aiprov:contentHash "sha256:82ea817a3191ad61c2b0768602951d89565153fb68afa9e311acdae9dbe67734" ;
+    aiprov:filePath "tests/test_build_metrics_dedup.py" ;
+    aiprov:gitCommit "91ed36f04bb1195013c8379f25bc3e62c46616a1" .
+
 <https://noheton.org/f-ai2-r/prov/entity/urhg-para2-html> a aiprov:Artefact ;
     prov:wasAttributedTo agent:claude-code ;
     prov:wasGeneratedBy <https://noheton.org/f-ai2-r/prov/activity/s60-vendoring-license> ;
@@ -2791,11 +2812,6 @@ verif:needs-research a aiprov:VerificationState ;
     rdfs:label "needs research"@en ;
     rdfs:comment "A check was attempted or demanded and did not succeed (e.g. DOI did not resolve). Must not be cited or relied upon until re-verified."@en ;
     aiprov:ladderPosition 1 .
-
-verif:unverified a aiprov:VerificationState ;
-    rdfs:label "unverified"@en ;
-    rdfs:comment "Recorded, nothing checked yet by anyone. Default state at creation."@en ;
-    aiprov:ladderPosition 0 .
 
 aiprov:AIContribution a owl:Class ;
     rdfs:subClassOf aiprov:Contribution .
@@ -3170,6 +3186,11 @@ aiprov:verificationState a owl:ObjectProperty ;
     aiprov:doi "https://doi.org/10.4324/9780203010341"^^xsd:anyURI ;
     aiprov:verificationState verif:reference-resolved .
 
+verif:unverified a aiprov:VerificationState ;
+    rdfs:label "unverified"@en ;
+    rdfs:comment "Recorded, nothing checked yet by anyone. Default state at creation."@en ;
+    aiprov:ladderPosition 0 .
+
 aiprov:ToolAgent a owl:Class ;
     rdfs:label "Deterministic tool"@en ;
     rdfs:comment "Non-AI software (compiler, linter, CI job) acting in the pipeline."@en ;
@@ -3344,11 +3365,6 @@ aiprov:Transcript a owl:Class ;
     dcterms:source <https://platform.claude.com/docs/en/about-claude/pricing> ;
     aiprov:verificationState verif:human-confirmed .
 
-<https://noheton.org/f-ai2-r/prov/source/build_metrics-py> a aiprov:Source ;
-    aiprov:contentHash "sha256:b3d2394c8f59114d74ee9317aeac7a3456b88da3fbe6d0f1d0f330d8a9bacb86" ;
-    aiprov:filePath "scripts/build_metrics.py" ;
-    aiprov:verificationState verif:source-vendored .
-
 <https://noheton.org/f-ai2-r/prov/source/chatgpt-priorities2023> a aiprov:Source ;
     rdfs:label "ChatGPT: five priorities for research"@en ;
     dcterms:date "2023" ;
@@ -3479,11 +3495,6 @@ aiprov:Transcript a owl:Class ;
     dcterms:source <https://elib.dlr.de/224241/> ;
     aiprov:verificationState verif:human-confirmed .
 
-aiprov:AIAgent a owl:Class ;
-    rdfs:label "AI agent"@en ;
-    rdfs:comment "An LLM- or ML-driven agent participating in artefact production."@en ;
-    rdfs:subClassOf prov:SoftwareAgent .
-
 aiprov:HumanAgent a owl:Class ;
     rdfs:label "Human agent"@en ;
     rdfs:subClassOf prov:Person .
@@ -3578,6 +3589,11 @@ aiprov:HumanAgent a owl:Class ;
     dcterms:isPartOf "Computing in Science &amp; Engineering" ;
     aiprov:doi "https://doi.org/10.1109/MCSE.2025.3573887"^^xsd:anyURI ;
     aiprov:verificationState verif:human-confirmed .
+
+<https://noheton.org/f-ai2-r/prov/source/build_metrics-py> a aiprov:Source ;
+    aiprov:contentHash "sha256:b3d2394c8f59114d74ee9317aeac7a3456b88da3fbe6d0f1d0f330d8a9bacb86" ;
+    aiprov:filePath "scripts/build_metrics.py" ;
+    aiprov:verificationState verif:source-vendored .
 
 <https://noheton.org/f-ai2-r/prov/source/build_paper_preview-py> a aiprov:Source ;
     aiprov:contentHash "sha256:dd61a051ee9f9305078d9183a1462d87891977884768faec1b5a130a328f759c" ;
@@ -3752,8 +3768,19 @@ aiprov:HumanAgent a owl:Class ;
     aiprov:selfCitation true ;
     aiprov:verificationState verif:human-read .
 
+aiprov:AIAgent a owl:Class ;
+    rdfs:label "AI agent"@en ;
+    rdfs:comment "An LLM- or ML-driven agent participating in artefact production."@en ;
+    rdfs:subClassOf prov:SoftwareAgent .
+
 aiprov:Contribution a owl:Class ;
     rdfs:subClassOf prov:Entity .
+
+<https://noheton.org/f-ai2-r/prov/activity/2026-11-04-usage-dedup> a aiprov:Repair ;
+    rdfs:label "Count a logged response once in session_metrics (thesis-side issue on cost double counting), report repeats, keep message id in skeleton; synthetic test"@en ;
+    prov:endedAtTime "2026-11-04T09:07:26.987717+01:00"^^xsd:dateTime ;
+    prov:used <https://noheton.org/f-ai2-r/prov/source/build_metrics-py> ;
+    prov:wasAssociatedWith agent:claude-sonnet-5-5 .
 
 <https://noheton.org/f-ai2-r/prov/activity/s10-show-paper> a aiprov:AuthoringPass ;
     rdfs:label "Skill v0.5: show-paper preview — build_paper_preview.py renders compiled paper as self-contained HTML (typeset pages as embedded images + status strip with commit/build time/graph stats); published as Claude Artifact with stable URL, re-published after each editing round; discussion section gains worked incident 6.2 (overwrite caught and reverted by git, activity s09-incident)"@en ;
@@ -3925,6 +3952,11 @@ aiprov:Contribution a owl:Class ;
     prov:endedAtTime "2026-07-27T07:50:06.740111+00:00"^^xsd:dateTime ;
     prov:wasAssociatedWith agent:claude-code ;
     aiprov:transcript <https://noheton.org/f-ai2-r/prov/entity/transcript-106c4110-ee50-5c00-84da-a0b29f4102d9> .
+
+agent:claude-sonnet-5-5 a aiprov:AIAgent ;
+    prov:actedOnBehalfOf agent:florian-krebs ;
+    aiprov:model "claude-sonnet-5-5"^^xsd:string ;
+    aiprov:provider "anthropic"^^xsd:string .
 
 agent:github-actions a aiprov:ToolAgent ;
     foaf:name "GitHub Actions (aiprov build workflow)" ;
